@@ -123,13 +123,15 @@ schema_colors = { 'bar.xsd' => '#E6B0AA',
                   'xmldsig_schema.xsd' => '#8E44AD' }
 
 # function that draws the pie chart
-def drawchart(which, data, num, colors, title)
+def drawchart(which, data, num, colors, title, width, height,
+              mainlabelsize, titlesize, valuesize, tooltipsize,
+              segmentsize, pieouterradius, piedistance)
   s = "
     var pie = new d3pie('pie_chart_div_#{which}', {
         'header': {
             'title': {
                 'text': '#{chart_title(title, num)}',
-                'fontSize': 14,
+                'fontSize': #{titlesize},
                 'font': 'open sans'
             }
         },
@@ -141,16 +143,16 @@ def drawchart(which, data, num, colors, title)
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
+            'canvasWidth': #{width},
+            'canvasHeight': #{height},
+            'pieOuterRadius': '#{pieouterradius}'
         },
 
         'data': {
             'sortOrder': 'value-desc',
             'smallSegmentGrouping': {
                 'enabled': true,
-                'value': 3
+                'value': #{segmentsize}
             },
             'content': ["
   data.each do |x|
@@ -170,14 +172,14 @@ def drawchart(which, data, num, colors, title)
         },
         'labels': {
             'outer': {
-                'pieDistance': 20
+                'pieDistance': #{piedistance}
             },
             'inner': {
                 'format': 'value',
                 'hideWhenLessThanPercentage': 3
             },
             'mainLabel': {
-                'fontSize': 11
+                'fontSize': #{mainlabelsize}
             },
             'percentage': {
                 'color': '#ffffff',
@@ -185,7 +187,7 @@ def drawchart(which, data, num, colors, title)
             },
             'value': {
                 'color': '#ffffff',
-                'fontSize': 12
+                'fontSize': #{valuesize}
             },
             'lines': {
                 'enabled': true
@@ -202,7 +204,7 @@ def drawchart(which, data, num, colors, title)
                 'fadeInSpeed': 586,
                 'backgroundOpacity': 0.7,
                 'color': '#ffffff',
-                'fontSize': 12
+                'fontSize': #{tooltipsize}
             }
         },
         'effects': {
@@ -256,9 +258,7 @@ $page = %(<!DOCTYPE html>
       .navbar-default li:hover a { background-color: red !important; }
       .nuchecker a { font-weight: bold; }
       h1 { text-align: center; background-color: rgba(49,37,152,0.8); padding: 14px; color: #fff; }
-      pre { white-space: pre-wrap; white-space: moz-pre-wrap;
-            white-space: -pre-wrap; white-space: -o-pre-wrap;
-            word-wrap: break-word; }
+      pre { white-space: pre-wrap; word-wrap: break-word; }
       .homepage { padding: 5px 30px 5px 30px; }
     </style>
   </head>
@@ -403,14 +403,14 @@ $page = %(
 page_build(page_count)
 # add all the javascript for each pie chart to each page
 # home page
-@page += drawchart('homepage_all', allFiles, 0, exthash, 'Branch count of files grouped by file extension')
+@page += drawchart('homepage_all', allFiles, 0, exthash, 'Branch count of files grouped by file extension', 700, 700, 15, 24, 16, 16, 1, '70%', 50)
 # other pages
 structure.map.with_index do |chart, ind|
   data0 = clean_chart(chart[0])
   data1 = chart[1..-1]
   i = ind / 50 + 1
   instance_variable_set("@page#{i}",
-                        instance_variable_get("@page#{i}") + drawchart(data0, data1, ind, schema_colors, chart[0]))
+                        instance_variable_get("@page#{i}") + drawchart(data0, data1, ind, schema_colors, chart[0], 450, 400, 11, 14, 12, 12, 3, '55%', 20))
 end
 
 # restart common page

@@ -25,9 +25,7 @@
       .navbar-default li:hover a { background-color: red !important; }
       .nuchecker a { font-weight: bold; }
       h1 { text-align: center; background-color: rgba(49,37,152,0.8); padding: 14px; color: #fff; }
-      pre { white-space: pre-wrap; white-space: moz-pre-wrap;
-            white-space: -pre-wrap; white-space: -o-pre-wrap;
-            word-wrap: break-word; }
+      pre { white-space: pre-wrap; word-wrap: break-word; }
       .homepage { padding: 5px 30px 5px 30px; }
     </style>
   </head>
@@ -96,19 +94,19 @@
         <pre>
           <code>
             
-github.com/AlDanial/cloc v 1.72  T=1.27 s (40.8 files/s, 79597.3 lines/s)
+github.com/AlDanial/cloc v 1.72  T=1.32 s (39.4 files/s, 76701.7 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-HTML                            16           1427             48          67823
+HTML                            16           1427             48          67792
 JavaScript                       7           3096            600          15876
 CSS                              4              7             24           7326
 Markdown                         4            578              0           2102
 XSD                             15             73             48           1375
-XML                              5              0              0            512
+XML                              5              0              0            508
 Ruby                             1             19             41            406
 -------------------------------------------------------------------------------
-SUM:                            52           5200            761          95420
+SUM:                            52           5200            761          95385
 -------------------------------------------------------------------------------
 
           </code>
@@ -181,7 +179,7 @@ SUM:                            52           5200            761          95420
         'header': {
             'title': {
                 'text': '1 - Branch count of files grouped by file extension',
-                'fontSize': 14,
+                'fontSize': 24,
                 'font': 'open sans'
             }
         },
@@ -193,16 +191,16 @@ SUM:                            52           5200            761          95420
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
+            'canvasWidth': 700,
+            'canvasHeight': 700,
+            'pieOuterRadius': '70%'
         },
 
         'data': {
             'sortOrder': 'value-desc',
             'smallSegmentGrouping': {
                 'enabled': true,
-                'value': 3
+                'value': 1
             },
             'content': [{'label':'html','value':16,'color':'#D7BDE2'},{'label':'folders','value':11,'color':'#E67E22'},{'label':'md','value':4,'color':'#A9CCE3'},{'label':'txt','value':2,'color':'#17202A'},{'label':'xml','value':1,'color':'#E67E22'},{'label':'css','value':4,'color':'#E6B0AA'},{'label':'map','value':4,'color':'#111111'},{'label':'js','value':7,'color':'#28B463'},{'label':'woff','value':1,'color':'#8E44AD'},{'label':'eot','value':1,'color':'#F4D03F'},{'label':'woff2','value':1,'color':'#999999'},{'label':'ttf','value':1,'color':'#000000'},{'label':'svg','value':1,'color':'#78281F'},{'label':'xsd','value':15,'color':'#34495E'},{'label':'rb','value':1,'color':'#154360'}
             ]
@@ -217,14 +215,14 @@ SUM:                            52           5200            761          95420
         },
         'labels': {
             'outer': {
-                'pieDistance': 20
+                'pieDistance': 50
             },
             'inner': {
                 'format': 'value',
                 'hideWhenLessThanPercentage': 3
             },
             'mainLabel': {
-                'fontSize': 11
+                'fontSize': 15
             },
             'percentage': {
                 'color': '#ffffff',
@@ -232,7 +230,7 @@ SUM:                            52           5200            761          95420
             },
             'value': {
                 'color': '#ffffff',
-                'fontSize': 12
+                'fontSize': 16
             },
             'lines': {
                 'enabled': true
@@ -249,7 +247,7 @@ SUM:                            52           5200            761          95420
                 'fadeInSpeed': 586,
                 'backgroundOpacity': 0.7,
                 'color': '#ffffff',
-                'fontSize': 12
+                'fontSize': 16
             }
         },
         'effects': {
