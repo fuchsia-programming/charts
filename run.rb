@@ -256,11 +256,10 @@ $page = %(<!DOCTYPE html>
       .navbar-default li:hover a { background-color: red !important; }
       .nuchecker a { font-weight: bold; }
       h1 { text-align: center; background-color: rgba(49,37,152,0.8); padding: 14px; color: #fff; }
-      pre { white-space: pre-wrap; //css3
-            white-space: moz-pre-wrap; //firefox
-            white-space: -pre-wrap; //opera 4-6
-            white-space: -o-pre-wrap; //opera 7
-            word-wrap: break-word; //internet explorer }
+      pre { white-space: pre-wrap; white-space: moz-pre-wrap;
+            white-space: -pre-wrap; white-space: -o-pre-wrap;
+            word-wrap: break-word; }
+      .homepage { padding: 5px 30px 5px 30px; }
     </style>
   </head>
     <body>
@@ -299,17 +298,43 @@ page_build(page_count)
 # start home page stats
 @page += %(
       <h1>Ruby d3pie based XML Schema text mining application</h1>
-      <h2>Featured Statistics</h2>
-      <pre>
-        <code>
-          #{cloc}
-        </code>
-      </pre>
+      <div class="row homepage">
+        <h2>Featured Statistics</h2>
+        <h3>Built With</h3>
+        <div>
+          <ul>
+            <li><a href="https://www.ruby-lang.org" target="_blank" rel="noopener">Ruby</a></li>
+            <li><a href="http://d3pie.org/" target="_blank" rel="noopener">d3pie</a></li>
+            <li><a href="https://d3js.org/" target="_blank" rel="noopener">D3</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" target="_blank" rel="noopener">HTML5</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" target="_blank" rel="noopener">CSS3</a></li>
+            <li><a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a></li>
+            <li><a href="https://jquery.com/" target="_blank" rel="noopener">jQuery</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank" rel="noopener">JavaScript</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/XML" target="_blank" rel="noopener">XML</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/XML_schema" target="_blank" rel="noopener">XML Schema</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Regular_expression" target="_blank" rel="noopener">Regular Expressions</a></li>
+            <li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
+            <li><a href="https://desktop.github.com/" target="_blank" rel="noopener">GitHub Desktop</a></li>
+            <li><a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a></li>
+            <li><a href="https://www.jetbrains.com/ruby" target="_blank" rel="noopener">RubyMine</a></li>
+            <li><a href="https://flagcounter.com/" target="_blank" rel="noopener">Flag Counter</a></li>
+            <li><a href="https://buttons.github.io/" target="_blank" rel="noopener">Github:buttons</a></li>
+            <li><a href="https://github.com/AlDanial/cloc" target="_blank" rel="noopener">Count lines of code</a></li>
+          </ul>
+        </div>
+        <h3>Lines of code in this project</h3>
+        <pre>
+          <code>
+            #{cloc}
+          </code>
+        </pre>
+      </div>
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_all"></div>
         <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_hist"></div>
       </div>\n)
-#)
+
 # restart all the chart pages
 $page = %(
       <h1>Branch count grouped by file</h1>)

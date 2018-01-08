@@ -24,3 +24,4 @@ Demo can be seen here: http://thebeast.me/charts/
 - [Flag Counter](https://flagcounter.com/)
 - [GitHub:buttons](https://buttons.github.io/)
 - [Markdown](https://daringfireball.net/projects/markdown)
+- [cloc](https://github.com/AlDanial/cloc)

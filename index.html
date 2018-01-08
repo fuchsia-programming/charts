@@ -25,11 +25,10 @@
       .navbar-default li:hover a { background-color: red !important; }
       .nuchecker a { font-weight: bold; }
       h1 { text-align: center; background-color: rgba(49,37,152,0.8); padding: 14px; color: #fff; }
-      pre { white-space: pre-wrap; //css3
-            white-space: moz-pre-wrap; //firefox
-            white-space: -pre-wrap; //opera 4-6
-            white-space: -o-pre-wrap; //opera 7
-            word-wrap: break-word; //internet explorer }
+      pre { white-space: pre-wrap; white-space: moz-pre-wrap;
+            white-space: -pre-wrap; white-space: -o-pre-wrap;
+            word-wrap: break-word; }
+      .homepage { padding: 5px 30px 5px 30px; }
     </style>
   </head>
     <body>
@@ -68,27 +67,53 @@
     </nav>
     <div class="container-fluid">
       <h1>Ruby d3pie based XML Schema text mining application</h1>
-      <h2>Featured Statistics</h2>
-      <pre>
-        <code>
-          
-github.com/AlDanial/cloc v 1.72  T=1.18 s (44.1 files/s, 83573.7 lines/s)
+      <div class="row homepage">
+        <h2>Featured Statistics</h2>
+        <h3>Built With</h3>
+        <div>
+          <ul>
+            <li><a href="https://www.ruby-lang.org" target="_blank" rel="noopener">Ruby</a></li>
+            <li><a href="http://d3pie.org/" target="_blank" rel="noopener">d3pie</a></li>
+            <li><a href="https://d3js.org/" target="_blank" rel="noopener">D3</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" target="_blank" rel="noopener">HTML5</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" target="_blank" rel="noopener">CSS3</a></li>
+            <li><a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a></li>
+            <li><a href="https://jquery.com/" target="_blank" rel="noopener">jQuery</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank" rel="noopener">JavaScript</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/XML" target="_blank" rel="noopener">XML</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/XML_schema" target="_blank" rel="noopener">XML Schema</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Regular_expression" target="_blank" rel="noopener">Regular Expressions</a></li>
+            <li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
+            <li><a href="https://desktop.github.com/" target="_blank" rel="noopener">GitHub Desktop</a></li>
+            <li><a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a></li>
+            <li><a href="https://www.jetbrains.com/ruby" target="_blank" rel="noopener">RubyMine</a></li>
+            <li><a href="https://flagcounter.com/" target="_blank" rel="noopener">Flag Counter</a></li>
+            <li><a href="https://buttons.github.io/" target="_blank" rel="noopener">Github:buttons</a></li>
+            <li><a href="https://github.com/AlDanial/cloc" target="_blank" rel="noopener">Count lines of code</a></li>
+          </ul>
+        </div>
+        <h3>Lines of code in this project</h3>
+        <pre>
+          <code>
+            
+github.com/AlDanial/cloc v 1.72  T=1.27 s (40.8 files/s, 79597.3 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-HTML                            16           1427             48          64970
+HTML                            16           1427             48          67823
 JavaScript                       7           3096            600          15876
 CSS                              4              7             24           7326
-Markdown                         4            578              0           2101
+Markdown                         4            578              0           2102
 XSD                             15             73             48           1375
-XML                              5              0              0            537
-Ruby                             1             18             42            381
+XML                              5              0              0            512
+Ruby                             1             19             41            406
 -------------------------------------------------------------------------------
-SUM:                            52           5199            762          92566
+SUM:                            52           5200            761          95420
 -------------------------------------------------------------------------------
 
-        </code>
-      </pre>
+          </code>
+        </pre>
+      </div>
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_all"></div>
         <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_hist"></div>
@@ -177,7 +202,7 @@ SUM:                            52           5199            762          92566
             'sortOrder': 'value-desc',
             'smallSegmentGrouping': {
                 'enabled': true,
-                'value': 2
+                'value': 3
             },
             'content': [{'label':'html','value':16,'color':'#D7BDE2'},{'label':'folders','value':11,'color':'#E67E22'},{'label':'md','value':4,'color':'#A9CCE3'},{'label':'txt','value':2,'color':'#17202A'},{'label':'xml','value':1,'color':'#E67E22'},{'label':'css','value':4,'color':'#E6B0AA'},{'label':'map','value':4,'color':'#111111'},{'label':'js','value':7,'color':'#28B463'},{'label':'woff','value':1,'color':'#8E44AD'},{'label':'eot','value':1,'color':'#F4D03F'},{'label':'woff2','value':1,'color':'#999999'},{'label':'ttf','value':1,'color':'#000000'},{'label':'svg','value':1,'color':'#78281F'},{'label':'xsd','value':15,'color':'#34495E'},{'label':'rb','value':1,'color':'#154360'}
             ]
