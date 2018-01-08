@@ -2,6 +2,8 @@
 
 Ruby script that builds a static dashboard website with interactive pie charts.
 
+Demo can be seen here: http://thebeast.me/charts/
+
 ## This repository is built with
 
 - [Ruby](https://www.ruby-lang.org)
