@@ -14,6 +14,8 @@ Demo can be seen here: http://thebeast.me/charts/
 - [Bootstrap](https://getbootstrap.com/)
 - [jQuery](https://jquery.com/)
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+- [XML](https://en.wikipedia.org/wiki/XML)
+- [XML Schema](https://en.wikipedia.org/wiki/XML_schema)
 - [Regular Expressions](https://en.wikipedia.org/wiki/Regular_expression)
 - [Git](https://git-scm.com/)
 - [GitHub Desktop](https://desktop.github.com/)
