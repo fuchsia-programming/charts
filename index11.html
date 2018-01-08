@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Analytics Dashboard</title>
+    <title>Ruby d3pie text mining dashboard</title>
+    <meta name="description" content="Analytics dashboard built from Ruby using
+          the d3pie library. It text mines a folder of XML Schema to generate
+          statistics about tags and attributes.">
+    <meta name="theme-color" content="#312598"/>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-theme.min.css">
     <style>
@@ -51,63 +55,64 @@
           <li><a href="index10.html">Page 11</a></li>
           <li><a href="index11.html">Page 12</a></li>
           <li><a href="index12.html">Page 13</a></li>
-          <li><a href="index13.html">Page 14</a></li></ul>
+          <li><a href="index13.html">Page 14</a></li>
+          <li><a href="index14.html">Page 15</a></li></ul>
         </div>
       </div>
     </nav>
     <div class="container-fluid">
       <h1>Branch count grouped by file</h1>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameStatusCodeType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameStatusDetail"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameStatusDetailType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameStatusMessage"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameStatusResponseType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameStatusType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubject"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubjectConfirmation"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubjectConfirmationData"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubjectConfirmationDataType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubjectConfirmationType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubjectLocality"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubjectLocalityType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubjectQuery"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubjectQueryAbstractType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubjectType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameTarget"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameTerminate"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameTerminateType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameTransform"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameTransformType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameTransforms"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameTransformsType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameURI"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameValue"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameVersion"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509CRL"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509Certificate"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509Data"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509DataType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509IssuerName"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509IssuerSerial"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509IssuerSerialType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509SKI"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509SerialNumber"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509SubjectName"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameXPath"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameY"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameauthor"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namebar"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namebody"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namebook"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namebookstore"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namecalories"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namecategory"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namechdesc"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namechdeschd"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namechhead"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namechoicetable"></div>
-      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSignedInfo"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSignedInfoType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameStatement"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameStatementAbstractType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameStatus"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameStatusCode"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameStatusCodeType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameStatusDetail"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameStatusDetailType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameStatusMessage"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameStatusResponseType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameStatusType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubject"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubjectConfirmation"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubjectConfirmationData"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubjectConfirmationDataType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubjectConfirmationType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubjectLocality"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubjectLocalityType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubjectQuery"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubjectQueryAbstractType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameSubjectType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameTarget"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameTerminate"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameTerminateType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameTransform"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameTransformType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameTransforms"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameTransformsType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameURI"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameValue"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameVersion"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509CRL"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509Certificate"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509Data"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509DataType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509IssuerName"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509IssuerSerial"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509IssuerSerialType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509SKI"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509SerialNumber"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameX509SubjectName"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameXPath"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameY"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameauthor"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namebar"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namebody"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namebook"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namebookstore"></div>
+    </div>
     <footer>
       <div class="container">
         <ul class="list-unstyled">
@@ -128,8 +133,8 @@
           </li>
           <li>
             <a class="github-button" href="https://github.com/jbampton/charts/fork"
-               data-icon="octicon-repo-forked" data-size="large" data-show-count="true"
-               aria-label="Fork jbampton/charts on GitHub">Fork</a>
+               data-icon="octicon-repo-forked" data-size="large"
+               data-show-count="true" aria-label="Fork jbampton/charts on GitHub">Fork</a>
           </li>
           <li><a href="index.html">Page 1</a></li>
           <li><a href="index1.html">Page 2</a></li>
@@ -145,12 +150,14 @@
           <li><a href="index11.html">Page 12</a></li>
           <li><a href="index12.html">Page 13</a></li>
           <li><a href="index13.html">Page 14</a></li>
+          <li><a href="index14.html">Page 15</a></li>
           <li><a href="#head1">Back to top</a></li>
           <li class="nuchecker">
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
         </ul>
-        <a href="https://info.flagcounter.com/9VsC" target="_blank" rel="noopener">
+        <a href="https://info.flagcounter.com/9VsC"
+           target="_blank" rel="noopener">
           <img src="https://s01.flagcounter.com/countxl/9VsC/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_250/viewers_0/labels_1/pageviews_0/flags_0/percent_0/"
                alt="Flag Counter">
         </a>
@@ -162,10 +169,544 @@
     <script src="assets/js/d3/d3.js"></script>
     <script src="assets/js/d3pie.min.js"></script>
     <script>
+    var pie = new d3pie('pie_chart_div_nameSignedInfo', {
+        'header': {
+            'title': {
+                'text': '551 - name="SignedInfo"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_nameSignedInfoType', {
+        'header': {
+            'title': {
+                'text': '552 - name="SignedInfoType"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_nameStatement', {
+        'header': {
+            'title': {
+                'text': '553 - name="Statement"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_nameStatementAbstractType', {
+        'header': {
+            'title': {
+                'text': '554 - name="StatementAbstractType"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_nameStatus', {
+        'header': {
+            'title': {
+                'text': '555 - name="Status"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_nameStatusCode', {
+        'header': {
+            'title': {
+                'text': '556 - name="StatusCode"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
     var pie = new d3pie('pie_chart_div_nameStatusCodeType', {
         'header': {
             'title': {
-                'text': '551 - name="StatusCodeType"',
+                'text': '557 - name="StatusCodeType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -254,7 +795,7 @@
     var pie = new d3pie('pie_chart_div_nameStatusDetail', {
         'header': {
             'title': {
-                'text': '552 - name="StatusDetail"',
+                'text': '558 - name="StatusDetail"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -343,7 +884,7 @@
     var pie = new d3pie('pie_chart_div_nameStatusDetailType', {
         'header': {
             'title': {
-                'text': '553 - name="StatusDetailType"',
+                'text': '559 - name="StatusDetailType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -432,7 +973,7 @@
     var pie = new d3pie('pie_chart_div_nameStatusMessage', {
         'header': {
             'title': {
-                'text': '554 - name="StatusMessage"',
+                'text': '560 - name="StatusMessage"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -521,7 +1062,7 @@
     var pie = new d3pie('pie_chart_div_nameStatusResponseType', {
         'header': {
             'title': {
-                'text': '555 - name="StatusResponseType"',
+                'text': '561 - name="StatusResponseType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -610,7 +1151,7 @@
     var pie = new d3pie('pie_chart_div_nameStatusType', {
         'header': {
             'title': {
-                'text': '556 - name="StatusType"',
+                'text': '562 - name="StatusType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -699,7 +1240,7 @@
     var pie = new d3pie('pie_chart_div_nameSubject', {
         'header': {
             'title': {
-                'text': '557 - name="Subject"',
+                'text': '563 - name="Subject"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -788,7 +1329,7 @@
     var pie = new d3pie('pie_chart_div_nameSubjectConfirmation', {
         'header': {
             'title': {
-                'text': '558 - name="SubjectConfirmation"',
+                'text': '564 - name="SubjectConfirmation"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -877,7 +1418,7 @@
     var pie = new d3pie('pie_chart_div_nameSubjectConfirmationData', {
         'header': {
             'title': {
-                'text': '559 - name="SubjectConfirmationData"',
+                'text': '565 - name="SubjectConfirmationData"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -966,7 +1507,7 @@
     var pie = new d3pie('pie_chart_div_nameSubjectConfirmationDataType', {
         'header': {
             'title': {
-                'text': '560 - name="SubjectConfirmationDataType"',
+                'text': '566 - name="SubjectConfirmationDataType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1055,7 +1596,7 @@
     var pie = new d3pie('pie_chart_div_nameSubjectConfirmationType', {
         'header': {
             'title': {
-                'text': '561 - name="SubjectConfirmationType"',
+                'text': '567 - name="SubjectConfirmationType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1144,7 +1685,7 @@
     var pie = new d3pie('pie_chart_div_nameSubjectLocality', {
         'header': {
             'title': {
-                'text': '562 - name="SubjectLocality"',
+                'text': '568 - name="SubjectLocality"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1233,7 +1774,7 @@
     var pie = new d3pie('pie_chart_div_nameSubjectLocalityType', {
         'header': {
             'title': {
-                'text': '563 - name="SubjectLocalityType"',
+                'text': '569 - name="SubjectLocalityType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1322,7 +1863,7 @@
     var pie = new d3pie('pie_chart_div_nameSubjectQuery', {
         'header': {
             'title': {
-                'text': '564 - name="SubjectQuery"',
+                'text': '570 - name="SubjectQuery"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1411,7 +1952,7 @@
     var pie = new d3pie('pie_chart_div_nameSubjectQueryAbstractType', {
         'header': {
             'title': {
-                'text': '565 - name="SubjectQueryAbstractType"',
+                'text': '571 - name="SubjectQueryAbstractType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1500,7 +2041,7 @@
     var pie = new d3pie('pie_chart_div_nameSubjectType', {
         'header': {
             'title': {
-                'text': '566 - name="SubjectType"',
+                'text': '572 - name="SubjectType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1589,7 +2130,7 @@
     var pie = new d3pie('pie_chart_div_nameTarget', {
         'header': {
             'title': {
-                'text': '567 - name="Target"',
+                'text': '573 - name="Target"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1678,7 +2219,7 @@
     var pie = new d3pie('pie_chart_div_nameTerminate', {
         'header': {
             'title': {
-                'text': '568 - name="Terminate"',
+                'text': '574 - name="Terminate"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1767,7 +2308,7 @@
     var pie = new d3pie('pie_chart_div_nameTerminateType', {
         'header': {
             'title': {
-                'text': '569 - name="TerminateType"',
+                'text': '575 - name="TerminateType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1856,7 +2397,7 @@
     var pie = new d3pie('pie_chart_div_nameTransform', {
         'header': {
             'title': {
-                'text': '570 - name="Transform"',
+                'text': '576 - name="Transform"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1945,7 +2486,7 @@
     var pie = new d3pie('pie_chart_div_nameTransformType', {
         'header': {
             'title': {
-                'text': '571 - name="TransformType"',
+                'text': '577 - name="TransformType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2034,7 +2575,7 @@
     var pie = new d3pie('pie_chart_div_nameTransforms', {
         'header': {
             'title': {
-                'text': '572 - name="Transforms"',
+                'text': '578 - name="Transforms"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2123,7 +2664,7 @@
     var pie = new d3pie('pie_chart_div_nameTransformsType', {
         'header': {
             'title': {
-                'text': '573 - name="TransformsType"',
+                'text': '579 - name="TransformsType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2212,7 +2753,7 @@
     var pie = new d3pie('pie_chart_div_nameType', {
         'header': {
             'title': {
-                'text': '574 - name="Type"',
+                'text': '580 - name="Type"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2301,7 +2842,7 @@
     var pie = new d3pie('pie_chart_div_nameURI', {
         'header': {
             'title': {
-                'text': '575 - name="URI"',
+                'text': '581 - name="URI"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2390,7 +2931,7 @@
     var pie = new d3pie('pie_chart_div_nameValue', {
         'header': {
             'title': {
-                'text': '576 - name="Value"',
+                'text': '582 - name="Value"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2479,7 +3020,7 @@
     var pie = new d3pie('pie_chart_div_nameVersion', {
         'header': {
             'title': {
-                'text': '577 - name="Version"',
+                'text': '583 - name="Version"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2568,7 +3109,7 @@
     var pie = new d3pie('pie_chart_div_nameX509CRL', {
         'header': {
             'title': {
-                'text': '578 - name="X509CRL"',
+                'text': '584 - name="X509CRL"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2657,7 +3198,7 @@
     var pie = new d3pie('pie_chart_div_nameX509Certificate', {
         'header': {
             'title': {
-                'text': '579 - name="X509Certificate"',
+                'text': '585 - name="X509Certificate"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2746,7 +3287,7 @@
     var pie = new d3pie('pie_chart_div_nameX509Data', {
         'header': {
             'title': {
-                'text': '580 - name="X509Data"',
+                'text': '586 - name="X509Data"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2835,7 +3376,7 @@
     var pie = new d3pie('pie_chart_div_nameX509DataType', {
         'header': {
             'title': {
-                'text': '581 - name="X509DataType"',
+                'text': '587 - name="X509DataType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2924,7 +3465,7 @@
     var pie = new d3pie('pie_chart_div_nameX509IssuerName', {
         'header': {
             'title': {
-                'text': '582 - name="X509IssuerName"',
+                'text': '588 - name="X509IssuerName"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3013,7 +3554,7 @@
     var pie = new d3pie('pie_chart_div_nameX509IssuerSerial', {
         'header': {
             'title': {
-                'text': '583 - name="X509IssuerSerial"',
+                'text': '589 - name="X509IssuerSerial"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3102,7 +3643,7 @@
     var pie = new d3pie('pie_chart_div_nameX509IssuerSerialType', {
         'header': {
             'title': {
-                'text': '584 - name="X509IssuerSerialType"',
+                'text': '590 - name="X509IssuerSerialType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3191,7 +3732,7 @@
     var pie = new d3pie('pie_chart_div_nameX509SKI', {
         'header': {
             'title': {
-                'text': '585 - name="X509SKI"',
+                'text': '591 - name="X509SKI"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3280,7 +3821,7 @@
     var pie = new d3pie('pie_chart_div_nameX509SerialNumber', {
         'header': {
             'title': {
-                'text': '586 - name="X509SerialNumber"',
+                'text': '592 - name="X509SerialNumber"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3369,7 +3910,7 @@
     var pie = new d3pie('pie_chart_div_nameX509SubjectName', {
         'header': {
             'title': {
-                'text': '587 - name="X509SubjectName"',
+                'text': '593 - name="X509SubjectName"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3458,7 +3999,7 @@
     var pie = new d3pie('pie_chart_div_nameXPath', {
         'header': {
             'title': {
-                'text': '588 - name="XPath"',
+                'text': '594 - name="XPath"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3547,7 +4088,7 @@
     var pie = new d3pie('pie_chart_div_nameY', {
         'header': {
             'title': {
-                'text': '589 - name="Y"',
+                'text': '595 - name="Y"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3636,7 +4177,7 @@
     var pie = new d3pie('pie_chart_div_nameauthor', {
         'header': {
             'title': {
-                'text': '590 - name="author"',
+                'text': '596 - name="author"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3725,7 +4266,7 @@
     var pie = new d3pie('pie_chart_div_namebar', {
         'header': {
             'title': {
-                'text': '591 - name="bar"',
+                'text': '597 - name="bar"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3814,7 +4355,7 @@
     var pie = new d3pie('pie_chart_div_namebody', {
         'header': {
             'title': {
-                'text': '592 - name="body"',
+                'text': '598 - name="body"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3903,7 +4444,7 @@
     var pie = new d3pie('pie_chart_div_namebook', {
         'header': {
             'title': {
-                'text': '593 - name="book"',
+                'text': '599 - name="book"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3992,7 +4533,7 @@
     var pie = new d3pie('pie_chart_div_namebookstore', {
         'header': {
             'title': {
-                'text': '594 - name="bookstore"',
+                'text': '600 - name="bookstore"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -4013,540 +4554,6 @@
         'data': {
             'sortOrder': 'value-desc',
             'content': [{'label':'bookstore','value':1,'color':'#F4D03F'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_namecalories', {
-        'header': {
-            'title': {
-                'text': '595 - name="calories"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'dinner-menu','value':1,'color':'#28B463'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_namecategory', {
-        'header': {
-            'title': {
-                'text': '596 - name="category"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'bookstore','value':1,'color':'#F4D03F'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_namechdesc', {
-        'header': {
-            'title': {
-                'text': '597 - name="chdesc"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'task','value':1,'color':'#784212'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_namechdeschd', {
-        'header': {
-            'title': {
-                'text': '598 - name="chdeschd"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'task','value':1,'color':'#784212'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_namechhead', {
-        'header': {
-            'title': {
-                'text': '599 - name="chhead"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'task','value':1,'color':'#784212'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_namechoicetable', {
-        'header': {
-            'title': {
-                'text': '600 - name="choicetable"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'task','value':1,'color':'#784212'}
             ]
         },
         callbacks: {

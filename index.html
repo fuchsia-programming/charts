@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Analytics Dashboard</title>
+    <title>Ruby d3pie text mining dashboard</title>
+    <meta name="description" content="Analytics dashboard built from Ruby using
+          the d3pie library. It text mines a folder of XML Schema to generate
+          statistics about tags and attributes.">
+    <meta name="theme-color" content="#312598"/>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-theme.min.css">
     <style>
@@ -51,63 +55,64 @@
           <li><a href="index10.html">Page 11</a></li>
           <li><a href="index11.html">Page 12</a></li>
           <li><a href="index12.html">Page 13</a></li>
-          <li><a href="index13.html">Page 14</a></li></ul>
+          <li><a href="index13.html">Page 14</a></li>
+          <li><a href="index14.html">Page 15</a></li></ul>
         </div>
       </div>
     </nav>
     <div class="container-fluid">
       <h1>Branch count grouped by file</h1>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsannotation"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsany"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsanyprocessContentslax"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsanyAttribute"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsappinfo"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattribute"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameAddress"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameAlgorithm"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameAllowCreate"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameAssertionConsumerServiceIndex"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameAssertionConsumerServiceURL"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameAttributeConsumingServiceIndex"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameAuthnInstant"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameComparison"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameConsent"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameCount"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameDNSName"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameDecision"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameDestination"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameEncoding"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameForceAuthn"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameFormat"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameFriendlyName"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameID"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameId"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameInResponseTo"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameIsPassive"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameIssueInstant"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameLoc"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameMethod"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameMimeType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameName"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameNameFormat"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameNameQualifier"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameNamespace"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameNotBefore"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameNotOnOrAfter"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameProtocolBinding"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameProviderID"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameProviderName"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameProxyCount"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameReason"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameRecipient"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameResource"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameSPNameQualifier"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameSPProvidedID"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameSessionIndex"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameSessionNotOnOrAfter"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameTarget"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameType"></div>
-      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsannotation"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsany"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsanyprocessContentslax"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsanyAttribute"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsappinfo"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattribute"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameAddress"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameAlgorithm"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameAllowCreate"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameAssertionConsumerServiceIndex"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameAssertionConsumerServiceURL"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameAttributeConsumingServiceIndex"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameAuthnInstant"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameComparison"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameConsent"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameCount"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameDNSName"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameDecision"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameDestination"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameEncoding"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameForceAuthn"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameFormat"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameFriendlyName"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameID"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameId"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameInResponseTo"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameIsPassive"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameIssueInstant"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameLoc"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameMethod"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameMimeType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameName"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameNameFormat"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameNameQualifier"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameNamespace"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameNotBefore"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameNotOnOrAfter"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameProtocolBinding"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameProviderID"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameProviderName"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameProxyCount"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameReason"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameRecipient"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameResource"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameSPNameQualifier"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameSPProvidedID"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameSessionIndex"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameSessionNotOnOrAfter"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameTarget"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsattributenameType"></div>
+    </div>
     <footer>
       <div class="container">
         <ul class="list-unstyled">
@@ -128,8 +133,8 @@
           </li>
           <li>
             <a class="github-button" href="https://github.com/jbampton/charts/fork"
-               data-icon="octicon-repo-forked" data-size="large" data-show-count="true"
-               aria-label="Fork jbampton/charts on GitHub">Fork</a>
+               data-icon="octicon-repo-forked" data-size="large"
+               data-show-count="true" aria-label="Fork jbampton/charts on GitHub">Fork</a>
           </li>
           <li><a href="index.html">Page 1</a></li>
           <li><a href="index1.html">Page 2</a></li>
@@ -145,12 +150,14 @@
           <li><a href="index11.html">Page 12</a></li>
           <li><a href="index12.html">Page 13</a></li>
           <li><a href="index13.html">Page 14</a></li>
+          <li><a href="index14.html">Page 15</a></li>
           <li><a href="#head1">Back to top</a></li>
           <li class="nuchecker">
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
         </ul>
-        <a href="https://info.flagcounter.com/9VsC" target="_blank" rel="noopener">
+        <a href="https://info.flagcounter.com/9VsC"
+           target="_blank" rel="noopener">
           <img src="https://s01.flagcounter.com/countxl/9VsC/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_250/viewers_0/labels_1/pageviews_0/flags_0/percent_0/"
                alt="Flag Counter">
         </a>
@@ -630,7 +637,7 @@
 
         'data': {
             'sortOrder': 'value-desc',
-            'content': [{'label':'concept','value':1,'color':'#D7BDE2'},{'label':'topic','value':14,'color':'#34495E'},{'label':'xmldsig_schema','value':20,'color':'#8E44AD'},{'label':'bookstore','value':3,'color':'#F4D03F'},{'label':'saml20protocol_schema','value':31,'color':'#E67E22'},{'label':'xenc_schema','value':12,'color':'#17202A'},{'label':'task','value':7,'color':'#784212'},{'label':'reference','value':3,'color':'#78281F'},{'label':'saml20assertion_schema','value':30,'color':'#7D6608'}
+            'content': [{'label':'concept','value':1,'color':'#D7BDE2'},{'label':'sitemap','value':3,'color':'#FFCCCC'},{'label':'topic','value':14,'color':'#34495E'},{'label':'xmldsig_schema','value':20,'color':'#8E44AD'},{'label':'bookstore','value':3,'color':'#F4D03F'},{'label':'saml20protocol_schema','value':31,'color':'#E67E22'},{'label':'xenc_schema','value':12,'color':'#17202A'},{'label':'task','value':7,'color':'#784212'},{'label':'reference','value':3,'color':'#78281F'},{'label':'saml20assertion_schema','value':30,'color':'#7D6608'}
             ]
         },
         callbacks: {

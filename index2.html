@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Analytics Dashboard</title>
+    <title>Ruby d3pie text mining dashboard</title>
+    <meta name="description" content="Analytics dashboard built from Ruby using
+          the d3pie library. It text mines a folder of XML Schema to generate
+          statistics about tags and attributes.">
+    <meta name="theme-color" content="#312598"/>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-theme.min.css">
     <style>
@@ -51,63 +55,64 @@
           <li><a href="index10.html">Page 11</a></li>
           <li><a href="index11.html">Page 12</a></li>
           <li><a href="index12.html">Page 13</a></li>
-          <li><a href="index13.html">Page 14</a></li></ul>
+          <li><a href="index13.html">Page 14</a></li>
+          <li><a href="index14.html">Page 15</a></li></ul>
         </div>
       </div>
     </nav>
     <div class="container-fluid">
       <h1>Branch count grouped by file</h1>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameKeyInfoConfirmationDataType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameKeyInfoType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameKeyValueType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameLogoutRequestType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameManageNameIDRequestType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameManifestType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameNameIDMappingRequestType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameNameIDMappingResponseType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameNameIDPolicyType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameNameIDType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameObjectType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameOneTimeUseType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenamePGPDataType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameProxyRestrictionType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameRSAKeyValueType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameReferenceType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameRequestAbstractType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameRequestedAuthnContextType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameResponseType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameRetrievalMethodType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSPKIDataType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameScopingType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSignatureMethodType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSignaturePropertiesType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSignaturePropertyType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSignatureType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSignatureValueType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSignedInfoType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameStatementAbstractType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameStatusCodeType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameStatusDetailType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameStatusResponseType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameStatusType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSubjectConfirmationDataType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSubjectConfirmationType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSubjectLocalityType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSubjectQueryAbstractType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSubjectType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameTerminateType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameTransformType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameTransformsType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameX509DataType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameX509IssuerSerialType"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsdocumentation"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselement"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnameAction"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnameAdvice"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnameAgreementMethod"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnameArtifact"></div>
-       <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnameArtifactResolve"></div>
-      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameIDPListType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameKeyInfoConfirmationDataType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameKeyInfoType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameKeyValueType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameLogoutRequestType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameManageNameIDRequestType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameManifestType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameNameIDMappingRequestType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameNameIDMappingResponseType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameNameIDPolicyType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameNameIDType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameObjectType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameOneTimeUseType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenamePGPDataType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameProxyRestrictionType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameRSAKeyValueType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameReferenceType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameRequestAbstractType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameRequestedAuthnContextType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameResponseType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameRetrievalMethodType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSPKIDataType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameScopingType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSignatureMethodType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSignaturePropertiesType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSignaturePropertyType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSignatureType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSignatureValueType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSignedInfoType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameStatementAbstractType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameStatusCodeType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameStatusDetailType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameStatusResponseType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameStatusType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSubjectConfirmationDataType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSubjectConfirmationType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSubjectLocalityType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSubjectQueryAbstractType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameSubjectType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameTerminateType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameTransformType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameTransformsType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameX509DataType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xscomplexTypenameX509IssuerSerialType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsdocumentation"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselement"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnameAction"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnameAdvice"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnameAgreementMethod"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnameArtifact"></div>
+    </div>
     <footer>
       <div class="container">
         <ul class="list-unstyled">
@@ -128,8 +133,8 @@
           </li>
           <li>
             <a class="github-button" href="https://github.com/jbampton/charts/fork"
-               data-icon="octicon-repo-forked" data-size="large" data-show-count="true"
-               aria-label="Fork jbampton/charts on GitHub">Fork</a>
+               data-icon="octicon-repo-forked" data-size="large"
+               data-show-count="true" aria-label="Fork jbampton/charts on GitHub">Fork</a>
           </li>
           <li><a href="index.html">Page 1</a></li>
           <li><a href="index1.html">Page 2</a></li>
@@ -145,12 +150,14 @@
           <li><a href="index11.html">Page 12</a></li>
           <li><a href="index12.html">Page 13</a></li>
           <li><a href="index13.html">Page 14</a></li>
+          <li><a href="index14.html">Page 15</a></li>
           <li><a href="#head1">Back to top</a></li>
           <li class="nuchecker">
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
         </ul>
-        <a href="https://info.flagcounter.com/9VsC" target="_blank" rel="noopener">
+        <a href="https://info.flagcounter.com/9VsC"
+           target="_blank" rel="noopener">
           <img src="https://s01.flagcounter.com/countxl/9VsC/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_250/viewers_0/labels_1/pageviews_0/flags_0/percent_0/"
                alt="Flag Counter">
         </a>
@@ -162,10 +169,99 @@
     <script src="assets/js/d3/d3.js"></script>
     <script src="assets/js/d3pie.min.js"></script>
     <script>
+    var pie = new d3pie('pie_chart_div_xscomplexTypenameIDPListType', {
+        'header': {
+            'title': {
+                'text': '101 - <xs:complexType name="IDPListType"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
     var pie = new d3pie('pie_chart_div_xscomplexTypenameKeyInfoConfirmationDataType', {
         'header': {
             'title': {
-                'text': '101 - <xs:complexType name="KeyInfoConfirmationDataType"',
+                'text': '102 - <xs:complexType name="KeyInfoConfirmationDataType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -254,7 +350,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameKeyInfoType', {
         'header': {
             'title': {
-                'text': '102 - <xs:complexType name="KeyInfoType"',
+                'text': '103 - <xs:complexType name="KeyInfoType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -343,7 +439,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameKeyValueType', {
         'header': {
             'title': {
-                'text': '103 - <xs:complexType name="KeyValueType"',
+                'text': '104 - <xs:complexType name="KeyValueType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -432,7 +528,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameLogoutRequestType', {
         'header': {
             'title': {
-                'text': '104 - <xs:complexType name="LogoutRequestType"',
+                'text': '105 - <xs:complexType name="LogoutRequestType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -521,7 +617,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameManageNameIDRequestType', {
         'header': {
             'title': {
-                'text': '105 - <xs:complexType name="ManageNameIDRequestType"',
+                'text': '106 - <xs:complexType name="ManageNameIDRequestType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -610,7 +706,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameManifestType', {
         'header': {
             'title': {
-                'text': '106 - <xs:complexType name="ManifestType"',
+                'text': '107 - <xs:complexType name="ManifestType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -699,7 +795,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameNameIDMappingRequestType', {
         'header': {
             'title': {
-                'text': '107 - <xs:complexType name="NameIDMappingRequestType"',
+                'text': '108 - <xs:complexType name="NameIDMappingRequestType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -788,7 +884,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameNameIDMappingResponseType', {
         'header': {
             'title': {
-                'text': '108 - <xs:complexType name="NameIDMappingResponseType"',
+                'text': '109 - <xs:complexType name="NameIDMappingResponseType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -877,7 +973,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameNameIDPolicyType', {
         'header': {
             'title': {
-                'text': '109 - <xs:complexType name="NameIDPolicyType"',
+                'text': '110 - <xs:complexType name="NameIDPolicyType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -966,7 +1062,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameNameIDType', {
         'header': {
             'title': {
-                'text': '110 - <xs:complexType name="NameIDType"',
+                'text': '111 - <xs:complexType name="NameIDType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1055,7 +1151,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameObjectType', {
         'header': {
             'title': {
-                'text': '111 - <xs:complexType name="ObjectType"',
+                'text': '112 - <xs:complexType name="ObjectType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1144,7 +1240,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameOneTimeUseType', {
         'header': {
             'title': {
-                'text': '112 - <xs:complexType name="OneTimeUseType"',
+                'text': '113 - <xs:complexType name="OneTimeUseType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1233,7 +1329,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenamePGPDataType', {
         'header': {
             'title': {
-                'text': '113 - <xs:complexType name="PGPDataType"',
+                'text': '114 - <xs:complexType name="PGPDataType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1322,7 +1418,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameProxyRestrictionType', {
         'header': {
             'title': {
-                'text': '114 - <xs:complexType name="ProxyRestrictionType"',
+                'text': '115 - <xs:complexType name="ProxyRestrictionType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1411,7 +1507,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameRSAKeyValueType', {
         'header': {
             'title': {
-                'text': '115 - <xs:complexType name="RSAKeyValueType"',
+                'text': '116 - <xs:complexType name="RSAKeyValueType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1500,7 +1596,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameReferenceType', {
         'header': {
             'title': {
-                'text': '116 - <xs:complexType name="ReferenceType"',
+                'text': '117 - <xs:complexType name="ReferenceType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1589,7 +1685,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameRequestAbstractType', {
         'header': {
             'title': {
-                'text': '117 - <xs:complexType name="RequestAbstractType"',
+                'text': '118 - <xs:complexType name="RequestAbstractType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1678,7 +1774,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameRequestedAuthnContextType', {
         'header': {
             'title': {
-                'text': '118 - <xs:complexType name="RequestedAuthnContextType"',
+                'text': '119 - <xs:complexType name="RequestedAuthnContextType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1767,7 +1863,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameResponseType', {
         'header': {
             'title': {
-                'text': '119 - <xs:complexType name="ResponseType"',
+                'text': '120 - <xs:complexType name="ResponseType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1856,7 +1952,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameRetrievalMethodType', {
         'header': {
             'title': {
-                'text': '120 - <xs:complexType name="RetrievalMethodType"',
+                'text': '121 - <xs:complexType name="RetrievalMethodType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1945,7 +2041,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameSPKIDataType', {
         'header': {
             'title': {
-                'text': '121 - <xs:complexType name="SPKIDataType"',
+                'text': '122 - <xs:complexType name="SPKIDataType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2034,7 +2130,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameScopingType', {
         'header': {
             'title': {
-                'text': '122 - <xs:complexType name="ScopingType"',
+                'text': '123 - <xs:complexType name="ScopingType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2123,7 +2219,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameSignatureMethodType', {
         'header': {
             'title': {
-                'text': '123 - <xs:complexType name="SignatureMethodType"',
+                'text': '124 - <xs:complexType name="SignatureMethodType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2212,7 +2308,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameSignaturePropertiesType', {
         'header': {
             'title': {
-                'text': '124 - <xs:complexType name="SignaturePropertiesType"',
+                'text': '125 - <xs:complexType name="SignaturePropertiesType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2301,7 +2397,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameSignaturePropertyType', {
         'header': {
             'title': {
-                'text': '125 - <xs:complexType name="SignaturePropertyType"',
+                'text': '126 - <xs:complexType name="SignaturePropertyType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2390,7 +2486,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameSignatureType', {
         'header': {
             'title': {
-                'text': '126 - <xs:complexType name="SignatureType"',
+                'text': '127 - <xs:complexType name="SignatureType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2479,7 +2575,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameSignatureValueType', {
         'header': {
             'title': {
-                'text': '127 - <xs:complexType name="SignatureValueType"',
+                'text': '128 - <xs:complexType name="SignatureValueType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2568,7 +2664,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameSignedInfoType', {
         'header': {
             'title': {
-                'text': '128 - <xs:complexType name="SignedInfoType"',
+                'text': '129 - <xs:complexType name="SignedInfoType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2657,7 +2753,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameStatementAbstractType', {
         'header': {
             'title': {
-                'text': '129 - <xs:complexType name="StatementAbstractType"',
+                'text': '130 - <xs:complexType name="StatementAbstractType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2746,7 +2842,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameStatusCodeType', {
         'header': {
             'title': {
-                'text': '130 - <xs:complexType name="StatusCodeType"',
+                'text': '131 - <xs:complexType name="StatusCodeType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2835,7 +2931,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameStatusDetailType', {
         'header': {
             'title': {
-                'text': '131 - <xs:complexType name="StatusDetailType"',
+                'text': '132 - <xs:complexType name="StatusDetailType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2924,7 +3020,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameStatusResponseType', {
         'header': {
             'title': {
-                'text': '132 - <xs:complexType name="StatusResponseType"',
+                'text': '133 - <xs:complexType name="StatusResponseType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3013,7 +3109,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameStatusType', {
         'header': {
             'title': {
-                'text': '133 - <xs:complexType name="StatusType"',
+                'text': '134 - <xs:complexType name="StatusType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3102,7 +3198,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameSubjectConfirmationDataType', {
         'header': {
             'title': {
-                'text': '134 - <xs:complexType name="SubjectConfirmationDataType"',
+                'text': '135 - <xs:complexType name="SubjectConfirmationDataType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3191,7 +3287,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameSubjectConfirmationType', {
         'header': {
             'title': {
-                'text': '135 - <xs:complexType name="SubjectConfirmationType"',
+                'text': '136 - <xs:complexType name="SubjectConfirmationType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3280,7 +3376,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameSubjectLocalityType', {
         'header': {
             'title': {
-                'text': '136 - <xs:complexType name="SubjectLocalityType"',
+                'text': '137 - <xs:complexType name="SubjectLocalityType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3369,7 +3465,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameSubjectQueryAbstractType', {
         'header': {
             'title': {
-                'text': '137 - <xs:complexType name="SubjectQueryAbstractType"',
+                'text': '138 - <xs:complexType name="SubjectQueryAbstractType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3458,7 +3554,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameSubjectType', {
         'header': {
             'title': {
-                'text': '138 - <xs:complexType name="SubjectType"',
+                'text': '139 - <xs:complexType name="SubjectType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3547,7 +3643,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameTerminateType', {
         'header': {
             'title': {
-                'text': '139 - <xs:complexType name="TerminateType"',
+                'text': '140 - <xs:complexType name="TerminateType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3636,7 +3732,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameTransformType', {
         'header': {
             'title': {
-                'text': '140 - <xs:complexType name="TransformType"',
+                'text': '141 - <xs:complexType name="TransformType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3725,7 +3821,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameTransformsType', {
         'header': {
             'title': {
-                'text': '141 - <xs:complexType name="TransformsType"',
+                'text': '142 - <xs:complexType name="TransformsType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3814,7 +3910,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameX509DataType', {
         'header': {
             'title': {
-                'text': '142 - <xs:complexType name="X509DataType"',
+                'text': '143 - <xs:complexType name="X509DataType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3903,7 +3999,7 @@
     var pie = new d3pie('pie_chart_div_xscomplexTypenameX509IssuerSerialType', {
         'header': {
             'title': {
-                'text': '143 - <xs:complexType name="X509IssuerSerialType"',
+                'text': '144 - <xs:complexType name="X509IssuerSerialType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -3992,7 +4088,7 @@
     var pie = new d3pie('pie_chart_div_xsdocumentation', {
         'header': {
             'title': {
-                'text': '144 - <xs:documentation',
+                'text': '145 - <xs:documentation',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -4081,7 +4177,7 @@
     var pie = new d3pie('pie_chart_div_xselement', {
         'header': {
             'title': {
-                'text': '145 - <xs:element',
+                'text': '146 - <xs:element',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -4101,7 +4197,7 @@
 
         'data': {
             'sortOrder': 'value-desc',
-            'content': [{'label':'concept','value':11,'color':'#D7BDE2'},{'label':'bar','value':1,'color':'#E6B0AA'},{'label':'topic','value':18,'color':'#34495E'},{'label':'xmldsig_schema','value':69,'color':'#8E44AD'},{'label':'dinner-menu','value':6,'color':'#28B463'},{'label':'bookstore','value':6,'color':'#F4D03F'},{'label':'note','value':6,'color':'#154360'},{'label':'saml20protocol_schema','value':78,'color':'#E67E22'},{'label':'xenc_schema','value':27,'color':'#17202A'},{'label':'task','value':18,'color':'#784212'},{'label':'note2','value':7,'color':'#A3E4D7'},{'label':'reference','value':21,'color':'#78281F'},{'label':'saml20assertion_schema','value':81,'color':'#7D6608'}
+            'content': [{'label':'concept','value':11,'color':'#D7BDE2'},{'label':'sitemap','value':5,'color':'#FFCCCC'},{'label':'bar','value':1,'color':'#E6B0AA'},{'label':'topic','value':18,'color':'#34495E'},{'label':'xmldsig_schema','value':69,'color':'#8E44AD'},{'label':'dinner-menu','value':6,'color':'#28B463'},{'label':'bookstore','value':6,'color':'#F4D03F'},{'label':'note','value':6,'color':'#154360'},{'label':'saml20protocol_schema','value':78,'color':'#E67E22'},{'label':'xenc_schema','value':27,'color':'#17202A'},{'label':'task','value':18,'color':'#784212'},{'label':'note2','value':7,'color':'#A3E4D7'},{'label':'reference','value':21,'color':'#78281F'},{'label':'saml20assertion_schema','value':81,'color':'#7D6608'}
             ]
         },
         callbacks: {
@@ -4170,7 +4266,7 @@
     var pie = new d3pie('pie_chart_div_xselementnameAction', {
         'header': {
             'title': {
-                'text': '146 - <xs:element name="Action"',
+                'text': '147 - <xs:element name="Action"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -4259,7 +4355,7 @@
     var pie = new d3pie('pie_chart_div_xselementnameAdvice', {
         'header': {
             'title': {
-                'text': '147 - <xs:element name="Advice"',
+                'text': '148 - <xs:element name="Advice"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -4348,7 +4444,7 @@
     var pie = new d3pie('pie_chart_div_xselementnameAgreementMethod', {
         'header': {
             'title': {
-                'text': '148 - <xs:element name="AgreementMethod"',
+                'text': '149 - <xs:element name="AgreementMethod"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -4437,96 +4533,7 @@
     var pie = new d3pie('pie_chart_div_xselementnameArtifact', {
         'header': {
             'title': {
-                'text': '149 - <xs:element name="Artifact"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_xselementnameArtifactResolve', {
-        'header': {
-            'title': {
-                'text': '150 - <xs:element name="ArtifactResolve"',
+                'text': '150 - <xs:element name="Artifact"',
                 'fontSize': 14,
                 'font': 'open sans'
             }

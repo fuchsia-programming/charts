@@ -72,6 +72,7 @@ schema_colors = { 'bar.xsd' => '#E6B0AA',
                   'reference.xsd' => '#78281F',
                   'saml20assertion_schema.xsd' => '#7D6608',
                   'saml20protocol_schema.xsd' => '#E67E22',
+                  'sitemap.xsd' => '#FFCCCC',
                   'task.xsd' => '#784212',
                   'topic.xsd' => '#34495E',
                   'xenc_schema.xsd' => '#17202A',
@@ -188,7 +189,11 @@ $page = %(<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Analytics Dashboard</title>
+    <title>Ruby d3pie text mining dashboard</title>
+    <meta name="description" content="Analytics dashboard built from Ruby using
+          the d3pie library. It text mines a folder of XML Schema to generate
+          statistics about tags and attributes.">
+    <meta name="theme-color" content="#312598"/>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-theme.min.css">
     <style>
@@ -243,11 +248,11 @@ structure.map.with_index do |chart, i|
   data0 = clean_chart(chart[0])
   i /= 50
   instance_variable_set("@page#{i > 0 ? i : ''}",
-                        instance_variable_get("@page#{i > 0 ? i : ''}") + "\n       <div class=\"col-sm-6 col-md-4 col-lg-3\" id=\"pie_chart_div_#{data0}\"></div>")
+                        instance_variable_get("@page#{i > 0 ? i : ''}") + "\n      <div class=\"col-sm-6 col-md-4 col-lg-3\" id=\"pie_chart_div_#{data0}\"></div>")
 end
 # restart common page region
 $page = '
-      </div>
+    </div>
     <footer>
       <div class="container">
         <ul class="list-unstyled">
@@ -268,8 +273,8 @@ $page = '
           </li>
           <li>
             <a class="github-button" href="https://github.com/jbampton/charts/fork"
-               data-icon="octicon-repo-forked" data-size="large" data-show-count="true"
-               aria-label="Fork jbampton/charts on GitHub">Fork</a>
+               data-icon="octicon-repo-forked" data-size="large"
+               data-show-count="true" aria-label="Fork jbampton/charts on GitHub">Fork</a>
           </li>'
 # continue to build all the pages
 page_build(page_count)
@@ -284,7 +289,8 @@ $page = %(
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
         </ul>
-        <a href="https://info.flagcounter.com/9VsC" target="_blank" rel="noopener">
+        <a href="https://info.flagcounter.com/9VsC"
+           target="_blank" rel="noopener">
           <img src="https://s01.flagcounter.com/countxl/9VsC/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_250/viewers_0/labels_1/pageviews_0/flags_0/percent_0/"
                alt="Flag Counter">
         </a>
@@ -330,9 +336,32 @@ $page = %(
 </html>)
 # finish building all the pages
 page_build(page_count)
-# write all the HTML pages to files
+# write all the HTML pages to files and build the site map
+sitemaptime = Time.now.strftime '%FT%T%:z'
+sitemap = %(<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+  http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>http://thebeast.me/charts/</loc>
+    <lastmod>#{sitemaptime}</lastmod>
+    <priority>1.00</priority>
+  </url>)
 (0..page_count).map do |i|
   file = File.open("index#{i > 0 ? i : ''}.html", 'w')
   file.write(instance_variable_get("@page#{i > 0 ? i : ''}"))
   file.close
+  sitemap += %(
+  <url>
+    <loc>http://thebeast.me/charts/index#{i > 0 ? i : ''}.html</loc>
+    <lastmod>#{sitemaptime}</lastmod>
+    <priority>0.80</priority>
+  </url>)
 end
+sitemap += '
+</urlset>'
+file = File.open('sitemap.xml', 'w')
+file.write(sitemap)
+file.close
