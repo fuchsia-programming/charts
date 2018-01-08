@@ -1,0 +1,12 @@
+.: --exclude-dir=1
+./.gitignore: listed in $Not_Code_Extension{gitignore}
+./.idea/charts.iml: language unknown (#3)
+./LICENSE: language unknown (#3)
+./assets/bootstrap/css/bootstrap-theme.css.map: language unknown (#3)
+./assets/bootstrap/css/bootstrap-theme.min.css.map: language unknown (#3)
+./assets/bootstrap/css/bootstrap.css.map: language unknown (#3)
+./assets/bootstrap/css/bootstrap.min.css.map: language unknown (#3)
+./assets/bootstrap/fonts/glyphicons-halflings-regular.svg: language unknown (#3)
+./assets/js/d3/LICENSE: language unknown (#3)
+./ignored.txt: listed in $Not_Code_Extension{txt}
+./log.txt: listed in $Not_Code_Extension{txt}

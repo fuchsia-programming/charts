@@ -25,6 +25,11 @@
       .navbar-default li:hover a { background-color: red !important; }
       .nuchecker a { font-weight: bold; }
       h1 { text-align: center; background-color: rgba(49,37,152,0.8); padding: 14px; color: #fff; }
+      pre { white-space: pre-wrap; //css3
+            white-space: moz-pre-wrap; //firefox
+            white-space: -pre-wrap; //opera 4-6
+            white-space: -o-pre-wrap; //opera 7
+            word-wrap: break-word; //internet explorer }
     </style>
   </head>
     <body>
@@ -56,62 +61,63 @@
           <li><a href="index11.html">Page 12</a></li>
           <li><a href="index12.html">Page 13</a></li>
           <li><a href="index13.html">Page 14</a></li>
-          <li><a href="index14.html">Page 15</a></li></ul>
+          <li><a href="index14.html">Page 15</a></li>
+          <li><a href="index15.html">Page 16</a></li></ul>
         </div>
       </div>
     </nav>
     <div class="container-fluid">
       <h1>Branch count grouped by file</h1>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_basexsstring"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_blockDefaultsubstitution"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_elementFormDefaultqualified"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_elementFormDefaultunqualified"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_langen"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_maxOccursunbounded"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_minOccurs0"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_mixedfalse"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_mixedtrue"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAction"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameActionType"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAddress"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAdvice"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAdviceType"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAgreementMethod"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAgreementMethodType"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAlgorithm"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAllowCreate"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameArtifact"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameArtifactResolve"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameArtifactResolveType"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameArtifactResponse"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameArtifactResponseType"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAssertion"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAssertionConsumerServiceIndex"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAssertionConsumerServiceURL"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAssertionIDRef"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAssertionIDRequest"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAssertionIDRequestType"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAssertionType"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAssertionURIRef"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAttribute"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAttributeConsumingServiceIndex"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAttributeQuery"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAttributeQueryType"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAttributeStatement"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAttributeStatementType"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAttributeType"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAttributeValue"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAudience"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAudienceRestriction"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAudienceRestrictionType"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAuthenticatingAuthority"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAuthnContext"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAuthnContextClassRef"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAuthnContextComparisonType"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAuthnContextDecl"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAuthnContextDeclRef"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAuthnContextType"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameAuthnInstant"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnamesection"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnameshortdesc"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnamestep"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnamesteps"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnametask"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnametaskbody"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnametitle"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnametitlealts"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnametm"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnametopic"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnameul"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnameurl"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnameurlset"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xselementnamexref"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsenumeration"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsenumerationvalueDeny"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsenumerationvalueIndeterminate"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsenumerationvaluePermit"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsenumerationvaluebetter"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsenumerationvalueexact"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsenumerationvaluemaximum"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsenumerationvalueminimum"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsextension"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsextensionbasebase64Binary"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsextensionbasestring"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsimport"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsinclude"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsrestriction"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsrestrictionbaseanyType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsrestrictionbasebase64Binary"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsrestrictionbaseinteger"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsrestrictionbasestring"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsschema"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xsschemaattributeFormDefaultunqualified"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xssequence"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xssequencemaxOccursunbounded"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xssequenceminOccurs0"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xssimpleContent"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xssimpleType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xssimpleTypenameAuthnContextComparisonType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xssimpleTypenameCryptoBinary"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xssimpleTypenameDecisionType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xssimpleTypenameDigestValueType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_xssimpleTypenameHMACOutputLengthType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_abstracttrue"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_attributeFormDefaultunqualified"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_baseanyType"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_basebase64Binary"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_baseinteger"></div>
+      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_basestring"></div>
     </div>
     <footer>
       <div class="container">
@@ -151,6 +157,7 @@
           <li><a href="index12.html">Page 13</a></li>
           <li><a href="index13.html">Page 14</a></li>
           <li><a href="index14.html">Page 15</a></li>
+          <li><a href="index15.html">Page 16</a></li>
           <li><a href="#head1">Back to top</a></li>
           <li class="nuchecker">
             <a target="_blank" rel="noopener">Valid HTML</a>
@@ -169,10 +176,10 @@
     <script src="assets/js/d3/d3.js"></script>
     <script src="assets/js/d3pie.min.js"></script>
     <script>
-    var pie = new d3pie('pie_chart_div_basexsstring', {
+    var pie = new d3pie('pie_chart_div_xselementnamesection', {
         'header': {
             'title': {
-                'text': '351 - base="xs:string"',
+                'text': '301 - <xs:element name="section"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -192,7 +199,11 @@
 
         'data': {
             'sortOrder': 'value-desc',
-            'content': [{'label':'bookstore','value':1,'color':'#F4D03F'},{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'reference','value':1,'color':'#78281F'}
             ]
         },
         callbacks: {
@@ -258,10 +269,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_blockDefaultsubstitution', {
+    var pie = new d3pie('pie_chart_div_xselementnameshortdesc', {
         'header': {
             'title': {
-                'text': '352 - blockDefault="substitution"',
+                'text': '302 - <xs:element name="shortdesc"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -281,7 +292,11 @@
 
         'data': {
             'sortOrder': 'value-desc',
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'},{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'concept','value':1,'color':'#D7BDE2'},{'label':'topic','value':1,'color':'#34495E'},{'label':'task','value':1,'color':'#784212'},{'label':'reference','value':1,'color':'#78281F'}
             ]
         },
         callbacks: {
@@ -347,10 +362,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_elementFormDefaultqualified', {
+    var pie = new d3pie('pie_chart_div_xselementnamestep', {
         'header': {
             'title': {
-                'text': '353 - elementFormDefault="qualified"',
+                'text': '303 - <xs:element name="step"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -370,7 +385,11 @@
 
         'data': {
             'sortOrder': 'value-desc',
-            'content': [{'label':'concept','value':1,'color':'#D7BDE2'},{'label':'sitemap','value':1,'color':'#FFCCCC'},{'label':'topic','value':1,'color':'#34495E'},{'label':'xmldsig_schema','value':1,'color':'#8E44AD'},{'label':'dinner-menu','value':1,'color':'#28B463'},{'label':'bookstore','value':1,'color':'#F4D03F'},{'label':'note','value':1,'color':'#154360'},{'label':'saml20protocol_schema','value':1,'color':'#E67E22'},{'label':'task','value':1,'color':'#784212'},{'label':'note2','value':1,'color':'#A3E4D7'},{'label':'reference','value':1,'color':'#78281F'}
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'task','value':1,'color':'#784212'}
             ]
         },
         callbacks: {
@@ -436,10 +455,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_elementFormDefaultunqualified', {
+    var pie = new d3pie('pie_chart_div_xselementnamesteps', {
         'header': {
             'title': {
-                'text': '354 - elementFormDefault="unqualified"',
+                'text': '304 - <xs:element name="steps"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -459,6 +478,1126 @@
 
         'data': {
             'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'task','value':1,'color':'#784212'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xselementnametask', {
+        'header': {
+            'title': {
+                'text': '305 - <xs:element name="task"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'task','value':1,'color':'#784212'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xselementnametaskbody', {
+        'header': {
+            'title': {
+                'text': '306 - <xs:element name="taskbody"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'task','value':1,'color':'#784212'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xselementnametitle', {
+        'header': {
+            'title': {
+                'text': '307 - <xs:element name="title"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'concept','value':1,'color':'#D7BDE2'},{'label':'topic','value':2,'color':'#34495E'},{'label':'bookstore','value':1,'color':'#F4D03F'},{'label':'task','value':1,'color':'#784212'},{'label':'reference','value':2,'color':'#78281F'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xselementnametitlealts', {
+        'header': {
+            'title': {
+                'text': '308 - <xs:element name="titlealts"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'reference','value':1,'color':'#78281F'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xselementnametm', {
+        'header': {
+            'title': {
+                'text': '309 - <xs:element name="tm"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'topic','value':2,'color':'#34495E'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xselementnametopic', {
+        'header': {
+            'title': {
+                'text': '310 - <xs:element name="topic"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'topic','value':2,'color':'#34495E'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xselementnameul', {
+        'header': {
+            'title': {
+                'text': '311 - <xs:element name="ul"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'topic','value':1,'color':'#34495E'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xselementnameurl', {
+        'header': {
+            'title': {
+                'text': '312 - <xs:element name="url"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'sitemap','value':1,'color':'#FFCCCC'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xselementnameurlset', {
+        'header': {
+            'title': {
+                'text': '313 - <xs:element name="urlset"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'sitemap','value':1,'color':'#FFCCCC'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xselementnamexref', {
+        'header': {
+            'title': {
+                'text': '314 - <xs:element name="xref"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'topic','value':1,'color':'#34495E'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xsenumeration', {
+        'header': {
+            'title': {
+                'text': '315 - <xs:enumeration',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'saml20protocol_schema','value':4,'color':'#E67E22'},{'label':'saml20assertion_schema','value':3,'color':'#7D6608'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xsenumerationvalueDeny', {
+        'header': {
+            'title': {
+                'text': '316 - <xs:enumeration value="Deny"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
             'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
             ]
         },
@@ -525,10 +1664,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_langen', {
+    var pie = new d3pie('pie_chart_div_xsenumerationvalueIndeterminate', {
         'header': {
             'title': {
-                'text': '355 - lang="en"',
+                'text': '317 - <xs:enumeration value="Indeterminate"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -548,273 +1687,10 @@
 
         'data': {
             'sortOrder': 'value-desc',
-            'content': [{'label':'note','value':1,'color':'#154360'},{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
+            'smallSegmentGrouping': {
                 'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_maxOccursunbounded', {
-        'header': {
-            'title': {
-                'text': '356 - maxOccurs="unbounded"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'concept','value':1,'color':'#D7BDE2'},{'label':'sitemap','value':1,'color':'#FFCCCC'},{'label':'topic','value':3,'color':'#34495E'},{'label':'xmldsig_schema','value':16,'color':'#8E44AD'},{'label':'dinner-menu','value':1,'color':'#28B463'},{'label':'bookstore','value':2,'color':'#F4D03F'},{'label':'saml20protocol_schema','value':11,'color':'#E67E22'},{'label':'xenc_schema','value':1,'color':'#17202A'},{'label':'task','value':2,'color':'#784212'},{'label':'reference','value':4,'color':'#78281F'},{'label':'saml20assertion_schema','value':15,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
+                'value': 3
             },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_minOccurs0', {
-        'header': {
-            'title': {
-                'text': '357 - minOccurs="0"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'xmldsig_schema','value':18,'color':'#8E44AD'},{'label':'dinner-menu','value':1,'color':'#28B463'},{'label':'bookstore','value':2,'color':'#F4D03F'},{'label':'saml20protocol_schema','value':24,'color':'#E67E22'},{'label':'xenc_schema','value':5,'color':'#17202A'},{'label':'saml20assertion_schema','value':18,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_mixedfalse', {
-        'header': {
-            'title': {
-                'text': '358 - mixed="false"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
             'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
             ]
         },
@@ -881,10 +1757,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_mixedtrue', {
+    var pie = new d3pie('pie_chart_div_xsenumerationvaluePermit', {
         'header': {
             'title': {
-                'text': '359 - mixed="true"',
+                'text': '318 - <xs:enumeration value="Permit"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -904,95 +1780,10 @@
 
         'data': {
             'sortOrder': 'value-desc',
-            'content': [{'label':'xmldsig_schema','value':8,'color':'#8E44AD'},{'label':'xenc_schema','value':1,'color':'#17202A'},{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
+            'smallSegmentGrouping': {
                 'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAction', {
-        'header': {
-            'title': {
-                'text': '360 - name="Action"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
+                'value': 3
+            },
             'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
             ]
         },
@@ -1059,10 +1850,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_nameActionType', {
+    var pie = new d3pie('pie_chart_div_xsenumerationvaluebetter', {
         'header': {
             'title': {
-                'text': '361 - name="ActionType"',
+                'text': '319 - <xs:enumeration value="better"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1082,7 +1873,11 @@
 
         'data': {
             'sortOrder': 'value-desc',
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
             ]
         },
         callbacks: {
@@ -1148,10 +1943,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_nameAddress', {
+    var pie = new d3pie('pie_chart_div_xsenumerationvalueexact', {
         'header': {
             'title': {
-                'text': '362 - name="Address"',
+                'text': '320 - <xs:enumeration value="exact"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1171,6 +1966,475 @@
 
         'data': {
             'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xsenumerationvaluemaximum', {
+        'header': {
+            'title': {
+                'text': '321 - <xs:enumeration value="maximum"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xsenumerationvalueminimum', {
+        'header': {
+            'title': {
+                'text': '322 - <xs:enumeration value="minimum"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xsextension', {
+        'header': {
+            'title': {
+                'text': '323 - <xs:extension',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'},{'label':'bookstore','value':1,'color':'#F4D03F'},{'label':'saml20protocol_schema','value':13,'color':'#E67E22'},{'label':'xenc_schema','value':2,'color':'#17202A'},{'label':'saml20assertion_schema','value':8,'color':'#7D6608'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xsextensionbasebase64Binary', {
+        'header': {
+            'title': {
+                'text': '324 - <xs:extension base="base64Binary"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xsextensionbasestring', {
+        'header': {
+            'title': {
+                'text': '325 - <xs:extension base="string"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
             'content': [{'label':'saml20assertion_schema','value':2,'color':'#7D6608'}
             ]
         },
@@ -1237,10 +2501,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_nameAdvice', {
+    var pie = new d3pie('pie_chart_div_xsimport', {
         'header': {
             'title': {
-                'text': '363 - name="Advice"',
+                'text': '326 - <xs:import',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1260,6 +2524,289 @@
 
         'data': {
             'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'saml20protocol_schema','value':2,'color':'#E67E22'},{'label':'xenc_schema','value':1,'color':'#17202A'},{'label':'saml20assertion_schema','value':2,'color':'#7D6608'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xsinclude', {
+        'header': {
+            'title': {
+                'text': '327 - <xs:include',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'foo','value':1,'color':'#A9CCE3'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xsrestriction', {
+        'header': {
+            'title': {
+                'text': '328 - <xs:restriction',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'xmldsig_schema','value':3,'color':'#8E44AD'},{'label':'saml20protocol_schema','value':1,'color':'#E67E22'},{'label':'xenc_schema','value':1,'color':'#17202A'},{'label':'saml20assertion_schema','value':3,'color':'#7D6608'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xsrestrictionbaseanyType', {
+        'header': {
+            'title': {
+                'text': '329 - <xs:restriction base="anyType"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
             'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
             ]
         },
@@ -1326,10 +2873,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_nameAdviceType', {
+    var pie = new d3pie('pie_chart_div_xsrestrictionbasebase64Binary', {
         'header': {
             'title': {
-                'text': '364 - name="AdviceType"',
+                'text': '330 - <xs:restriction base="base64Binary"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1349,6 +2896,196 @@
 
         'data': {
             'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'xmldsig_schema','value':2,'color':'#8E44AD'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xsrestrictionbaseinteger', {
+        'header': {
+            'title': {
+                'text': '331 - <xs:restriction base="integer"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'},{'label':'xenc_schema','value':1,'color':'#17202A'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xsrestrictionbasestring', {
+        'header': {
+            'title': {
+                'text': '332 - <xs:restriction base="string"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
             'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
             ]
         },
@@ -1415,10 +3152,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_nameAgreementMethod', {
+    var pie = new d3pie('pie_chart_div_xsschema', {
         'header': {
             'title': {
-                'text': '365 - name="AgreementMethod"',
+                'text': '333 - <xs:schema',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1438,7 +3175,11 @@
 
         'data': {
             'sortOrder': 'value-desc',
-            'content': [{'label':'xenc_schema','value':1,'color':'#17202A'}
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'concept','value':1,'color':'#D7BDE2'},{'label':'sitemap','value':1,'color':'#FFCCCC'},{'label':'bar','value':1,'color':'#E6B0AA'},{'label':'foo','value':1,'color':'#A9CCE3'},{'label':'topic','value':1,'color':'#34495E'},{'label':'xmldsig_schema','value':1,'color':'#8E44AD'},{'label':'dinner-menu','value':1,'color':'#28B463'},{'label':'bookstore','value':1,'color':'#F4D03F'},{'label':'note','value':1,'color':'#154360'},{'label':'saml20protocol_schema','value':1,'color':'#E67E22'},{'label':'xenc_schema','value':1,'color':'#17202A'},{'label':'task','value':1,'color':'#784212'},{'label':'note2','value':1,'color':'#A3E4D7'},{'label':'reference','value':1,'color':'#78281F'},{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
             ]
         },
         callbacks: {
@@ -1504,10 +3245,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_nameAgreementMethodType', {
+    var pie = new d3pie('pie_chart_div_xsschemaattributeFormDefaultunqualified', {
         'header': {
             'title': {
-                'text': '366 - name="AgreementMethodType"',
+                'text': '334 - <xs:schema attributeFormDefault="unqualified"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1527,7 +3268,11 @@
 
         'data': {
             'sortOrder': 'value-desc',
-            'content': [{'label':'xenc_schema','value':1,'color':'#17202A'}
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'dinner-menu','value':1,'color':'#28B463'},{'label':'bookstore','value':1,'color':'#F4D03F'},{'label':'note','value':1,'color':'#154360'},{'label':'note2','value':1,'color':'#A3E4D7'}
             ]
         },
         callbacks: {
@@ -1593,10 +3338,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_nameAlgorithm', {
+    var pie = new d3pie('pie_chart_div_xssequence', {
         'header': {
             'title': {
-                'text': '367 - name="Algorithm"',
+                'text': '335 - <xs:sequence',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1616,7 +3361,11 @@
 
         'data': {
             'sortOrder': 'value-desc',
-            'content': [{'label':'xmldsig_schema','value':4,'color':'#8E44AD'},{'label':'xenc_schema','value':1,'color':'#17202A'}
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'concept','value':7,'color':'#D7BDE2'},{'label':'sitemap','value':2,'color':'#FFCCCC'},{'label':'topic','value':9,'color':'#34495E'},{'label':'xmldsig_schema','value':20,'color':'#8E44AD'},{'label':'dinner-menu','value':2,'color':'#28B463'},{'label':'bookstore','value':2,'color':'#F4D03F'},{'label':'note','value':1,'color':'#154360'},{'label':'saml20protocol_schema','value':19,'color':'#E67E22'},{'label':'xenc_schema','value':7,'color':'#17202A'},{'label':'task','value':9,'color':'#784212'},{'label':'note2','value':2,'color':'#A3E4D7'},{'label':'reference','value':14,'color':'#78281F'},{'label':'saml20assertion_schema','value':13,'color':'#7D6608'}
             ]
         },
         callbacks: {
@@ -1682,10 +3431,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_nameAllowCreate', {
+    var pie = new d3pie('pie_chart_div_xssequencemaxOccursunbounded', {
         'header': {
             'title': {
-                'text': '368 - name="AllowCreate"',
+                'text': '336 - <xs:sequence maxOccurs="unbounded"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1705,6 +3454,382 @@
 
         'data': {
             'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'xmldsig_schema','value':2,'color':'#8E44AD'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xssequenceminOccurs0', {
+        'header': {
+            'title': {
+                'text': '337 - <xs:sequence minOccurs="0"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'xmldsig_schema','value':3,'color':'#8E44AD'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xssimpleContent', {
+        'header': {
+            'title': {
+                'text': '338 - <xs:simpleContent',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'},{'label':'bookstore','value':1,'color':'#F4D03F'},{'label':'saml20assertion_schema','value':2,'color':'#7D6608'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xssimpleType', {
+        'header': {
+            'title': {
+                'text': '339 - <xs:simpleType',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'xmldsig_schema','value':3,'color':'#8E44AD'},{'label':'saml20protocol_schema','value':1,'color':'#E67E22'},{'label':'xenc_schema','value':1,'color':'#17202A'},{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_xssimpleTypenameAuthnContextComparisonType', {
+        'header': {
+            'title': {
+                'text': '340 - <xs:simpleType name="AuthnContextComparisonType"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
             'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
             ]
         },
@@ -1771,10 +3896,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_nameArtifact', {
+    var pie = new d3pie('pie_chart_div_xssimpleTypenameCryptoBinary', {
         'header': {
             'title': {
-                'text': '369 - name="Artifact"',
+                'text': '341 - <xs:simpleType name="CryptoBinary"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1794,7 +3919,11 @@
 
         'data': {
             'sortOrder': 'value-desc',
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
             ]
         },
         callbacks: {
@@ -1860,10 +3989,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_nameArtifactResolve', {
+    var pie = new d3pie('pie_chart_div_xssimpleTypenameDecisionType', {
         'header': {
             'title': {
-                'text': '370 - name="ArtifactResolve"',
+                'text': '342 - <xs:simpleType name="DecisionType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -1883,362 +4012,10 @@
 
         'data': {
             'sortOrder': 'value-desc',
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
+            'smallSegmentGrouping': {
                 'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameArtifactResolveType', {
-        'header': {
-            'title': {
-                'text': '371 - name="ArtifactResolveType"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
+                'value': 3
             },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameArtifactResponse', {
-        'header': {
-            'title': {
-                'text': '372 - name="ArtifactResponse"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameArtifactResponseType', {
-        'header': {
-            'title': {
-                'text': '373 - name="ArtifactResponseType"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAssertion', {
-        'header': {
-            'title': {
-                'text': '374 - name="Assertion"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
             'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
             ]
         },
@@ -2305,10 +4082,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_nameAssertionConsumerServiceIndex', {
+    var pie = new d3pie('pie_chart_div_xssimpleTypenameDigestValueType', {
         'header': {
             'title': {
-                'text': '375 - name="AssertionConsumerServiceIndex"',
+                'text': '343 - <xs:simpleType name="DigestValueType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2328,7 +4105,11 @@
 
         'data': {
             'sortOrder': 'value-desc',
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
             ]
         },
         callbacks: {
@@ -2394,10 +4175,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_nameAssertionConsumerServiceURL', {
+    var pie = new d3pie('pie_chart_div_xssimpleTypenameHMACOutputLengthType', {
         'header': {
             'title': {
-                'text': '376 - name="AssertionConsumerServiceURL"',
+                'text': '344 - <xs:simpleType name="HMACOutputLengthType"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2417,7 +4198,11 @@
 
         'data': {
             'sortOrder': 'value-desc',
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
             ]
         },
         callbacks: {
@@ -2483,10 +4268,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_nameAssertionIDRef', {
+    var pie = new d3pie('pie_chart_div_abstracttrue', {
         'header': {
             'title': {
-                'text': '377 - name="AssertionIDRef"',
+                'text': '345 - abstract="true"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2506,6 +4291,196 @@
 
         'data': {
             'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'saml20protocol_schema','value':2,'color':'#E67E22'},{'label':'saml20assertion_schema','value':3,'color':'#7D6608'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_attributeFormDefaultunqualified', {
+        'header': {
+            'title': {
+                'text': '346 - attributeFormDefault="unqualified"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'concept','value':1,'color':'#D7BDE2'},{'label':'sitemap','value':1,'color':'#FFCCCC'},{'label':'topic','value':1,'color':'#34495E'},{'label':'dinner-menu','value':1,'color':'#28B463'},{'label':'bookstore','value':1,'color':'#F4D03F'},{'label':'note','value':1,'color':'#154360'},{'label':'saml20protocol_schema','value':1,'color':'#E67E22'},{'label':'task','value':1,'color':'#784212'},{'label':'note2','value':1,'color':'#A3E4D7'},{'label':'reference','value':1,'color':'#78281F'},{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 20
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 11
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 12
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 12
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 10
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffffff'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_baseanyType', {
+        'header': {
+            'title': {
+                'text': '347 - base="anyType"',
+                'fontSize': 14,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '',
+            'color': '#999999',
+            'fontSize': 10,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 450,
+            'canvasHeight': 400,
+            'pieOuterRadius': '55%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
             'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
             ]
         },
@@ -2572,10 +4547,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_nameAssertionIDRequest', {
+    var pie = new d3pie('pie_chart_div_basebase64Binary', {
         'header': {
             'title': {
-                'text': '378 - name="AssertionIDRequest"',
+                'text': '348 - base="base64Binary"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2595,7 +4570,11 @@
 
         'data': {
             'sortOrder': 'value-desc',
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'xmldsig_schema','value':3,'color':'#8E44AD'}
             ]
         },
         callbacks: {
@@ -2661,10 +4640,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_nameAssertionIDRequestType', {
+    var pie = new d3pie('pie_chart_div_baseinteger', {
         'header': {
             'title': {
-                'text': '379 - name="AssertionIDRequestType"',
+                'text': '349 - base="integer"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2684,7 +4663,11 @@
 
         'data': {
             'sortOrder': 'value-desc',
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
+            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'},{'label':'xenc_schema','value':1,'color':'#17202A'}
             ]
         },
         callbacks: {
@@ -2750,10 +4733,10 @@
         }
     });
 
-    var pie = new d3pie('pie_chart_div_nameAssertionType', {
+    var pie = new d3pie('pie_chart_div_basestring', {
         'header': {
             'title': {
-                'text': '380 - name="AssertionType"',
+                'text': '350 - base="string"',
                 'fontSize': 14,
                 'font': 'open sans'
             }
@@ -2773,1787 +4756,11 @@
 
         'data': {
             'sortOrder': 'value-desc',
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
+            'smallSegmentGrouping': {
                 'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAssertionURIRef', {
-        'header': {
-            'title': {
-                'text': '381 - name="AssertionURIRef"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
+                'value': 3
             },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAttribute', {
-        'header': {
-            'title': {
-                'text': '382 - name="Attribute"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAttributeConsumingServiceIndex', {
-        'header': {
-            'title': {
-                'text': '383 - name="AttributeConsumingServiceIndex"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAttributeQuery', {
-        'header': {
-            'title': {
-                'text': '384 - name="AttributeQuery"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAttributeQueryType', {
-        'header': {
-            'title': {
-                'text': '385 - name="AttributeQueryType"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAttributeStatement', {
-        'header': {
-            'title': {
-                'text': '386 - name="AttributeStatement"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAttributeStatementType', {
-        'header': {
-            'title': {
-                'text': '387 - name="AttributeStatementType"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAttributeType', {
-        'header': {
-            'title': {
-                'text': '388 - name="AttributeType"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAttributeValue', {
-        'header': {
-            'title': {
-                'text': '389 - name="AttributeValue"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAudience', {
-        'header': {
-            'title': {
-                'text': '390 - name="Audience"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAudienceRestriction', {
-        'header': {
-            'title': {
-                'text': '391 - name="AudienceRestriction"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAudienceRestrictionType', {
-        'header': {
-            'title': {
-                'text': '392 - name="AudienceRestrictionType"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAuthenticatingAuthority', {
-        'header': {
-            'title': {
-                'text': '393 - name="AuthenticatingAuthority"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAuthnContext', {
-        'header': {
-            'title': {
-                'text': '394 - name="AuthnContext"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAuthnContextClassRef', {
-        'header': {
-            'title': {
-                'text': '395 - name="AuthnContextClassRef"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAuthnContextComparisonType', {
-        'header': {
-            'title': {
-                'text': '396 - name="AuthnContextComparisonType"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAuthnContextDecl', {
-        'header': {
-            'title': {
-                'text': '397 - name="AuthnContextDecl"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAuthnContextDeclRef', {
-        'header': {
-            'title': {
-                'text': '398 - name="AuthnContextDeclRef"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAuthnContextType', {
-        'header': {
-            'title': {
-                'text': '399 - name="AuthnContextType"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffffff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_nameAuthnInstant', {
-        'header': {
-            'title': {
-                'text': '400 - name="AuthnInstant"',
-                'fontSize': 14,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
+            'content': [{'label':'saml20assertion_schema','value':3,'color':'#7D6608'}
             ]
         },
         callbacks: {

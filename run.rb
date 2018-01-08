@@ -40,8 +40,8 @@ def chart_title(chart_type, ind)
 end
 
 # build all the website pages
-def page_build(page_count)
-  (0..page_count).map do |i|
+def page_build(page_count, start = 0)
+  (start..page_count).map do |i|
     instance_variable_set("@page#{i > 0 ? i : ''}", instance_variable_get("@page#{i > 0 ? i : ''}") + $page)
   end
 end
@@ -60,6 +60,50 @@ end
 def clean_chart(chart)
   chart.tr('<"=: ', '')
 end
+
+# create cloc data
+cloc = `cloc . --ignored=ignored.txt --skip-uniqueness --quiet`
+
+# create git log for histogram on homepage
+`git log --pretty=format:"%ad" --date=short > log.txt`
+file = File.open('log.txt', 'r')
+logdata = file.read
+file.close
+logdata = logdata.lines.group_by(&:strip).map{|k, v| [k, v.size]}
+logdata.unshift(%w[Date Amount])
+
+extension = []
+# get file extensions
+Dir.glob('**/*').map do |x|
+  ext = File.extname(x)
+  if ext == ''
+    extension << 'folders'
+  else
+    extension << ext[1..-1]
+  end
+  # sz = File.size(x)
+  # sizes << sz
+end
+
+# hash of extensions
+exthash = { 'css' => '#E6B0AA',
+            'eot' => '#F4D03F',
+            'folders' => '#E67E22',
+            'html' => '#D7BDE2',
+            'js' => '#28B463',
+            'map' => '#111111',
+            'md' => '#A9CCE3',
+            'rb' => '#154360',
+            'svg' => '#78281F',
+            'txt' => '#17202A',
+            'ttf' => '#000000',
+            'woff' => '#8E44AD',
+            'woff2' => '#999999',
+            'xml' => '#E67E22',
+            'xsd' => '#34495E'}
+
+# extensions
+allFiles = extension.flatten.group_by{|x| x}.map{|k, v| [k, v.size]}
 
 # colors for the pie chart pieces
 schema_colors = { 'bar.xsd' => '#E6B0AA',
@@ -104,6 +148,10 @@ def drawchart(which, data, num, colors, title)
 
         'data': {
             'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 3
+            },
             'content': ["
   data.each do |x|
     s += "{'label':'#{x[0].split('.').first}','value':#{x[1]},'color':'#{colors[x[0]]}'},"
@@ -208,6 +256,11 @@ $page = %(<!DOCTYPE html>
       .navbar-default li:hover a { background-color: red !important; }
       .nuchecker a { font-weight: bold; }
       h1 { text-align: center; background-color: rgba(49,37,152,0.8); padding: 14px; color: #fff; }
+      pre { white-space: pre-wrap; //css3
+            white-space: moz-pre-wrap; //firefox
+            white-space: -pre-wrap; //opera 4-6
+            white-space: -o-pre-wrap; //opera 7
+            word-wrap: break-word; //internet explorer }
     </style>
   </head>
     <body>
@@ -225,8 +278,9 @@ $page = %(<!DOCTYPE html>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">)
-# try 50 charts per page
-page_count = structure.size / 50
+
+# home page plus other pages with 50 charts per page
+page_count = structure.size / 50 + 1
 (0..page_count).map do |i|
   instance_variable_set("@page#{i > 0 ? i : ''}", $page)
 end
@@ -239,16 +293,34 @@ $page = %(</ul>
         </div>
       </div>
     </nav>
-    <div class="container-fluid">
-      <h1>Branch count grouped by file</h1>)
+    <div class="container-fluid">)
 # continue to build all the pages
 page_build(page_count)
+# start home page stats
+@page += %(
+      <h1>Ruby d3pie based XML Schema text mining application</h1>
+      <h2>Featured Statistics</h2>
+      <pre>
+        <code>
+          #{cloc}
+        </code>
+      </pre>
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_all"></div>
+        <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_hist"></div>
+      </div>\n)
+#)
+# restart all the chart pages
+$page = %(
+      <h1>Branch count grouped by file</h1>)
+# continue to build all the pages
+page_build(page_count, 1)
 # add chart divs to each page
 structure.map.with_index do |chart, i|
   data0 = clean_chart(chart[0])
-  i /= 50
-  instance_variable_set("@page#{i > 0 ? i : ''}",
-                        instance_variable_get("@page#{i > 0 ? i : ''}") + "\n      <div class=\"col-sm-6 col-md-4 col-lg-3\" id=\"pie_chart_div_#{data0}\"></div>")
+  i = i / 50 + 1
+  instance_variable_set("@page#{i}",
+                        instance_variable_get("@page#{i}") + "\n      <div class=\"col-sm-6 col-md-4 col-lg-3\" id=\"pie_chart_div_#{data0}\"></div>")
 end
 # restart common page region
 $page = '
@@ -305,16 +377,18 @@ $page = %(
 # continue to build all the pages
 page_build(page_count)
 # add all the javascript for each pie chart to each page
+# home page
+@page += drawchart('homepage_all', allFiles, 0, exthash, 'Branch count of files grouped by file extension')
+# other pages
 structure.map.with_index do |chart, ind|
   data0 = clean_chart(chart[0])
   data1 = chart[1..-1]
-  i = ind / 50
-  instance_variable_set("@page#{i > 0 ? i : ''}",
-                        instance_variable_get("@page#{i > 0 ? i : ''}") + drawchart(data0, data1, ind, schema_colors, chart[0]))
+  i = ind / 50 + 1
+  instance_variable_set("@page#{i}",
+                        instance_variable_get("@page#{i}") + drawchart(data0, data1, ind, schema_colors, chart[0]))
 end
-#
-#
-#
+
+# restart common page
 $page = %(
       $(document).ready(function () {
          "use strict";
