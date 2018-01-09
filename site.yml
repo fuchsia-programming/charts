@@ -4,6 +4,10 @@
 last_update: "Site last built: "
 valid_html: Valid HTML
 back_to_top: Back to top
+text_color: '000'
+logo_text_color: 'ff00ff'
+nav_hover_color: red
+nav_selected_color: aliceblue
 
 
 # GitHub details

@@ -348,16 +348,17 @@ $page = %(<!DOCTYPE html>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-theme.min.css">
     <style>
       .container-fluid { padding: 0px; }
-      .navbar, .navbar-default { padding: 5pt; background-color: ##{site_config['theme_color']} !important; font-size: 12pt; }
-      .navbar, .navbar-default li a { color: #000 !important; }
-      .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover { color: #000; font-size: 15pt; }
+      .navbar, .navbar-default { padding: 5pt; background-color: ##{site_config['theme_color']}; font-size: 12pt; }
+      .navbar, .navbar-default li a { color: ##{site_config['text_color']} !important; }
+      .navbar-default .navbar-brand { color: ##{site_config['logo_text_color']}; font-size: 18pt; font-weight: bold; }
+      .navbar-brand:hover { background-color: #{site_config['nav_hover_color']} !important; }
       div[id^="pie_chart_div_"] { margin-bottom: 100px; }
       footer { background-color: ##{site_config['theme_color']}; min-height: 200px;}
-      footer ul a { color: #000 !important; font-size: 13pt; }
+      footer ul a { color: ##{site_config['text_color']} !important; font-size: 13pt; }
       .built { text-decoration: none !important; }
-      .selected { background-color: aliceblue; font-weight: bold; }
-      .navbar-default li:hover a { background-color: red !important; }
-      h1 { text-align: center; background-color: ##{site_config['theme_color']}; padding: 14px; color: #000; }
+      .selected { background-color: #{site_config['nav_selected_color']}; font-weight: bold; }
+      .navbar-default li:hover a { background-color: #{site_config['nav_hover_color']} !important; }
+      h1 { text-align: center; background-color: ##{site_config['theme_color']}; padding: 14px; color: ##{site_config['text_color']}; }
       pre { white-space: pre-wrap; word-wrap: break-word; }
       .homepage { padding: 5px 30px 5px 30px; }
     </style>
@@ -459,7 +460,7 @@ structure.map.with_index do |chart, ind|
   data1 = chart[1..-1]
   i = ind / 50 + 1
   instance_variable_set("@page#{i}",
-                        instance_variable_get("@page#{i}") + drawchart(1, data0, data1, ind, schema_colors, chart[0], 525, 450, 11, 13, 12, 12, 3,
+                        instance_variable_get("@page#{i}") + drawchart(1, data0, data1, ind, schema_colors, chart[0], 490, 425, 11, 13, 12, 12, 3,
                                                                        '75%', 0, 20, true, 10, 'Arial Black', 'Arial Black', 12, 'fff', 999999))
 end
 
