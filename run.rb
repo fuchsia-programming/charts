@@ -156,7 +156,7 @@ def clean_chart(chart)
 end
 
 # function that draws the pie chart
-def drawchart(which, data, num, colors, title, width, height,
+def drawchart(type, which, data, num, colors, title, width, height,
               mainlabelsize, titlesize, valuesize, tooltipsize,
               segmentsize, pieouterradius, pieinnerradius, piedistance, linesenabled,
               pulloutsegmentsize, titlefont, footerfont, footerfontsize)
@@ -170,7 +170,8 @@ def drawchart(which, data, num, colors, title, width, height,
             }
         },
         'footer': {
-            'text': '#{high = 1; seen = []; element = ''
+            'text': '#{
+                      high = 1; seen = []; element = ''
                       data.map do |x|
                          if x[1] > high
                            high = x[1]
@@ -179,7 +180,11 @@ def drawchart(which, data, num, colors, title, width, height,
                          seen << x[1]
                       end
                       if high > 1 and seen.size > 1 and seen.count(high) == 1
-                        high.to_s + ' maximum occurrences in file ' + element
+                        if type == 0
+                            high.to_s + ' ' + element + (element=='folders'?'':' files') + ' occured most frequently'
+                        else
+                          high.to_s + ' maximum occurrences in file ' + element
+                        end
                       end}',
             'color': '#999999',
             'fontSize': #{footerfontsize},
@@ -310,9 +315,7 @@ def add_github_buttons(arr)
     s += %(
           <li>
             <a class="github-button" href="https://github.com/jbampton#{button[0]}")
-    if button[3] != ''
-      s += %( data-icon="octicon-#{button[3]}" )
-    end
+    s += %( data-icon="octicon-#{button[3]}" ) unless button[3] == ''
     s += %( data-size="large" data-show-count="true" aria-label="#{button[1]}">#{button[2]}</a>
           </li>)
   end
@@ -442,14 +445,14 @@ $page += '
 page_build(page_count)
 # add all the javascript for each pie chart to each page
 # home page
-@page += drawchart('homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 700, 700, 15, 24, 16, 16, 1, '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18)
+@page += drawchart(0,'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 700, 700, 15, 24, 16, 16, 1, '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18)
 # other pages
 structure.map.with_index do |chart, ind|
   data0 = clean_chart(chart[0])
   data1 = chart[1..-1]
   i = ind / 50 + 1
   instance_variable_set("@page#{i}",
-                        instance_variable_get("@page#{i}") + drawchart(data0, data1, ind, schema_colors, chart[0], 525, 450, 11, 13, 12, 12, 3, '75%', 0, 20, true, 10, 'Arial Black', 'Arial Black', 12))
+                        instance_variable_get("@page#{i}") + drawchart(1, data0, data1, ind, schema_colors, chart[0], 525, 450, 11, 13, 12, 12, 3, '75%', 0, 20, true, 10, 'Arial Black', 'Arial Black', 12))
 end
 
 # restart common page
