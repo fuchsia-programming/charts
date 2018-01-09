@@ -331,10 +331,10 @@ $page = %(<!DOCTYPE html>
       .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover { color: #fff; font-size: 15pt; }
       div[id^="pie_chart_div_"] > svg { margin: auto; }
       footer { background-color: rgba(49,37,152,0.8); min-height: 200px; color: #fff !important; }
-      footer ul a { color: #fff !important; }
+      footer ul a { color: #fff !important; font-size: 13pt; }
+      .built { text-decoration: none !important; }
       .selected { background-color: aliceblue; font-weight: bold; }
       .navbar-default li:hover a { background-color: red !important; }
-      .nuchecker a { font-weight: bold; }
       h1 { text-align: center; background-color: rgba(49,37,152,0.8); padding: 14px; color: #fff; }
       pre { white-space: pre-wrap; word-wrap: break-word; }
       .homepage { padding: 5px 30px 5px 30px; }
@@ -363,10 +363,7 @@ page_count = structure.size / 50 + 1
 end
 # restart common page region
 $page = add_links(page_count)
-# continue to build all the pages
-page_build(page_count)
-# restart common page region
-$page = %(
+$page += %(
           </ul>
         </div>
       </div>
@@ -383,7 +380,7 @@ page_build(page_count)
 @page += section_built_with(links, cloc)
 # restart all the chart pages
 $page = %(
-      <h1>Branch count grouped by file</h1>)
+      <h1>#{site_config['other-heading']}</h1>)
 # continue to build all the pages
 page_build(page_count, 1)
 # add chart divs to each page
@@ -404,11 +401,13 @@ $page += add_github_buttons(buttons)
 # add general page links
 $page += add_links(page_count)
 # add rest of page
+sitebuildtime = Time.now.strftime '%FT%T%:z'
 $page += %(
-          <li><a href="#head1">Back to top</a></li>
           <li class="nuchecker">
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
+          <li><a href="#head1">Back to top</a></li>
+          <li><a class="built">Site last built: #{sitebuildtime}</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -460,7 +459,6 @@ $page = %(
 # finish building all the pages
 page_build(page_count)
 # write all the HTML pages to files and build the site map
-sitemaptime = Time.now.strftime '%FT%T%:z'
 sitemap = %(<?xml version="1.0" encoding="UTF-8"?>
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -469,7 +467,7 @@ sitemap = %(<?xml version="1.0" encoding="UTF-8"?>
   http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>http://thebeast.me/charts/</loc>
-    <lastmod>#{sitemaptime}</lastmod>
+    <lastmod>#{sitebuildtime}</lastmod>
     <priority>1.00</priority>
   </url>)
 (0..page_count).map do |i|
@@ -479,7 +477,7 @@ sitemap = %(<?xml version="1.0" encoding="UTF-8"?>
   sitemap += %(
   <url>
     <loc>http://thebeast.me/charts/index#{i > 0 ? i : ''}.html</loc>
-    <lastmod>#{sitemaptime}</lastmod>
+    <lastmod>#{sitebuildtime}</lastmod>
     <priority>0.80</priority>
   </url>)
 end

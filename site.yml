@@ -13,3 +13,5 @@ theme-color     : 312598
 nav-heading     : Analytics Dashboard
 # homepage heading h1
 homepage-heading: Ruby d3pie based XML Schema text mining application
+# heading on other pages h1
+other-heading   : Branch count grouped by file
