@@ -12,7 +12,7 @@ end
 
 # function
 def ii(i)
-  i > 0 ? i : ''
+  i.positive? ? i : ''
 end
 
 # load website config file
@@ -72,14 +72,15 @@ links = { 'Ruby' => 'https://www.ruby-lang.org',
           'RubyMine' => 'https://www.jetbrains.com/ruby',
           'Flag Counter' => 'https://flagcounter.com/',
           'GitHub:buttons' => 'https://buttons.github.io/',
-          'cloc' => 'https://github.com/AlDanial/cloc' }
+          'cloc' => 'https://github.com/AlDanial/cloc',
+          'Rubocop' => 'https://github.com/bbatsov/rubocop' }
 
 # data for GitHub buttons
 buttons = [
-  ['', 'Follow @jbampton on GitHub', 'Follow @jbampton', ''],
-  ['/charts', 'Star jbampton/charts on GitHub', 'Star', 'star'],
-  ['/charts/subscription', 'Watch jbampton/charts on GitHub', 'Watch', 'eye'],
-  ['/charts/fork', 'Fork jbampton/charts on GitHub', 'Fork', 'repo-forked']
+  ['', "Follow @#{site_config['github_username']} on GitHub", "Follow @#{site_config['github_username']}", ''],
+  ["/#{site_config['repository']}", "Star #{site_config['github_username']}/#{site_config['repository']} on GitHub", 'Star', 'star'],
+  ["/#{site_config['repository']}/subscription", "Watch #{site_config['github_username']}/charts on GitHub", 'Watch', 'eye'],
+  ["/#{site_config['repository']}/fork", "Fork #{site_config['github_username']}/#{site_config['repository']} on GitHub", 'Fork', 'repo-forked']
 ]
 
 # create cloc data
@@ -164,7 +165,8 @@ end
 def drawchart(type, which, data, num, colors, title, width, height,
               mainlabelsize, titlesize, valuesize, tooltipsize,
               segmentsize, pieouterradius, pieinnerradius, piedistance, linesenabled,
-              pulloutsegmentsize, titlefont, footerfont, footerfontsize)
+              pulloutsegmentsize, titlefont, footerfont, footerfontsize, backgroundcolor,
+              footercolor)
   high = 1; seen = []; element = ''
   data.map do |x|
     if x[1] > high
@@ -192,7 +194,7 @@ def drawchart(type, which, data, num, colors, title, width, height,
         },
         'footer': {
             'text': '#{footertext}',
-            'color': '#999999',
+            'color': '##{footercolor}',
             'fontSize': #{footerfontsize},
             'font': '#{footerfont}',
             'location': 'bottom-center'
@@ -272,7 +274,7 @@ def drawchart(type, which, data, num, colors, title, width, height,
         },
         'misc': {
             'colors': {
-                'background': '#ffffff'
+                'background': '##{backgroundcolor}'
             },
             'gradient': {
                 'enabled': true,
@@ -347,17 +349,16 @@ $page = %(<!DOCTYPE html>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-theme.min.css">
     <style>
       .container-fluid { padding: 0px; }
-      .navbar, .navbar-default { padding: 5pt; background-color: rgba(49,37,152,0.8) !important; font-size: 12pt; }
+      .navbar, .navbar-default { padding: 5pt; background-color: ##{site_config['theme_color']} !important; font-size: 12pt; }
       .navbar, .navbar-default li a { color: #000 !important; }
-      .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover { color: #fff; font-size: 15pt; }
-      div[id^="pie_chart_div_"] > svg { margin: auto; }
+      .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover { color: #000; font-size: 15pt; }
       div[id^="pie_chart_div_"] { margin-bottom: 100px; }
-      footer { background-color: rgba(49,37,152,0.8); min-height: 200px; color: #fff !important; }
-      footer ul a { color: #fff !important; font-size: 13pt; }
+      footer { background-color: ##{site_config['theme_color']}; min-height: 200px;}
+      footer ul a { color: #000 !important; font-size: 13pt; }
       .built { text-decoration: none !important; }
       .selected { background-color: aliceblue; font-weight: bold; }
       .navbar-default li:hover a { background-color: red !important; }
-      h1 { text-align: center; background-color: rgba(49,37,152,0.8); padding: 14px; color: #fff; }
+      h1 { text-align: center; background-color: ##{site_config['theme_color']}; padding: 14px; color: #000; }
       pre { white-space: pre-wrap; word-wrap: break-word; }
       .homepage { padding: 5px 30px 5px 30px; }
     </style>
@@ -451,14 +452,16 @@ $page += '
 page_build(page_count)
 # add all the javascript for each pie chart to each page
 # home page
-@page += drawchart(0,'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 700, 700, 15, 24, 16, 16, 1, '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18)
+@page += drawchart(0,'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 700, 700, 15, 24, 16, 16, 1,
+                   '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18, 'ffcccc', 'fff')
 # other pages
 structure.map.with_index do |chart, ind|
   data0 = clean_chart(chart[0])
   data1 = chart[1..-1]
   i = ind / 50 + 1
   instance_variable_set("@page#{i}",
-                        instance_variable_get("@page#{i}") + drawchart(1, data0, data1, ind, schema_colors, chart[0], 525, 450, 11, 13, 12, 12, 3, '75%', 0, 20, true, 10, 'Arial Black', 'Arial Black', 12))
+                        instance_variable_get("@page#{i}") + drawchart(1, data0, data1, ind, schema_colors, chart[0], 525, 450, 11, 13, 12, 12, 3,
+                                                                       '75%', 0, 20, true, 10, 'Arial Black', 'Arial Black', 12, 'fff', 999999))
 end
 
 # restart common page

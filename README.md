@@ -26,3 +26,4 @@ Demo can be seen here: http://thebeast.me/charts/
 - [GitHub:buttons](https://buttons.github.io/)
 - [Markdown](https://daringfireball.net/projects/markdown)
 - [cloc](https://github.com/AlDanial/cloc)
+- [Rubocop](https://github.com/bbatsov/rubocop)

@@ -8,22 +8,21 @@
          any other head content must come *after* these tags -->
     <title>Ruby d3pie text mining dashboard</title>
     <meta name="description" content="Analytics dashboard built from Ruby using the d3pie library. It text mines a folder of XML Schema to generate statistics about tags and attributes.">
-    <meta name="theme-color" content="#312598"/>
+    <meta name="theme-color" content="#E5E8E8"/>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-theme.min.css">
     <style>
       .container-fluid { padding: 0px; }
-      .navbar, .navbar-default { padding: 5pt; background-color: rgba(49,37,152,0.8) !important; font-size: 12pt; }
+      .navbar, .navbar-default { padding: 5pt; background-color: #E5E8E8 !important; font-size: 12pt; }
       .navbar, .navbar-default li a { color: #000 !important; }
-      .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover { color: #fff; font-size: 15pt; }
-      div[id^="pie_chart_div_"] > svg { margin: auto; }
+      .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover { color: #000; font-size: 15pt; }
       div[id^="pie_chart_div_"] { margin-bottom: 100px; }
-      footer { background-color: rgba(49,37,152,0.8); min-height: 200px; color: #fff !important; }
-      footer ul a { color: #fff !important; font-size: 13pt; }
+      footer { background-color: #E5E8E8; min-height: 200px;}
+      footer ul a { color: #000 !important; font-size: 13pt; }
       .built { text-decoration: none !important; }
       .selected { background-color: aliceblue; font-weight: bold; }
       .navbar-default li:hover a { background-color: red !important; }
-      h1 { text-align: center; background-color: rgba(49,37,152,0.8); padding: 14px; color: #fff; }
+      h1 { text-align: center; background-color: #E5E8E8; padding: 14px; color: #000; }
       pre { white-space: pre-wrap; word-wrap: break-word; }
       .homepage { padding: 5px 30px 5px 30px; }
     </style>
@@ -90,6 +89,7 @@
               <li><a href="https://flagcounter.com/" target="_blank" rel="noopener">Flag Counter</a></li>
               <li><a href="https://buttons.github.io/" target="_blank" rel="noopener">GitHub:buttons</a></li>
               <li><a href="https://github.com/AlDanial/cloc" target="_blank" rel="noopener">cloc</a></li>
+              <li><a href="https://github.com/bbatsov/rubocop" target="_blank" rel="noopener">Rubocop</a></li>
             </ul>
           </div>
         </div>
@@ -98,20 +98,20 @@
           <pre>
             <code>
               
-github.com/AlDanial/cloc v 1.72  T=1.28 s (42.2 files/s, 79777.8 lines/s)
+github.com/AlDanial/cloc v 1.72  T=1.35 s (40.0 files/s, 75690.4 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-HTML                            16           1442             48          68398
+HTML                            16           1442             48          68383
 JavaScript                       7           3096            600          15876
 CSS                              4              7             24           7326
-Markdown                         4            578              0           2103
+Markdown                         4            578              0           2104
 XSD                             15             73             48           1375
-XML                              5              0              0            578
-Ruby                             1             26             46            441
-YAML                             2             10             13             20
+XML                              5              0              0            589
+Ruby                             1             26             46            444
+YAML                             2             15             14             29
 -------------------------------------------------------------------------------
-SUM:                            54           5232            779          96117
+SUM:                            54           5237            780          96126
 -------------------------------------------------------------------------------
 
             </code>
@@ -159,7 +159,7 @@ SUM:                            54           5232            779          96117
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-10T06:20:23+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-10T07:31:32+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -184,7 +184,7 @@ SUM:                            54           5232            779          96117
         },
         'footer': {
             'text': '16 html files occurred most frequently',
-            'color': '#999999',
+            'color': '#fff',
             'fontSize': 18,
             'font': 'open sans',
             'location': 'bottom-center'
@@ -259,7 +259,7 @@ SUM:                            54           5232            779          96117
         },
         'misc': {
             'colors': {
-                'background': '#ffffff'
+                'background': '#ffcccc'
             },
             'gradient': {
                 'enabled': true,
