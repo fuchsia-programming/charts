@@ -263,24 +263,28 @@ def drawchart(which, data, num, colors, title, width, height,
 end
 
 # built with section on home page
-def section_built_with(links, cloc)
-  s =  "
-        <h3>Built With</h3>
-        <div>
-          <ul>"
+def section_built_with(links, cloc, site_config)
+  s = %(
+        <div class="col-md-2 col-md-offset-1">
+          <h3>#{site_config['homepage_subheading2']}</h3>
+          <div>
+            <ul>)
   links.map do |k, v|
     s += %(
-             <li><a href="#{v}" target="_blank" rel="noopener">#{k}</a></li>)
+              <li><a href="#{v}" target="_blank" rel="noopener">#{k}</a></li>)
   end
-  s +=  %(
-          </ul>
+  s += %(
+            </ul>
+          </div>
         </div>
-        <h3>Lines of code in this project</h3>
-        <pre>
-          <code>
-            #{cloc}
-          </code>
-        </pre>
+        <div class="col-md-8">
+          <h3>#{site_config['homepage_subheading3']}</h3>
+          <pre>
+            <code>
+              #{cloc}
+            </code>
+          </pre>
+        </div>
       </div>
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_all"></div>
@@ -319,7 +323,7 @@ $page = %(<!DOCTYPE html>
          any other head content must come *after* these tags -->
     <title>#{site_config['title']}</title>
     <meta name="description" content="#{site_config['description']}">
-    <meta name="theme-color" content="##{site_config['theme-color']}"/>
+    <meta name="theme-color" content="##{site_config['theme_color']}"/>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-theme.min.css">
     <style>
@@ -349,7 +353,7 @@ $page = %(<!DOCTYPE html>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">#{site_config['nav-heading']}</a>
+            <a class="navbar-brand" href="index.html">#{site_config['nav_heading']}</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">)
@@ -371,14 +375,14 @@ $page += %(
 page_build(page_count)
 # start home page stats
 @page += %(
-      <h1>#{site_config['homepage-heading']}</h1>
+      <h1>#{site_config['homepage_heading']}</h1>
       <div class="row homepage">
-        <h2>Featured Statistics</h2>)
+        <h2>#{site_config['homepage_subheading1']}</h2>)
 # add built with links to home page
-@page += section_built_with(links, cloc)
+@page += section_built_with(links, cloc, site_config)
 # restart all the chart pages
 $page = %(
-      <h1>#{site_config['other-heading']}</h1>)
+      <h1>#{site_config['other_heading']}</h1>)
 # continue to build all the pages
 page_build(page_count, 1)
 # add chart divs to each page
@@ -405,7 +409,7 @@ $page += %(
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: #{sitebuildtime}</a></li>
+          <li><a class="built">#{site_config['last_update']}#{sitebuildtime}</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
