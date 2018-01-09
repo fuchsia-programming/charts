@@ -288,8 +288,10 @@ end
 # built with section on home page
 def section_built_with(links, cloc, site_config)
   s = %(
-        <div class="col-md-2 col-md-offset-1">
+        <div class="col-md-3">
           <h3>#{site_config['homepage_subheading2']}</h3>
+          <div>#{site_config['about']}</div>
+          <h3>#{site_config['homepage_subheading3']}</h3>
           <div>
             <ul>)
   links.map do |k, v|
@@ -300,8 +302,8 @@ def section_built_with(links, cloc, site_config)
             </ul>
           </div>
         </div>
-        <div class="col-md-8">
-          <h3>#{site_config['homepage_subheading3']}</h3>
+        <div class="col-md-9">
+          <h3>#{site_config['homepage_subheading4']}</h3>
           <pre>
             <code>
               #{cloc}

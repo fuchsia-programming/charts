@@ -1,6 +1,7 @@
 # This is the websites config file written in YAML http://yaml.org/
 
 # site config
+about: "This Ruby script is a static site generator. It text mines a folder of XML Schema and generates statistics on elements and attributes. The config file: site.yml stores most of the websites configuration information and can be easily customized."
 last_update: "Site last built: "
 valid_html: Valid HTML
 back_to_top: Back to top
@@ -35,6 +36,8 @@ other_heading: Branch count grouped by file
 # homepage subheading1 h2
 homepage_subheading1: Featured Statistics
 # homepage subheading2 h3
-homepage_subheading2: Built With
+homepage_subheading2: About
 # homepage subheading3 h3
-homepage_subheading3: Lines of code in this project
+homepage_subheading3: Built With
+# homepage subheading4 h3
+homepage_subheading4: Lines of code in this project
