@@ -10,6 +10,11 @@ def read_file(f)
   data
 end
 
+# function
+def ii(i)
+  i > 0 ? i : ''
+end
+
 # load website config file
 site_config = YAML.safe_load(read_file('site.yml'))
 
@@ -136,7 +141,7 @@ end
 # build all the website pages
 def page_build(page_count, start = 0)
   (start..page_count).map do |i|
-    instance_variable_set("@page#{i > 0 ? i : ''}", instance_variable_get("@page#{i > 0 ? i : ''}") + $page)
+    instance_variable_set("@page#{ii i}", instance_variable_get("@page#{ii i}") + $page)
   end
 end
 
@@ -145,7 +150,7 @@ def add_links(page_count)
   page = ''
   (0..page_count).map do |i|
     page += %(
-              <li><a href="index#{i > 0 ? i : ''}.html">Page #{i + 1}</a></li>)
+              <li><a href="index#{ii i}.html">Page #{i + 1}</a></li>)
   end
   page
 end
@@ -160,6 +165,22 @@ def drawchart(type, which, data, num, colors, title, width, height,
               mainlabelsize, titlesize, valuesize, tooltipsize,
               segmentsize, pieouterradius, pieinnerradius, piedistance, linesenabled,
               pulloutsegmentsize, titlefont, footerfont, footerfontsize)
+  high = 1; seen = []; element = ''
+  data.map do |x|
+    if x[1] > high
+      high = x[1]
+      element = x[0]
+    end
+    seen << x[1]
+  end
+  footertext = if high > 1 && seen.size > 1 && seen.count(high) == 1
+                 if type.zero?
+                   high.to_s + ' ' + element + (element == 'folders' ? '' : ' files') + ' occurred most frequently'
+                 else
+                   high.to_s + ' maximum occurrences in file ' + element
+                 end
+               end
+
   s = "
     var pie = new d3pie('pie_chart_div_#{which}', {
         'header': {
@@ -170,22 +191,7 @@ def drawchart(type, which, data, num, colors, title, width, height,
             }
         },
         'footer': {
-            'text': '#{
-                      high = 1; seen = []; element = ''
-                      data.map do |x|
-                         if x[1] > high
-                           high = x[1]
-                           element = x[0]
-                         end
-                         seen << x[1]
-                      end
-                      if high > 1 and seen.size > 1 and seen.count(high) == 1
-                        if type == 0
-                            high.to_s + ' ' + element + (element=='folders'?'':' files') + ' occured most frequently'
-                        else
-                          high.to_s + ' maximum occurrences in file ' + element
-                        end
-                      end}',
+            'text': '#{footertext}',
             'color': '#999999',
             'fontSize': #{footerfontsize},
             'font': '#{footerfont}',
@@ -375,7 +381,7 @@ $page = %(<!DOCTYPE html>
 # home page plus other pages with 50 charts per page
 page_count = structure.size / 50 + 1
 (0..page_count).map do |i|
-  instance_variable_set("@page#{i > 0 ? i : ''}", $page)
+  instance_variable_set("@page#{ii i}", $page)
 end
 # restart common page region
 $page = add_links(page_count)
@@ -490,12 +496,12 @@ sitemap = %(<?xml version="1.0" encoding="UTF-8"?>
     <priority>1.00</priority>
   </url>)
 (0..page_count).map do |i|
-  file = File.open("index#{i > 0 ? i : ''}.html", 'w')
-  file.write(instance_variable_get("@page#{i > 0 ? i : ''}"))
+  file = File.open("index#{ii i}.html", 'w')
+  file.write(instance_variable_get("@page#{ii i}"))
   file.close
   sitemap += %(
   <url>
-    <loc>http://thebeast.me/charts/index#{i > 0 ? i : ''}.html</loc>
+    <loc>http://thebeast.me/charts/index#{ii i}.html</loc>
     <lastmod>#{sitebuildtime}</lastmod>
     <priority>0.80</priority>
   </url>)

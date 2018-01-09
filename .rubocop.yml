@@ -9,3 +9,6 @@ Metrics/CyclomaticComplexity:
 
 Metrics/PerceivedComplexity:
   Enabled: false
+
+Style/Semicolon:
+  AllowAsExpressionSeparator: true
