@@ -11,8 +11,7 @@ def read_file(f)
 end
 
 # load website config file
-file = read_file('site.yml')
-site_config = YAML.safe_load(file)
+site_config = YAML.safe_load(read_file('site.yml'))
 
 # colors for the file extensions
 exthash = { 'css' => '#E6B0AA',
@@ -72,10 +71,10 @@ links = { 'Ruby' => 'https://www.ruby-lang.org',
 
 # data for GitHub buttons
 buttons = [
-    ['', 'Follow @jbampton on GitHub', 'Follow @jbampton', ''],
-    ['/charts', 'Star jbampton/charts on GitHub', 'Star', 'star'],
-    ['/charts/subscription', 'Watch jbampton/charts on GitHub', 'Watch', 'eye'],
-    ['/charts/fork', 'Fork jbampton/charts on GitHub', 'Fork', 'repo-forked']
+  ['', 'Follow @jbampton on GitHub', 'Follow @jbampton', ''],
+  ['/charts', 'Star jbampton/charts on GitHub', 'Star', 'star'],
+  ['/charts/subscription', 'Watch jbampton/charts on GitHub', 'Watch', 'eye'],
+  ['/charts/fork', 'Fork jbampton/charts on GitHub', 'Fork', 'repo-forked']
 ]
 
 # create cloc data
@@ -83,9 +82,7 @@ cloc = `cloc . --ignored=ignored.txt --skip-uniqueness --quiet`
 
 # create git log for histogram on homepage
 `git log --pretty=format:"%ad" --date=short > log.txt`
-file = File.open('log.txt', 'r')
-logdata = file.read
-file.close
+logdata = read_file('log.txt')
 logdata = logdata.lines.group_by(&:strip).map{|k, v| [k, v.size]}
 logdata.unshift(%w[Date Amount])
 
@@ -161,15 +158,15 @@ end
 # function that draws the pie chart
 def drawchart(which, data, num, colors, title, width, height,
               mainlabelsize, titlesize, valuesize, tooltipsize,
-              segmentsize, pieouterradius, piedistance, linesenabled,
-              pulloutsegmentsize)
+              segmentsize, pieouterradius, pieinnerradius, piedistance, linesenabled,
+              pulloutsegmentsize, titlefont)
   s = "
     var pie = new d3pie('pie_chart_div_#{which}', {
         'header': {
             'title': {
                 'text': '#{chart_title(title, num)}',
                 'fontSize': #{titlesize},
-                'font': 'open sans'
+                'font': '#{titlefont}'
             }
         },
         'footer': {
@@ -182,7 +179,8 @@ def drawchart(which, data, num, colors, title, width, height,
         'size': {
             'canvasWidth': #{width},
             'canvasHeight': #{height},
-            'pieOuterRadius': '#{pieouterradius}'
+            'pieOuterRadius': '#{pieouterradius}',
+            'pieInnerRadius': '#{pieinnerradius}',
         },
 
         'data': {
@@ -426,14 +424,14 @@ $page += %(
 page_build(page_count)
 # add all the javascript for each pie chart to each page
 # home page
-@page += drawchart('homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 700, 700, 15, 24, 16, 16, 1, '70%', 50, false, 35)
+@page += drawchart('homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 700, 700, 15, 24, 16, 16, 1, '70%', '35%', 50, false, 35, 'open sans')
 # other pages
 structure.map.with_index do |chart, ind|
   data0 = clean_chart(chart[0])
   data1 = chart[1..-1]
   i = ind / 50 + 1
   instance_variable_set("@page#{i}",
-                        instance_variable_get("@page#{i}") + drawchart(data0, data1, ind, schema_colors, chart[0], 450, 400, 11, 14, 12, 12, 3, '55%', 20, true, 10))
+                        instance_variable_get("@page#{i}") + drawchart(data0, data1, ind, schema_colors, chart[0], 450, 400, 11, 14, 12, 12, 3, '55%', 0, 20, true, 10, 'Arial Black'))
 end
 
 # restart common page
