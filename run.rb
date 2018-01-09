@@ -414,13 +414,16 @@ $page += %(
         </a>
         <a id="theend"></a>
       </div>
-    </footer>
-    <script src="assets/bootstrap/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/d3/d3.js"></script>
-    <script src="assets/js/d3pie.min.js"></script>
-    <script>)
+    </footer>)
+# add all the websites external JavaScript files
+site_scripts = %w[bootstrap/js/jquery.min.js bootstrap/js/bootstrap.min.js js/d3/d3.js js/d3pie.min.js]
+site_scripts.map do |script|
+  $page += %(
+    <script src="assets/#{script}"></script>)
+end
 # continue to build all the pages
+$page += '
+    <script>'
 page_build(page_count)
 # add all the javascript for each pie chart to each page
 # home page
@@ -431,7 +434,7 @@ structure.map.with_index do |chart, ind|
   data1 = chart[1..-1]
   i = ind / 50 + 1
   instance_variable_set("@page#{i}",
-                        instance_variable_get("@page#{i}") + drawchart(data0, data1, ind, schema_colors, chart[0], 450, 400, 11, 14, 12, 12, 3, '55%', 0, 20, true, 10, 'Arial Black'))
+                        instance_variable_get("@page#{i}") + drawchart(data0, data1, ind, schema_colors, chart[0], 450, 400, 11, 13, 12, 12, 3, '55%', 0, 20, true, 10, 'Arial Black'))
 end
 
 # restart common page
