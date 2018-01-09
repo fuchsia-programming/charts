@@ -159,7 +159,7 @@ end
 def drawchart(which, data, num, colors, title, width, height,
               mainlabelsize, titlesize, valuesize, tooltipsize,
               segmentsize, pieouterradius, pieinnerradius, piedistance, linesenabled,
-              pulloutsegmentsize, titlefont)
+              pulloutsegmentsize, titlefont, footerfont, footerfontsize)
   s = "
     var pie = new d3pie('pie_chart_div_#{which}', {
         'header': {
@@ -170,10 +170,20 @@ def drawchart(which, data, num, colors, title, width, height,
             }
         },
         'footer': {
-            'text': '',
+            'text': '#{high = 1; seen = []; element = ''
+                      data.map do |x|
+                         if x[1] > high
+                           high = x[1]
+                           element = x[0]
+                         end
+                         seen << x[1]
+                      end
+                      if high > 1 and seen.size > 1 and seen.count(high) == 1
+                        high.to_s + ' maximum occurrences in file ' + element
+                      end}',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': #{footerfontsize},
+            'font': '#{footerfont}',
             'location': 'bottom-center'
         },
         'size': {
@@ -332,6 +342,7 @@ $page = %(<!DOCTYPE html>
       .navbar, .navbar-default li a { color: #000 !important; }
       .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover { color: #fff; font-size: 15pt; }
       div[id^="pie_chart_div_"] > svg { margin: auto; }
+      div[id^="pie_chart_div_"] { margin-bottom: 100px; }
       footer { background-color: rgba(49,37,152,0.8); min-height: 200px; color: #fff !important; }
       footer ul a { color: #fff !important; font-size: 13pt; }
       .built { text-decoration: none !important; }
@@ -390,7 +401,7 @@ structure.map.with_index do |chart, i|
   data0 = clean_chart(chart[0])
   i = i / 50 + 1
   instance_variable_set("@page#{i}",
-                        instance_variable_get("@page#{i}") + "\n      <div class=\"col-sm-6 col-md-4 col-lg-3\" id=\"pie_chart_div_#{data0}\"></div>")
+                        instance_variable_get("@page#{i}") + "\n      <div class=\"col-lg-4 col-md-6 col-sm-12\" id=\"pie_chart_div_#{data0}\"></div>")
 end
 # restart common page region
 $page = %(
@@ -431,14 +442,14 @@ $page += '
 page_build(page_count)
 # add all the javascript for each pie chart to each page
 # home page
-@page += drawchart('homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 700, 700, 15, 24, 16, 16, 1, '70%', '35%', 50, false, 35, 'open sans')
+@page += drawchart('homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 700, 700, 15, 24, 16, 16, 1, '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18)
 # other pages
 structure.map.with_index do |chart, ind|
   data0 = clean_chart(chart[0])
   data1 = chart[1..-1]
   i = ind / 50 + 1
   instance_variable_set("@page#{i}",
-                        instance_variable_get("@page#{i}") + drawchart(data0, data1, ind, schema_colors, chart[0], 450, 400, 11, 13, 12, 12, 3, '55%', 0, 20, true, 10, 'Arial Black'))
+                        instance_variable_get("@page#{i}") + drawchart(data0, data1, ind, schema_colors, chart[0], 525, 450, 11, 13, 12, 12, 3, '75%', 0, 20, true, 10, 'Arial Black', 'Arial Black', 12))
 end
 
 # restart common page

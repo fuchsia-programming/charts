@@ -17,6 +17,7 @@
       .navbar, .navbar-default li a { color: #000 !important; }
       .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover { color: #fff; font-size: 15pt; }
       div[id^="pie_chart_div_"] > svg { margin: auto; }
+      div[id^="pie_chart_div_"] { margin-bottom: 100px; }
       footer { background-color: rgba(49,37,152,0.8); min-height: 200px; color: #fff !important; }
       footer ul a { color: #fff !important; font-size: 13pt; }
       .built { text-decoration: none !important; }
@@ -64,56 +65,56 @@
     </nav>
     <div class="container-fluid">
       <h1>Branch count grouped by file</h1>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namepriority"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameprolog"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namept"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namerefbody"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namereference"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namerelcolwidth"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namescope"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namesection"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameshortdesc"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namesignature"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namestep"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namesteps"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nametask"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nametaskbody"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nametitle"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nametitlealts"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nametm"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nametmclass"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nametmowner"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nametmtype"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameto"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nametopic"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nametrademark"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameul"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameurl"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameurlset"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namexmlns"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_namexref"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nameyear"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_nillabletrue"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_processContentslax"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typeID"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typeNCName"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typeanyType"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typeanyURI"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typebase64Binary"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typedateTime"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typeinteger"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typenonNegativeInteger"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typestring"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typexsID"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typexsNCName"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typexsanyURI"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typexsboolean"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typexsbyte"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typexsdateTime"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typexsfloat"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typexsint"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typexsnonNegativeInteger"></div>
-      <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_typexsshort"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_namepriority"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameprolog"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_namept"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_namerefbody"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_namereference"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_namerelcolwidth"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_namescope"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_namesection"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameshortdesc"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_namesignature"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_namestep"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_namesteps"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nametask"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nametaskbody"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nametitle"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nametitlealts"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nametm"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nametmclass"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nametmowner"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nametmtype"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameto"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nametopic"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nametrademark"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameul"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameurl"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameurlset"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_namexmlns"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_namexref"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameyear"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nillabletrue"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_processContentslax"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typeID"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typeNCName"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typeanyType"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typeanyURI"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typebase64Binary"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typedateTime"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typeinteger"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typenonNegativeInteger"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typestring"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typexsID"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typexsNCName"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typexsanyURI"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typexsboolean"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typexsbyte"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typexsdateTime"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typexsfloat"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typexsint"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typexsnonNegativeInteger"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_typexsshort"></div>
     </div>
     <footer>
       <div class="container">
@@ -151,7 +152,7 @@
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-10T03:49:12+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-10T05:08:32+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -177,14 +178,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -271,14 +272,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -365,14 +366,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -459,14 +460,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -553,14 +554,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -647,14 +648,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -741,14 +742,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -835,14 +836,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -929,14 +930,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -1023,14 +1024,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -1117,14 +1118,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -1211,14 +1212,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -1305,14 +1306,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -1399,14 +1400,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -1493,14 +1494,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -1587,14 +1588,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -1681,14 +1682,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -1775,14 +1776,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -1869,14 +1870,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -1963,14 +1964,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -2057,14 +2058,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -2151,14 +2152,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -2245,14 +2246,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -2339,14 +2340,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -2433,14 +2434,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -2527,14 +2528,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -2621,14 +2622,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -2715,14 +2716,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -2809,14 +2810,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -2903,14 +2904,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -2995,16 +2996,16 @@
             }
         },
         'footer': {
-            'text': '',
+            'text': '10 maximum occurrences in file xmldsig_schema.xsd',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -3089,16 +3090,16 @@
             }
         },
         'footer': {
-            'text': '',
+            'text': '9 maximum occurrences in file xmldsig_schema.xsd',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -3185,14 +3186,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -3279,14 +3280,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -3371,16 +3372,16 @@
             }
         },
         'footer': {
-            'text': '',
+            'text': '11 maximum occurrences in file saml20assertion_schema.xsd',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -3465,16 +3466,16 @@
             }
         },
         'footer': {
-            'text': '',
+            'text': '7 maximum occurrences in file xmldsig_schema.xsd',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -3561,14 +3562,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -3655,14 +3656,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -3749,14 +3750,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -3841,16 +3842,16 @@
             }
         },
         'footer': {
-            'text': '',
+            'text': '10 maximum occurrences in file saml20assertion_schema.xsd',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -3937,14 +3938,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -4031,14 +4032,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -4125,14 +4126,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -4219,14 +4220,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -4313,14 +4314,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -4405,16 +4406,16 @@
             }
         },
         'footer': {
-            'text': '',
+            'text': '3 maximum occurrences in file saml20protocol_schema.xsd',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -4501,14 +4502,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -4595,14 +4596,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -4689,14 +4690,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
@@ -4783,14 +4784,14 @@
         'footer': {
             'text': '',
             'color': '#999999',
-            'fontSize': 10,
-            'font': 'open sans',
+            'fontSize': 12,
+            'font': 'Arial Black',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 450,
-            'canvasHeight': 400,
-            'pieOuterRadius': '55%',
+            'canvasWidth': 525,
+            'canvasHeight': 450,
+            'pieOuterRadius': '75%',
             'pieInnerRadius': '0',
         },
 
