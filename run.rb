@@ -1,5 +1,86 @@
 #!/usr/bin/env ruby
 
+# colors for the file extensions
+exthash = { 'css' => '#E6B0AA',
+            'eot' => '#F4D03F',
+            'folders' => '#E67E22',
+            'html' => '#D7BDE2',
+            'js' => '#28B463',
+            'map' => '#111111',
+            'md' => '#A9CCE3',
+            'rb' => '#154360',
+            'svg' => '#78281F',
+            'txt' => '#17202A',
+            'ttf' => '#000000',
+            'woff' => '#8E44AD',
+            'woff2' => '#999999',
+            'xml' => '#E67E22',
+            'xsd' => '#34495E' }
+
+# colors for the pie chart pieces
+schema_colors = { 'bar.xsd' => '#E6B0AA',
+                  'bookstore.xsd' => '#F4D03F',
+                  'concept.xsd' => '#D7BDE2',
+                  'dinner-menu.xsd' => '#28B463',
+                  'foo.xsd' => '#A9CCE3',
+                  'note.xsd' => '#154360',
+                  'note2.xsd' => '#A3E4D7',
+                  'reference.xsd' => '#78281F',
+                  'saml20assertion_schema.xsd' => '#7D6608',
+                  'saml20protocol_schema.xsd' => '#E67E22',
+                  'sitemap.xsd' => '#FFCCCC',
+                  'task.xsd' => '#784212',
+                  'topic.xsd' => '#34495E',
+                  'xenc_schema.xsd' => '#17202A',
+                  'xmldsig_schema.xsd' => '#8E44AD' }
+
+# built with links
+links = { 'Ruby' => 'https://www.ruby-lang.org',
+          'd3pie' => 'http://d3pie.org/',
+          'D3' => 'https://d3js.org/',
+          'HTML5' => 'https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5',
+          'CSS3' => 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3',
+          'Bootstrap' => 'https://getbootstrap.com/',
+          'jQuery' => 'https://jquery.com/',
+          'JavaScript' => 'https://en.wikipedia.org/wiki/JavaScript',
+          'XML' => 'https://en.wikipedia.org/wiki/XML',
+          'XML Schema' => 'https://en.wikipedia.org/wiki/XML_schema',
+          'Regular expressions' => 'https://en.wikipedia.org/wiki/Regular_expression',
+          'Git' => 'https://git-scm.com/',
+          'GitHub Desktop' => 'https://desktop.github.com/',
+          'GitHub Pages' => 'https://pages.github.com',
+          'RubyMine' => 'https://www.jetbrains.com/ruby',
+          'Flag Counter' => 'https://flagcounter.com/',
+          'GitHub:buttons' => 'https://buttons.github.io/',
+          'cloc' => 'https://github.com/AlDanial/cloc' }
+
+# create cloc data
+cloc = `cloc . --ignored=ignored.txt --skip-uniqueness --quiet`
+
+# create git log for histogram on homepage
+`git log --pretty=format:"%ad" --date=short > log.txt`
+file = File.open('log.txt', 'r')
+logdata = file.read
+file.close
+logdata = logdata.lines.group_by(&:strip).map{|k, v| [k, v.size]}
+logdata.unshift(%w[Date Amount])
+
+extension = []
+# get file extensions
+Dir.glob('**/*').map do |x|
+  ext = File.extname(x)
+  if ext == ''
+    extension << 'folders'
+  else
+    extension << ext[1..-1]
+  end
+  # sz = File.size(x)
+  # sizes << sz
+end
+
+# extensions
+allfiles = extension.flatten.group_by{|x| x}.map{|k, v| [k, v.size]}
+
 # function to open and read in file
 def read_schema(schema)
   file = File.open(schema, 'r')
@@ -61,71 +142,11 @@ def clean_chart(chart)
   chart.tr('<"=: ', '')
 end
 
-# create cloc data
-cloc = `cloc . --ignored=ignored.txt --skip-uniqueness --quiet`
-
-# create git log for histogram on homepage
-`git log --pretty=format:"%ad" --date=short > log.txt`
-file = File.open('log.txt', 'r')
-logdata = file.read
-file.close
-logdata = logdata.lines.group_by(&:strip).map{|k, v| [k, v.size]}
-logdata.unshift(%w[Date Amount])
-
-extension = []
-# get file extensions
-Dir.glob('**/*').map do |x|
-  ext = File.extname(x)
-  if ext == ''
-    extension << 'folders'
-  else
-    extension << ext[1..-1]
-  end
-  # sz = File.size(x)
-  # sizes << sz
-end
-
-# hash of extensions
-exthash = { 'css' => '#E6B0AA',
-            'eot' => '#F4D03F',
-            'folders' => '#E67E22',
-            'html' => '#D7BDE2',
-            'js' => '#28B463',
-            'map' => '#111111',
-            'md' => '#A9CCE3',
-            'rb' => '#154360',
-            'svg' => '#78281F',
-            'txt' => '#17202A',
-            'ttf' => '#000000',
-            'woff' => '#8E44AD',
-            'woff2' => '#999999',
-            'xml' => '#E67E22',
-            'xsd' => '#34495E'}
-
-# extensions
-allFiles = extension.flatten.group_by{|x| x}.map{|k, v| [k, v.size]}
-
-# colors for the pie chart pieces
-schema_colors = { 'bar.xsd' => '#E6B0AA',
-                  'bookstore.xsd' => '#F4D03F',
-                  'concept.xsd' => '#D7BDE2',
-                  'dinner-menu.xsd' => '#28B463',
-                  'foo.xsd' => '#A9CCE3',
-                  'note.xsd' => '#154360',
-                  'note2.xsd' => '#A3E4D7',
-                  'reference.xsd' => '#78281F',
-                  'saml20assertion_schema.xsd' => '#7D6608',
-                  'saml20protocol_schema.xsd' => '#E67E22',
-                  'sitemap.xsd' => '#FFCCCC',
-                  'task.xsd' => '#784212',
-                  'topic.xsd' => '#34495E',
-                  'xenc_schema.xsd' => '#17202A',
-                  'xmldsig_schema.xsd' => '#8E44AD' }
-
 # function that draws the pie chart
 def drawchart(which, data, num, colors, title, width, height,
               mainlabelsize, titlesize, valuesize, tooltipsize,
-              segmentsize, pieouterradius, piedistance)
+              segmentsize, pieouterradius, piedistance, linesenabled,
+              pulloutsegmentsize)
   s = "
     var pie = new d3pie('pie_chart_div_#{which}', {
         'header': {
@@ -190,7 +211,7 @@ def drawchart(which, data, num, colors, title, width, height,
                 'fontSize': #{valuesize}
             },
             'lines': {
-                'enabled': true
+                'enabled': #{linesenabled}
             },
             'truncation': {
                 'enabled': true
@@ -211,7 +232,7 @@ def drawchart(which, data, num, colors, title, width, height,
             'pullOutSegmentOnClick': {
                 'effect': 'linear',
                 'speed': 400,
-                'size': 10
+                'size': #{pulloutsegmentsize}
             }
         },
         'misc': {
@@ -224,6 +245,31 @@ def drawchart(which, data, num, colors, title, width, height,
             }
         }
     });\n"
+  s
+end
+
+# built with section on home page
+def section_built_with(links, cloc)
+  s =  "
+        <h3>Built With</h3>
+        <div>
+          <ul>\n"
+  links.map do |k, v|
+    s += %(            <li><a href="#{v}" target="_blank" rel="noopener">#{k}</a></li>\n)
+  end
+  s +=  %(</ul>
+        </div>
+        <h3>Lines of code in this project</h3>
+        <pre>
+          <code>
+            #{cloc}
+          </code>
+        </pre>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_all"></div>
+        <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_hist"></div>
+      </div>\n)
   s
 end
 
@@ -299,42 +345,9 @@ page_build(page_count)
 @page += %(
       <h1>Ruby d3pie based XML Schema text mining application</h1>
       <div class="row homepage">
-        <h2>Featured Statistics</h2>
-        <h3>Built With</h3>
-        <div>
-          <ul>
-            <li><a href="https://www.ruby-lang.org" target="_blank" rel="noopener">Ruby</a></li>
-            <li><a href="http://d3pie.org/" target="_blank" rel="noopener">d3pie</a></li>
-            <li><a href="https://d3js.org/" target="_blank" rel="noopener">D3</a></li>
-            <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" target="_blank" rel="noopener">HTML5</a></li>
-            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" target="_blank" rel="noopener">CSS3</a></li>
-            <li><a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a></li>
-            <li><a href="https://jquery.com/" target="_blank" rel="noopener">jQuery</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank" rel="noopener">JavaScript</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/XML" target="_blank" rel="noopener">XML</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/XML_schema" target="_blank" rel="noopener">XML Schema</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Regular_expression" target="_blank" rel="noopener">Regular Expressions</a></li>
-            <li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
-            <li><a href="https://desktop.github.com/" target="_blank" rel="noopener">GitHub Desktop</a></li>
-            <li><a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a></li>
-            <li><a href="https://www.jetbrains.com/ruby" target="_blank" rel="noopener">RubyMine</a></li>
-            <li><a href="https://flagcounter.com/" target="_blank" rel="noopener">Flag Counter</a></li>
-            <li><a href="https://buttons.github.io/" target="_blank" rel="noopener">Github:buttons</a></li>
-            <li><a href="https://github.com/AlDanial/cloc" target="_blank" rel="noopener">Count lines of code</a></li>
-          </ul>
-        </div>
-        <h3>Lines of code in this project</h3>
-        <pre>
-          <code>
-            #{cloc}
-          </code>
-        </pre>
-      </div>
-      <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_all"></div>
-        <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_hist"></div>
-      </div>\n)
-
+        <h2>Featured Statistics</h2>)
+# add built with links to home page
+@page += section_built_with(links, cloc)
 # restart all the chart pages
 $page = %(
       <h1>Branch count grouped by file</h1>)
@@ -403,14 +416,14 @@ $page = %(
 page_build(page_count)
 # add all the javascript for each pie chart to each page
 # home page
-@page += drawchart('homepage_all', allFiles, 0, exthash, 'Branch count of files grouped by file extension', 700, 700, 15, 24, 16, 16, 1, '70%', 50)
+@page += drawchart('homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 700, 700, 15, 24, 16, 16, 1, '70%', 50, false, 35)
 # other pages
 structure.map.with_index do |chart, ind|
   data0 = clean_chart(chart[0])
   data1 = chart[1..-1]
   i = ind / 50 + 1
   instance_variable_set("@page#{i}",
-                        instance_variable_get("@page#{i}") + drawchart(data0, data1, ind, schema_colors, chart[0], 450, 400, 11, 14, 12, 12, 3, '55%', 20))
+                        instance_variable_get("@page#{i}") + drawchart(data0, data1, ind, schema_colors, chart[0], 450, 400, 11, 14, 12, 12, 3, '55%', 20, true, 10))
 end
 
 # restart common page
