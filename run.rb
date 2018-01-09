@@ -1,5 +1,19 @@
 #!/usr/bin/env ruby
 
+require 'yaml'
+
+# function to open and read in file
+def read_file(f)
+  file = File.open(f, 'r')
+  data = file.read
+  file.close
+  data
+end
+
+# load website config file
+file = read_file('site.yml')
+site_config = YAML.safe_load(file)
+
 # colors for the file extensions
 exthash = { 'css' => '#E6B0AA',
             'eot' => '#F4D03F',
@@ -15,7 +29,8 @@ exthash = { 'css' => '#E6B0AA',
             'woff' => '#8E44AD',
             'woff2' => '#999999',
             'xml' => '#E67E22',
-            'xsd' => '#34495E' }
+            'xsd' => '#34495E',
+            'yml' => '#441411' }
 
 # colors for the pie chart pieces
 schema_colors = { 'bar.xsd' => '#E6B0AA',
@@ -89,20 +104,12 @@ end
 # extensions
 allfiles = extension.flatten.group_by{|x| x}.map{|k, v| [k, v.size]}
 
-# function to open and read in file
-def read_schema(schema)
-  file = File.open(schema, 'r')
-  data = file.read
-  file.close
-  data
-end
-
 # function that generates the pie chart data
 def generate_data
   tokens = []
   # loop over schema files
   Dir.glob('assets/data/schema/*.xsd').map do |schema|
-    data = read_schema(schema)
+    data = read_file(schema)
     data.scan(/<xs:\w+|\w+="\w+"|\w+="xs:\w+"/).uniq do |x|
       tokens << x unless tokens.include? x
     end
@@ -116,7 +123,7 @@ def generate_data
     structure[i] = [x]
     Dir.glob('assets/data/schema/*.xsd').map do |schema|
       filename = schema.split('/').last
-      amount = read_schema(schema).scan(x).size
+      amount = read_file(schema).scan(x).size
       structure[i] << [filename, amount] unless amount.zero?
     end
   end
@@ -311,11 +318,9 @@ $page = %(<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Ruby d3pie text mining dashboard</title>
-    <meta name="description" content="Analytics dashboard built from Ruby using
-          the d3pie library. It text mines a folder of XML Schema to generate
-          statistics about tags and attributes.">
-    <meta name="theme-color" content="#312598"/>
+    <title>#{site_config['title']}</title>
+    <meta name="description" content="#{site_config['description']}">
+    <meta name="theme-color" content="##{site_config['theme-color']}"/>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-theme.min.css">
     <style>
@@ -345,7 +350,7 @@ $page = %(<!DOCTYPE html>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Analytics Dashboard</a>
+            <a class="navbar-brand" href="index.html">#{site_config['nav-heading']}</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">)
@@ -370,7 +375,7 @@ $page = %(
 page_build(page_count)
 # start home page stats
 @page += %(
-      <h1>Ruby d3pie based XML Schema text mining application</h1>
+      <h1>#{site_config['homepage-heading']}</h1>
       <div class="row homepage">
         <h2>Featured Statistics</h2>)
 # add built with links to home page

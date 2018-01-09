@@ -1,0 +1,15 @@
+# This is the websites config file written in YAML http://yaml.org/
+
+# HTML elements and attributes
+# meta name="description"
+description     : Analytics dashboard built from Ruby using the d3pie library. It text mines a folder of XML Schema to generate statistics about tags and attributes.
+# <title>
+title           : Ruby d3pie text mining dashboard
+# meta name="theme-color"
+theme-color     : 312598
+
+# Text on web pages
+# heading at top left of website
+nav-heading     : Analytics Dashboard
+# homepage heading h1
+homepage-heading: Ruby d3pie based XML Schema text mining application

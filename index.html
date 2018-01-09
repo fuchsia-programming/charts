@@ -7,9 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
     <title>Ruby d3pie text mining dashboard</title>
-    <meta name="description" content="Analytics dashboard built from Ruby using
-          the d3pie library. It text mines a folder of XML Schema to generate
-          statistics about tags and attributes.">
+    <meta name="description" content="Analytics dashboard built from Ruby using the d3pie library. It text mines a folder of XML Schema to generate statistics about tags and attributes.">
     <meta name="theme-color" content="#312598"/>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-theme.min.css">
@@ -95,19 +93,20 @@
         <pre>
           <code>
             
-github.com/AlDanial/cloc v 1.72  T=1.18 s (43.9 files/s, 85455.1 lines/s)
+github.com/AlDanial/cloc v 1.72  T=1.21 s (43.9 files/s, 83923.6 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-HTML                            16           1442             48          67680
+HTML                            16           1442             48          67649
 JavaScript                       7           3096            600          15876
 CSS                              4              7             24           7326
 Markdown                         4            578              0           2102
 XSD                             15             73             48           1375
-XML                              5              0              0            499
-Ruby                             1             22             45            417
+XML                              5              0              0            528
+Ruby                             1             24             46            419
+YAML                             1              2              8              5
 -------------------------------------------------------------------------------
-SUM:                            52           5218            765          95275
+SUM:                            53           5222            774          95280
 -------------------------------------------------------------------------------
 
           </code>
@@ -195,7 +194,7 @@ SUM:                            52           5218            765          95275
                 'enabled': true,
                 'value': 1
             },
-            'content': [{'label':'html','value':16,'color':'#D7BDE2'},{'label':'folders','value':11,'color':'#E67E22'},{'label':'md','value':4,'color':'#A9CCE3'},{'label':'txt','value':2,'color':'#17202A'},{'label':'xml','value':1,'color':'#E67E22'},{'label':'css','value':4,'color':'#E6B0AA'},{'label':'map','value':4,'color':'#111111'},{'label':'js','value':7,'color':'#28B463'},{'label':'woff','value':1,'color':'#8E44AD'},{'label':'eot','value':1,'color':'#F4D03F'},{'label':'woff2','value':1,'color':'#999999'},{'label':'ttf','value':1,'color':'#000000'},{'label':'svg','value':1,'color':'#78281F'},{'label':'xsd','value':15,'color':'#34495E'},{'label':'rb','value':1,'color':'#154360'}
+            'content': [{'label':'html','value':16,'color':'#D7BDE2'},{'label':'folders','value':11,'color':'#E67E22'},{'label':'yml','value':1,'color':'#441411'},{'label':'md','value':4,'color':'#A9CCE3'},{'label':'txt','value':2,'color':'#17202A'},{'label':'xml','value':1,'color':'#E67E22'},{'label':'css','value':4,'color':'#E6B0AA'},{'label':'map','value':4,'color':'#111111'},{'label':'js','value':7,'color':'#28B463'},{'label':'woff','value':1,'color':'#8E44AD'},{'label':'eot','value':1,'color':'#F4D03F'},{'label':'woff2','value':1,'color':'#999999'},{'label':'ttf','value':1,'color':'#000000'},{'label':'svg','value':1,'color':'#78281F'},{'label':'xsd','value':15,'color':'#34495E'},{'label':'rb','value':1,'color':'#154360'}
             ]
         },
         callbacks: {
