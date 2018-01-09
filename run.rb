@@ -54,6 +54,14 @@ links = { 'Ruby' => 'https://www.ruby-lang.org',
           'GitHub:buttons' => 'https://buttons.github.io/',
           'cloc' => 'https://github.com/AlDanial/cloc' }
 
+# data for GitHub buttons
+buttons = [
+    ['', 'Follow @jbampton on GitHub', 'Follow @jbampton', ''],
+    ['/charts', 'Star jbampton/charts on GitHub', 'Star', 'star'],
+    ['/charts/subscription', 'Watch jbampton/charts on GitHub', 'Watch', 'eye'],
+    ['/charts/fork', 'Fork jbampton/charts on GitHub', 'Fork', 'repo-forked']
+]
+
 # create cloc data
 cloc = `cloc . --ignored=ignored.txt --skip-uniqueness --quiet`
 
@@ -132,7 +140,7 @@ def add_links(page_count)
   page = ''
   (0..page_count).map do |i|
     page += %(
-          <li><a href="index#{i > 0 ? i : ''}.html">Page #{i + 1}</a></li>)
+              <li><a href="index#{i > 0 ? i : ''}.html">Page #{i + 1}</a></li>)
   end
   page
 end
@@ -253,11 +261,13 @@ def section_built_with(links, cloc)
   s =  "
         <h3>Built With</h3>
         <div>
-          <ul>\n"
+          <ul>"
   links.map do |k, v|
-    s += %(            <li><a href="#{v}" target="_blank" rel="noopener">#{k}</a></li>\n)
+    s += %(
+             <li><a href="#{v}" target="_blank" rel="noopener">#{k}</a></li>)
   end
-  s +=  %(</ul>
+  s +=  %(
+          </ul>
         </div>
         <h3>Lines of code in this project</h3>
         <pre>
@@ -269,7 +279,23 @@ def section_built_with(links, cloc)
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_all"></div>
         <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_hist"></div>
-      </div>\n)
+      </div>)
+  s
+end
+
+# function to make the list of GitHub buttons
+def add_github_buttons(arr)
+  s = ''
+  arr.map do |button|
+    s += %(
+          <li>
+            <a class="github-button" href="https://github.com/jbampton#{button[0]}")
+    if button[3] != ''
+      s += %( data-icon="octicon-#{button[3]}" )
+    end
+    s += %( data-size="large" data-show-count="true" aria-label="#{button[1]}">#{button[2]}</a>
+          </li>)
+  end
   s
 end
 
@@ -334,7 +360,8 @@ $page = add_links(page_count)
 # continue to build all the pages
 page_build(page_count)
 # restart common page region
-$page = %(</ul>
+$page = %(
+          </ul>
         </div>
       </div>
     </nav>
@@ -361,39 +388,17 @@ structure.map.with_index do |chart, i|
                         instance_variable_get("@page#{i}") + "\n      <div class=\"col-sm-6 col-md-4 col-lg-3\" id=\"pie_chart_div_#{data0}\"></div>")
 end
 # restart common page region
-$page = '
+$page = %(
     </div>
     <footer>
       <div class="container">
-        <ul class="list-unstyled">
-          <li>
-            <a class="github-button" href="https://github.com/jbampton"
-               data-size="large" data-show-count="true"
-               aria-label="Follow @jbampton on GitHub">Follow @jbampton</a>
-          </li>
-          <li>
-            <a class="github-button" href="https://github.com/jbampton/charts"
-               data-icon="octicon-star" data-size="large" data-show-count="true"
-               aria-label="Star jbampton/charts on GitHub">Star</a>
-          </li>
-          <li>
-            <a class="github-button" href="https://github.com/jbampton/charts/subscription"
-               data-icon="octicon-eye" data-size="large" data-show-count="true"
-               aria-label="Watch jbampton/charts on GitHub">Watch</a>
-          </li>
-          <li>
-            <a class="github-button" href="https://github.com/jbampton/charts/fork"
-               data-icon="octicon-repo-forked" data-size="large"
-               data-show-count="true" aria-label="Fork jbampton/charts on GitHub">Fork</a>
-          </li>'
-# continue to build all the pages
-page_build(page_count)
-# restart common page region
-$page = add_links(page_count)
-# continue to build all the pages
-page_build(page_count)
-# restart common page region
-$page = %(
+        <ul class="list-unstyled">\n)
+# add GitHub buttons
+$page += add_github_buttons(buttons)
+# add general page links
+$page += add_links(page_count)
+# add rest of page
+$page += %(
           <li><a href="#head1">Back to top</a></li>
           <li class="nuchecker">
             <a target="_blank" rel="noopener">Valid HTML</a>
