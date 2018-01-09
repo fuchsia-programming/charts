@@ -15,7 +15,12 @@ Metrics/CyclomaticComplexity:
   Enabled: false
 
 Metrics/LineLength:
-  Max: 170
+  Exclude:
+    - 'run.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'run.rb'
 
 Metrics/PerceivedComplexity:
   Enabled: false

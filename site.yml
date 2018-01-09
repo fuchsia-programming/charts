@@ -2,6 +2,8 @@
 
 # site config
 last_update: "Site last built: "
+valid_html: Valid HTML
+back_to_top: Back to top
 
 
 # GitHub details

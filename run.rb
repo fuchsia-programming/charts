@@ -79,7 +79,7 @@ links = { 'Ruby' => 'https://www.ruby-lang.org',
 buttons = [
   ['', "Follow @#{site_config['github_username']} on GitHub", "Follow @#{site_config['github_username']}", ''],
   ["/#{site_config['repository']}", "Star #{site_config['github_username']}/#{site_config['repository']} on GitHub", 'Star', 'star'],
-  ["/#{site_config['repository']}/subscription", "Watch #{site_config['github_username']}/charts on GitHub", 'Watch', 'eye'],
+  ["/#{site_config['repository']}/subscription", "Watch #{site_config['github_username']}/#{site_config['repository']} on GitHub", 'Watch', 'eye'],
   ["/#{site_config['repository']}/fork", "Fork #{site_config['github_username']}/#{site_config['repository']} on GitHub", 'Fork', 'repo-forked']
 ]
 
@@ -313,7 +313,6 @@ def section_built_with(links, cloc, site_config)
         <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_all"></div>
         <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_hist"></div>
       </div>)
-  s
 end
 
 # function to make the list of GitHub buttons
@@ -427,9 +426,9 @@ $page += add_links(page_count)
 sitebuildtime = Time.now.strftime '%FT%T%:z'
 $page += %(
           <li class="nuchecker">
-            <a target="_blank" rel="noopener">Valid HTML</a>
+            <a target="_blank" rel="noopener">#{site_config['valid_html']}</a>
           </li>
-          <li><a href="#head1">Back to top</a></li>
+          <li><a href="#head1">#{site_config['back_to_top']}</a></li>
           <li><a class="built">#{site_config['last_update']}#{sitebuildtime}</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
