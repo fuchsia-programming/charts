@@ -356,7 +356,7 @@ $page = %(<!DOCTYPE html>
          any other head content must come *after* these tags -->
     <title>#{site_config['title']}</title>
     <meta name="description" content="#{site_config['description']}">
-    <meta name="theme-color" content="##{site_config['theme_color']}"/>
+    <meta name="theme-color" content="##{site_config['theme_color']}">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-theme.min.css">
     <style>
