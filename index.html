@@ -7,6 +7,22 @@
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
     <title>Ruby d3pie text mining dashboard</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/icons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/images/icons/ms-icon-144x144.png">
     <meta name="description" content="Analytics dashboard built from Ruby using the d3pie library. It text mines a folder of XML Schema to generate statistics about tags and attributes.">
     <meta name="theme-color" content="#E5E8E8">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -104,20 +120,21 @@
           <pre>
             <code>
               
-github.com/AlDanial/cloc v 1.72  T=1.49 s (36.3 files/s, 68889.2 lines/s)
+github.com/AlDanial/cloc v 1.72  T=1.33 s (42.0 files/s, 77036.4 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-HTML                            16           1444             48          68543
+HTML                            16           1444             48          68800
 JavaScript                       7           3096            600          15876
 CSS                              4              7             24           7326
 Markdown                         4            578              0           2104
 XSD                             15             73             48           1375
-XML                              5              0              0            633
-Ruby                             1             27             47            460
+XML                              6              0              0            713
+Ruby                             1             28             60            471
 YAML                             2             16             15             41
+JSON                             1              0              0             41
 -------------------------------------------------------------------------------
-SUM:                            54           5241            782          96358
+SUM:                            56           5242            795          96747
 -------------------------------------------------------------------------------
 
             </code>
@@ -167,7 +184,7 @@ SUM:                            54           5241            782          96358
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-11T02:44:51+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-11T04:06:40+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -191,7 +208,7 @@ SUM:                            54           5241            782          96358
             }
         },
         'footer': {
-            'text': '16 html files occurred most frequently',
+            'text': '25 png files occurred most frequently',
             'color': '#ff0000',
             'fontSize': 18,
             'font': 'open sans',
@@ -210,7 +227,7 @@ SUM:                            54           5241            782          96358
                 'enabled': true,
                 'value': 1
             },
-            'content': [{'label':'html','value':16,'color':'#D7BDE2'},{'label':'folders','value':12,'color':'#E67E22'},{'label':'yml','value':1,'color':'#441411'},{'label':'md','value':4,'color':'#A9CCE3'},{'label':'txt','value':2,'color':'#17202A'},{'label':'xml','value':1,'color':'#E67E22'},{'label':'css','value':4,'color':'#E6B0AA'},{'label':'map','value':4,'color':'#111111'},{'label':'js','value':7,'color':'#28B463'},{'label':'woff','value':1,'color':'#8E44AD'},{'label':'eot','value':1,'color':'#F4D03F'},{'label':'woff2','value':1,'color':'#999999'},{'label':'ttf','value':1,'color':'#000000'},{'label':'svg','value':1,'color':'#78281F'},{'label':'png','value':1,'color':''},{'label':'xsd','value':15,'color':'#34495E'},{'label':'rb','value':1,'color':'#154360'}
+            'content': [{'label':'html','value':16,'color':'#D7BDE2'},{'label':'folders','value':13,'color':'#E67E22'},{'label':'yml','value':1,'color':'#441411'},{'label':'md','value':4,'color':'#A9CCE3'},{'label':'txt','value':2,'color':'#17202A'},{'label':'xml','value':2,'color':'#E67E22'},{'label':'css','value':4,'color':'#E6B0AA'},{'label':'map','value':4,'color':'#111111'},{'label':'js','value':7,'color':'#28B463'},{'label':'woff','value':1,'color':'#8E44AD'},{'label':'eot','value':1,'color':'#F4D03F'},{'label':'woff2','value':1,'color':'#999999'},{'label':'ttf','value':1,'color':'#000000'},{'label':'svg','value':1,'color':'#78281F'},{'label':'png','value':25,'color':''},{'label':'ico','value':1,'color':''},{'label':'json','value':1,'color':''},{'label':'xsd','value':15,'color':'#34495E'},{'label':'rb','value':1,'color':'#154360'}
             ]
         },
         callbacks: {

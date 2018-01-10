@@ -342,6 +342,29 @@ def add_github_buttons(arr)
   s
 end
 
+def add_icons
+  i = 'href="assets/images/icons/'
+  a = '<link rel="apple-touch-icon" '
+  b = '<link rel="icon" type="image/png" '
+  %(
+    #{a}sizes="57x57" #{i}apple-icon-57x57.png">
+    #{a}sizes="60x60" #{i}apple-icon-60x60.png">
+    #{a}sizes="72x72" #{i}apple-icon-72x72.png">
+    #{a}sizes="76x76" #{i}apple-icon-76x76.png">
+    #{a}sizes="114x114" #{i}apple-icon-114x114.png">
+    #{a}sizes="120x120" #{i}apple-icon-120x120.png">
+    #{a}sizes="144x144" #{i}apple-icon-144x144.png">
+    #{a}sizes="152x152" #{i}apple-icon-152x152.png">
+    #{a}sizes="180x180" #{i}apple-icon-180x180.png">
+    #{b}sizes="192x192" #{i}android-icon-192x192.png">
+    #{b}sizes="32x32" #{i}favicon-32x32.png">
+    #{b}sizes="96x96" #{i}favicon-96x96.png">
+    #{b}sizes="16x16" #{i}favicon-16x16.png">
+    <link rel="manifest" #{i}manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/images/icons/ms-icon-144x144.png">)
+end
+
 # data variable
 structure = generate_data
 
@@ -354,7 +377,9 @@ $page = %(<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>#{site_config['title']}</title>
+    <title>#{site_config['title']}</title>)
+$page += add_icons
+$page += %(
     <meta name="description" content="#{site_config['description']}">
     <meta name="theme-color" content="##{site_config['theme_color']}">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
