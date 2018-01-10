@@ -20,6 +20,7 @@
       div[id^="pie_chart_div_"] { margin-bottom: 100px; }
       footer { background-color: #E5E8E8; min-height: 200px;}
       footer ul a { color: #000 !important; font-size: 13pt; }
+      footer .container { margin-left: 15px; }
       .built { text-decoration: none !important; }
       .selected { background-color: aliceblue; font-weight: bold; }
       .navbar-default li:hover a { background-color: red !important; }
@@ -69,7 +70,7 @@
         <h2>Featured Statistics</h2>
         <div class="col-md-3">
           <h3>About</h3>
-          <div>This Ruby script is a static site generator. It text mines a folder of XML Schema and generates statistics on elements and attributes. The config file: site.yml stores most of the websites configuration information and can be easily customized.</div>
+          <div>This Ruby script is a static site generator. It text mines a folder of XML Schema as well as the MIT License and generates statistics on elements, attributes (XML) or words (License). The config file: site.yml stores most of the websites configuration information and can be easily customized.</div>
           <h3>Built With</h3>
           <div>
             <ul>
@@ -101,20 +102,20 @@
           <pre>
             <code>
               
-github.com/AlDanial/cloc v 1.72  T=1.23 s (43.8 files/s, 82906.8 lines/s)
+github.com/AlDanial/cloc v 1.72  T=1.19 s (45.5 files/s, 86125.2 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-HTML                            16           1442             48          68401
+HTML                            16           1444             48          68511
 JavaScript                       7           3096            600          15876
 CSS                              4              7             24           7326
 Markdown                         4            578              0           2104
 XSD                             15             73             48           1375
-XML                              5              0              0            569
-Ruby                             1             26             46            446
+XML                              5              0              0            576
+Ruby                             1             28             48            459
 YAML                             2             16             15             41
 -------------------------------------------------------------------------------
-SUM:                            54           5238            781          96138
+SUM:                            54           5242            783          96268
 -------------------------------------------------------------------------------
 
             </code>
@@ -122,8 +123,10 @@ SUM:                            54           5238            781          96138
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_all"></div>
-        <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_hist"></div>
+        <div class="col-sm-12" id="pie_chart_div_homepage_all"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12" id="pie_chart_div_homepage_mit"></div>
       </div>
     </div>
     <footer>
@@ -162,7 +165,7 @@ SUM:                            54           5238            781          96138
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-10T09:24:30+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-10T10:57:01+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -187,14 +190,14 @@ SUM:                            54           5238            781          96138
         },
         'footer': {
             'text': '16 html files occurred most frequently',
-            'color': '#fff',
+            'color': '#ff0000',
             'fontSize': 18,
             'font': 'open sans',
             'location': 'bottom-center'
         },
         'size': {
-            'canvasWidth': 700,
-            'canvasHeight': 700,
+            'canvasWidth': 1000,
+            'canvasHeight': 1000,
             'pieOuterRadius': '70%',
             'pieInnerRadius': '35%',
         },
@@ -237,6 +240,100 @@ SUM:                            54           5238            781          96138
             },
             'lines': {
                 'enabled': false
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 16
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 35
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#ffcccc'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('pie_chart_div_homepage_mit', {
+        'header': {
+            'title': {
+                'text': '2 - Most frequent words in the MIT License',
+                'fontSize': 24,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '13 maximum occurrences in file the',
+            'color': '#ff0000',
+            'fontSize': 18,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 1000,
+            'canvasHeight': 1000,
+            'pieOuterRadius': '70%',
+            'pieInnerRadius': '35%',
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 1
+            },
+            'content': [{'label':'the','value':13,'color':'black'},{'label':'software','value':8,'color':'black'},{'label':'to','value':8,'color':'black'},{'label':'of','value':8,'color':'black'},{'label':'or','value':8,'color':'black'},{'label':'in','value':6,'color':'black'},{'label':'is','value':4,'color':'black'},{'label':'and','value':4,'color':'black'},{'label':'any','value':3,'color':'black'},{'label':'without','value':3,'color':'black'},{'label':'copyright','value':3,'color':'black'},{'label':'for','value':2,'color':'black'},{'label':'copies','value':2,'color':'black'},{'label':'shall','value':2,'color':'black'},{'label':'be','value':2,'color':'black'},{'label':'other','value':2,'color':'black'},{'label':'permission','value':2,'color':'black'},{'label':'notice','value':2,'color':'black'},{'label':'a','value':2,'color':'black'},{'label':'including','value':2,'color':'black'},{'label':'copy','value':2,'color':'black'},{'label':'this','value':2,'color':'black'},{'label':'use','value':2,'color':'black'},{'label':'publish','value':1,'color':'black'},{'label':'distribute','value':1,'color':'black'},{'label':'sublicense','value':1,'color':'black'},{'label':'andor','value':1,'color':'black'},{'label':'sell','value':1,'color':'black'},{'label':'permit','value':1,'color':'black'},{'label':'persons','value':1,'color':'black'},{'label':'whom','value':1,'color':'black'},{'label':'furnished','value':1,'color':'black'},{'label':'do','value':1,'color':'black'},{'label':'so','value':1,'color':'black'},{'label':'subject','value':1,'color':'black'},{'label':'following','value':1,'color':'black'},{'label':'conditions','value':1,'color':'black'},{'label':'above','value':1,'color':'black'},{'label':'included','value':1,'color':'black'},{'label':'all','value':1,'color':'black'},{'label':'substantial','value':1,'color':'black'},{'label':'portions','value':1,'color':'black'},{'label':'provided','value':1,'color':'black'},{'label':'as','value':1,'color':'black'},{'label':'warranty','value':1,'color':'black'},{'label':'kind','value':1,'color':'black'},{'label':'express','value':1,'color':'black'},{'label':'implied','value':1,'color':'black'},{'label':'but','value':1,'color':'black'},{'label':'not','value':1,'color':'black'},{'label':'limited','value':1,'color':'black'},{'label':'warranties','value':1,'color':'black'},{'label':'merchantability','value':1,'color':'black'},{'label':'fitness','value':1,'color':'black'},{'label':'particular','value':1,'color':'black'},{'label':'purpose','value':1,'color':'black'},{'label':'noninfringement','value':1,'color':'black'},{'label':'no','value':1,'color':'black'},{'label':'event','value':1,'color':'black'},{'label':'authors','value':1,'color':'black'},{'label':'holders','value':1,'color':'black'},{'label':'liable','value':1,'color':'black'},{'label':'claim','value':1,'color':'black'},{'label':'damages','value':1,'color':'black'},{'label':'liability','value':1,'color':'black'},{'label':'whether','value':1,'color':'black'},{'label':'an','value':1,'color':'black'},{'label':'action','value':1,'color':'black'},{'label':'contract','value':1,'color':'black'},{'label':'tort','value':1,'color':'black'},{'label':'otherwise','value':1,'color':'black'},{'label':'arising','value':1,'color':'black'},{'label':'from','value':1,'color':'black'},{'label':'out','value':1,'color':'black'},{'label':'connection','value':1,'color':'black'},{'label':'with','value':1,'color':'black'},{'label':'mit','value':1,'color':'black'},{'label':'dealings','value':1,'color':'black'},{'label':'license','value':1,'color':'black'},{'label':'(c)','value':1,'color':'black'},{'label':'2018','value':1,'color':'black'},{'label':'john','value':1,'color':'black'},{'label':'bampton','value':1,'color':'black'},{'label':'hereby','value':1,'color':'black'},{'label':'granted','value':1,'color':'black'},{'label':'free','value':1,'color':'black'},{'label':'charge','value':1,'color':'black'},{'label':'person','value':1,'color':'black'},{'label':'obtaining','value':1,'color':'black'},{'label':'associated','value':1,'color':'black'},{'label':'documentation','value':1,'color':'black'},{'label':'files','value':1,'color':'black'},{'label':'(the','value':1,'color':'black'},{'label':'software)','value':1,'color':'black'},{'label':'deal','value':1,'color':'black'},{'label':'restriction','value':1,'color':'black'},{'label':'limitation','value':1,'color':'black'},{'label':'rights','value':1,'color':'black'},{'label':'modify','value':1,'color':'black'},{'label':'merge','value':1,'color':'black'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 50
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 15
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 16
+            },
+            'lines': {
+                'enabled': true
             },
             'truncation': {
                 'enabled': true

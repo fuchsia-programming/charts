@@ -15,6 +15,15 @@ def ii(i)
   i.positive? ? i : ''
 end
 
+# Most popular word in the MIT Open source license
+def mit_word_count
+  data = read_file('LICENSE')
+  data.split.map{|x| x.gsub(/[\(c\)|2018|a-z]/i).map(&:downcase).to_a.join}
+      .group_by{|x| x}.map{|k, v| [k, v.size]}.sort_by{|_, y| -y}
+end
+
+# mit_word_count
+
 # load website config file
 site_config = YAML.safe_load(read_file('site.yml'))
 
@@ -214,7 +223,11 @@ def drawchart(type, which, data, num, colors, title, width, height,
             },
             'content': ["
   data.each do |x|
-    s += "{'label':'#{x[0].split('.').first}','value':#{x[1]},'color':'#{colors[x[0]]}'},"
+    if x[0].include?('.') || type != 2
+      s += "{'label':'#{x[0].split('.').first}','value':#{x[1]},'color':'#{colors[x[0]]}'},"
+    else
+      s += "{'label':'#{x[0]}','value':#{x[1]},'color':'black'},"
+    end
   end
   s.chop!
   s += "
@@ -282,7 +295,6 @@ def drawchart(type, which, data, num, colors, title, width, height,
             }
         }
     });\n"
-  s
 end
 
 # built with section on home page
@@ -312,8 +324,10 @@ def section_built_with(links, cloc, site_config)
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_all"></div>
-        <div class="col-sm-6 col-md-4 col-lg-3" id="pie_chart_div_homepage_hist"></div>
+        <div class="col-sm-12" id="pie_chart_div_homepage_all"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12" id="pie_chart_div_homepage_mit"></div>
       </div>)
 end
 
@@ -357,6 +371,7 @@ $page = %(<!DOCTYPE html>
       div[id^="pie_chart_div_"] { margin-bottom: 100px; }
       footer { background-color: ##{site_config['theme_color']}; min-height: 200px;}
       footer ul a { color: ##{site_config['text_color']} !important; font-size: 13pt; }
+      footer .container { margin-left: 15px; }
       .built { text-decoration: none !important; }
       .selected { background-color: #{site_config['nav_selected_color']}; font-weight: bold; }
       .navbar-default li:hover a { background-color: #{site_config['nav_hover_color']} !important; }
@@ -454,8 +469,10 @@ $page += '
 page_build(page_count)
 # add all the javascript for each pie chart to each page
 # home page
-@page += drawchart(0,'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 700, 700, 15, 24, 16, 16, 1,
-                   '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18, 'ffcccc', 'fff')
+@page += drawchart(0,'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 1000, 1000, 15, 24, 16, 16, 1,
+                   '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
+@page += drawchart(2,'homepage_mit', mit_word_count, 1, exthash, 'Most frequent words in the MIT License', 1000, 1000, 15, 24, 16, 16, 1,
+                   '70%', '35%', 50, true, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
 # other pages
 structure.map.with_index do |chart, ind|
   data0 = clean_chart(chart[0])

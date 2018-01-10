@@ -1,7 +1,7 @@
 # This is the websites config file written in YAML http://yaml.org/
 
 # site config
-about: "This Ruby script is a static site generator. It text mines a folder of XML Schema and generates statistics on elements and attributes. The config file: site.yml stores most of the websites configuration information and can be easily customized."
+about: "This Ruby script is a static site generator. It text mines a folder of XML Schema as well as the MIT License and generates statistics on elements, attributes (XML) or words (License). The config file: site.yml stores most of the websites configuration information and can be easily customized."
 last_update: "Site last built: "
 valid_html: Valid HTML
 back_to_top: Back to top
