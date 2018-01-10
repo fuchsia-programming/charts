@@ -24,6 +24,8 @@ end
 # load website config file
 site_config = YAML.safe_load(read_file('site.yml'))
 
+site_scripts = %w[bootstrap/js/jquery.min.js bootstrap/js/bootstrap.min.js js/d3/d3.js js/d3pie.min.js]
+
 # colors for the file extensions
 exthash = { 'css' => '#E6B0AA',
             'eot' => '#F4D03F',
@@ -167,6 +169,16 @@ def clean_chart(chart)
   chart.tr('<"=: ', '')
 end
 
+#
+def add_scripts(scripts)
+  s = ''
+  scripts.map do |script|
+    s += %(
+    <script src="assets/#{script}"></script>)
+  end
+  s
+end
+
 # function that draws the pie chart
 def drawchart(type, which, data, num, colors, title, width, height,
               mainlabelsize, titlesize, valuesize, tooltipsize,
@@ -209,7 +221,7 @@ def drawchart(type, which, data, num, colors, title, width, height,
             'canvasWidth': #{width},
             'canvasHeight': #{height},
             'pieOuterRadius': '#{pieouterradius}',
-            'pieInnerRadius': '#{pieinnerradius}',
+            'pieInnerRadius': '#{pieinnerradius}'
         },
 
         'data': {
@@ -482,11 +494,7 @@ $page += %(
       </div>
     </footer>)
 # add all the websites external JavaScript files
-site_scripts = %w[bootstrap/js/jquery.min.js bootstrap/js/bootstrap.min.js js/d3/d3.js js/d3pie.min.js]
-site_scripts.map do |script|
-  $page += %(
-    <script src="assets/#{script}"></script>)
-end
+$page += add_scripts(site_scripts)
 # continue to build all the pages
 $page += '
     <script>'
