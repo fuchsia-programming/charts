@@ -17,12 +17,9 @@ end
 
 # Most popular word in the MIT Open source license
 def mit_word_count
-  data = read_file('LICENSE')
-  data.split.map{|x| x.gsub(/[\(c\)|2018|a-z]/i).map(&:downcase).to_a.join}
-      .group_by{|x| x}.map{|k, v| [k, v.size]}.sort_by{|_, y| -y}
+  read_file('LICENSE').split.map{|x| x.gsub(/[^a-z0-9]/i, '').downcase}
+                      .group_by{|x| x}.map{|k, v| [k, v.size]}.sort_by{|_, y| -y}
 end
-
-# mit_word_count
 
 # load website config file
 site_config = YAML.safe_load(read_file('site.yml'))
@@ -366,7 +363,7 @@ $page = %(<!DOCTYPE html>
       .container-fluid { padding: 0px; }
       .navbar, .navbar-default { padding: 5pt; background-color: ##{site_config['theme_color']}; font-size: 12pt; }
       .navbar, .navbar-default li a { color: ##{site_config['text_color']} !important; }
-      .navbar-default .navbar-brand { color: ##{site_config['logo_text_color']}; font-size: 18pt; font-weight: bold; }
+      .navbar-default .navbar-brand { margin-left: 20px !important; color: ##{site_config['logo_text_color']}; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: #{site_config['nav_hover_color']} !important; }
       div[id^="pie_chart_div_"] { margin-bottom: 100px; }
       footer { background-color: ##{site_config['theme_color']}; min-height: 200px;}
@@ -378,6 +375,7 @@ $page = %(<!DOCTYPE html>
       h1 { text-align: center; background-color: ##{site_config['theme_color']}; padding: 14px; color: ##{site_config['text_color']}; }
       pre { white-space: pre-wrap; word-wrap: break-word; }
       .homepage { padding: 5px 30px 5px 30px; }
+      .logo { float: left; }
     </style>
   </head>
     <body>
@@ -385,6 +383,7 @@ $page = %(<!DOCTYPE html>
       <nav class="navbar navbar-default" id="head1">
         <div class="container-fluid">
           <div class="navbar-header">
+            <img src="assets/images/logo.png" alt="Ruby Powered" class="logo">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
