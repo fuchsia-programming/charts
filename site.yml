@@ -2,18 +2,28 @@
 
 # site config
 url: http://thebeast.me/charts/
-# chart type: either d3pie or google
-chart_type: d3pie
-about: "This Ruby script is a static site generator. It data mines or text mines a folder of XML Schema files as well as the MIT License and generates statistics on elements and attributes (the XML Schema) or on words (the License).
-        The config file: `site.yml` stores most of the websites configuration information and can be easily customized.
+# chart type: either "d3pie" or "Google Charts"
+chart_type: "Google Charts"
+about: "This Ruby script `run.rb` is a static site generator. It data mines or text mines a folder of XML Schema files as well as the MIT License and generates statistics on elements and attributes (the XML Schema) or on words (the License).
 
 
-        A fancy feature is the ability to switch between using `d3pie` based pie charts or `Google charts` based pie charts just by changing the config entry `chart_type` from `d3pie` to `google`.
+The config file: `site.yml` stores most of the websites configuration information and can be easily customized.
 
 
-        The home page charts for the `google` `chart_type` are not yet complete.
+A fancy feature is the ability to switch between using **`d3pie`** based pie charts or **`Google Charts`** based pie charts just by changing the config entry `chart_type` from **`d3pie`** to **`Google Charts`**.
 
-        For the `d3pie` charts we have both `Donut` and `Pie` style charts."
+
+The home page charts for the **`Google Charts`** `chart_type` are not yet complete.
+
+
+For the **`d3pie`** charts we have both `Donut` and `Pie` style charts.
+
+
+The advantage of the **`d3pie`** chart is its ability to handle mouse clicks on the pie chart pieces and they respond by popping in and out.
+
+
+The advantage of the **`Google Chart`** pie chart is its in built ability to create a chart legend."
+
 last_update: "Site last built: "
 valid_html: Valid HTML
 back_to_top: Back to top
@@ -32,7 +42,7 @@ repository: charts
 
 # HTML elements and attributes
 # meta name="description"
-description: Analytics dashboard built from Ruby using the d3pie library. It text mines a folder of XML Schema to generate statistics about tags and attributes.
+description: Analytics dashboard built from Ruby using the d3pie and Google charts libraries. The application or script text mines a folder of XML Schema to generate statistics about tags and attributes.
 # <title>
 title: Ruby d3pie text mining dashboard
 # meta name="theme-color"

@@ -439,7 +439,7 @@ def page_header(site_config, page_count)
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>#{site_config['title']}</title>)
+    <title>#{site_config['title'].gsub(/d3pie/, site_config['chart_type'])}</title>)
   page += add_icons
   page += %(
     <meta name="description" content="#{site_config['description']}">
@@ -499,7 +499,7 @@ page_header(site_config, page_count)
 
 # start home page stats
 @page += %(
-    <h1>#{site_config['homepage_heading']}</h1>
+    <h1>#{site_config['homepage_heading'].gsub(/d3pie/, site_config['chart_type'])}</h1>
     <div class="row homepage">
       <h2>#{site_config['homepage_subheading1']}</h2>)
 # add built with links to home page
@@ -515,7 +515,7 @@ structure.map.with_index do |chart, i|
   data0 = clean_chart(chart[0])
   i = i / 50 + 1
   instance_variable_set("@page#{i}",
-                        instance_variable_get("@page#{i}") + "\n      <div class=\"col-lg-4 col-md-6 col-sm-12\" id=\"#{site_config['chart_type'] == 'google' ? 'chart_div_' : 'pie_chart_div_'}#{data0}\"></div>")
+                        instance_variable_get("@page#{i}") + "\n      <div class=\"col-lg-4 col-md-6 col-sm-12\" id=\"#{site_config['chart_type'] == 'Google Charts' ? 'chart_div_' : 'pie_chart_div_'}#{data0}\"></div>")
 end
 
 # restart common page region
@@ -557,7 +557,7 @@ end
 $page += '
     <script>'
 #
-if site_config['chart_type'] == 'google'
+if site_config['chart_type'] == 'Google Charts'
   $page += %(
       google.charts.load("current", {"packages":["corechart"]});\n)
 end
