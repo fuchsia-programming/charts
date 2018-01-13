@@ -545,7 +545,7 @@ $page = %(
 # finish building all the pages
 page_build(page_count)
 
-# builds the sitemap and writes it and all sites pages to files
+# builds sitemap.xml, robots.txt and writes them and all the sites HTML pages to files
 def build_site(page_count, sitebuildtime, url, m)
   # write all the HTML pages to files and build the site map
   sitemap = %(<?xml version="1.0" encoding="UTF-8"?>
@@ -574,6 +574,9 @@ def build_site(page_count, sitebuildtime, url, m)
 </urlset>'
   file = File.open('sitemap.xml', 'w')
   file.write(sitemap)
+  file.close
+  file = File.open('robots.txt', 'w')
+  file.write("Sitemap: #{url}sitemap.xml")
   file.close
 end
 
