@@ -2,6 +2,7 @@
 
 # Reach your final destination
 
+require 'kramdown'
 require 'yaml'
 
 # function to open and read in file
@@ -67,9 +68,12 @@ schema_colors = { 'bar.xsd' => '#E6B0AA',
 
 # built with links
 links = { 'Ruby' => 'https://www.ruby-lang.org',
+          'RubyMine' => 'https://www.jetbrains.com/ruby',
           'Rubocop' => 'https://github.com/bbatsov/rubocop',
           'rbenv' => 'https://github.com/rbenv/rbenv',
           'ruby-build' => 'https://github.com/rbenv/ruby-build',
+          'kramdown' => 'https://kramdown.gettalong.org',
+          'cloc' => 'https://github.com/AlDanial/cloc',
           'd3pie' => 'http://d3pie.org/',
           'D3' => 'https://d3js.org/',
           'Google Charts' => 'https://developers.google.com/chart/',
@@ -87,12 +91,10 @@ links = { 'Ruby' => 'https://www.ruby-lang.org',
           'GitHub Desktop' => 'https://desktop.github.com/',
           'GitHub Pages' => 'https://pages.github.com',
           'GitHub:buttons' => 'https://buttons.github.io/',
-          'RubyMine' => 'https://www.jetbrains.com/ruby',
           'Flag Counter' => 'https://flagcounter.com/',
-          'cloc' => 'https://github.com/AlDanial/cloc',
           'Sitemaps' => 'https://en.wikipedia.org/wiki/Sitemaps',
-          'Portable Network Graphics' => 'https://en.wikipedia.org/wiki/Portable_Network_Graphics',
-          'robots.txt' => 'https://en.wikipedia.org/wiki/Robots_exclusion_standard' }
+          'robots.txt' => 'https://en.wikipedia.org/wiki/Robots_exclusion_standard',
+          'Portable Network Graphics' => 'https://en.wikipedia.org/wiki/Portable_Network_Graphics' }
 
 # data for GitHub buttons
 buttons = [
@@ -254,7 +256,7 @@ def drawchart(type, which, data, num, colors, title, width, height,
     end
   end
   s.chop!
-  s += "
+  s + "
             ]
         },
         callbacks: {
@@ -326,7 +328,7 @@ def section_built_with(links, cloc, site_config)
   s = %(
       <div class="col-md-3">
         <h3>#{site_config['homepage_subheading2']}</h3>
-        <div>#{site_config['about']}</div>
+        <div>#{Kramdown::Document.new(site_config['about']).to_html}</div>
         <h3>#{site_config['homepage_subheading3']}</h3>
         <div>
           <ul>)
@@ -334,7 +336,7 @@ def section_built_with(links, cloc, site_config)
     s += %(
             <li><a href="#{v}" target="_blank" rel="noopener">#{k}</a></li>)
   end
-  s += %(
+  s + %(
           </ul>
         </div>
       </div>
@@ -381,10 +383,10 @@ end
 
 # common function to add the icons
 def add_icons
-  s = ''; icon_path = 'assets/images/icons/'
-  s += add_apple_icons(icon_path)
+  icon_path = 'assets/images/icons/'
+  s = add_apple_icons(icon_path)
   b = '<link rel="icon" type="image/png" sizes="'; j = %(" href="#{icon_path})
-  s += %(
+  s + %(
     #{b}192x192#{j}android-icon-192x192.png">
     #{b}32x32#{j}favicon-32x32.png">
     #{b}96x96#{j}favicon-96x96.png">
@@ -513,7 +515,7 @@ structure.map.with_index do |chart, i|
   data0 = clean_chart(chart[0])
   i = i / 50 + 1
   instance_variable_set("@page#{i}",
-                        instance_variable_get("@page#{i}") + "\n      <div class=\"col-lg-4 col-md-6 col-sm-12\" id=\"#{site_config['chart_type']=='google'?'chart_div_':'pie_chart_div_'}#{data0}\"></div>")
+                        instance_variable_get("@page#{i}") + "\n      <div class=\"col-lg-4 col-md-6 col-sm-12\" id=\"#{site_config['chart_type'] == 'google' ? 'chart_div_' : 'pie_chart_div_'}#{data0}\"></div>")
 end
 
 # restart common page region

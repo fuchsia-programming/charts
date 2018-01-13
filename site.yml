@@ -3,9 +3,17 @@
 # site config
 url: http://thebeast.me/charts/
 # chart type: either d3pie or google
-chart_type: google
-about: "This Ruby script is a static site generator. It text mines a folder of XML Schema as well as the MIT License and generates statistics on elements, attributes (XML) or words (License). The config file: site.yml stores most of the websites configuration information and can be easily customized.
- A fancy feature is the ability to switch between using d3pie based pie charts or Google charts based pie charts just by changing a single config entry."
+chart_type: d3pie
+about: "This Ruby script is a static site generator. It data mines or text mines a folder of XML Schema files as well as the MIT License and generates statistics on elements and attributes (the XML Schema) or on words (the License).
+        The config file: `site.yml` stores most of the websites configuration information and can be easily customized.
+
+
+        A fancy feature is the ability to switch between using `d3pie` based pie charts or `Google charts` based pie charts just by changing the config entry `chart_type` from `d3pie` to `google`.
+
+
+        The home page charts for the `google` `chart_type` are not yet complete.
+
+        For the `d3pie` charts we have both `Donut` and `Pie` style charts."
 last_update: "Site last built: "
 valid_html: Valid HTML
 back_to_top: Back to top
