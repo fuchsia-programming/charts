@@ -1,6 +1,6 @@
 # Charting Demo
 
-This Ruby script is a static site generator. It data mines or text mines a folder of XML Schema files as well as the MIT License and generates statistics on elements, attributes (XML Schema) or words (License). 
+This Ruby script is a static site generator. It data mines or text mines a folder of XML Schema files as well as the MIT License and generates statistics on elements and attributes (the XML Schema) or on words (the License). 
 The config file: `site.yml` stores most of the websites configuration information and can be easily customized.
 
 A fancy feature is the ability to switch between using `d3pie` based pie charts or `Google charts` based pie charts just by changing the config entry `chart_type`.
