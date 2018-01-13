@@ -30,4 +30,4 @@ Demo can be seen here: http://thebeast.me/charts/
 
 ## Powered By
 
-![Ruby Powered](/assets/images/icons/android-icon-72x72.png "Ruby")
+[![Ruby Powered](/assets/images/icons/android-icon-72x72.png "Ruby")](https://www.ruby-lang.org)
