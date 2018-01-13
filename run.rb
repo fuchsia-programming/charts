@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# Reach your final destination
+
 require 'yaml'
 
 # function to open and read in file
@@ -155,11 +157,11 @@ def page_build(page_count, start = 0)
 end
 
 # add navigation hyperlinks
-def add_links(page_count, h=0)
+def add_links(page_count, h = 0)
   page = ''
   (0..page_count).map do |i|
     page += %(
-          #{h>0?'':'  '}<li><a href="index#{ii i}.html">Page #{i + 1}</a></li>)
+          #{h.positive? ? '' : '  '}<li><a href="index#{ii i}.html">Page #{i + 1}</a></li>)
   end
   page
 end
@@ -506,9 +508,9 @@ $page += '
 page_build(page_count)
 # add all the javascript for each pie chart to each page
 # home page
-@page += drawchart(0,'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 1000, 1000, 15, 24, 16, 16, 1,
+@page += drawchart(0, 'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 1000, 1000, 15, 24, 16, 16, 1,
                    '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
-@page += drawchart(2,'homepage_mit', mit_word_count, 1, exthash, 'Most frequent words in the MIT License', 1000, 1000, 15, 24, 16, 16, 1,
+@page += drawchart(2, 'homepage_mit', mit_word_count, 1, exthash, 'Most frequent words in the MIT License', 1000, 1000, 15, 24, 16, 16, 1,
                    '70%', '35%', 50, true, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
 # other pages
 structure.map.with_index do |chart, ind|
@@ -517,7 +519,7 @@ structure.map.with_index do |chart, ind|
   i = ind / 50 + 1
   instance_variable_set("@page#{i}",
                         instance_variable_get("@page#{i}") + drawchart(1, data0, data1, ind, schema_colors, chart[0], 490, 425, 11, 13, 12, 12, 3,
-                                                                       '75%', 0, 20, true, 10, 'Arial Black', 'Arial Black', 12, 'fff', 999999))
+                                                                       '75%', 0, 20, true, 10, 'Arial Black', 'Arial Black', 12, 'fff', 999))
 end
 
 # restart common page
@@ -542,31 +544,41 @@ $page = %(
 </html>)
 # finish building all the pages
 page_build(page_count)
-# write all the HTML pages to files and build the site map
-sitemap = %(<?xml version="1.0" encoding="UTF-8"?>
+
+# builds the sitemap and writes it and all sites pages to files
+def build_site(page_count, sitebuildtime, url, m)
+  # write all the HTML pages to files and build the site map
+  sitemap = %(<?xml version="1.0" encoding="UTF-8"?>
 <urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns="#{m}"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-  http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  xsi:schemaLocation="#{m}
+  #{m}/sitemap.xsd">
   <url>
-    <loc>http://thebeast.me/charts/</loc>
+    <loc>#{url}</loc>
     <lastmod>#{sitebuildtime}</lastmod>
     <priority>1.00</priority>
   </url>)
-(0..page_count).map do |i|
-  file = File.open("index#{ii i}.html", 'w')
-  file.write(instance_variable_get("@page#{ii i}"))
-  file.close
-  sitemap += %(
+  (0..page_count).map do |i|
+    file = File.open("index#{ii i}.html", 'w')
+    file.write(instance_variable_get("@page#{ii i}"))
+    file.close
+    sitemap += %(
   <url>
-    <loc>http://thebeast.me/charts/index#{ii i}.html</loc>
+    <loc>#{url}index#{ii i}.html</loc>
     <lastmod>#{sitebuildtime}</lastmod>
     <priority>0.80</priority>
   </url>)
-end
-sitemap += '
+  end
+  sitemap += '
 </urlset>'
-file = File.open('sitemap.xml', 'w')
-file.write(sitemap)
-file.close
+  file = File.open('sitemap.xml', 'w')
+  file.write(sitemap)
+  file.close
+end
+
+# Final Destination 10 ??!!?!!
+# https://en.wikipedia.org/wiki/Final_Destination#Films
+# http://www.imdb.com/list/ls000699250/
+#
+build_site(page_count, sitebuildtime, site_config['url'], site_config['maps'])

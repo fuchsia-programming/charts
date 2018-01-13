@@ -1,6 +1,7 @@
 # This is the websites config file written in YAML http://yaml.org/
 
 # site config
+url: http://thebeast.me/charts/
 about: "This Ruby script is a static site generator. It text mines a folder of XML Schema as well as the MIT License and generates statistics on elements, attributes (XML) or words (License). The config file: site.yml stores most of the websites configuration information and can be easily customized."
 last_update: "Site last built: "
 valid_html: Valid HTML
@@ -9,6 +10,8 @@ text_color: '000'
 logo_text_color: 'ff00ff'
 nav_hover_color: red
 nav_selected_color: aliceblue
+
+maps: http://www.sitemaps.org/schemas/sitemap/0.9
 
 
 # GitHub details
