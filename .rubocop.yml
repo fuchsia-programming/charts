@@ -25,5 +25,9 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Enabled: false
 
+Style/BlockComments:
+  Exclude:
+    - 'run.rb'
+
 Style/Semicolon:
   AllowAsExpressionSeparator: true

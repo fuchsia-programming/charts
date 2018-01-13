@@ -355,26 +355,22 @@ def add_github_buttons(arr)
 end
 
 def add_icons
-  i = 'href="assets/images/icons/'
-  a = '<link rel="apple-touch-icon" '
-  b = '<link rel="icon" type="image/png" '
-  %(
-    #{a}sizes="57x57" #{i}apple-icon-57x57.png">
-    #{a}sizes="60x60" #{i}apple-icon-60x60.png">
-    #{a}sizes="72x72" #{i}apple-icon-72x72.png">
-    #{a}sizes="76x76" #{i}apple-icon-76x76.png">
-    #{a}sizes="114x114" #{i}apple-icon-114x114.png">
-    #{a}sizes="120x120" #{i}apple-icon-120x120.png">
-    #{a}sizes="144x144" #{i}apple-icon-144x144.png">
-    #{a}sizes="152x152" #{i}apple-icon-152x152.png">
-    #{a}sizes="180x180" #{i}apple-icon-180x180.png">
-    #{b}sizes="192x192" #{i}android-icon-192x192.png">
-    #{b}sizes="32x32" #{i}favicon-32x32.png">
-    #{b}sizes="96x96" #{i}favicon-96x96.png">
-    #{b}sizes="16x16" #{i}favicon-16x16.png">
-    <link rel="manifest" #{i}manifest.json">
+  s = ''; icon_path = 'assets/images/icons/'
+  apple_icons = Dir.glob("#{icon_path}apple-icon-[0-9]*.png").map do |apple_icon|
+    icon_size = apple_icon.split('.').first.split('-').last
+    %(
+    <link rel="apple-touch-icon" sizes="#{icon_size}" href="#{apple_icon}">)
+  end.sort_by{|x| x.split('.').first.split('-').last.split('x').first.to_i}.join
+  s += apple_icons
+  b = '<link rel="icon" type="image/png" sizes="'; j = %(href="#{icon_path})
+  s += %(
+    #{b}192x192" #{j}android-icon-192x192.png">
+    #{b}32x32" #{j}favicon-32x32.png">
+    #{b}96x96" #{j}favicon-96x96.png">
+    #{b}16x16" #{j}favicon-16x16.png">
+    <link rel="manifest" href="#{icon_path}manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="assets/images/icons/ms-icon-144x144.png">)
+    <meta name="msapplication-TileImage" content="#{icon_path}ms-icon-144x144.png">)
 end
 
 # data variable
