@@ -1,6 +1,8 @@
 # Charting Demo
 
-Ruby script that builds a static dashboard website with interactive pie charts.
+This Ruby script is a static site generator. It data mines or text mines a folder of XML Schema files as well as the MIT License and generates statistics on elements, attributes (XML Schema) or words (License). 
+The config file: `site.yml` stores most of the websites configuration information and can be easily customized.
+A fancy feature is the ability to switch between using `d3pie` based pie charts or `Google charts` based pie charts just by changing the config entry `chart_type`.
 
 Demo can be seen here: http://thebeast.me/charts/
 
@@ -14,6 +16,7 @@ Demo can be seen here: http://thebeast.me/charts/
 - [cloc](https://github.com/AlDanial/cloc)
 - [d3pie](http://d3pie.org/)
 - [D3](https://d3js.org/)
+- [Google Charts](https://developers.google.com/chart/)
 - [jQuery](https://jquery.com/)
 - [JSON](https://www.json.org/)
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript)

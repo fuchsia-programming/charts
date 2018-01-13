@@ -26,7 +26,9 @@ end
 # load website config file
 site_config = YAML.safe_load(read_file('site.yml'))
 
-site_scripts = %w[bootstrap/js/jquery.min.js bootstrap/js/bootstrap.min.js js/d3/d3.js js/d3pie.min.js]
+site_scripts = %w[bootstrap/js/jquery.min.js bootstrap/js/bootstrap.min.js]
+d3_scripts = %w[assets/js/d3/d3.js assets/js/d3pie.min.js]
+google_scripts = %w[https://www.gstatic.com/charts/loader.js https://www.google.com/jsapi]
 
 # colors for the file extensions
 exthash = { 'css' => '#E6B0AA',
@@ -65,12 +67,17 @@ schema_colors = { 'bar.xsd' => '#E6B0AA',
 
 # built with links
 links = { 'Ruby' => 'https://www.ruby-lang.org',
+          'Rubocop' => 'https://github.com/bbatsov/rubocop',
+          'rbenv' => 'https://github.com/rbenv/rbenv',
+          'ruby-build' => 'https://github.com/rbenv/ruby-build',
           'd3pie' => 'http://d3pie.org/',
           'D3' => 'https://d3js.org/',
+          'Google Charts' => 'https://developers.google.com/chart/',
           'HTML5' => 'https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5',
           'CSS3' => 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3',
           'Bootstrap' => 'https://getbootstrap.com/',
           'jQuery' => 'https://jquery.com/',
+          'JSON' => 'https://www.json.org/',
           'JavaScript' => 'https://en.wikipedia.org/wiki/JavaScript',
           'YAML' => 'http://www.yaml.org/',
           'XML' => 'https://en.wikipedia.org/wiki/XML',
@@ -79,11 +86,12 @@ links = { 'Ruby' => 'https://www.ruby-lang.org',
           'Git' => 'https://git-scm.com/',
           'GitHub Desktop' => 'https://desktop.github.com/',
           'GitHub Pages' => 'https://pages.github.com',
+          'GitHub:buttons' => 'https://buttons.github.io/',
           'RubyMine' => 'https://www.jetbrains.com/ruby',
           'Flag Counter' => 'https://flagcounter.com/',
-          'GitHub:buttons' => 'https://buttons.github.io/',
           'cloc' => 'https://github.com/AlDanial/cloc',
-          'Rubocop' => 'https://github.com/bbatsov/rubocop' }
+          'Sitemaps' => 'https://en.wikipedia.org/wiki/Sitemaps',
+          'Portable Network Graphics' => 'https://en.wikipedia.org/wiki/Portable_Network_Graphics' }
 
 # data for GitHub buttons
 buttons = [
@@ -172,11 +180,15 @@ def clean_chart(chart)
 end
 
 #
-def add_scripts(scripts)
+def add_scripts(scripts, chart_scripts)
   s = ''
   scripts.map do |script|
     s += %(
     <script src="assets/#{script}"></script>)
+  end
+  chart_scripts.map do |script|
+    s += %(
+    <script src="#{script}"></script>)
   end
   s
 end
@@ -381,6 +393,34 @@ def add_icons
     <meta name="msapplication-TileImage" content="#{icon_path}ms-icon-144x144.png">)
 end
 
+# common function to escape double quotes
+def escape(s)
+  s.gsub('"', '\"')
+end
+
+# common function for each chart
+def draw_chart(which_chart, data, chart_string, chart_values,
+               chart_title, chart_div, width, height)
+  %(
+        function drawChart#{which_chart}() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "#{escape(chart_string)}");
+          data.addColumn("number", "#{chart_values}");
+          data.addRows(#{data});
+          // Set chart options
+          var options = {"title": "#{escape(chart_title)}",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": #{width},
+                         "height": #{height},
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_#{chart_div}"));
+          chart.draw(data, options);
+        }\n)
+end
+
 # data variable
 structure = generate_data
 # home page plus other pages with 50 charts per page
@@ -466,13 +506,15 @@ $page = %(
       <h1>#{site_config['other_heading']}</h1>)
 # continue to build all the pages
 page_build(page_count, 1)
+
 # add chart divs to each page
 structure.map.with_index do |chart, i|
   data0 = clean_chart(chart[0])
   i = i / 50 + 1
   instance_variable_set("@page#{i}",
-                        instance_variable_get("@page#{i}") + "\n      <div class=\"col-lg-4 col-md-6 col-sm-12\" id=\"pie_chart_div_#{data0}\"></div>")
+                        instance_variable_get("@page#{i}") + "\n      <div class=\"col-lg-4 col-md-6 col-sm-12\" id=\"#{site_config['chart_type']=='google'?'chart_div_':'pie_chart_div_'}#{data0}\"></div>")
 end
+
 # restart common page region
 $page = %(
     </div>
@@ -500,44 +542,70 @@ $page += %(
         <a id="theend"></a>
       </div>
     </footer>)
+
 # add all the websites external JavaScript files
-$page += add_scripts(site_scripts)
+if site_config['chart_type'] == 'd3pie'
+  $page += add_scripts(site_scripts, d3_scripts)
+else
+  $page += add_scripts(site_scripts, google_scripts)
+end
+
 # continue to build all the pages
 $page += '
     <script>'
+#
+if site_config['chart_type'] == 'google'
+  $page += %(
+      google.charts.load("current", {"packages":["corechart"]});\n)
+end
+#
 page_build(page_count)
-# add all the javascript for each pie chart to each page
-# home page
-@page += drawchart(0, 'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 1000, 1000, 15, 24, 16, 16, 1,
-                   '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
-@page += drawchart(2, 'homepage_mit', mit_word_count, 1, exthash, 'Most frequent words in the MIT License', 1000, 1000, 15, 24, 16, 16, 1,
-                   '70%', '35%', 50, true, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
-# other pages
-structure.map.with_index do |chart, ind|
-  data0 = clean_chart(chart[0])
-  data1 = chart[1..-1]
-  i = ind / 50 + 1
-  instance_variable_set("@page#{i}",
-                        instance_variable_get("@page#{i}") + drawchart(1, data0, data1, ind, schema_colors, chart[0], 490, 425, 11, 13, 12, 12, 3,
-                                                                       '75%', 0, 20, true, 10, 'Arial Black', 'Arial Black', 12, 'fff', 999))
+
+#
+if site_config['chart_type'] == 'd3pie'
+  # add all the javascript for each pie chart to each page
+  # home page
+  @page += drawchart(0, 'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 1000, 1000, 15, 24, 16, 16, 1,
+                     '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
+  @page += drawchart(2, 'homepage_mit', mit_word_count, 1, exthash, 'Most frequent words in the MIT License', 1000, 1000, 15, 24, 16, 16, 1,
+                     '70%', '35%', 50, true, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
+  # other pages
+  structure.map.with_index do |chart, ind|
+    data0 = clean_chart(chart[0])
+    data1 = chart[1..-1]
+    i = ind / 50 + 1
+    instance_variable_set("@page#{i}",
+                          instance_variable_get("@page#{i}") + drawchart(1, data0, data1, ind, schema_colors, chart[0], 490, 425, 11, 13, 12, 12, 3,
+                                                                         '75%', 0, 20, true, 10, 'Arial Black', 'Arial Black', 12, 'fff', 999))
+  end
+else
+  # add all the JavaScript for each pie chart to each page
+  structure.map.with_index do |chart, ind|
+    data0 = clean_chart(chart[0])
+    data1 = chart[1..-1].map{|x| [x.first.split('.').first, x.last]}
+    v = 'Values'
+    i = ind / 50 + 1
+    instance_variable_set("@page#{i}",
+                          instance_variable_get("@page#{i}") + "        google.charts.setOnLoadCallback(drawChart#{data0});\n" + draw_chart(data0, data1, chart[0], v, chart_title(chart[0], ind), data0, 400, 400))
+  end
 end
 
 # restart common page
 $page = %(
-      $(document).ready(function () {
-         "use strict";
-         var last = $(location).attr("href").split("/").pop().split(".")[0].replace(/index/, "");
-         var tab = 1;
-         if (last !== "") {
-           tab = parseInt(last) + 1;
-         }
-         $(".navbar-nav li:nth-child(" + tab + ")").addClass("selected");
-         tab--;
-         if (tab === 0) {
-           tab = "";
-         }
-        $(".nuchecker a").attr("href", "https://validator.w3.org/nu/?doc=http%3A%2F%2Fthebeast.me%2Fcharts%2Findex" + tab + ".html");
-    });
+        $(document).ready(function () {
+           "use strict";
+           var last = $(location).attr("href").split("/").pop().split(".")[0].replace(/index/, "");
+           var tab = 1;
+           if (last !== "") {
+             tab = parseInt(last) + 1;
+           }
+           $(".navbar-nav li:nth-child(" + tab + ")").addClass("selected");
+           tab--;
+           if (tab === 0) {
+             tab = "";
+           }
+          $(".nuchecker a").attr("href", "https://validator.w3.org/nu/?doc=http%3A%2F%2Fthebeast.me%2Fcharts%2Findex" + tab + ".html");
+      });
     </script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
