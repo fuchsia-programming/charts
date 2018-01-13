@@ -2,6 +2,7 @@
 
 This Ruby script is a static site generator. It data mines or text mines a folder of XML Schema files as well as the MIT License and generates statistics on elements, attributes (XML Schema) or words (License). 
 The config file: `site.yml` stores most of the websites configuration information and can be easily customized.
+
 A fancy feature is the ability to switch between using `d3pie` based pie charts or `Google charts` based pie charts just by changing the config entry `chart_type`.
 
 Demo can be seen here: http://thebeast.me/charts/
@@ -34,6 +35,7 @@ Demo can be seen here: http://thebeast.me/charts/
 - [Sitemaps](https://en.wikipedia.org/wiki/Sitemaps)
 - [Flag Counter](https://flagcounter.com/)
 - [Markdown](https://daringfireball.net/projects/markdown)
+- [robots.txt](https://en.wikipedia.org/wiki/Robots_exclusion_standard)
 - [Portable Network Graphics](https://en.wikipedia.org/wiki/Portable_Network_Graphics)
 
 ## Powered By

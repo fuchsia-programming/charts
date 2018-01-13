@@ -91,7 +91,8 @@ links = { 'Ruby' => 'https://www.ruby-lang.org',
           'Flag Counter' => 'https://flagcounter.com/',
           'cloc' => 'https://github.com/AlDanial/cloc',
           'Sitemaps' => 'https://en.wikipedia.org/wiki/Sitemaps',
-          'Portable Network Graphics' => 'https://en.wikipedia.org/wiki/Portable_Network_Graphics' }
+          'Portable Network Graphics' => 'https://en.wikipedia.org/wiki/Portable_Network_Graphics',
+          'robots.txt' => 'https://en.wikipedia.org/wiki/Robots_exclusion_standard' }
 
 # data for GitHub buttons
 buttons = [
