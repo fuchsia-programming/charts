@@ -578,7 +578,7 @@ def build_site(page_count, sitebuildtime, url, m)
 end
 
 # Final Destination 10 ??!!?!!
-# https://en.wikipedia.org/wiki/Final_Destination#Films
+# https://en.wikipedia.org/wiki/Final_Destination
 # http://www.imdb.com/list/ls000699250/
 #
 build_site(page_count, sitebuildtime, site_config['url'], site_config['maps'])
