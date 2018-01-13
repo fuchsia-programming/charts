@@ -368,12 +368,12 @@ end
 def add_icons
   s = ''; icon_path = 'assets/images/icons/'
   s += add_apple_icons(icon_path)
-  b = '<link rel="icon" type="image/png" sizes="'; j = %(href="#{icon_path})
+  b = '<link rel="icon" type="image/png" sizes="'; j = %(" href="#{icon_path})
   s += %(
-    #{b}192x192" #{j}android-icon-192x192.png">
-    #{b}32x32" #{j}favicon-32x32.png">
-    #{b}96x96" #{j}favicon-96x96.png">
-    #{b}16x16" #{j}favicon-16x16.png">
+    #{b}192x192#{j}android-icon-192x192.png">
+    #{b}32x32#{j}favicon-32x32.png">
+    #{b}96x96#{j}favicon-96x96.png">
+    #{b}16x16#{j}favicon-16x16.png">
     <link rel="manifest" href="#{icon_path}manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="#{icon_path}ms-icon-144x144.png">)
