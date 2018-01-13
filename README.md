@@ -27,3 +27,7 @@ Demo can be seen here: http://thebeast.me/charts/
 - [Markdown](https://daringfireball.net/projects/markdown)
 - [cloc](https://github.com/AlDanial/cloc)
 - [Rubocop](https://github.com/bbatsov/rubocop)
+
+## Powered By
+
+![Ruby Powered](/assets/images/icons/android-icon-72x72.png "Ruby")
