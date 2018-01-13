@@ -354,14 +354,20 @@ def add_github_buttons(arr)
   s
 end
 
-def add_icons
-  s = ''; icon_path = 'assets/images/icons/'
-  apple_icons = Dir.glob("#{icon_path}apple-icon-[0-9]*.png").map do |apple_icon|
+# common function to add the apple icons
+def add_apple_icons(icon_path)
+  icons = Dir.glob("#{icon_path}apple-icon-[0-9]*.png").map do |apple_icon|
     icon_size = apple_icon.split('.').first.split('-').last
     %(
     <link rel="apple-touch-icon" sizes="#{icon_size}" href="#{apple_icon}">)
-  end.sort_by{|x| x.split('.').first.split('-').last.split('x').first.to_i}.join
-  s += apple_icons
+  end
+  icons.sort_by{|x| x.split('.').first.split('-').last.split('x').first.to_i}.join
+end
+
+# common function to add the icons
+def add_icons
+  s = ''; icon_path = 'assets/images/icons/'
+  s += add_apple_icons(icon_path)
   b = '<link rel="icon" type="image/png" sizes="'; j = %(href="#{icon_path})
   s += %(
     #{b}192x192" #{j}android-icon-192x192.png">
