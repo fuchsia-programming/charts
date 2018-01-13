@@ -155,11 +155,11 @@ def page_build(page_count, start = 0)
 end
 
 # add navigation hyperlinks
-def add_links(page_count)
+def add_links(page_count, h=0)
   page = ''
   (0..page_count).map do |i|
     page += %(
-              <li><a href="index#{ii i}.html">Page #{i + 1}</a></li>)
+          #{h>0?'':'  '}<li><a href="index#{ii i}.html">Page #{i + 1}</a></li>)
   end
   page
 end
@@ -309,35 +309,35 @@ end
 # built with section on home page
 def section_built_with(links, cloc, site_config)
   s = %(
-        <div class="col-md-3">
-          <h3>#{site_config['homepage_subheading2']}</h3>
-          <div>#{site_config['about']}</div>
-          <h3>#{site_config['homepage_subheading3']}</h3>
-          <div>
-            <ul>)
+      <div class="col-md-3">
+        <h3>#{site_config['homepage_subheading2']}</h3>
+        <div>#{site_config['about']}</div>
+        <h3>#{site_config['homepage_subheading3']}</h3>
+        <div>
+          <ul>)
   links.map do |k, v|
     s += %(
-              <li><a href="#{v}" target="_blank" rel="noopener">#{k}</a></li>)
+            <li><a href="#{v}" target="_blank" rel="noopener">#{k}</a></li>)
   end
   s += %(
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-9">
-          <h3>#{site_config['homepage_subheading4']}</h3>
-          <pre>
-            <code>
-              #{cloc}
-            </code>
-          </pre>
+          </ul>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-12" id="pie_chart_div_homepage_all"></div>
+      <div class="col-md-9">
+        <h3>#{site_config['homepage_subheading4']}</h3>
+        <pre>
+          <code>
+            #{cloc}
+          </code>
+        </pre>
       </div>
-      <div class="row">
-        <div class="col-sm-12" id="pie_chart_div_homepage_mit"></div>
-      </div>)
+    </div>
+    <div class="row">
+      <div class="col-sm-12" id="pie_chart_div_homepage_all"></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12" id="pie_chart_div_homepage_mit"></div>
+    </div>)
 end
 
 # function to make the list of GitHub buttons
@@ -381,9 +381,12 @@ end
 
 # data variable
 structure = generate_data
+# home page plus other pages with 50 charts per page
+page_count = structure.size / 50 + 1
 
-# start common page region
-$page = %(<!DOCTYPE html>
+def page_header(site_config, page_count)
+  # start common page region
+  page = %(<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -392,8 +395,8 @@ $page = %(<!DOCTYPE html>
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
     <title>#{site_config['title']}</title>)
-$page += add_icons
-$page += %(
+  page += add_icons
+  page += %(
     <meta name="description" content="#{site_config['description']}">
     <meta name="theme-color" content="##{site_config['theme_color']}">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -417,43 +420,43 @@ $page += %(
       .logo { float: left; }
     </style>
   </head>
-    <body>
-      <!-- Static navbar -->
-      <nav class="navbar navbar-default" id="head1">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <img src="assets/images/logo.png" alt="Ruby Powered" class="logo">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html">#{site_config['nav_heading']}</a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">)
-
-# home page plus other pages with 50 charts per page
-page_count = structure.size / 50 + 1
-(0..page_count).map do |i|
-  instance_variable_set("@page#{ii i}", $page)
-end
-# restart common page region
-$page = add_links(page_count)
-$page += %(
+  <body>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default" id="head1">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <img src="assets/images/logo.png" alt="Ruby Powered" class="logo">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">#{site_config['nav_heading']}</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">)
+  page += add_links(page_count)
+  page += %(
           </ul>
         </div>
       </div>
     </nav>
     <div class="container-fluid">)
+  (0..page_count).map do |i|
+    instance_variable_set("@page#{ii i}", page)
+  end
+end
+
+# start common page region
+page_header(site_config, page_count)
 # continue to build all the pages
-page_build(page_count)
+
 # start home page stats
 @page += %(
-      <h1>#{site_config['homepage_heading']}</h1>
-      <div class="row homepage">
-        <h2>#{site_config['homepage_subheading1']}</h2>)
+    <h1>#{site_config['homepage_heading']}</h1>
+    <div class="row homepage">
+      <h2>#{site_config['homepage_subheading1']}</h2>)
 # add built with links to home page
 @page += section_built_with(links, cloc, site_config)
 # restart all the chart pages
@@ -473,11 +476,11 @@ $page = %(
     </div>
     <footer>
       <div class="container">
-        <ul class="list-unstyled">\n)
+        <ul class="list-unstyled">)
 # add GitHub buttons
 $page += add_github_buttons(buttons)
 # add general page links
-$page += add_links(page_count)
+$page += add_links(page_count, 1)
 # add rest of page
 sitebuildtime = Time.now.strftime '%FT%T%:z'
 $page += %(
