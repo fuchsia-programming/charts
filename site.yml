@@ -4,7 +4,10 @@
 url: http://thebeast.me/charts/
 # chart type: either "d3pie" or "Google Charts"
 chart_type: "Google Charts"
-about: "This Ruby script `run.rb` is a static site generator. It data mines or text mines a folder of XML Schema files as well as the MIT License and generates statistics on elements and attributes (the XML Schema) or on words (the License).
+about: "### About
+
+
+This Ruby script `run.rb` is a static site generator. It data mines or text mines a folder of XML Schema files as well as the MIT License and generates statistics on elements and attributes (the XML Schema) or on words (the License).
 
 
 The config file: `site.yml` stores most of the websites configuration information and can be easily customized.
@@ -22,7 +25,12 @@ For the **`d3pie`** charts we have both `Donut` and `Pie` style charts.
 The advantage of the **`d3pie`** chart is its ability to handle mouse clicks on the pie chart pieces and they respond by popping in and out.
 
 
-The advantage of the **`Google Chart`** pie chart is its in built ability to create a chart legend."
+The advantage of the **`Google Chart`** pie chart is its in built ability to create a chart legend.
+
+
+### Built With
+
+"
 
 last_update: "Site last built: "
 valid_html: Valid HTML
@@ -61,7 +69,5 @@ other_heading: Branch count grouped by file
 homepage_subheading1: Featured Statistics
 # homepage subheading2 h3
 homepage_subheading2: About
-# homepage subheading3 h3
-homepage_subheading3: Built With
 # homepage subheading4 h3
 homepage_subheading4: Lines of code in this project

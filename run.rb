@@ -327,18 +327,14 @@ end
 def section_built_with(links, cloc, site_config)
   s = %(
       <div class="col-md-3">
-        <h3>#{site_config['homepage_subheading2']}</h3>
-        <div>#{Kramdown::Document.new(site_config['about']).to_html}</div>
-        <h3>#{site_config['homepage_subheading3']}</h3>
-        <div>
-          <ul>)
+        #{Kramdown::Document.new(site_config['about']).to_html}
+        <ul>)
   links.map do |k, v|
     s += %(
-            <li><a href="#{v}" target="_blank" rel="noopener">#{k}</a></li>)
+          <li><a href="#{v}" target="_blank" rel="noopener">#{k}</a></li>)
   end
   s + %(
-          </ul>
-        </div>
+        </ul>
       </div>
       <div class="col-md-9">
         <h3>#{site_config['homepage_subheading4']}</h3>
