@@ -328,13 +328,13 @@ def section_built_with(links, cloc, site_config)
   s = %(
       <div class="col-md-3">
         #{Kramdown::Document.new(site_config['about']).to_html}
-        <ul>)
+        <ol>)
   links.map do |k, v|
     s += %(
-          <li><a href="#{v}" target="_blank" rel="noopener">#{k}</a></li>)
+          <li class="oll"><a href="#{v}" target="_blank" rel="noopener">#{k}</a></li>)
   end
   s + %(
-        </ul>
+        </ol>
       </div>
       <div class="col-md-9">
         <h3>#{site_config['homepage_subheading4']}</h3>
@@ -459,6 +459,7 @@ def page_header(site_config, page_count)
       pre { white-space: pre-wrap; word-wrap: break-word; }
       .homepage { padding: 5px 30px 5px 30px; }
       .logo { float: left; }
+      .oll { padding-left: 1em; }
     </style>
   </head>
   <body>

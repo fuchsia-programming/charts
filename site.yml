@@ -3,7 +3,7 @@
 # site config
 url: http://thebeast.me/charts/
 # chart type: either "d3pie" or "Google Charts"
-chart_type: "Google Charts"
+chart_type: "d3pie"
 about: "### About
 
 
