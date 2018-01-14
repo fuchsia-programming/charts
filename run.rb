@@ -3,7 +3,12 @@
 # Reach your final destination
 
 require 'kramdown'
+require 'prawn'
+require 'prawn/table'
 require 'yaml'
+
+chart_types = { 'd3pie' => 'd3pie',
+                'google' => 'Google Charts' }
 
 # function to open and read in file
 def read_file(f)
@@ -425,7 +430,7 @@ structure = generate_data
 # home page plus other pages with 50 charts per page
 page_count = structure.size / 50 + 1
 
-def page_header(site_config, page_count)
+def page_header(site_config, page_count, chart_types)
   # start common page region
   page = %(<!DOCTYPE html>
 <html lang="en">
@@ -435,7 +440,7 @@ def page_header(site_config, page_count)
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>#{site_config['title'].gsub(/d3pie/, site_config['chart_type'])}</title>)
+    <title>#{site_config['title'].gsub(/d3pie/, chart_types[site_config['chart_type']])}</title>)
   page += add_icons
   page += %(
     <meta name="description" content="#{site_config['description']}">
@@ -491,7 +496,7 @@ def page_header(site_config, page_count)
 end
 
 # start common page region
-page_header(site_config, page_count)
+page_header(site_config, page_count, chart_types)
 # continue to build all the pages
 
 # start home page stats
@@ -512,7 +517,7 @@ structure.map.with_index do |chart, i|
   data0 = clean_chart(chart[0])
   i = i / 50 + 1
   instance_variable_set("@page#{i}",
-                        instance_variable_get("@page#{i}") + "\n      <div class=\"col-lg-4 col-md-6 col-sm-12\" id=\"#{site_config['chart_type'] == 'Google Charts' ? 'chart_div_' : 'pie_chart_div_'}#{data0}\"></div>")
+                        instance_variable_get("@page#{i}") + "\n      <div class=\"col-lg-4 col-md-6 col-sm-12\" id=\"#{site_config['chart_type'] == 'google' ? 'chart_div_' : 'pie_chart_div_'}#{data0}\"></div>")
 end
 
 # restart common page region
@@ -554,7 +559,7 @@ end
 $page += '
     <script>'
 #
-if site_config['chart_type'] == 'Google Charts'
+if site_config['chart_type'] == 'google'
   $page += %(
       google.charts.load("current", {"packages":["corechart"]});\n)
 end
@@ -653,3 +658,15 @@ end
 # http://www.imdb.com/list/ls000699250/
 #
 build_site(page_count, sitebuildtime, site_config['url'], site_config['maps'])
+
+#
+=begin
+f = File.open('index.html', 'r')
+text = f.read
+f.close
+doc = Kramdown::Document.new(text, :input => 'html')
+puts doc.to_html
+g = File.open('latex.tex', 'w')
+g.write(doc.to_latex)
+g.close
+=end

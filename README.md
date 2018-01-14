@@ -4,7 +4,7 @@ This Ruby script `run.rb` is a static site generator. It data mines or text mine
 
 The config file: `site.yml` stores most of the websites configuration information and can be easily customized.
 
-A fancy feature is the ability to switch between using **`d3pie`** based pie charts or **`Google Charts`** based pie charts just by changing the config entry `chart_type` from **`d3pie`** to **`Google Charts`**.
+A fancy feature is the ability to switch between using **`d3pie`** based pie charts or **`Google Charts`** based pie charts just by changing the config entry `chart_type` from **`d3pie`** to **`google`**.
 
 The home page charts for the **`Google Charts`** `chart_type` are not yet complete.
 
