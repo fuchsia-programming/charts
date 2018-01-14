@@ -3,7 +3,9 @@
 # site config
 url: http://thebeast.me/charts/
 # chart type: either "d3pie" or "google"
-chart_type: d3pie
+chart_type: google
+# about section is marked up in Markdown format
+# https://daringfireball.net/projects/markdown/
 about: "### About
 
 
@@ -70,7 +72,6 @@ other_heading: Branch count grouped by file
 
 # homepage subheading1 h2
 homepage_subheading1: Featured Statistics
-# homepage subheading2 h3
-homepage_subheading2: About
+
 # homepage subheading4 h3
 homepage_subheading4: Lines of code in this project

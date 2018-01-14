@@ -7,9 +7,6 @@ require 'prawn'
 require 'prawn/table'
 require 'yaml'
 
-chart_types = { 'd3pie' => 'd3pie',
-                'google' => 'Google Charts' }
-
 # function to open and read in file
 def read_file(f)
   file = File.open(f, 'r')
@@ -32,6 +29,14 @@ end
 # load website config file
 site_config = YAML.safe_load(read_file('site.yml'))
 
+# chart types
+chart_types = { 'd3pie' => 'd3pie',
+                'google' => 'Google Charts' }
+
+# current chart type
+ct = chart_types[site_config['chart_type']]
+
+# site JavaScripts
 site_scripts = %w[bootstrap/js/jquery.min.js bootstrap/js/bootstrap.min.js]
 d3_scripts = %w[assets/js/d3/d3.js assets/js/d3pie.min.js]
 google_scripts = %w[https://www.gstatic.com/charts/loader.js https://www.google.com/jsapi]
@@ -425,12 +430,16 @@ def draw_chart(which_chart, data, chart_string, chart_values,
         }\n)
 end
 
+def site_type(s, chart_type)
+  s.gsub(/d3pie/, chart_type)
+end
+
 # data variable
 structure = generate_data
 # home page plus other pages with 50 charts per page
 page_count = structure.size / 50 + 1
 
-def page_header(site_config, page_count, chart_types)
+def page_header(site_config, page_count, ct)
   # start common page region
   page = %(<!DOCTYPE html>
 <html lang="en">
@@ -440,7 +449,7 @@ def page_header(site_config, page_count, chart_types)
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>#{site_config['title'].gsub(/d3pie/, chart_types[site_config['chart_type']])}</title>)
+    <title>#{site_type(site_config['title'], ct)}</title>)
   page += add_icons
   page += %(
     <meta name="description" content="#{site_config['description']}">
@@ -496,12 +505,12 @@ def page_header(site_config, page_count, chart_types)
 end
 
 # start common page region
-page_header(site_config, page_count, chart_types)
+page_header(site_config, page_count, ct)
 # continue to build all the pages
 
 # start home page stats
 @page += %(
-    <h1>#{site_config['homepage_heading'].gsub(/d3pie/, site_config['chart_type'])}</h1>
+    <h1>#{site_type(site_config['homepage_heading'], ct)}</h1>
     <div class="row homepage">
       <h2>#{site_config['homepage_subheading1']}</h2>)
 # add built with links to home page

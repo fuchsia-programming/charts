@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Ruby d3pie text mining dashboard</title>
+    <title>Ruby Google Charts text mining dashboard</title>
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/images/icons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icons/apple-icon-72x72.png">
@@ -84,7 +84,7 @@
       </div>
     </nav>
     <div class="container-fluid">
-    <h1>Ruby d3pie based XML Schema text mining application</h1>
+    <h1>Ruby Google Charts based XML Schema text mining application</h1>
     <div class="row homepage">
       <h2>Featured Statistics</h2>
       <div class="col-md-3">
@@ -144,21 +144,21 @@
         <pre>
           <code>
             
-github.com/AlDanial/cloc v 1.74  T=1.28 s (43.6 files/s, 80328.9 lines/s)
+github.com/AlDanial/cloc v 1.74  T=0.87 s (64.7 files/s, 57313.7 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-HTML                            16           1438             48          68829
+HTML                            16            739             48          16047
 JavaScript                       7           3096            600          15876
 CSS                              4              7             24           7326
 Markdown                         4            586              0           2119
 XSD                             15             73             48           1375
-XML                              6              0              0            795
-Ruby                             1             44             80            548
-YAML                             2             38             16             55
+XML                              6              0              0            794
+Ruby                             1             46             83            552
+YAML                             2             39             17             54
 JSON                             1              0              0             41
 -------------------------------------------------------------------------------
-SUM:                            56           5282            816          96964
+SUM:                            56           4586            820          44184
 -------------------------------------------------------------------------------
 
           </code>
@@ -207,7 +207,7 @@ SUM:                            56           5282            816          96964
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-15T08:44:27+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-15T09:19:58+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -219,196 +219,10 @@ SUM:                            56           5282            816          96964
     </footer>
     <script src="assets/bootstrap/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/d3/d3.js"></script>
-    <script src="assets/js/d3pie.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
     <script>
-    var pie = new d3pie('pie_chart_div_homepage_all', {
-        'header': {
-            'title': {
-                'text': '1 - Branch count of files grouped by file extension',
-                'fontSize': 24,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '25 png files occurred most frequently',
-            'color': '#ff0000',
-            'fontSize': 18,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 1000,
-            'canvasHeight': 1000,
-            'pieOuterRadius': '70%',
-            'pieInnerRadius': '35%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 1
-            },
-            'content': [{'label':'html','value':16,'color':'#D7BDE2'},{'label':'folders','value':13,'color':'#E67E22'},{'label':'yml','value':1,'color':'#441411'},{'label':'md','value':4,'color':'#A9CCE3'},{'label':'txt','value':3,'color':'#17202A'},{'label':'xml','value':2,'color':'#E67E22'},{'label':'css','value':4,'color':'#E6B0AA'},{'label':'map','value':4,'color':'#111111'},{'label':'js','value':7,'color':'#28B463'},{'label':'woff','value':1,'color':'#8E44AD'},{'label':'eot','value':1,'color':'#F4D03F'},{'label':'woff2','value':1,'color':'#999999'},{'label':'ttf','value':1,'color':'#000000'},{'label':'svg','value':1,'color':'#78281F'},{'label':'png','value':25,'color':''},{'label':'ico','value':1,'color':''},{'label':'json','value':1,'color':''},{'label':'xsd','value':15,'color':'#34495E'},{'label':'rb','value':1,'color':'#154360'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 50
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 15
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 16
-            },
-            'lines': {
-                'enabled': false
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 16
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 35
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffcccc'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
-
-    var pie = new d3pie('pie_chart_div_homepage_mit', {
-        'header': {
-            'title': {
-                'text': '2 - Most frequent words in the MIT License',
-                'fontSize': 24,
-                'font': 'open sans'
-            }
-        },
-        'footer': {
-            'text': '14 maximum occurrences in file the',
-            'color': '#ff0000',
-            'fontSize': 18,
-            'font': 'open sans',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 1000,
-            'canvasHeight': 1000,
-            'pieOuterRadius': '70%',
-            'pieInnerRadius': '35%'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 1
-            },
-            'content': [{'label':'the','value':14,'color':'black'},{'label':'software','value':9,'color':'black'},{'label':'or','value':8,'color':'black'},{'label':'of','value':8,'color':'black'},{'label':'to','value':8,'color':'black'},{'label':'in','value':6,'color':'black'},{'label':'is','value':4,'color':'black'},{'label':'and','value':4,'color':'black'},{'label':'any','value':3,'color':'black'},{'label':'copyright','value':3,'color':'black'},{'label':'without','value':3,'color':'black'},{'label':'notice','value':2,'color':'black'},{'label':'copy','value':2,'color':'black'},{'label':'shall','value':2,'color':'black'},{'label':'be','value':2,'color':'black'},{'label':'this','value':2,'color':'black'},{'label':'other','value':2,'color':'black'},{'label':'copies','value':2,'color':'black'},{'label':'permission','value':2,'color':'black'},{'label':'including','value':2,'color':'black'},{'label':'a','value':2,'color':'black'},{'label':'use','value':2,'color':'black'},{'label':'for','value':2,'color':'black'},{'label':'sublicense','value':1,'color':'black'},{'label':'andor','value':1,'color':'black'},{'label':'sell','value':1,'color':'black'},{'label':'permit','value':1,'color':'black'},{'label':'persons','value':1,'color':'black'},{'label':'whom','value':1,'color':'black'},{'label':'furnished','value':1,'color':'black'},{'label':'do','value':1,'color':'black'},{'label':'so','value':1,'color':'black'},{'label':'subject','value':1,'color':'black'},{'label':'following','value':1,'color':'black'},{'label':'conditions','value':1,'color':'black'},{'label':'above','value':1,'color':'black'},{'label':'included','value':1,'color':'black'},{'label':'all','value':1,'color':'black'},{'label':'substantial','value':1,'color':'black'},{'label':'portions','value':1,'color':'black'},{'label':'provided','value':1,'color':'black'},{'label':'as','value':1,'color':'black'},{'label':'warranty','value':1,'color':'black'},{'label':'kind','value':1,'color':'black'},{'label':'express','value':1,'color':'black'},{'label':'implied','value':1,'color':'black'},{'label':'but','value':1,'color':'black'},{'label':'not','value':1,'color':'black'},{'label':'limited','value':1,'color':'black'},{'label':'warranties','value':1,'color':'black'},{'label':'merchantability','value':1,'color':'black'},{'label':'fitness','value':1,'color':'black'},{'label':'particular','value':1,'color':'black'},{'label':'purpose','value':1,'color':'black'},{'label':'noninfringement','value':1,'color':'black'},{'label':'no','value':1,'color':'black'},{'label':'event','value':1,'color':'black'},{'label':'authors','value':1,'color':'black'},{'label':'holders','value':1,'color':'black'},{'label':'liable','value':1,'color':'black'},{'label':'claim','value':1,'color':'black'},{'label':'damages','value':1,'color':'black'},{'label':'liability','value':1,'color':'black'},{'label':'whether','value':1,'color':'black'},{'label':'an','value':1,'color':'black'},{'label':'action','value':1,'color':'black'},{'label':'contract','value':1,'color':'black'},{'label':'tort','value':1,'color':'black'},{'label':'otherwise','value':1,'color':'black'},{'label':'arising','value':1,'color':'black'},{'label':'from','value':1,'color':'black'},{'label':'out','value':1,'color':'black'},{'label':'connection','value':1,'color':'black'},{'label':'with','value':1,'color':'black'},{'label':'mit','value':1,'color':'black'},{'label':'dealings','value':1,'color':'black'},{'label':'license','value':1,'color':'black'},{'label':'c','value':1,'color':'black'},{'label':'2018','value':1,'color':'black'},{'label':'john','value':1,'color':'black'},{'label':'bampton','value':1,'color':'black'},{'label':'hereby','value':1,'color':'black'},{'label':'granted','value':1,'color':'black'},{'label':'free','value':1,'color':'black'},{'label':'charge','value':1,'color':'black'},{'label':'person','value':1,'color':'black'},{'label':'obtaining','value':1,'color':'black'},{'label':'associated','value':1,'color':'black'},{'label':'documentation','value':1,'color':'black'},{'label':'files','value':1,'color':'black'},{'label':'deal','value':1,'color':'black'},{'label':'restriction','value':1,'color':'black'},{'label':'limitation','value':1,'color':'black'},{'label':'rights','value':1,'color':'black'},{'label':'modify','value':1,'color':'black'},{'label':'merge','value':1,'color':'black'},{'label':'publish','value':1,'color':'black'},{'label':'distribute','value':1,'color':'black'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 50
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 15
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 16
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 16
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 35
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#ffcccc'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
-        }
-    });
+      google.charts.load("current", {"packages":["corechart"]});
 
         $(document).ready(function () {
            "use strict";

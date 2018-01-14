@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Ruby d3pie text mining dashboard</title>
+    <title>Ruby Google Charts text mining dashboard</title>
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/images/icons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icons/apple-icon-72x72.png">
@@ -85,56 +85,56 @@
     </nav>
     <div class="container-fluid">
       <h1>Branch count grouped by file</h1>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameAuthnQuery"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameAuthnQueryType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameAuthnRequest"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameAuthnRequestType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameAuthnStatement"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameAuthnStatementType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameAuthzDecisionQuery"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameAuthzDecisionQueryType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameAuthzDecisionStatement"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameAuthzDecisionStatementType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameBaseID"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameBaseIDAbstractType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameCanonicalizationMethod"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameCanonicalizationMethodType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameComparison"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameCondition"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameConditionAbstractType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameConditions"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameConditionsType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameConsent"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameCount"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameCryptoBinary"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameDNSName"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameDSAKeyValue"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameDSAKeyValueType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameDecision"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameDecisionType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameDestination"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameDigestMethod"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameDigestMethodType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameDigestValue"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameDigestValueType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameEncoding"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameEncryptedAssertion"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameEncryptedAttribute"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameEncryptedElementType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameEncryptedID"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameEvidence"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameEvidenceType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameExponent"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameExtensions"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameExtensionsType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameForceAuthn"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameFormat"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameFriendlyName"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameG"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameGetComplete"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameHMACOutputLength"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameHMACOutputLengthType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="pie_chart_div_nameID"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthnQuery"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthnQueryType"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthnRequest"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthnRequestType"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthnStatement"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthnStatementType"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthzDecisionQuery"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthzDecisionQueryType"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthzDecisionStatement"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthzDecisionStatementType"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameBaseID"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameBaseIDAbstractType"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameCanonicalizationMethod"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameCanonicalizationMethodType"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameComparison"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameCondition"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameConditionAbstractType"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameConditions"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameConditionsType"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameConsent"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameCount"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameCryptoBinary"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDNSName"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDSAKeyValue"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDSAKeyValueType"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDecision"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDecisionType"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDestination"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDigestMethod"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDigestMethodType"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDigestValue"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDigestValueType"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameEncoding"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameEncryptedAssertion"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameEncryptedAttribute"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameEncryptedElementType"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameEncryptedID"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameEvidence"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameEvidenceType"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameExponent"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameExtensions"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameExtensionsType"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameForceAuthn"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameFormat"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameFriendlyName"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameG"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameGetComplete"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameHMACOutputLength"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameHMACOutputLengthType"></div>
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameID"></div>
     </div>
     <footer>
       <div class="container">
@@ -171,7 +171,7 @@
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-15T08:44:27+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-15T09:19:58+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -183,4708 +183,960 @@
     </footer>
     <script src="assets/bootstrap/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/d3/d3.js"></script>
-    <script src="assets/js/d3pie.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
     <script>
-    var pie = new d3pie('pie_chart_div_nameAuthnQuery', {
-        'header': {
-            'title': {
-                'text': '401 - name="AuthnQuery"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
+      google.charts.load("current", {"packages":["corechart"]});
+        google.charts.setOnLoadCallback(drawChartnameAuthnQuery);
 
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameAuthnQuery() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"AuthnQuery\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20protocol_schema", 1]]);
+          // Set chart options
+          var options = {"title": "401 - name=\"AuthnQuery\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthnQuery"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameAuthnQueryType);
 
-    var pie = new d3pie('pie_chart_div_nameAuthnQueryType', {
-        'header': {
-            'title': {
-                'text': '402 - name="AuthnQueryType"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameAuthnQueryType() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"AuthnQueryType\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20protocol_schema", 1]]);
+          // Set chart options
+          var options = {"title": "402 - name=\"AuthnQueryType\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthnQueryType"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameAuthnRequest);
 
-    var pie = new d3pie('pie_chart_div_nameAuthnRequest', {
-        'header': {
-            'title': {
-                'text': '403 - name="AuthnRequest"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameAuthnRequest() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"AuthnRequest\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20protocol_schema", 1]]);
+          // Set chart options
+          var options = {"title": "403 - name=\"AuthnRequest\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthnRequest"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameAuthnRequestType);
 
-    var pie = new d3pie('pie_chart_div_nameAuthnRequestType', {
-        'header': {
-            'title': {
-                'text': '404 - name="AuthnRequestType"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameAuthnRequestType() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"AuthnRequestType\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20protocol_schema", 1]]);
+          // Set chart options
+          var options = {"title": "404 - name=\"AuthnRequestType\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthnRequestType"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameAuthnStatement);
 
-    var pie = new d3pie('pie_chart_div_nameAuthnStatement', {
-        'header': {
-            'title': {
-                'text': '405 - name="AuthnStatement"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameAuthnStatement() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"AuthnStatement\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "405 - name=\"AuthnStatement\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthnStatement"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameAuthnStatementType);
 
-    var pie = new d3pie('pie_chart_div_nameAuthnStatementType', {
-        'header': {
-            'title': {
-                'text': '406 - name="AuthnStatementType"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameAuthnStatementType() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"AuthnStatementType\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "406 - name=\"AuthnStatementType\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthnStatementType"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameAuthzDecisionQuery);
 
-    var pie = new d3pie('pie_chart_div_nameAuthzDecisionQuery', {
-        'header': {
-            'title': {
-                'text': '407 - name="AuthzDecisionQuery"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameAuthzDecisionQuery() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"AuthzDecisionQuery\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20protocol_schema", 1]]);
+          // Set chart options
+          var options = {"title": "407 - name=\"AuthzDecisionQuery\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthzDecisionQuery"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameAuthzDecisionQueryType);
 
-    var pie = new d3pie('pie_chart_div_nameAuthzDecisionQueryType', {
-        'header': {
-            'title': {
-                'text': '408 - name="AuthzDecisionQueryType"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameAuthzDecisionQueryType() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"AuthzDecisionQueryType\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20protocol_schema", 1]]);
+          // Set chart options
+          var options = {"title": "408 - name=\"AuthzDecisionQueryType\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthzDecisionQueryType"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameAuthzDecisionStatement);
 
-    var pie = new d3pie('pie_chart_div_nameAuthzDecisionStatement', {
-        'header': {
-            'title': {
-                'text': '409 - name="AuthzDecisionStatement"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameAuthzDecisionStatement() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"AuthzDecisionStatement\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "409 - name=\"AuthzDecisionStatement\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthzDecisionStatement"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameAuthzDecisionStatementType);
 
-    var pie = new d3pie('pie_chart_div_nameAuthzDecisionStatementType', {
-        'header': {
-            'title': {
-                'text': '410 - name="AuthzDecisionStatementType"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameAuthzDecisionStatementType() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"AuthzDecisionStatementType\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "410 - name=\"AuthzDecisionStatementType\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthzDecisionStatementType"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameBaseID);
 
-    var pie = new d3pie('pie_chart_div_nameBaseID', {
-        'header': {
-            'title': {
-                'text': '411 - name="BaseID"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameBaseID() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"BaseID\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "411 - name=\"BaseID\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameBaseID"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameBaseIDAbstractType);
 
-    var pie = new d3pie('pie_chart_div_nameBaseIDAbstractType', {
-        'header': {
-            'title': {
-                'text': '412 - name="BaseIDAbstractType"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameBaseIDAbstractType() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"BaseIDAbstractType\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "412 - name=\"BaseIDAbstractType\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameBaseIDAbstractType"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameCanonicalizationMethod);
 
-    var pie = new d3pie('pie_chart_div_nameCanonicalizationMethod', {
-        'header': {
-            'title': {
-                'text': '413 - name="CanonicalizationMethod"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameCanonicalizationMethod() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"CanonicalizationMethod\"");
+          data.addColumn("number", "Values");
+          data.addRows([["xmldsig_schema", 1]]);
+          // Set chart options
+          var options = {"title": "413 - name=\"CanonicalizationMethod\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameCanonicalizationMethod"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameCanonicalizationMethodType);
 
-    var pie = new d3pie('pie_chart_div_nameCanonicalizationMethodType', {
-        'header': {
-            'title': {
-                'text': '414 - name="CanonicalizationMethodType"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameCanonicalizationMethodType() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"CanonicalizationMethodType\"");
+          data.addColumn("number", "Values");
+          data.addRows([["xmldsig_schema", 1]]);
+          // Set chart options
+          var options = {"title": "414 - name=\"CanonicalizationMethodType\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameCanonicalizationMethodType"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameComparison);
 
-    var pie = new d3pie('pie_chart_div_nameComparison', {
-        'header': {
-            'title': {
-                'text': '415 - name="Comparison"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameComparison() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"Comparison\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20protocol_schema", 1]]);
+          // Set chart options
+          var options = {"title": "415 - name=\"Comparison\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameComparison"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameCondition);
 
-    var pie = new d3pie('pie_chart_div_nameCondition', {
-        'header': {
-            'title': {
-                'text': '416 - name="Condition"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameCondition() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"Condition\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "416 - name=\"Condition\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameCondition"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameConditionAbstractType);
 
-    var pie = new d3pie('pie_chart_div_nameConditionAbstractType', {
-        'header': {
-            'title': {
-                'text': '417 - name="ConditionAbstractType"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameConditionAbstractType() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"ConditionAbstractType\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "417 - name=\"ConditionAbstractType\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameConditionAbstractType"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameConditions);
 
-    var pie = new d3pie('pie_chart_div_nameConditions', {
-        'header': {
-            'title': {
-                'text': '418 - name="Conditions"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameConditions() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"Conditions\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "418 - name=\"Conditions\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameConditions"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameConditionsType);
 
-    var pie = new d3pie('pie_chart_div_nameConditionsType', {
-        'header': {
-            'title': {
-                'text': '419 - name="ConditionsType"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameConditionsType() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"ConditionsType\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "419 - name=\"ConditionsType\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameConditionsType"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameConsent);
 
-    var pie = new d3pie('pie_chart_div_nameConsent', {
-        'header': {
-            'title': {
-                'text': '420 - name="Consent"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20protocol_schema','value':2,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameConsent() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"Consent\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20protocol_schema", 2]]);
+          // Set chart options
+          var options = {"title": "420 - name=\"Consent\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameConsent"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameCount);
 
-    var pie = new d3pie('pie_chart_div_nameCount', {
-        'header': {
-            'title': {
-                'text': '421 - name="Count"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameCount() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"Count\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "421 - name=\"Count\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameCount"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameCryptoBinary);
 
-    var pie = new d3pie('pie_chart_div_nameCryptoBinary', {
-        'header': {
-            'title': {
-                'text': '422 - name="CryptoBinary"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameCryptoBinary() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"CryptoBinary\"");
+          data.addColumn("number", "Values");
+          data.addRows([["xmldsig_schema", 1]]);
+          // Set chart options
+          var options = {"title": "422 - name=\"CryptoBinary\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameCryptoBinary"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameDNSName);
 
-    var pie = new d3pie('pie_chart_div_nameDNSName', {
-        'header': {
-            'title': {
-                'text': '423 - name="DNSName"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameDNSName() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"DNSName\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "423 - name=\"DNSName\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDNSName"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameDSAKeyValue);
 
-    var pie = new d3pie('pie_chart_div_nameDSAKeyValue', {
-        'header': {
-            'title': {
-                'text': '424 - name="DSAKeyValue"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameDSAKeyValue() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"DSAKeyValue\"");
+          data.addColumn("number", "Values");
+          data.addRows([["xmldsig_schema", 1]]);
+          // Set chart options
+          var options = {"title": "424 - name=\"DSAKeyValue\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDSAKeyValue"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameDSAKeyValueType);
 
-    var pie = new d3pie('pie_chart_div_nameDSAKeyValueType', {
-        'header': {
-            'title': {
-                'text': '425 - name="DSAKeyValueType"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameDSAKeyValueType() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"DSAKeyValueType\"");
+          data.addColumn("number", "Values");
+          data.addRows([["xmldsig_schema", 1]]);
+          // Set chart options
+          var options = {"title": "425 - name=\"DSAKeyValueType\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDSAKeyValueType"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameDecision);
 
-    var pie = new d3pie('pie_chart_div_nameDecision', {
-        'header': {
-            'title': {
-                'text': '426 - name="Decision"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameDecision() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"Decision\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "426 - name=\"Decision\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDecision"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameDecisionType);
 
-    var pie = new d3pie('pie_chart_div_nameDecisionType', {
-        'header': {
-            'title': {
-                'text': '427 - name="DecisionType"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameDecisionType() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"DecisionType\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "427 - name=\"DecisionType\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDecisionType"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameDestination);
 
-    var pie = new d3pie('pie_chart_div_nameDestination', {
-        'header': {
-            'title': {
-                'text': '428 - name="Destination"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20protocol_schema','value':2,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameDestination() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"Destination\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20protocol_schema", 2]]);
+          // Set chart options
+          var options = {"title": "428 - name=\"Destination\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDestination"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameDigestMethod);
 
-    var pie = new d3pie('pie_chart_div_nameDigestMethod', {
-        'header': {
-            'title': {
-                'text': '429 - name="DigestMethod"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameDigestMethod() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"DigestMethod\"");
+          data.addColumn("number", "Values");
+          data.addRows([["xmldsig_schema", 1]]);
+          // Set chart options
+          var options = {"title": "429 - name=\"DigestMethod\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDigestMethod"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameDigestMethodType);
 
-    var pie = new d3pie('pie_chart_div_nameDigestMethodType', {
-        'header': {
-            'title': {
-                'text': '430 - name="DigestMethodType"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameDigestMethodType() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"DigestMethodType\"");
+          data.addColumn("number", "Values");
+          data.addRows([["xmldsig_schema", 1]]);
+          // Set chart options
+          var options = {"title": "430 - name=\"DigestMethodType\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDigestMethodType"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameDigestValue);
 
-    var pie = new d3pie('pie_chart_div_nameDigestValue', {
-        'header': {
-            'title': {
-                'text': '431 - name="DigestValue"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameDigestValue() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"DigestValue\"");
+          data.addColumn("number", "Values");
+          data.addRows([["xmldsig_schema", 1]]);
+          // Set chart options
+          var options = {"title": "431 - name=\"DigestValue\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDigestValue"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameDigestValueType);
 
-    var pie = new d3pie('pie_chart_div_nameDigestValueType', {
-        'header': {
-            'title': {
-                'text': '432 - name="DigestValueType"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameDigestValueType() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"DigestValueType\"");
+          data.addColumn("number", "Values");
+          data.addRows([["xmldsig_schema", 1]]);
+          // Set chart options
+          var options = {"title": "432 - name=\"DigestValueType\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDigestValueType"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameEncoding);
 
-    var pie = new d3pie('pie_chart_div_nameEncoding', {
-        'header': {
-            'title': {
-                'text': '433 - name="Encoding"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameEncoding() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"Encoding\"");
+          data.addColumn("number", "Values");
+          data.addRows([["xmldsig_schema", 1]]);
+          // Set chart options
+          var options = {"title": "433 - name=\"Encoding\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameEncoding"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameEncryptedAssertion);
 
-    var pie = new d3pie('pie_chart_div_nameEncryptedAssertion', {
-        'header': {
-            'title': {
-                'text': '434 - name="EncryptedAssertion"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameEncryptedAssertion() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"EncryptedAssertion\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "434 - name=\"EncryptedAssertion\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameEncryptedAssertion"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameEncryptedAttribute);
 
-    var pie = new d3pie('pie_chart_div_nameEncryptedAttribute', {
-        'header': {
-            'title': {
-                'text': '435 - name="EncryptedAttribute"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameEncryptedAttribute() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"EncryptedAttribute\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "435 - name=\"EncryptedAttribute\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameEncryptedAttribute"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameEncryptedElementType);
 
-    var pie = new d3pie('pie_chart_div_nameEncryptedElementType', {
-        'header': {
-            'title': {
-                'text': '436 - name="EncryptedElementType"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameEncryptedElementType() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"EncryptedElementType\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "436 - name=\"EncryptedElementType\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameEncryptedElementType"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameEncryptedID);
 
-    var pie = new d3pie('pie_chart_div_nameEncryptedID', {
-        'header': {
-            'title': {
-                'text': '437 - name="EncryptedID"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameEncryptedID() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"EncryptedID\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "437 - name=\"EncryptedID\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameEncryptedID"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameEvidence);
 
-    var pie = new d3pie('pie_chart_div_nameEvidence', {
-        'header': {
-            'title': {
-                'text': '438 - name="Evidence"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameEvidence() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"Evidence\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "438 - name=\"Evidence\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameEvidence"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameEvidenceType);
 
-    var pie = new d3pie('pie_chart_div_nameEvidenceType', {
-        'header': {
-            'title': {
-                'text': '439 - name="EvidenceType"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameEvidenceType() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"EvidenceType\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "439 - name=\"EvidenceType\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameEvidenceType"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameExponent);
 
-    var pie = new d3pie('pie_chart_div_nameExponent', {
-        'header': {
-            'title': {
-                'text': '440 - name="Exponent"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameExponent() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"Exponent\"");
+          data.addColumn("number", "Values");
+          data.addRows([["xmldsig_schema", 1]]);
+          // Set chart options
+          var options = {"title": "440 - name=\"Exponent\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameExponent"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameExtensions);
 
-    var pie = new d3pie('pie_chart_div_nameExtensions', {
-        'header': {
-            'title': {
-                'text': '441 - name="Extensions"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameExtensions() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"Extensions\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20protocol_schema", 1]]);
+          // Set chart options
+          var options = {"title": "441 - name=\"Extensions\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameExtensions"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameExtensionsType);
 
-    var pie = new d3pie('pie_chart_div_nameExtensionsType', {
-        'header': {
-            'title': {
-                'text': '442 - name="ExtensionsType"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameExtensionsType() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"ExtensionsType\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20protocol_schema", 1]]);
+          // Set chart options
+          var options = {"title": "442 - name=\"ExtensionsType\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameExtensionsType"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameForceAuthn);
 
-    var pie = new d3pie('pie_chart_div_nameForceAuthn', {
-        'header': {
-            'title': {
-                'text': '443 - name="ForceAuthn"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameForceAuthn() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"ForceAuthn\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20protocol_schema", 1]]);
+          // Set chart options
+          var options = {"title": "443 - name=\"ForceAuthn\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameForceAuthn"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameFormat);
 
-    var pie = new d3pie('pie_chart_div_nameFormat', {
-        'header': {
-            'title': {
-                'text': '444 - name="Format"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'},{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameFormat() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"Format\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20protocol_schema", 1], ["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "444 - name=\"Format\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameFormat"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameFriendlyName);
 
-    var pie = new d3pie('pie_chart_div_nameFriendlyName', {
-        'header': {
-            'title': {
-                'text': '445 - name="FriendlyName"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameFriendlyName() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"FriendlyName\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "445 - name=\"FriendlyName\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameFriendlyName"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameG);
 
-    var pie = new d3pie('pie_chart_div_nameG', {
-        'header': {
-            'title': {
-                'text': '446 - name="G"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameG() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"G\"");
+          data.addColumn("number", "Values");
+          data.addRows([["xmldsig_schema", 1]]);
+          // Set chart options
+          var options = {"title": "446 - name=\"G\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameG"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameGetComplete);
 
-    var pie = new d3pie('pie_chart_div_nameGetComplete', {
-        'header': {
-            'title': {
-                'text': '447 - name="GetComplete"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20protocol_schema','value':1,'color':'#E67E22'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameGetComplete() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"GetComplete\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20protocol_schema", 1]]);
+          // Set chart options
+          var options = {"title": "447 - name=\"GetComplete\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameGetComplete"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameHMACOutputLength);
 
-    var pie = new d3pie('pie_chart_div_nameHMACOutputLength', {
-        'header': {
-            'title': {
-                'text': '448 - name="HMACOutputLength"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameHMACOutputLength() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"HMACOutputLength\"");
+          data.addColumn("number", "Values");
+          data.addRows([["xmldsig_schema", 1]]);
+          // Set chart options
+          var options = {"title": "448 - name=\"HMACOutputLength\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameHMACOutputLength"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameHMACOutputLengthType);
 
-    var pie = new d3pie('pie_chart_div_nameHMACOutputLengthType', {
-        'header': {
-            'title': {
-                'text': '449 - name="HMACOutputLengthType"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'xmldsig_schema','value':1,'color':'#8E44AD'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameHMACOutputLengthType() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"HMACOutputLengthType\"");
+          data.addColumn("number", "Values");
+          data.addRows([["xmldsig_schema", 1]]);
+          // Set chart options
+          var options = {"title": "449 - name=\"HMACOutputLengthType\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameHMACOutputLengthType"));
+          chart.draw(data, options);
         }
-    });
+        google.charts.setOnLoadCallback(drawChartnameID);
 
-    var pie = new d3pie('pie_chart_div_nameID', {
-        'header': {
-            'title': {
-                'text': '450 - name="ID"',
-                'fontSize': 13,
-                'font': 'Arial Black'
-            }
-        },
-        'footer': {
-            'text': '2 maximum occurrences in file saml20protocol_schema.xsd',
-            'color': '#999',
-            'fontSize': 12,
-            'font': 'Arial Black',
-            'location': 'bottom-center'
-        },
-        'size': {
-            'canvasWidth': 490,
-            'canvasHeight': 425,
-            'pieOuterRadius': '75%',
-            'pieInnerRadius': '0'
-        },
-
-        'data': {
-            'sortOrder': 'value-desc',
-            'smallSegmentGrouping': {
-                'enabled': true,
-                'value': 3
-            },
-            'content': [{'label':'saml20protocol_schema','value':2,'color':'#E67E22'},{'label':'saml20assertion_schema','value':1,'color':'#7D6608'}
-            ]
-        },
-        callbacks: {
-          onMouseoverSegment: function(info) {
-            console.log('mouseover:', info);
-          },
-          onMouseoutSegment: function(info) {
-            console.log('mouseout:', info);
-          }
-        },
-        'labels': {
-            'outer': {
-                'pieDistance': 20
-            },
-            'inner': {
-                'format': 'value',
-                'hideWhenLessThanPercentage': 3
-            },
-            'mainLabel': {
-                'fontSize': 11
-            },
-            'percentage': {
-                'color': '#ffffff',
-                'decimalPlaces': 0
-            },
-            'value': {
-                'color': '#ffffff',
-                'fontSize': 12
-            },
-            'lines': {
-                'enabled': true
-            },
-            'truncation': {
-                'enabled': true
-            }
-        },
-        'tooltips': {
-            'enabled': true,
-            'type': 'placeholder',
-            'string': '{label}: {value}, {percentage}%',
-            'styles': {
-                'fadeInSpeed': 586,
-                'backgroundOpacity': 0.7,
-                'color': '#ffffff',
-                'fontSize': 12
-            }
-        },
-        'effects': {
-            'pullOutSegmentOnClick': {
-                'effect': 'linear',
-                'speed': 400,
-                'size': 10
-            }
-        },
-        'misc': {
-            'colors': {
-                'background': '#fff'
-            },
-            'gradient': {
-                'enabled': true,
-                'percentage': 100
-            }
+        function drawChartnameID() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn("string", "name=\"ID\"");
+          data.addColumn("number", "Values");
+          data.addRows([["saml20protocol_schema", 2], ["saml20assertion_schema", 1]]);
+          // Set chart options
+          var options = {"title": "450 - name=\"ID\"",
+                         is3D: true,
+                         "pieSliceText": "value",
+                         "width": 400,
+                         "height": 400,
+                         "titleTextStyle": {"color": "black"}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameID"));
+          chart.draw(data, options);
         }
-    });
 
         $(document).ready(function () {
            "use strict";
