@@ -27,7 +27,7 @@ The advantage of the Google Chart pie chart is its in built ability to create a 
 The advantage of the Chart.js pie chart is its interactive clickable legend.
 
 
-The plotly.js pie charts are by far the most interactive out of the box.
+The **plotly.js** pie charts are by far the most interactive out of the box.
 
 
 Demo can be seen here: http://thebeast.me/charts/

@@ -33,10 +33,10 @@ The advantage of the Google Chart pie chart is its in built ability to create a 
 The advantage of the Chart.js pie chart is its interactive clickable legend.
 
 
-The plotly.js pie charts are by far the most interactive out of the box.
+The **plotly.js** pie charts are by far the most interactive out of the box.
 
 
-This section is written in Markdown format coming from the site config file: **`site.yml`** and I am using kramdown to convert it to HTML.
+This section is written in Markdown format coming from the site config file **`site.yml`** and I am using kramdown to convert it to HTML.
 
 
 ### Built With
@@ -48,7 +48,7 @@ last_update: "Site last built: "
 valid_html: Valid HTML
 back_to_top: Back to top
 text_color: '000'
-logo_text_color: 'ff00ff'
+logo_text_color: 'c7254e'
 nav_hover_color: red
 nav_selected_color: aliceblue
 
@@ -62,16 +62,16 @@ repository: charts
 
 # HTML elements and attributes
 # meta name="description"
-description: Analytics dashboard built from Ruby using the d3pie, Google charts and Chart.js libraries. The application or script text mines a folder of XML Schema to generate statistics about tags and attributes.
+description: Analytics dashboard built from Ruby using the d3pie, Google charts, Chart.js and plotly.js charting libraries. The application or script text mines a folder of XML Schema to generate statistics about tags and attributes.
 # <title>
-title: Text mining analytics dashboard and static site generator
+title: Ruby based text mining analytics dashboard and configurable static site generator
 # meta name="theme-color"
 theme_color: E5E8E8
 
 
 # Text on web pages
 # heading at top left of website
-nav_heading: Analytics Dashboard
+nav_heading: Ruby Powered
 # homepage heading h1
 homepage_heading: "**`Ruby`** based **`d3pie`**, **`Google Charts`**, **`Chart.js`** and **`plotly.js`** XML Schema text mining configurable static site generator"
 # chart pages heading h1

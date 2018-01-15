@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Text mining analytics dashboard and static site generator</title>
+    <title>Ruby based text mining analytics dashboard and configurable static site generator</title>
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/images/icons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icons/apple-icon-72x72.png">
@@ -23,7 +23,7 @@
     <link rel="manifest" href="assets/images/icons/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/images/icons/ms-icon-144x144.png">
-    <meta name="description" content="Analytics dashboard built from Ruby using the d3pie, Google charts and Chart.js libraries. The application or script text mines a folder of XML Schema to generate statistics about tags and attributes.">
+    <meta name="description" content="Analytics dashboard built from Ruby using the d3pie, Google charts, Chart.js and plotly.js charting libraries. The application or script text mines a folder of XML Schema to generate statistics about tags and attributes.">
     <meta name="theme-color" content="#E5E8E8">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-theme.min.css">
@@ -31,7 +31,7 @@
       .container-fluid { padding: 0px; }
       .navbar, .navbar-default { margin-bottom: 0; padding: 5pt; background-color: #E5E8E8; font-size: 12pt; }
       .navbar, .navbar-default li a { color: #000 !important; }
-      .navbar-default .navbar-brand { margin-left: 20px !important; color: #ff00ff; font-size: 18pt; font-weight: bold; }
+      .navbar-default .navbar-brand { margin-left: 20px !important; color: #c7254e; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: red !important; }
       div[id^="d3pie_chart_div_"], canvas, div[id^="plotly_chart_div_"] { margin-bottom: 100px; }
       footer { background-color: #E5E8E8; min-height: 200px;}
@@ -60,7 +60,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Analytics Dashboard</a>
+          <a class="navbar-brand" href="index.html">Ruby Powered</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -108,9 +108,9 @@
 
 <p>The advantage of the Chart.js pie chart is its interactive clickable legend.</p>
 
-<p>The plotly.js pie charts are by far the most interactive out of the box.</p>
+<p>The <strong>plotly.js</strong> pie charts are by far the most interactive out of the box.</p>
 
-<p>This section is written in Markdown format coming from the site config file: <strong><code>site.yml</code></strong> and I am using kramdown to convert it to HTML.</p>
+<p>This section is written in Markdown format coming from the site config file <strong><code>site.yml</code></strong> and I am using kramdown to convert it to HTML.</p>
 
 <h3 id="built-with">Built With</h3>
 
@@ -153,21 +153,21 @@
         <pre>
           <code>
             
-github.com/AlDanial/cloc v 1.74  T=1.00 s (58.1 files/s, 52705.0 lines/s)
+github.com/AlDanial/cloc v 1.74  T=0.87 s (66.8 files/s, 56468.3 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-HTML                            16            725             48          18911
 JavaScript                       9           3096            615          15878
+HTML                            16           2858             48          13223
 CSS                              4              7             24           7326
-Markdown                         4            599              0           2125
+Markdown                         4            601              0           2126
 XSD                             15             73             48           1375
-XML                              6              0              0            798
+XML                              6              0              0            807
 Ruby                             1             55             93            648
 YAML                             2             43             19             57
 JSON                             1              0              0             41
 -------------------------------------------------------------------------------
-SUM:                            58           4598            847          47159
+SUM:                            58           6733            847          41481
 -------------------------------------------------------------------------------
 
           </code>
@@ -216,7 +216,7 @@ SUM:                            58           4598            847          47159
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-15T19:11:06+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-15T19:52:12+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
