@@ -26,13 +26,19 @@ def mit_word_count
                       .group_by{|x| x}.map{|k, v| [k, v.size]}.sort_by{|_, y| -y}
 end
 
+# returns the filename without its extension
+def fir(arr)
+  arr.first.split('.').first
+end
+
 # load website config file
 site_config = YAML.safe_load(read_file('site.yml'))
 
 # chart types
 chart_types = { 'd3pie' => 'd3pie',
+                'chartjs' => 'Chart.js',
                 'google' => 'Google Charts',
-                'chartjs' => 'Chart.js' }
+                'plotly' => 'plotly.js'}
 
 # current chart type
 ct = chart_types[site_config['chart_type']]
@@ -42,6 +48,7 @@ site_scripts = %w[bootstrap/js/jquery.min.js bootstrap/js/bootstrap.min.js]
 d3_scripts = %w[assets/js/d3/d3.js assets/js/d3pie.min.js]
 google_scripts = %w[https://www.gstatic.com/charts/loader.js https://www.google.com/jsapi]
 chartjs_script = %w[assets/js/Chart.min.js]
+plotlyjs_script = %w[assets/js/plotly.min.js]
 
 # colors for the file extensions
 exthash = { 'css' => '#E6B0AA',
@@ -90,6 +97,7 @@ links = { 'Ruby' => 'https://www.ruby-lang.org',
           'D3' => 'https://d3js.org/',
           'Google Charts' => 'https://developers.google.com/chart/',
           'Chart.js' => 'http://www.chartjs.org/',
+          'plotly.js' => 'https://plot.ly/javascript/',
           'HTML5' => 'https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5',
           'CSS3' => 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3',
           'Bootstrap' => 'https://getbootstrap.com/',
@@ -442,7 +450,7 @@ def draw_chartjs_chart(type, canvas_id, data, colors, title, titlefontsize, resp
     var myChart = new Chart(ctx, {
       type: '#{type}',
       data: {
-          labels: #{data.map{|x| x.first.split('.').first}},
+          labels: #{data.map{|x| fir(x)}},
           datasets: [{
               label: '#{title}',
               data: #{data.map(&:last)},
@@ -461,10 +469,32 @@ def draw_chartjs_chart(type, canvas_id, data, colors, title, titlefontsize, resp
   )
 end
 
-# replaces 'd3pie' with 'Google Charts' or 'Chart.js' or leaves is as 'd3pie'
+#
+def draw_plotly_chart(chart_div, data, title, height, width, type)
+  %(
+    var data = [{
+      values: #{data.map(&:last)},
+      labels: #{data.map{|x| fir(x)}},
+      hole: #{type},
+      type: 'pie'
+    }];
+
+    var layout = {
+      title: '#{title}',
+      height: #{height + data.size * 15},
+      width: #{width},
+      showlegend: true,
+	      legend: {"orientation": "h"}
+      };
+
+    Plotly.newPlot('plotly_chart_div_#{chart_div}', data, layout);
+  )
+end
+
+# replaces 'd3pie' with one of 'Google Charts', 'Chart.js', 'plotly.js' or 'd3pie'
 # used in h1 on the main charting pages
 def site_type(s, chart_type)
-  s.gsub(/d3pie/, chart_type)
+  Kramdown::Document.new(s.gsub(/d3pie/, chart_type)).to_html
 end
 
 # data variable
@@ -496,7 +526,7 @@ def page_header(site_config, page_count)
       .navbar, .navbar-default li a { color: ##{site_config['text_color']} !important; }
       .navbar-default .navbar-brand { margin-left: 20px !important; color: ##{site_config['logo_text_color']}; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: #{site_config['nav_hover_color']} !important; }
-      div[id^="d3pie_chart_div_"], canvas { margin-bottom: 100px; }
+      div[id^="d3pie_chart_div_"], canvas, div[id^="plotly_chart_div_"] { margin-bottom: 100px; }
       footer { background-color: ##{site_config['theme_color']}; min-height: 200px;}
       footer ul a { color: ##{site_config['text_color']} !important; font-size: 13pt; }
       footer .container { margin-left: 15px; }
@@ -545,7 +575,7 @@ page_header(site_config, page_count)
 
 # start home page stats
 @page += %(
-    <h1>#{site_config['homepage_heading']}</h1>
+    <h1>#{Kramdown::Document.new(site_config['homepage_heading']).to_html}</h1>
     <div class="row homepage">
       <h2>#{site_config['homepage_subheading1']}</h2>)
 # add built with links to home page
@@ -569,7 +599,7 @@ structure.map.with_index do |chart, i|
       </div>)
     else
       %(
-        <div class="col-lg-4 col-md-6 col-sm-12" id="#{site_config['chart_type'] == 'google' ? 'chart_div_' : 'd3pie_chart_div_'}#{data0}"></div>)
+        <div class="col-lg-4 col-md-6 col-sm-12" id="#{site_config['chart_type'] == 'google' ? 'chart_div_' : site_config['chart_type'] == 'plotly' ? 'plotly_chart_div_' : 'd3pie_chart_div_'}#{data0}"></div>)
     end)
 end
 
@@ -609,18 +639,20 @@ end
 $page = footer(buttons, page_count, sitebuildtime, site_config)
 
 # add all the websites external JavaScript files
-def add_website_scripts(type, site_scripts, d3_scripts, google_scripts, chartjs_script)
+def add_website_scripts(type, site_scripts, d3_scripts, google_scripts, chartjs_script, plotly_script)
   s = if type == 'd3pie'
         add_scripts(site_scripts, d3_scripts)
       elsif type == 'google'
         add_scripts(site_scripts, google_scripts)
-      else
+      elsif type == 'chartjs'
         add_scripts(site_scripts, chartjs_script)
+      else
+        add_scripts(site_scripts, plotly_script)
       end
   s
 end
 
-$page += add_website_scripts(site_config['chart_type'], site_scripts, d3_scripts, google_scripts, chartjs_script)
+$page += add_website_scripts(site_config['chart_type'], site_scripts, d3_scripts, google_scripts, chartjs_script, plotlyjs_script)
 
 # continue to build all the pages
 $page += '
@@ -659,14 +691,14 @@ elsif site_config['chart_type'] == 'google'
   # add all the JavaScript for each pie chart to each page
   structure.map.with_index do |chart, ind|
     data0 = clean_chart(chart[0])
-    data1 = chart[1..-1].map{|x| [x.first.split('.').first, x.last]}
+    data1 = chart[1..-1].map{|x| [fir(x), x.last]}
     v = 'Values'
     i = ind / 50 + 1
     type = i & 1 == 1 ? 0 : 0.4
     instance_variable_set("@page#{i}",
                           instance_variable_get("@page#{i}") + "        google.charts.setOnLoadCallback(drawChart#{data0});\n" + draw_google_chart(type, data0, data1, chart[0], v, chart_title(chart[0], ind), data0, 400, 400))
   end
-else # chartjs type
+elsif site_config['chart_type'] == 'chartjs'
   structure.map.with_index do |chart, ind|
     data0 = clean_chart(chart[0])
     data1 = chart[1..-1]
@@ -675,7 +707,18 @@ else # chartjs type
     instance_variable_set("@page#{i}",
                           instance_variable_get("@page#{i}") + draw_chartjs_chart(type, data0, data1, schema_colors, chart_title(chart[0], ind), 15, false))
   end
+else # plotly
+  structure.map.with_index do |chart, ind|
+    data0 = clean_chart(chart[0])
+    data1 = chart[1..-1]
+    i = ind / 50 + 1
+    type = i & 1 == 1 ? 0 : 0.4
+    instance_variable_set("@page#{i}",
+                          instance_variable_get("@page#{i}") + draw_plotly_chart(data0, data1, chart_title(chart[0], ind), 400, 400, type))
+
+  end
 end
+
 # restart common page
 $page = %(
         $(document).ready(function () {

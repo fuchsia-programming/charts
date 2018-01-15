@@ -2,8 +2,8 @@
 
 # site config
 url: http://thebeast.me/charts/
-# chart type: either "d3pie" or "google" or "chartjs"
-chart_type: d3pie
+# chart type: either "d3pie" or "google" or "chartjs" or "plotly"
+chart_type: plotly
 # about section is marked up in Markdown format
 # https://daringfireball.net/projects/markdown/
 about: "### About
@@ -15,13 +15,13 @@ This Ruby script **`run.rb`** is a static site generator. It data mines or text 
 The config file: **`site.yml`** stores most of the websites configuration information and can be easily customized.
 
 
-A fancy feature is the ability to switch between using d3pie, Google Charts or Chart.js based pie charts just by changing the config entry **`chart_type`** from **`d3pie`** to **`google`** or to **`chartjs`**.
+A fancy feature is the ability to switch between using d3pie, Google Charts, Chart.js or plotly.js based pie charts just by changing the config entry **`chart_type`** to one of **`d3pie`**, **`google`**, **`chartjs`** or **`plotly`**.
 
 
-The home page charts for the Google Charts and Chart.js **`chart_type`** are not yet complete.
+The home page charts for the Google Charts, Chart.js and plotly.js **`chart_type`** are not yet complete.
 
 
-For all three styles of pie charts we have both **`Donut`** and **`Pie`** style charts.
+For all four styles of pie charts we have both **`Donut`** and **`Pie`** style charts.
 
 
 The advantage of the d3pie chart is its interactive clickable pie charts pieces.
@@ -31,6 +31,9 @@ The advantage of the Google Chart pie chart is its in built ability to create a 
 
 
 The advantage of the Chart.js pie chart is its interactive clickable legend.
+
+
+The plotly.js pie charts are by far the most interactive out of the box.
 
 
 This section is written in Markdown format coming from the site config file: **`site.yml`** and I am using kramdown to convert it to HTML.
@@ -70,9 +73,9 @@ theme_color: E5E8E8
 # heading at top left of website
 nav_heading: Analytics Dashboard
 # homepage heading h1
-homepage_heading: Ruby based d3pie, Google Charts, Chart.js XML Schema text mining configurable static site generator
+homepage_heading: "**`Ruby`** based **`d3pie`**, **`Google Charts`**, **`Chart.js`** and **`plotly.js`** XML Schema text mining configurable static site generator"
 # chart pages heading h1
-chart_pages_heading: "Chart type: d3pie"
+chart_pages_heading: "Chart type: **`d3pie`**"
 # heading on other pages h1
 other_heading: Branch count grouped by file
 

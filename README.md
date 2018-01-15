@@ -9,22 +9,25 @@ This Ruby script **`run.rb`** is a static site generator. It data mines or text 
 The config file: **`site.yml`** stores most of the websites configuration information and can be easily customized.
 
 
-A fancy feature is the ability to switch between using d3pie, Google Charts or Chart.js based pie charts just by changing the config entry **`chart_type`** from **`d3pie`** to **`google`** or to **`chartjs`**.
+A fancy feature is the ability to switch between using d3pie, Google Charts, Chart.js or plotly.js based pie charts just by changing the config entry **`chart_type`** to one of **`d3pie`**, **`google`**, **`chartjs`** or **`plotly`**.
 
 
-The home page charts for the Google Charts and Chart.js **`chart_type`** are not yet complete.
+The home page charts for the Google Charts, Chart.js and plotly.js **`chart_type`** are not yet complete.
 
 
-For all three styles of pie charts we have both **`Donut`** and **`Pie`** style charts.
+For all four styles of pie charts we have both **`Donut`** and **`Pie`** style charts.
 
 
-The advantage of the d3pie pie chart is its interactive clickable pie charts pieces.
+The advantage of the d3pie chart is its interactive clickable pie charts pieces.
 
 
 The advantage of the Google Chart pie chart is its in built ability to create a chart legend.
 
 
 The advantage of the Chart.js pie chart is its interactive clickable legend.
+
+
+The plotly.js pie charts are by far the most interactive out of the box.
 
 
 Demo can be seen here: http://thebeast.me/charts/
@@ -41,6 +44,7 @@ Demo can be seen here: http://thebeast.me/charts/
 - [D3](https://d3js.org/)
 - [Google Charts](https://developers.google.com/chart/)
 - [Chart.js](http://www.chartjs.org/)
+- [plotly.js](https://plot.ly/javascript/)
 - [jQuery](https://jquery.com/)
 - [JSON](https://www.json.org/)
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
