@@ -606,7 +606,7 @@ structure.map.with_index do |chart, i|
       </div>)
     else
       %(
-        <div class="col-lg-4 col-md-6 col-sm-12 #{'plotlypie' unless site_config['chart_type'] != 'plotly'}" id="#{site_config['chart_type'] == 'google' ? 'chart_div_' : site_config['chart_type'] == 'plotly' ? 'plotly_chart_div_' : 'd3pie_chart_div_'}#{data0}"></div>)
+        <div class="col-lg-4 col-md-6 col-sm-12#{' plotlypie' unless site_config['chart_type'] != 'plotly'}" id="#{site_config['chart_type'] == 'google' ? 'chart_div_' : site_config['chart_type'] == 'plotly' ? 'plotly_chart_div_' : 'd3pie_chart_div_'}#{data0}"></div>)
     end)
 end
 
