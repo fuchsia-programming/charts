@@ -107,7 +107,8 @@ links = { 'Ruby' => 'https://www.ruby-lang.org',
           'Flag Counter' => 'https://flagcounter.com/',
           'Sitemaps' => 'https://en.wikipedia.org/wiki/Sitemaps',
           'robots.txt' => 'https://en.wikipedia.org/wiki/Robots_exclusion_standard',
-          'Portable Network Graphics' => 'https://en.wikipedia.org/wiki/Portable_Network_Graphics' }
+          'Portable Network Graphics' => 'https://en.wikipedia.org/wiki/Portable_Network_Graphics',
+          'Text file' => 'https://en.wikipedia.org/wiki/Text_file' }
 
 # data for GitHub buttons
 buttons = [
@@ -211,10 +212,10 @@ end
 
 # function that draws the pie chart
 def draw_d3pie_chart(type, which, data, num, colors, title, width, height,
-              mainlabelsize, titlesize, valuesize, tooltipsize,
-              segmentsize, pieouterradius, pieinnerradius, piedistance, linesenabled,
-              pulloutsegmentsize, titlefont, footerfont, footerfontsize, backgroundcolor,
-              footercolor)
+                     mainlabelsize, titlesize, valuesize, tooltipsize,
+                     segmentsize, pieouterradius, pieinnerradius, piedistance, linesenabled,
+                     pulloutsegmentsize, titlefont, footerfont, footerfontsize, backgroundcolor,
+                     footercolor)
   high = 1; seen = []; element = ''
   data.map do |x|
     if x[1] > high
@@ -412,7 +413,7 @@ end
 
 # common function for each chart
 def draw_google_chart(type, which_chart, data, chart_string, chart_values,
-               chart_title, chart_div, width, height)
+                      chart_title, chart_div, width, height)
   %(
         function drawChart#{which_chart}() {
           // Create the data table.
@@ -472,7 +473,7 @@ structure = generate_data
 page_count = structure.size / 50 + 1
 
 # common HTML page header include
-def page_header(site_config, page_count, ct)
+def page_header(site_config, page_count)
   # start common page region
   page = %(<!DOCTYPE html>
 <html lang="en">
@@ -539,7 +540,7 @@ def page_header(site_config, page_count, ct)
 end
 
 # start common page region
-page_header(site_config, page_count, ct)
+page_header(site_config, page_count)
 # continue to build all the pages
 
 # start home page stats
@@ -572,19 +573,22 @@ structure.map.with_index do |chart, i|
     end)
 end
 
-# restart common page region
-$page = %(
+#
+sitebuildtime = Time.now.strftime '%FT%T%:z'
+
+# creates HTML footer for all pages before the scripts are inserted
+def footer(buttons, page_count, sitebuildtime, site_config)
+  s = %(
     </div>
     <footer>
       <div class="container">
         <ul class="list-unstyled">)
-# add GitHub buttons
-$page += add_github_buttons(buttons)
-# add general page links
-$page += add_links(page_count, 1)
-# add rest of page
-sitebuildtime = Time.now.strftime '%FT%T%:z'
-$page += %(
+  # add GitHub buttons
+  s += add_github_buttons(buttons)
+  # add general page links
+  s += add_links(page_count, 1)
+  # add rest of page
+  s + %(
           <li class="nuchecker">
             <a target="_blank" rel="noopener">#{site_config['valid_html']}</a>
           </li>
@@ -599,15 +603,25 @@ $page += %(
         <a id="theend"></a>
       </div>
     </footer>)
+end
+
+# restart common page region
+$page = footer(buttons, page_count, sitebuildtime, site_config)
 
 # add all the websites external JavaScript files
-if site_config['chart_type'] == 'd3pie'
-  $page += add_scripts(site_scripts, d3_scripts)
-elsif site_config['chart_type'] == 'google'
-  $page += add_scripts(site_scripts, google_scripts)
-else
-  $page += add_scripts(site_scripts, chartjs_script)
+def add_website_scripts(type, site_scripts, d3_scripts, google_scripts, chartjs_script)
+  s = ''
+  if type == 'd3pie'
+    s += add_scripts(site_scripts, d3_scripts)
+  elsif type == 'google'
+    s += add_scripts(site_scripts, google_scripts)
+  else
+    s += add_scripts(site_scripts, chartjs_script)
+  end
+  s
 end
+
+$page += add_website_scripts(site_config['chart_type'], site_scripts, d3_scripts, google_scripts, chartjs_script)
 
 # continue to build all the pages
 $page += '
@@ -625,9 +639,9 @@ if site_config['chart_type'] == 'd3pie'
   # add all the javascript for each pie chart to each page
   # home page
   @page += draw_d3pie_chart(0, 'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 1000, 1000, 15, 24, 16, 16, 1,
-                     '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
+                            '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
   @page += draw_d3pie_chart(2, 'homepage_mit', mit_word_count, 1, exthash, 'Most frequent words in the MIT License', 1000, 1000, 15, 24, 16, 16, 1,
-                     '70%', '35%', 50, true, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
+                            '70%', '35%', 50, true, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
   # other pages
   structure.map.with_index do |chart, ind|
     data0 = clean_chart(chart[0])
@@ -635,8 +649,12 @@ if site_config['chart_type'] == 'd3pie'
     i = ind / 50 + 1
     type = i & 1 == 1 ? 0 : '35%'
     instance_variable_set("@page#{i}",
-                          instance_variable_get("@page#{i}") + draw_d3pie_chart(1, data0, data1, ind, schema_colors, chart[0], 490, 425, 11, 13, 12, 12, 3,
-                                                                         '75%', type, 20, true, 10, 'Arial Black', 'Arial Black', 12, 'fff', 999))
+                          instance_variable_get("@page#{i}") +
+                                                draw_d3pie_chart(1, data0, data1, ind, schema_colors, chart[0],
+                                                                 490, 425, 11, 13, 12,
+                                                                 12, 3, '75%', type, 20,
+                                                                 true, 10, 'Arial Black',
+                                                                 'Arial Black', 12, 'fff', 999))
   end
 elsif site_config['chart_type'] == 'google'
   # add all the JavaScript for each pie chart to each page

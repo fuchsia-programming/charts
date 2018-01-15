@@ -60,6 +60,7 @@ Demo can be seen here: http://thebeast.me/charts/
 - [Markdown](https://daringfireball.net/projects/markdown)
 - [robots.txt](https://en.wikipedia.org/wiki/Robots_exclusion_standard)
 - [Portable Network Graphics](https://en.wikipedia.org/wiki/Portable_Network_Graphics)
+- [Text file](https://en.wikipedia.org/wiki/Text_file)
 
 ## Powered By
 
