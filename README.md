@@ -3,28 +3,28 @@
 ### About
 
 
-This Ruby script `run.rb` is a static site generator. It data mines or text mines a folder of XML Schema files as well as the MIT License and generates statistics on elements and attributes (the XML Schema) or on words (the License).
+This Ruby script **`run.rb`** is a static site generator. It data mines or text mines a folder of XML Schema files as well as the MIT License (only for the d3pie charts) and generates statistics on elements and attributes (the XML Schema) or on words (the License).
 
 
-The config file: `site.yml` stores most of the websites configuration information and can be easily customized.
+The config file: **`site.yml`** stores most of the websites configuration information and can be easily customized.
 
 
-A fancy feature is the ability to switch between using **`d3pie`**, **`Google Charts`** or **`Chart.js`** based pie charts just by changing the config entry `chart_type` from **`d3pie`** to **`google`** or to **`chartjs`**.
+A fancy feature is the ability to switch between using d3pie, Google Charts or Chart.js based pie charts just by changing the config entry **`chart_type`** from **`d3pie`** to **`google`** or to **`chartjs`**.
 
 
-The home page charts for the **`Google Charts`** and **`Chart.js`** `chart_type` are not yet complete.
+The home page charts for the Google Charts and Chart.js **`chart_type`** are not yet complete.
 
 
-For all three styles of pie charts we have both `Donut` and `Pie` style charts.
+For all three styles of pie charts we have both **`Donut`** and **`Pie`** style charts.
 
 
-The advantage of the **`d3pie`** chart is its ability to handle mouse clicks on the pie chart pieces and they respond by popping in and out.
+The advantage of the d3pie pie chart is its interactive clickable pie charts pieces.
 
 
-The advantage of the **`Google Chart`** pie chart is its in built ability to create a chart legend.
+The advantage of the Google Chart pie chart is its in built ability to create a chart legend.
 
 
-The advantage of the **`Chart.js`** pie chart is its interactive clickable legend.
+The advantage of the Chart.js pie chart is its interactive clickable legend.
 
 
 Demo can be seen here: http://thebeast.me/charts/

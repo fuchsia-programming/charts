@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Ruby Chart.js text mining dashboard</title>
+    <title>Text mining analytics dashboard and static site generator</title>
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/images/icons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icons/apple-icon-72x72.png">
@@ -23,13 +23,13 @@
     <link rel="manifest" href="assets/images/icons/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/images/icons/ms-icon-144x144.png">
-    <meta name="description" content="Analytics dashboard built from Ruby using the d3pie and Google charts libraries. The application or script text mines a folder of XML Schema to generate statistics about tags and attributes.">
+    <meta name="description" content="Analytics dashboard built from Ruby using the d3pie, Google charts and Chart.js libraries. The application or script text mines a folder of XML Schema to generate statistics about tags and attributes.">
     <meta name="theme-color" content="#E5E8E8">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-theme.min.css">
     <style>
       .container-fluid { padding: 0px; }
-      .navbar, .navbar-default { padding: 5pt; background-color: #E5E8E8; font-size: 12pt; }
+      .navbar, .navbar-default { margin-bottom: 0; padding: 5pt; background-color: #E5E8E8; font-size: 12pt; }
       .navbar, .navbar-default li a { color: #000 !important; }
       .navbar-default .navbar-brand { margin-left: 20px !important; color: #ff00ff; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: red !important; }
@@ -45,6 +45,7 @@
       .homepage { padding: 5px 30px 5px 30px; }
       .logo { float: left; }
       .oll { padding-left: 1em; }
+      h2#other { text-align: center; }
     </style>
   </head>
   <body>
@@ -84,207 +85,158 @@
       </div>
     </nav>
     <div class="container-fluid">
-      <h1>Branch count grouped by file</h1>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSignedInfo" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSignedInfoType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameStatement" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameStatementAbstractType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameStatus" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameStatusCode" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameStatusCodeType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameStatusDetail" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameStatusDetailType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameStatusMessage" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameStatusResponseType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameStatusType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSubject" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSubjectConfirmation" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSubjectConfirmationData" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSubjectConfirmationDataType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSubjectConfirmationType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSubjectLocality" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSubjectLocalityType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSubjectQuery" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSubjectQueryAbstractType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSubjectType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameTarget" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameTerminate" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameTerminateType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameTransform" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameTransformType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameTransforms" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameTransformsType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameURI" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameValue" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameVersion" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameX509CRL" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameX509Certificate" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameX509Data" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameX509DataType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameX509IssuerName" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameX509IssuerSerial" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameX509IssuerSerialType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameX509SKI" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameX509SerialNumber" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameX509SubjectName" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameXPath" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameY" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameauthor" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnamebar" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnamebody" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnamebook" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnamebookstore" width="400" height="350"></canvas>
-                          </div>
+      <h1>Chart type: Chart.js</h1>
+      <h2 id="other">Branch count grouped by file</h2>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSignedInfo" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSignedInfoType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameStatement" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameStatementAbstractType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameStatus" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameStatusCode" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameStatusCodeType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameStatusDetail" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameStatusDetailType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameStatusMessage" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameStatusResponseType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameStatusType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSubject" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSubjectConfirmation" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSubjectConfirmationData" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSubjectConfirmationDataType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSubjectConfirmationType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSubjectLocality" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSubjectLocalityType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSubjectQuery" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSubjectQueryAbstractType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSubjectType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameTarget" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameTerminate" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameTerminateType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameTransform" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameTransformType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameTransforms" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameTransformsType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameURI" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameValue" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameVersion" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameX509CRL" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameX509Certificate" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameX509Data" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameX509DataType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameX509IssuerName" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameX509IssuerSerial" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameX509IssuerSerialType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameX509SKI" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameX509SerialNumber" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameX509SubjectName" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameXPath" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameY" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameauthor" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnamebar" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnamebody" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnamebook" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnamebookstore" width="400" height="350"></canvas>
+      </div>
     </div>
     <footer>
       <div class="container">
@@ -321,7 +273,7 @@
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-15T13:31:50+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-15T14:58:08+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">

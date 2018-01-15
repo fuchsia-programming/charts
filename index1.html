@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Ruby Chart.js text mining dashboard</title>
+    <title>Text mining analytics dashboard and static site generator</title>
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/images/icons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icons/apple-icon-72x72.png">
@@ -23,13 +23,13 @@
     <link rel="manifest" href="assets/images/icons/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/images/icons/ms-icon-144x144.png">
-    <meta name="description" content="Analytics dashboard built from Ruby using the d3pie and Google charts libraries. The application or script text mines a folder of XML Schema to generate statistics about tags and attributes.">
+    <meta name="description" content="Analytics dashboard built from Ruby using the d3pie, Google charts and Chart.js libraries. The application or script text mines a folder of XML Schema to generate statistics about tags and attributes.">
     <meta name="theme-color" content="#E5E8E8">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-theme.min.css">
     <style>
       .container-fluid { padding: 0px; }
-      .navbar, .navbar-default { padding: 5pt; background-color: #E5E8E8; font-size: 12pt; }
+      .navbar, .navbar-default { margin-bottom: 0; padding: 5pt; background-color: #E5E8E8; font-size: 12pt; }
       .navbar, .navbar-default li a { color: #000 !important; }
       .navbar-default .navbar-brand { margin-left: 20px !important; color: #ff00ff; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: red !important; }
@@ -45,6 +45,7 @@
       .homepage { padding: 5px 30px 5px 30px; }
       .logo { float: left; }
       .oll { padding-left: 1em; }
+      h2#other { text-align: center; }
     </style>
   </head>
   <body>
@@ -84,207 +85,158 @@
       </div>
     </nav>
     <div class="container-fluid">
-      <h1>Branch count grouped by file</h1>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsannotation" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsany" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsanyprocessContentslax" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsanyAttribute" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsappinfo" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattribute" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameAddress" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameAlgorithm" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameAllowCreate" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameAssertionConsumerServiceIndex" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameAssertionConsumerServiceURL" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameAttributeConsumingServiceIndex" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameAuthnInstant" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameComparison" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameConsent" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameCount" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameDNSName" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameDecision" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameDestination" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameEncoding" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameForceAuthn" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameFormat" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameFriendlyName" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameID" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameId" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameInResponseTo" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameIsPassive" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameIssueInstant" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameLoc" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameMethod" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameMimeType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameName" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameNameFormat" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameNameQualifier" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameNamespace" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameNotBefore" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameNotOnOrAfter" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameProtocolBinding" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameProviderID" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameProviderName" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameProxyCount" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameReason" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameRecipient" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameResource" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameSPNameQualifier" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameSPProvidedID" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameSessionIndex" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameSessionNotOnOrAfter" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameTarget" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasxsattributenameType" width="400" height="350"></canvas>
-                          </div>
+      <h1>Chart type: Chart.js</h1>
+      <h2 id="other">Branch count grouped by file</h2>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsannotation" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsany" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsanyprocessContentslax" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsanyAttribute" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsappinfo" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattribute" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameAddress" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameAlgorithm" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameAllowCreate" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameAssertionConsumerServiceIndex" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameAssertionConsumerServiceURL" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameAttributeConsumingServiceIndex" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameAuthnInstant" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameComparison" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameConsent" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameCount" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameDNSName" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameDecision" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameDestination" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameEncoding" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameForceAuthn" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameFormat" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameFriendlyName" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameID" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameId" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameInResponseTo" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameIsPassive" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameIssueInstant" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameLoc" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameMethod" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameMimeType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameName" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameNameFormat" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameNameQualifier" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameNamespace" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameNotBefore" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameNotOnOrAfter" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameProtocolBinding" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameProviderID" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameProviderName" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameProxyCount" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameReason" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameRecipient" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameResource" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameSPNameQualifier" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameSPProvidedID" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameSessionIndex" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameSessionNotOnOrAfter" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameTarget" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasxsattributenameType" width="400" height="350"></canvas>
+      </div>
     </div>
     <footer>
       <div class="container">
@@ -321,7 +273,7 @@
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-15T13:31:50+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-15T14:58:08+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">

@@ -339,7 +339,7 @@ end
 # built with section on home page
 def section_built_with(links, cloc, site_config)
   s = %(
-      <div class="col-md-3">
+      <div class="col-md-5">
         #{Kramdown::Document.new(site_config['about']).to_html}
         <ol>)
   links.map do |k, v|
@@ -349,7 +349,7 @@ def section_built_with(links, cloc, site_config)
   s + %(
         </ol>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-7">
         <h3>#{site_config['homepage_subheading4']}</h3>
         <pre>
           <code>
@@ -461,7 +461,7 @@ def draw_chartjs_chart(type, canvas_id, data, colors, title, titlefontsize, resp
 end
 
 # replaces 'd3pie' with 'Google Charts' or 'Chart.js' or leaves is as 'd3pie'
-# used in text and the website HTML <title> tag
+# used in h1 on the main charting pages
 def site_type(s, chart_type)
   s.gsub(/d3pie/, chart_type)
 end
@@ -482,7 +482,7 @@ def page_header(site_config, page_count, ct)
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>#{site_type(site_config['title'], ct)}</title>)
+    <title>#{site_config['title']}</title>)
   page += add_icons
   page += %(
     <meta name="description" content="#{site_config['description']}">
@@ -491,7 +491,7 @@ def page_header(site_config, page_count, ct)
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-theme.min.css">
     <style>
       .container-fluid { padding: 0px; }
-      .navbar, .navbar-default { padding: 5pt; background-color: ##{site_config['theme_color']}; font-size: 12pt; }
+      .navbar, .navbar-default { margin-bottom: 0; padding: 5pt; background-color: ##{site_config['theme_color']}; font-size: 12pt; }
       .navbar, .navbar-default li a { color: ##{site_config['text_color']} !important; }
       .navbar-default .navbar-brand { margin-left: 20px !important; color: ##{site_config['logo_text_color']}; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: #{site_config['nav_hover_color']} !important; }
@@ -507,6 +507,7 @@ def page_header(site_config, page_count, ct)
       .homepage { padding: 5px 30px 5px 30px; }
       .logo { float: left; }
       .oll { padding-left: 1em; }
+      h2#other { text-align: center; }
     </style>
   </head>
   <body>
@@ -543,14 +544,15 @@ page_header(site_config, page_count, ct)
 
 # start home page stats
 @page += %(
-    <h1>#{site_type(site_config['homepage_heading'], ct)}</h1>
+    <h1>#{site_config['homepage_heading']}</h1>
     <div class="row homepage">
       <h2>#{site_config['homepage_subheading1']}</h2>)
 # add built with links to home page
 @page += section_built_with(links, cloc, site_config)
 # restart all the chart pages
 $page = %(
-      <h1>#{site_config['other_heading']}</h1>)
+      <h1>#{site_type(site_config['chart_pages_heading'], ct)}</h1>
+      <h2 id="other">#{site_config['other_heading']}</h2>)
 # continue to build all the pages
 page_build(page_count, 1)
 
@@ -560,15 +562,14 @@ structure.map.with_index do |chart, i|
   i = i / 50 + 1
   instance_variable_set("@page#{i}",
                         instance_variable_get("@page#{i}") + "\n      " +
-                        if site_config['chart_type'] == 'chartjs'
-                          %(
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvas#{data0}" width="400" height="350"></canvas>
-                          </div>)
-                        else
-                          %(
-                          <div class="col-lg-4 col-md-6 col-sm-12" id="#{site_config['chart_type'] == 'google' ? 'chart_div_' : 'd3pie_chart_div_'}#{data0}"></div>)
-                        end)
+    if site_config['chart_type'] == 'chartjs'
+      %(<div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvas#{data0}" width="400" height="350"></canvas>
+      </div>)
+    else
+      %(
+        <div class="col-lg-4 col-md-6 col-sm-12" id="#{site_config['chart_type'] == 'google' ? 'chart_div_' : 'd3pie_chart_div_'}#{data0}"></div>)
+    end)
 end
 
 # restart common page region

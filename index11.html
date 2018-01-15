@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Ruby Chart.js text mining dashboard</title>
+    <title>Text mining analytics dashboard and static site generator</title>
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/images/icons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icons/apple-icon-72x72.png">
@@ -23,13 +23,13 @@
     <link rel="manifest" href="assets/images/icons/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/images/icons/ms-icon-144x144.png">
-    <meta name="description" content="Analytics dashboard built from Ruby using the d3pie and Google charts libraries. The application or script text mines a folder of XML Schema to generate statistics about tags and attributes.">
+    <meta name="description" content="Analytics dashboard built from Ruby using the d3pie, Google charts and Chart.js libraries. The application or script text mines a folder of XML Schema to generate statistics about tags and attributes.">
     <meta name="theme-color" content="#E5E8E8">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-theme.min.css">
     <style>
       .container-fluid { padding: 0px; }
-      .navbar, .navbar-default { padding: 5pt; background-color: #E5E8E8; font-size: 12pt; }
+      .navbar, .navbar-default { margin-bottom: 0; padding: 5pt; background-color: #E5E8E8; font-size: 12pt; }
       .navbar, .navbar-default li a { color: #000 !important; }
       .navbar-default .navbar-brand { margin-left: 20px !important; color: #ff00ff; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: red !important; }
@@ -45,6 +45,7 @@
       .homepage { padding: 5px 30px 5px 30px; }
       .logo { float: left; }
       .oll { padding-left: 1em; }
+      h2#other { text-align: center; }
     </style>
   </head>
   <body>
@@ -84,207 +85,158 @@
       </div>
     </nav>
     <div class="container-fluid">
-      <h1>Branch count grouped by file</h1>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameOriginatorKeyInfo" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameP" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnamePGPData" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnamePGPDataType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnamePGPKeyID" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnamePGPKeyPacket" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnamePgenCounter" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameProtocolBinding" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameProviderID" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameProviderName" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameProxyCount" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameProxyRestriction" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameProxyRestrictionType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameQ" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameRSAKeyValue" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameRSAKeyValueType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameReason" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameRecipient" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameRecipientKeyInfo" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameReference" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameReferenceType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameRequestAbstractType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameRequestedAuthnContext" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameRequestedAuthnContextType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameRequesterID" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameResource" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameResponse" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameResponseType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameRetrievalMethod" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameRetrievalMethodType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSPKIData" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSPKIDataType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSPKISexp" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSPNameQualifier" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSPProvidedID" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameScoping" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameScopingType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSeed" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSessionIndex" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSessionNotOnOrAfter" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSignature" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSignatureMethod" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSignatureMethodType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSignatureProperties" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSignaturePropertiesType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSignatureProperty" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSignaturePropertyType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSignatureType" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSignatureValue" width="400" height="350"></canvas>
-                          </div>
-      
-                          <div class="col-lg-4 col-md-6 col-sm-12">
-                            <canvas id="chartjs_canvasnameSignatureValueType" width="400" height="350"></canvas>
-                          </div>
+      <h1>Chart type: Chart.js</h1>
+      <h2 id="other">Branch count grouped by file</h2>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameOriginatorKeyInfo" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameP" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnamePGPData" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnamePGPDataType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnamePGPKeyID" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnamePGPKeyPacket" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnamePgenCounter" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameProtocolBinding" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameProviderID" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameProviderName" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameProxyCount" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameProxyRestriction" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameProxyRestrictionType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameQ" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameRSAKeyValue" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameRSAKeyValueType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameReason" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameRecipient" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameRecipientKeyInfo" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameReference" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameReferenceType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameRequestAbstractType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameRequestedAuthnContext" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameRequestedAuthnContextType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameRequesterID" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameResource" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameResponse" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameResponseType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameRetrievalMethod" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameRetrievalMethodType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSPKIData" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSPKIDataType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSPKISexp" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSPNameQualifier" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSPProvidedID" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameScoping" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameScopingType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSeed" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSessionIndex" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSessionNotOnOrAfter" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSignature" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSignatureMethod" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSignatureMethodType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSignatureProperties" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSignaturePropertiesType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSignatureProperty" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSignaturePropertyType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSignatureType" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSignatureValue" width="400" height="350"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvasnameSignatureValueType" width="400" height="350"></canvas>
+      </div>
     </div>
     <footer>
       <div class="container">
@@ -321,7 +273,7 @@
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-15T13:31:50+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-15T14:58:08+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">

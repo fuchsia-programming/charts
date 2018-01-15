@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Ruby Chart.js text mining dashboard</title>
+    <title>Text mining analytics dashboard and static site generator</title>
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/images/icons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icons/apple-icon-72x72.png">
@@ -23,13 +23,13 @@
     <link rel="manifest" href="assets/images/icons/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/images/icons/ms-icon-144x144.png">
-    <meta name="description" content="Analytics dashboard built from Ruby using the d3pie and Google charts libraries. The application or script text mines a folder of XML Schema to generate statistics about tags and attributes.">
+    <meta name="description" content="Analytics dashboard built from Ruby using the d3pie, Google charts and Chart.js libraries. The application or script text mines a folder of XML Schema to generate statistics about tags and attributes.">
     <meta name="theme-color" content="#E5E8E8">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-theme.min.css">
     <style>
       .container-fluid { padding: 0px; }
-      .navbar, .navbar-default { padding: 5pt; background-color: #E5E8E8; font-size: 12pt; }
+      .navbar, .navbar-default { margin-bottom: 0; padding: 5pt; background-color: #E5E8E8; font-size: 12pt; }
       .navbar, .navbar-default li a { color: #000 !important; }
       .navbar-default .navbar-brand { margin-left: 20px !important; color: #ff00ff; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: red !important; }
@@ -45,6 +45,7 @@
       .homepage { padding: 5px 30px 5px 30px; }
       .logo { float: left; }
       .oll { padding-left: 1em; }
+      h2#other { text-align: center; }
     </style>
   </head>
   <body>
@@ -84,29 +85,29 @@
       </div>
     </nav>
     <div class="container-fluid">
-    <h1>Ruby Chart.js based XML Schema text mining application</h1>
+    <h1>Ruby based d3pie, Google Charts, Chart.js XML Schema text mining configurable static site generator</h1>
     <div class="row homepage">
       <h2>Featured Statistics</h2>
-      <div class="col-md-3">
+      <div class="col-md-5">
         <h3 id="about">About</h3>
 
-<p>This Ruby script <code>run.rb</code> is a static site generator. It data mines or text mines a folder of XML Schema files as well as the MIT License and generates statistics on elements and attributes (the XML Schema) or on words (the License).</p>
+<p>This Ruby script <strong><code>run.rb</code></strong> is a static site generator. It data mines or text mines a folder of XML Schema files as well as the MIT License (only for the d3pie charts) and generates statistics on elements and attributes (the XML Schema) or on words (the License).</p>
 
-<p>The config file: <code>site.yml</code> stores most of the websites configuration information and can be easily customized.</p>
+<p>The config file: <strong><code>site.yml</code></strong> stores most of the websites configuration information and can be easily customized.</p>
 
-<p>A fancy feature is the ability to switch between using <strong><code>d3pie</code></strong>, <strong><code>Google Charts</code></strong> or <strong><code>Chart.js</code></strong> based pie charts just by changing the config entry <code>chart_type</code> from <strong><code>d3pie</code></strong> to <strong><code>google</code></strong> or to <strong><code>chartjs</code></strong>.</p>
+<p>A fancy feature is the ability to switch between using d3pie, Google Charts or Chart.js based pie charts just by changing the config entry <strong><code>chart_type</code></strong> from <strong><code>d3pie</code></strong> to <strong><code>google</code></strong> or to <strong><code>chartjs</code></strong>.</p>
 
-<p>The home page charts for the <strong><code>Google Charts</code></strong> and <strong><code>Chart.js</code></strong> <code>chart_type</code> are not yet complete.</p>
+<p>The home page charts for the Google Charts and Chart.js <strong><code>chart_type</code></strong> are not yet complete.</p>
 
-<p>For all three styles of pie charts we have both <code>Donut</code> and <code>Pie</code> style charts.</p>
+<p>For all three styles of pie charts we have both <strong><code>Donut</code></strong> and <strong><code>Pie</code></strong> style charts.</p>
 
-<p>The advantage of the <strong><code>d3pie</code></strong> chart is its ability to handle mouse clicks on the pie chart pieces and they respond by popping in and out.</p>
+<p>The advantage of the d3pie chart is its interactive clickable pie charts pieces.</p>
 
-<p>The advantage of the <strong><code>Google Chart</code></strong> pie chart is its in built ability to create a chart legend.</p>
+<p>The advantage of the Google Chart pie chart is its in built ability to create a chart legend.</p>
 
-<p>The advantage of the <strong><code>Chart.js</code></strong> pie chart is its interactive clickable legend.</p>
+<p>The advantage of the Chart.js pie chart is its interactive clickable legend.</p>
 
-<p>This section is written in Markdown format coming from the site config file: <code>site.yml</code> and I am using kramdown to convert it to HTML.</p>
+<p>This section is written in Markdown format coming from the site config file: <strong><code>site.yml</code></strong> and I am using kramdown to convert it to HTML.</p>
 
 <h3 id="built-with">Built With</h3>
 
@@ -142,26 +143,26 @@
           <li class="oll"><a href="https://en.wikipedia.org/wiki/Portable_Network_Graphics" target="_blank" rel="noopener">Portable Network Graphics</a></li>
         </ol>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-7">
         <h3>Lines of code in this project</h3>
         <pre>
           <code>
             
-github.com/AlDanial/cloc v 1.74  T=1.33 s (43.0 files/s, 78311.0 lines/s)
+github.com/AlDanial/cloc v 1.74  T=0.93 s (61.5 files/s, 56710.6 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-HTML                            16           2150             48          68831
+HTML                            16            724             48          18892
 JavaScript                       8           3096            609          15877
 CSS                              4              7             24           7326
 Markdown                         4            597              0           2122
 XSD                             15             73             48           1375
-XML                              6              0              0            807
-Ruby                             1             46             89            600
-YAML                             2             41             17             55
+XML                              6              0              0            808
+Ruby                             1             46             89            601
+YAML                             2             41             19             56
 JSON                             1              0              0             41
 -------------------------------------------------------------------------------
-SUM:                            57           6010            835          97034
+SUM:                            57           4584            837          47098
 -------------------------------------------------------------------------------
 
           </code>
@@ -210,7 +211,7 @@ SUM:                            57           6010            835          97034
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-15T13:31:50+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-15T14:58:08+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
