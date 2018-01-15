@@ -38,7 +38,7 @@ site_config = YAML.safe_load(read_file('site.yml'))
 chart_types = { 'd3pie' => 'd3pie',
                 'chartjs' => 'Chart.js',
                 'google' => 'Google Charts',
-                'plotly' => 'plotly.js'}
+                'plotly' => 'plotly.js' }
 
 # current chart type
 ct = chart_types[site_config['chart_type']]
@@ -234,9 +234,11 @@ def draw_d3pie_chart(type, which, data, num, colors, title, width, height,
   end
   footertext = if high > 1 && seen.size > 1 && seen.count(high) == 1
                  if type.zero?
-                   high.to_s + ' ' + element + (element == 'folders' ? '' : ' files') + ' occurred most frequently'
+                   "#{high} #{element}#{element == 'folders' ? '' : ' files'} occurred most frequently"
+                 elsif type == 1
+                   "#{high} maximum occurrences in file #{element}"
                  else
-                   high.to_s + ' maximum occurrences in file ' + element
+                   "#{high} maximum occurrences for the word #{element}"
                  end
                end
 
@@ -722,7 +724,6 @@ else # plotly
     type = i & 1 == 1 ? 0 : 0.4
     instance_variable_set("@page#{i}",
                           instance_variable_get("@page#{i}") + draw_plotly_chart(data0, data1, chart_title(chart[0], ind), 400, 400, type))
-
   end
 end
 
