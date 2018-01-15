@@ -481,10 +481,16 @@ def draw_plotly_chart(chart_div, data, title, height, width, type)
 
     var layout = {
       title: '#{title}',
-      height: #{height + data.size * 15},
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: #{height + data.size * 15}, // Each legend entry is 15 high.
       width: #{width},
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_#{chart_div}', data, layout);
@@ -526,7 +532,7 @@ def page_header(site_config, page_count)
       .navbar, .navbar-default li a { color: ##{site_config['text_color']} !important; }
       .navbar-default .navbar-brand { margin-left: 20px !important; color: ##{site_config['logo_text_color']}; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: #{site_config['nav_hover_color']} !important; }
-      div[id^="d3pie_chart_div_"], canvas, div[id^="plotly_chart_div_"] { margin-bottom: 100px; }
+      div[id^="d3pie_chart_div_"], canvas { margin-bottom: 100px; }
       footer { background-color: ##{site_config['theme_color']}; min-height: 200px;}
       footer ul a { color: ##{site_config['text_color']} !important; font-size: 13pt; }
       footer .container { margin-left: 15px; }
@@ -539,6 +545,7 @@ def page_header(site_config, page_count)
       .logo { float: left; }
       .oll { padding-left: 1em; }
       h2#other { text-align: center; }
+      .plotlypie { height: 625px; }
     </style>
   </head>
   <body>
@@ -599,7 +606,7 @@ structure.map.with_index do |chart, i|
       </div>)
     else
       %(
-        <div class="col-lg-4 col-md-6 col-sm-12" id="#{site_config['chart_type'] == 'google' ? 'chart_div_' : site_config['chart_type'] == 'plotly' ? 'plotly_chart_div_' : 'd3pie_chart_div_'}#{data0}"></div>)
+        <div class="col-lg-4 col-md-6 col-sm-12 #{'plotlypie' unless site_config['chart_type'] != 'plotly'}" id="#{site_config['chart_type'] == 'google' ? 'chart_div_' : site_config['chart_type'] == 'plotly' ? 'plotly_chart_div_' : 'd3pie_chart_div_'}#{data0}"></div>)
     end)
 end
 

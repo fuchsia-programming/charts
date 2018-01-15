@@ -33,7 +33,7 @@
       .navbar, .navbar-default li a { color: #000 !important; }
       .navbar-default .navbar-brand { margin-left: 20px !important; color: #c7254e; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: red !important; }
-      div[id^="d3pie_chart_div_"], canvas, div[id^="plotly_chart_div_"] { margin-bottom: 100px; }
+      div[id^="d3pie_chart_div_"], canvas { margin-bottom: 100px; }
       footer { background-color: #E5E8E8; min-height: 200px;}
       footer ul a { color: #000 !important; font-size: 13pt; }
       footer .container { margin-left: 15px; }
@@ -46,6 +46,7 @@
       .logo { float: left; }
       .oll { padding-left: 1em; }
       h2#other { text-align: center; }
+      .plotlypie { height: 625px; }
     </style>
   </head>
   <body>
@@ -89,105 +90,105 @@
 </h1>
       <h2 id="other">Branch count grouped by file</h2>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameIDNameQualifiers"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameIDNameQualifiers"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameIDPEntry"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameIDPEntry"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameIDPEntryType"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameIDPEntryType"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameIDPList"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameIDPList"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameIDPListType"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameIDPListType"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameId"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameId"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameInResponseTo"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameInResponseTo"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameIsPassive"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameIsPassive"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameIssueInstant"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameIssueInstant"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameIssuer"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameIssuer"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameJ"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameJ"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameKeyInfo"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameKeyInfo"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameKeyInfoConfirmationDataType"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameKeyInfoConfirmationDataType"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameKeyInfoType"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameKeyInfoType"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameKeyName"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameKeyName"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameKeyValue"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameKeyValue"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameKeyValueType"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameKeyValueType"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameLoc"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameLoc"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameLogoutRequest"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameLogoutRequest"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameLogoutRequestType"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameLogoutRequestType"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameLogoutResponse"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameLogoutResponse"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameManageNameIDRequest"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameManageNameIDRequest"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameManageNameIDRequestType"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameManageNameIDRequestType"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameManageNameIDResponse"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameManageNameIDResponse"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameManifest"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameManifest"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameManifestType"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameManifestType"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameMethod"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameMethod"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameMgmtData"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameMgmtData"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameMimeType"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameMimeType"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameModulus"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameModulus"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameName"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameName"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameNameFormat"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameNameFormat"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameNameID"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameNameID"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameNameIDMappingRequest"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameNameIDMappingRequest"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameNameIDMappingRequestType"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameNameIDMappingRequestType"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameNameIDMappingResponse"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameNameIDMappingResponse"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameNameIDMappingResponseType"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameNameIDMappingResponseType"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameNameIDPolicy"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameNameIDPolicy"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameNameIDPolicyType"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameNameIDPolicyType"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameNameIDType"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameNameIDType"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameNameQualifier"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameNameQualifier"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameNamespace"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameNamespace"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameNewEncryptedID"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameNewEncryptedID"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameNewID"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameNewID"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameNotBefore"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameNotBefore"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameNotOnOrAfter"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameNotOnOrAfter"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameObject"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameObject"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameObjectType"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameObjectType"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameOneTimeUse"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameOneTimeUse"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_nameOneTimeUseType"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_nameOneTimeUseType"></div>
     </div>
     <footer>
       <div class="container">
@@ -224,7 +225,7 @@
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-15T19:52:12+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-15T20:48:09+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -247,10 +248,16 @@
 
     var layout = {
       title: '451 - name="IDNameQualifiers"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameIDNameQualifiers', data, layout);
@@ -264,10 +271,16 @@
 
     var layout = {
       title: '452 - name="IDPEntry"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameIDPEntry', data, layout);
@@ -281,10 +294,16 @@
 
     var layout = {
       title: '453 - name="IDPEntryType"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameIDPEntryType', data, layout);
@@ -298,10 +317,16 @@
 
     var layout = {
       title: '454 - name="IDPList"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameIDPList', data, layout);
@@ -315,10 +340,16 @@
 
     var layout = {
       title: '455 - name="IDPListType"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameIDPListType', data, layout);
@@ -332,10 +363,16 @@
 
     var layout = {
       title: '456 - name="Id"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameId', data, layout);
@@ -349,10 +386,16 @@
 
     var layout = {
       title: '457 - name="InResponseTo"',
-      height: 430,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 430, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameInResponseTo', data, layout);
@@ -366,10 +409,16 @@
 
     var layout = {
       title: '458 - name="IsPassive"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameIsPassive', data, layout);
@@ -383,10 +432,16 @@
 
     var layout = {
       title: '459 - name="IssueInstant"',
-      height: 430,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 430, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameIssueInstant', data, layout);
@@ -400,10 +455,16 @@
 
     var layout = {
       title: '460 - name="Issuer"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameIssuer', data, layout);
@@ -417,10 +478,16 @@
 
     var layout = {
       title: '461 - name="J"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameJ', data, layout);
@@ -434,10 +501,16 @@
 
     var layout = {
       title: '462 - name="KeyInfo"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameKeyInfo', data, layout);
@@ -451,10 +524,16 @@
 
     var layout = {
       title: '463 - name="KeyInfoConfirmationDataType"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameKeyInfoConfirmationDataType', data, layout);
@@ -468,10 +547,16 @@
 
     var layout = {
       title: '464 - name="KeyInfoType"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameKeyInfoType', data, layout);
@@ -485,10 +570,16 @@
 
     var layout = {
       title: '465 - name="KeyName"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameKeyName', data, layout);
@@ -502,10 +593,16 @@
 
     var layout = {
       title: '466 - name="KeyValue"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameKeyValue', data, layout);
@@ -519,10 +616,16 @@
 
     var layout = {
       title: '467 - name="KeyValueType"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameKeyValueType', data, layout);
@@ -536,10 +639,16 @@
 
     var layout = {
       title: '468 - name="Loc"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameLoc', data, layout);
@@ -553,10 +662,16 @@
 
     var layout = {
       title: '469 - name="LogoutRequest"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameLogoutRequest', data, layout);
@@ -570,10 +685,16 @@
 
     var layout = {
       title: '470 - name="LogoutRequestType"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameLogoutRequestType', data, layout);
@@ -587,10 +708,16 @@
 
     var layout = {
       title: '471 - name="LogoutResponse"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameLogoutResponse', data, layout);
@@ -604,10 +731,16 @@
 
     var layout = {
       title: '472 - name="ManageNameIDRequest"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameManageNameIDRequest', data, layout);
@@ -621,10 +754,16 @@
 
     var layout = {
       title: '473 - name="ManageNameIDRequestType"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameManageNameIDRequestType', data, layout);
@@ -638,10 +777,16 @@
 
     var layout = {
       title: '474 - name="ManageNameIDResponse"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameManageNameIDResponse', data, layout);
@@ -655,10 +800,16 @@
 
     var layout = {
       title: '475 - name="Manifest"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameManifest', data, layout);
@@ -672,10 +823,16 @@
 
     var layout = {
       title: '476 - name="ManifestType"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameManifestType', data, layout);
@@ -689,10 +846,16 @@
 
     var layout = {
       title: '477 - name="Method"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameMethod', data, layout);
@@ -706,10 +869,16 @@
 
     var layout = {
       title: '478 - name="MgmtData"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameMgmtData', data, layout);
@@ -723,10 +892,16 @@
 
     var layout = {
       title: '479 - name="MimeType"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameMimeType', data, layout);
@@ -740,10 +915,16 @@
 
     var layout = {
       title: '480 - name="Modulus"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameModulus', data, layout);
@@ -757,10 +938,16 @@
 
     var layout = {
       title: '481 - name="Name"',
-      height: 430,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 430, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameName', data, layout);
@@ -774,10 +961,16 @@
 
     var layout = {
       title: '482 - name="NameFormat"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameNameFormat', data, layout);
@@ -791,10 +984,16 @@
 
     var layout = {
       title: '483 - name="NameID"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameNameID', data, layout);
@@ -808,10 +1007,16 @@
 
     var layout = {
       title: '484 - name="NameIDMappingRequest"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameNameIDMappingRequest', data, layout);
@@ -825,10 +1030,16 @@
 
     var layout = {
       title: '485 - name="NameIDMappingRequestType"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameNameIDMappingRequestType', data, layout);
@@ -842,10 +1053,16 @@
 
     var layout = {
       title: '486 - name="NameIDMappingResponse"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameNameIDMappingResponse', data, layout);
@@ -859,10 +1076,16 @@
 
     var layout = {
       title: '487 - name="NameIDMappingResponseType"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameNameIDMappingResponseType', data, layout);
@@ -876,10 +1099,16 @@
 
     var layout = {
       title: '488 - name="NameIDPolicy"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameNameIDPolicy', data, layout);
@@ -893,10 +1122,16 @@
 
     var layout = {
       title: '489 - name="NameIDPolicyType"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameNameIDPolicyType', data, layout);
@@ -910,10 +1145,16 @@
 
     var layout = {
       title: '490 - name="NameIDType"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameNameIDType', data, layout);
@@ -927,10 +1168,16 @@
 
     var layout = {
       title: '491 - name="NameQualifier"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameNameQualifier', data, layout);
@@ -944,10 +1191,16 @@
 
     var layout = {
       title: '492 - name="Namespace"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameNamespace', data, layout);
@@ -961,10 +1214,16 @@
 
     var layout = {
       title: '493 - name="NewEncryptedID"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameNewEncryptedID', data, layout);
@@ -978,10 +1237,16 @@
 
     var layout = {
       title: '494 - name="NewID"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameNewID', data, layout);
@@ -995,10 +1260,16 @@
 
     var layout = {
       title: '495 - name="NotBefore"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameNotBefore', data, layout);
@@ -1012,10 +1283,16 @@
 
     var layout = {
       title: '496 - name="NotOnOrAfter"',
-      height: 430,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 430, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameNotOnOrAfter', data, layout);
@@ -1029,10 +1306,16 @@
 
     var layout = {
       title: '497 - name="Object"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameObject', data, layout);
@@ -1046,10 +1329,16 @@
 
     var layout = {
       title: '498 - name="ObjectType"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameObjectType', data, layout);
@@ -1063,10 +1352,16 @@
 
     var layout = {
       title: '499 - name="OneTimeUse"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameOneTimeUse', data, layout);
@@ -1080,10 +1375,16 @@
 
     var layout = {
       title: '500 - name="OneTimeUseType"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_nameOneTimeUseType', data, layout);

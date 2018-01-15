@@ -33,7 +33,7 @@
       .navbar, .navbar-default li a { color: #000 !important; }
       .navbar-default .navbar-brand { margin-left: 20px !important; color: #c7254e; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: red !important; }
-      div[id^="d3pie_chart_div_"], canvas, div[id^="plotly_chart_div_"] { margin-bottom: 100px; }
+      div[id^="d3pie_chart_div_"], canvas { margin-bottom: 100px; }
       footer { background-color: #E5E8E8; min-height: 200px;}
       footer ul a { color: #000 !important; font-size: 13pt; }
       footer .container { margin-left: 15px; }
@@ -46,6 +46,7 @@
       .logo { float: left; }
       .oll { padding-left: 1em; }
       h2#other { text-align: center; }
+      .plotlypie { height: 625px; }
     </style>
   </head>
   <body>
@@ -89,27 +90,27 @@
 </h1>
       <h2 id="other">Branch count grouped by file</h2>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_typexsstring"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_typexsstring"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_typexsunsignedShort"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_typexsunsignedShort"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_useoptional"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_useoptional"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_userequired"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_userequired"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_valueDeny"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_valueDeny"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_valueIndeterminate"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_valueIndeterminate"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_valuePermit"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_valuePermit"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_valuebetter"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_valuebetter"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_valueexact"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_valueexact"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_valuemaximum"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_valuemaximum"></div>
       
-        <div class="col-lg-4 col-md-6 col-sm-12" id="plotly_chart_div_valueminimum"></div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_valueminimum"></div>
     </div>
     <footer>
       <div class="container">
@@ -146,7 +147,7 @@
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-15T19:52:12+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-15T20:48:09+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -169,10 +170,16 @@
 
     var layout = {
       title: '701 - type="xs:string"',
-      height: 550,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 550, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_typexsstring', data, layout);
@@ -186,10 +193,16 @@
 
     var layout = {
       title: '702 - type="xs:unsignedShort"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_typexsunsignedShort', data, layout);
@@ -203,10 +216,16 @@
 
     var layout = {
       title: '703 - use="optional"',
-      height: 460,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 460, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_useoptional', data, layout);
@@ -220,10 +239,16 @@
 
     var layout = {
       title: '704 - use="required"',
-      height: 460,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 460, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_userequired', data, layout);
@@ -237,10 +262,16 @@
 
     var layout = {
       title: '705 - value="Deny"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_valueDeny', data, layout);
@@ -254,10 +285,16 @@
 
     var layout = {
       title: '706 - value="Indeterminate"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_valueIndeterminate', data, layout);
@@ -271,10 +308,16 @@
 
     var layout = {
       title: '707 - value="Permit"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_valuePermit', data, layout);
@@ -288,10 +331,16 @@
 
     var layout = {
       title: '708 - value="better"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_valuebetter', data, layout);
@@ -305,10 +354,16 @@
 
     var layout = {
       title: '709 - value="exact"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_valueexact', data, layout);
@@ -322,10 +377,16 @@
 
     var layout = {
       title: '710 - value="maximum"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_valuemaximum', data, layout);
@@ -339,10 +400,16 @@
 
     var layout = {
       title: '711 - value="minimum"',
-      height: 415,
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
       width: 400,
       showlegend: true,
-	      legend: {"orientation": "h"}
+	      legend: {
+          "orientation": "h"
+        }
       };
 
     Plotly.newPlot('plotly_chart_div_valueminimum', data, layout);

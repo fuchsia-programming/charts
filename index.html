@@ -33,7 +33,7 @@
       .navbar, .navbar-default li a { color: #000 !important; }
       .navbar-default .navbar-brand { margin-left: 20px !important; color: #c7254e; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: red !important; }
-      div[id^="d3pie_chart_div_"], canvas, div[id^="plotly_chart_div_"] { margin-bottom: 100px; }
+      div[id^="d3pie_chart_div_"], canvas { margin-bottom: 100px; }
       footer { background-color: #E5E8E8; min-height: 200px;}
       footer ul a { color: #000 !important; font-size: 13pt; }
       footer .container { margin-left: 15px; }
@@ -46,6 +46,7 @@
       .logo { float: left; }
       .oll { padding-left: 1em; }
       h2#other { text-align: center; }
+      .plotlypie { height: 625px; }
     </style>
   </head>
   <body>
@@ -153,21 +154,21 @@
         <pre>
           <code>
             
-github.com/AlDanial/cloc v 1.74  T=0.87 s (66.8 files/s, 56468.3 lines/s)
+github.com/AlDanial/cloc v 1.74  T=1.33 s (43.6 files/s, 78146.9 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
+HTML                            16           2151             48          68897
 JavaScript                       9           3096            615          15878
-HTML                            16           2858             48          13223
 CSS                              4              7             24           7326
-Markdown                         4            601              0           2126
+Markdown                         4            599              0           2125
 XSD                             15             73             48           1375
-XML                              6              0              0            807
-Ruby                             1             55             93            648
+XML                              6              0              0            819
+Ruby                             1             55             93            655
 YAML                             2             43             19             57
 JSON                             1              0              0             41
 -------------------------------------------------------------------------------
-SUM:                            58           6733            847          41481
+SUM:                            58           6024            847          97173
 -------------------------------------------------------------------------------
 
           </code>
@@ -216,7 +217,7 @@ SUM:                            58           6733            847          41481
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-15T19:52:12+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-15T20:48:09+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
