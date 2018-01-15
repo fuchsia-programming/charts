@@ -3,7 +3,7 @@
 # site config
 url: http://thebeast.me/charts/
 # chart type: either "d3pie" or "google" or "chartjs"
-chart_type: chartjs
+chart_type: d3pie
 # about section is marked up in Markdown format
 # https://daringfireball.net/projects/markdown/
 about: "### About

@@ -129,12 +129,12 @@ logdata.unshift(%w[Date Amount])
 
 # get file extensions
 extension = []
-Dir.glob('**/*').map do |x|
+extension << Dir.glob('**/*').map do |x|
   ext = File.extname(x)
   if ext == ''
-    extension << 'folders'
+    'folders'
   else
-    extension << ext[1..-1]
+    ext[1..-1]
   end
   # sz = File.size(x)
   # sizes << sz
@@ -610,14 +610,13 @@ $page = footer(buttons, page_count, sitebuildtime, site_config)
 
 # add all the websites external JavaScript files
 def add_website_scripts(type, site_scripts, d3_scripts, google_scripts, chartjs_script)
-  s = ''
-  if type == 'd3pie'
-    s += add_scripts(site_scripts, d3_scripts)
-  elsif type == 'google'
-    s += add_scripts(site_scripts, google_scripts)
-  else
-    s += add_scripts(site_scripts, chartjs_script)
-  end
+  s = if type == 'd3pie'
+        add_scripts(site_scripts, d3_scripts)
+      elsif type == 'google'
+        add_scripts(site_scripts, google_scripts)
+      else
+        add_scripts(site_scripts, chartjs_script)
+      end
   s
 end
 
