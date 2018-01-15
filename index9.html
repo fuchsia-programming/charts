@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Ruby Google Charts text mining dashboard</title>
+    <title>Ruby Chart.js text mining dashboard</title>
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/images/icons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icons/apple-icon-72x72.png">
@@ -33,7 +33,7 @@
       .navbar, .navbar-default li a { color: #000 !important; }
       .navbar-default .navbar-brand { margin-left: 20px !important; color: #ff00ff; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: red !important; }
-      div[id^="pie_chart_div_"] { margin-bottom: 100px; }
+      div[id^="d3pie_chart_div_"], canvas { margin-bottom: 100px; }
       footer { background-color: #E5E8E8; min-height: 200px;}
       footer ul a { color: #000 !important; font-size: 13pt; }
       footer .container { margin-left: 15px; }
@@ -85,56 +85,206 @@
     </nav>
     <div class="container-fluid">
       <h1>Branch count grouped by file</h1>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthnQuery"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthnQueryType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthnRequest"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthnRequestType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthnStatement"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthnStatementType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthzDecisionQuery"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthzDecisionQueryType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthzDecisionStatement"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameAuthzDecisionStatementType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameBaseID"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameBaseIDAbstractType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameCanonicalizationMethod"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameCanonicalizationMethodType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameComparison"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameCondition"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameConditionAbstractType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameConditions"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameConditionsType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameConsent"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameCount"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameCryptoBinary"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDNSName"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDSAKeyValue"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDSAKeyValueType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDecision"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDecisionType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDestination"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDigestMethod"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDigestMethodType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDigestValue"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameDigestValueType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameEncoding"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameEncryptedAssertion"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameEncryptedAttribute"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameEncryptedElementType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameEncryptedID"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameEvidence"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameEvidenceType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameExponent"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameExtensions"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameExtensionsType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameForceAuthn"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameFormat"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameFriendlyName"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameG"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameGetComplete"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameHMACOutputLength"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameHMACOutputLengthType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameID"></div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameAuthnQuery" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameAuthnQueryType" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameAuthnRequest" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameAuthnRequestType" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameAuthnStatement" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameAuthnStatementType" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameAuthzDecisionQuery" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameAuthzDecisionQueryType" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameAuthzDecisionStatement" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameAuthzDecisionStatementType" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameBaseID" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameBaseIDAbstractType" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameCanonicalizationMethod" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameCanonicalizationMethodType" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameComparison" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameCondition" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameConditionAbstractType" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameConditions" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameConditionsType" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameConsent" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameCount" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameCryptoBinary" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameDNSName" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameDSAKeyValue" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameDSAKeyValueType" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameDecision" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameDecisionType" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameDestination" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameDigestMethod" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameDigestMethodType" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameDigestValue" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameDigestValueType" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameEncoding" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameEncryptedAssertion" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameEncryptedAttribute" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameEncryptedElementType" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameEncryptedID" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameEvidence" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameEvidenceType" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameExponent" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameExtensions" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameExtensionsType" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameForceAuthn" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameFormat" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameFriendlyName" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameG" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameGetComplete" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameHMACOutputLength" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameHMACOutputLengthType" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameID" width="400" height="350"></canvas>
+                          </div>
     </div>
     <footer>
       <div class="container">
@@ -171,7 +321,7 @@
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-15T09:19:58+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-15T13:31:50+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -183,961 +333,1058 @@
     </footer>
     <script src="assets/bootstrap/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://www.google.com/jsapi"></script>
+    <script src="assets/js/Chart.min.js"></script>
     <script>
-      google.charts.load("current", {"packages":["corechart"]});
-        google.charts.setOnLoadCallback(drawChartnameAuthnQuery);
-
-        function drawChartnameAuthnQuery() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"AuthnQuery\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "401 - name=\"AuthnQuery\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthnQuery"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameAuthnQueryType);
-
-        function drawChartnameAuthnQueryType() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"AuthnQueryType\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "402 - name=\"AuthnQueryType\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthnQueryType"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameAuthnRequest);
-
-        function drawChartnameAuthnRequest() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"AuthnRequest\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "403 - name=\"AuthnRequest\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthnRequest"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameAuthnRequestType);
-
-        function drawChartnameAuthnRequestType() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"AuthnRequestType\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "404 - name=\"AuthnRequestType\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthnRequestType"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameAuthnStatement);
-
-        function drawChartnameAuthnStatement() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"AuthnStatement\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "405 - name=\"AuthnStatement\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthnStatement"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameAuthnStatementType);
-
-        function drawChartnameAuthnStatementType() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"AuthnStatementType\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "406 - name=\"AuthnStatementType\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthnStatementType"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameAuthzDecisionQuery);
-
-        function drawChartnameAuthzDecisionQuery() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"AuthzDecisionQuery\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "407 - name=\"AuthzDecisionQuery\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthzDecisionQuery"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameAuthzDecisionQueryType);
-
-        function drawChartnameAuthzDecisionQueryType() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"AuthzDecisionQueryType\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "408 - name=\"AuthzDecisionQueryType\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthzDecisionQueryType"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameAuthzDecisionStatement);
-
-        function drawChartnameAuthzDecisionStatement() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"AuthzDecisionStatement\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "409 - name=\"AuthzDecisionStatement\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthzDecisionStatement"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameAuthzDecisionStatementType);
-
-        function drawChartnameAuthzDecisionStatementType() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"AuthzDecisionStatementType\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "410 - name=\"AuthzDecisionStatementType\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameAuthzDecisionStatementType"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameBaseID);
-
-        function drawChartnameBaseID() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"BaseID\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "411 - name=\"BaseID\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameBaseID"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameBaseIDAbstractType);
-
-        function drawChartnameBaseIDAbstractType() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"BaseIDAbstractType\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "412 - name=\"BaseIDAbstractType\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameBaseIDAbstractType"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameCanonicalizationMethod);
-
-        function drawChartnameCanonicalizationMethod() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"CanonicalizationMethod\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "413 - name=\"CanonicalizationMethod\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameCanonicalizationMethod"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameCanonicalizationMethodType);
-
-        function drawChartnameCanonicalizationMethodType() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"CanonicalizationMethodType\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "414 - name=\"CanonicalizationMethodType\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameCanonicalizationMethodType"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameComparison);
-
-        function drawChartnameComparison() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"Comparison\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "415 - name=\"Comparison\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameComparison"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameCondition);
-
-        function drawChartnameCondition() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"Condition\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "416 - name=\"Condition\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameCondition"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameConditionAbstractType);
-
-        function drawChartnameConditionAbstractType() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"ConditionAbstractType\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "417 - name=\"ConditionAbstractType\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameConditionAbstractType"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameConditions);
-
-        function drawChartnameConditions() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"Conditions\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "418 - name=\"Conditions\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameConditions"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameConditionsType);
-
-        function drawChartnameConditionsType() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"ConditionsType\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "419 - name=\"ConditionsType\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameConditionsType"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameConsent);
-
-        function drawChartnameConsent() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"Consent\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 2]]);
-          // Set chart options
-          var options = {"title": "420 - name=\"Consent\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameConsent"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameCount);
-
-        function drawChartnameCount() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"Count\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "421 - name=\"Count\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameCount"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameCryptoBinary);
-
-        function drawChartnameCryptoBinary() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"CryptoBinary\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "422 - name=\"CryptoBinary\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameCryptoBinary"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameDNSName);
-
-        function drawChartnameDNSName() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"DNSName\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "423 - name=\"DNSName\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDNSName"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameDSAKeyValue);
-
-        function drawChartnameDSAKeyValue() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"DSAKeyValue\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "424 - name=\"DSAKeyValue\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDSAKeyValue"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameDSAKeyValueType);
-
-        function drawChartnameDSAKeyValueType() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"DSAKeyValueType\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "425 - name=\"DSAKeyValueType\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDSAKeyValueType"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameDecision);
-
-        function drawChartnameDecision() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"Decision\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "426 - name=\"Decision\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDecision"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameDecisionType);
-
-        function drawChartnameDecisionType() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"DecisionType\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "427 - name=\"DecisionType\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDecisionType"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameDestination);
-
-        function drawChartnameDestination() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"Destination\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 2]]);
-          // Set chart options
-          var options = {"title": "428 - name=\"Destination\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDestination"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameDigestMethod);
-
-        function drawChartnameDigestMethod() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"DigestMethod\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "429 - name=\"DigestMethod\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDigestMethod"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameDigestMethodType);
-
-        function drawChartnameDigestMethodType() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"DigestMethodType\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "430 - name=\"DigestMethodType\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDigestMethodType"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameDigestValue);
-
-        function drawChartnameDigestValue() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"DigestValue\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "431 - name=\"DigestValue\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDigestValue"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameDigestValueType);
-
-        function drawChartnameDigestValueType() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"DigestValueType\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "432 - name=\"DigestValueType\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameDigestValueType"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameEncoding);
-
-        function drawChartnameEncoding() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"Encoding\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "433 - name=\"Encoding\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameEncoding"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameEncryptedAssertion);
-
-        function drawChartnameEncryptedAssertion() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"EncryptedAssertion\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "434 - name=\"EncryptedAssertion\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameEncryptedAssertion"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameEncryptedAttribute);
-
-        function drawChartnameEncryptedAttribute() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"EncryptedAttribute\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "435 - name=\"EncryptedAttribute\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameEncryptedAttribute"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameEncryptedElementType);
-
-        function drawChartnameEncryptedElementType() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"EncryptedElementType\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "436 - name=\"EncryptedElementType\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameEncryptedElementType"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameEncryptedID);
-
-        function drawChartnameEncryptedID() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"EncryptedID\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "437 - name=\"EncryptedID\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameEncryptedID"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameEvidence);
-
-        function drawChartnameEvidence() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"Evidence\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "438 - name=\"Evidence\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameEvidence"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameEvidenceType);
-
-        function drawChartnameEvidenceType() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"EvidenceType\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "439 - name=\"EvidenceType\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameEvidenceType"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameExponent);
-
-        function drawChartnameExponent() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"Exponent\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "440 - name=\"Exponent\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameExponent"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameExtensions);
-
-        function drawChartnameExtensions() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"Extensions\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "441 - name=\"Extensions\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameExtensions"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameExtensionsType);
-
-        function drawChartnameExtensionsType() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"ExtensionsType\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "442 - name=\"ExtensionsType\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameExtensionsType"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameForceAuthn);
-
-        function drawChartnameForceAuthn() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"ForceAuthn\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "443 - name=\"ForceAuthn\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameForceAuthn"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameFormat);
-
-        function drawChartnameFormat() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"Format\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1], ["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "444 - name=\"Format\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameFormat"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameFriendlyName);
-
-        function drawChartnameFriendlyName() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"FriendlyName\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "445 - name=\"FriendlyName\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameFriendlyName"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameG);
-
-        function drawChartnameG() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"G\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "446 - name=\"G\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameG"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameGetComplete);
-
-        function drawChartnameGetComplete() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"GetComplete\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "447 - name=\"GetComplete\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameGetComplete"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameHMACOutputLength);
-
-        function drawChartnameHMACOutputLength() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"HMACOutputLength\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "448 - name=\"HMACOutputLength\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameHMACOutputLength"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameHMACOutputLengthType);
-
-        function drawChartnameHMACOutputLengthType() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"HMACOutputLengthType\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "449 - name=\"HMACOutputLengthType\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameHMACOutputLengthType"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameID);
-
-        function drawChartnameID() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"ID\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 2], ["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "450 - name=\"ID\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameID"));
-          chart.draw(data, options);
-        }
-
+    var ctx = document.getElementById("chartjs_canvasnameAuthnQuery");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '401 - name="AuthnQuery"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '401 - name="AuthnQuery"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameAuthnQueryType");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '402 - name="AuthnQueryType"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '402 - name="AuthnQueryType"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameAuthnRequest");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '403 - name="AuthnRequest"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '403 - name="AuthnRequest"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameAuthnRequestType");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '404 - name="AuthnRequestType"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '404 - name="AuthnRequestType"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameAuthnStatement");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '405 - name="AuthnStatement"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '405 - name="AuthnStatement"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameAuthnStatementType");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '406 - name="AuthnStatementType"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '406 - name="AuthnStatementType"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameAuthzDecisionQuery");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '407 - name="AuthzDecisionQuery"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '407 - name="AuthzDecisionQuery"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameAuthzDecisionQueryType");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '408 - name="AuthzDecisionQueryType"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '408 - name="AuthzDecisionQueryType"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameAuthzDecisionStatement");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '409 - name="AuthzDecisionStatement"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '409 - name="AuthzDecisionStatement"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameAuthzDecisionStatementType");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '410 - name="AuthzDecisionStatementType"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '410 - name="AuthzDecisionStatementType"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameBaseID");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '411 - name="BaseID"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '411 - name="BaseID"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameBaseIDAbstractType");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '412 - name="BaseIDAbstractType"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '412 - name="BaseIDAbstractType"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameCanonicalizationMethod");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '413 - name="CanonicalizationMethod"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '413 - name="CanonicalizationMethod"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameCanonicalizationMethodType");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '414 - name="CanonicalizationMethodType"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '414 - name="CanonicalizationMethodType"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameComparison");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '415 - name="Comparison"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '415 - name="Comparison"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameCondition");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '416 - name="Condition"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '416 - name="Condition"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameConditionAbstractType");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '417 - name="ConditionAbstractType"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '417 - name="ConditionAbstractType"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameConditions");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '418 - name="Conditions"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '418 - name="Conditions"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameConditionsType");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '419 - name="ConditionsType"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '419 - name="ConditionsType"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameConsent");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '420 - name="Consent"',
+              data: [2],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '420 - name="Consent"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameCount");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '421 - name="Count"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '421 - name="Count"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameCryptoBinary");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '422 - name="CryptoBinary"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '422 - name="CryptoBinary"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameDNSName");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '423 - name="DNSName"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '423 - name="DNSName"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameDSAKeyValue");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '424 - name="DSAKeyValue"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '424 - name="DSAKeyValue"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameDSAKeyValueType");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '425 - name="DSAKeyValueType"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '425 - name="DSAKeyValueType"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameDecision");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '426 - name="Decision"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '426 - name="Decision"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameDecisionType");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '427 - name="DecisionType"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '427 - name="DecisionType"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameDestination");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '428 - name="Destination"',
+              data: [2],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '428 - name="Destination"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameDigestMethod");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '429 - name="DigestMethod"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '429 - name="DigestMethod"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameDigestMethodType");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '430 - name="DigestMethodType"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '430 - name="DigestMethodType"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameDigestValue");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '431 - name="DigestValue"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '431 - name="DigestValue"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameDigestValueType");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '432 - name="DigestValueType"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '432 - name="DigestValueType"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameEncoding");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '433 - name="Encoding"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '433 - name="Encoding"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameEncryptedAssertion");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '434 - name="EncryptedAssertion"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '434 - name="EncryptedAssertion"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameEncryptedAttribute");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '435 - name="EncryptedAttribute"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '435 - name="EncryptedAttribute"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameEncryptedElementType");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '436 - name="EncryptedElementType"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '436 - name="EncryptedElementType"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameEncryptedID");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '437 - name="EncryptedID"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '437 - name="EncryptedID"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameEvidence");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '438 - name="Evidence"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '438 - name="Evidence"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameEvidenceType");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '439 - name="EvidenceType"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '439 - name="EvidenceType"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameExponent");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '440 - name="Exponent"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '440 - name="Exponent"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameExtensions");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '441 - name="Extensions"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '441 - name="Extensions"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameExtensionsType");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '442 - name="ExtensionsType"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '442 - name="ExtensionsType"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameForceAuthn");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '443 - name="ForceAuthn"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '443 - name="ForceAuthn"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameFormat");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema", "saml20assertion_schema"],
+          datasets: [{
+              label: '444 - name="Format"',
+              data: [1, 1],
+              backgroundColor: ["#E67E22", "#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '444 - name="Format"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameFriendlyName");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '445 - name="FriendlyName"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '445 - name="FriendlyName"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameG");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '446 - name="G"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '446 - name="G"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameGetComplete");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '447 - name="GetComplete"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '447 - name="GetComplete"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameHMACOutputLength");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '448 - name="HMACOutputLength"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '448 - name="HMACOutputLength"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameHMACOutputLengthType");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '449 - name="HMACOutputLengthType"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '449 - name="HMACOutputLengthType"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameID");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema", "saml20assertion_schema"],
+          datasets: [{
+              label: '450 - name="ID"',
+              data: [2, 1],
+              backgroundColor: ["#E67E22", "#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '450 - name="ID"',
+            fontSize: 15
+          }
+      }
+  });
+  
         $(document).ready(function () {
            "use strict";
            var last = $(location).attr("href").split("/").pop().split(".")[0].replace(/index/, "");

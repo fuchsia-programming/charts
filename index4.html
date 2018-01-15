@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Ruby Google Charts text mining dashboard</title>
+    <title>Ruby Chart.js text mining dashboard</title>
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/images/icons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icons/apple-icon-72x72.png">
@@ -33,7 +33,7 @@
       .navbar, .navbar-default li a { color: #000 !important; }
       .navbar-default .navbar-brand { margin-left: 20px !important; color: #ff00ff; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: red !important; }
-      div[id^="pie_chart_div_"] { margin-bottom: 100px; }
+      div[id^="d3pie_chart_div_"], canvas { margin-bottom: 100px; }
       footer { background-color: #E5E8E8; min-height: 200px;}
       footer ul a { color: #000 !important; font-size: 13pt; }
       footer .container { margin-left: 15px; }
@@ -85,56 +85,206 @@
     </nav>
     <div class="container-fluid">
       <h1>Branch count grouped by file</h1>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameArtifactResolve"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameArtifactResponse"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAssertion"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAssertionIDRef"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAssertionIDRequest"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAssertionURIRef"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAttribute"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAttributeQuery"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAttributeStatement"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAttributeValue"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAudience"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAudienceRestriction"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAuthenticatingAuthority"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAuthnContext"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAuthnContextClassRef"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAuthnContextDecl"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAuthnContextDeclRef"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAuthnQuery"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAuthnRequest"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAuthnStatement"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAuthzDecisionQuery"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameAuthzDecisionStatement"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameBaseID"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameCanonicalizationMethod"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameCondition"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameConditions"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameDSAKeyValue"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameDigestMethod"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameDigestValue"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameEncryptedAssertion"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameEncryptedAttribute"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameEncryptedID"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameEvidence"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameExponent"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameExtensions"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameG"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameGetComplete"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameHMACOutputLength"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameIDPEntry"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameIDPList"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameIssuer"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameJ"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameKeyInfo"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameKeyName"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameKeyValue"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameLogoutRequest"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameLogoutResponse"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameManageNameIDRequest"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameManageNameIDResponse"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameManifest"></div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameArtifactResolve" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameArtifactResponse" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAssertion" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAssertionIDRef" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAssertionIDRequest" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAssertionURIRef" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAttribute" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAttributeQuery" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAttributeStatement" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAttributeValue" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAudience" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAudienceRestriction" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAuthenticatingAuthority" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAuthnContext" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAuthnContextClassRef" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAuthnContextDecl" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAuthnContextDeclRef" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAuthnQuery" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAuthnRequest" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAuthnStatement" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAuthzDecisionQuery" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameAuthzDecisionStatement" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameBaseID" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameCanonicalizationMethod" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameCondition" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameConditions" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameDSAKeyValue" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameDigestMethod" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameDigestValue" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameEncryptedAssertion" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameEncryptedAttribute" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameEncryptedID" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameEvidence" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameExponent" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameExtensions" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameG" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameGetComplete" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameHMACOutputLength" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameIDPEntry" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameIDPList" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameIssuer" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameJ" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameKeyInfo" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameKeyName" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameKeyValue" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameLogoutRequest" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameLogoutResponse" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameManageNameIDRequest" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameManageNameIDResponse" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameManifest" width="400" height="350"></canvas>
+                          </div>
     </div>
     <footer>
       <div class="container">
@@ -171,7 +321,7 @@
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-15T09:19:58+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-15T13:31:50+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -183,961 +333,1058 @@
     </footer>
     <script src="assets/bootstrap/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://www.google.com/jsapi"></script>
+    <script src="assets/js/Chart.min.js"></script>
     <script>
-      google.charts.load("current", {"packages":["corechart"]});
-        google.charts.setOnLoadCallback(drawChartxselementnameArtifactResolve);
-
-        function drawChartxselementnameArtifactResolve() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"ArtifactResolve\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "151 - <xs:element name=\"ArtifactResolve\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameArtifactResolve"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameArtifactResponse);
-
-        function drawChartxselementnameArtifactResponse() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"ArtifactResponse\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "152 - <xs:element name=\"ArtifactResponse\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameArtifactResponse"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAssertion);
-
-        function drawChartxselementnameAssertion() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"Assertion\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "153 - <xs:element name=\"Assertion\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAssertion"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAssertionIDRef);
-
-        function drawChartxselementnameAssertionIDRef() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"AssertionIDRef\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "154 - <xs:element name=\"AssertionIDRef\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAssertionIDRef"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAssertionIDRequest);
-
-        function drawChartxselementnameAssertionIDRequest() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"AssertionIDRequest\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "155 - <xs:element name=\"AssertionIDRequest\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAssertionIDRequest"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAssertionURIRef);
-
-        function drawChartxselementnameAssertionURIRef() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"AssertionURIRef\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "156 - <xs:element name=\"AssertionURIRef\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAssertionURIRef"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAttribute);
-
-        function drawChartxselementnameAttribute() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"Attribute\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "157 - <xs:element name=\"Attribute\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAttribute"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAttributeQuery);
-
-        function drawChartxselementnameAttributeQuery() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"AttributeQuery\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "158 - <xs:element name=\"AttributeQuery\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAttributeQuery"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAttributeStatement);
-
-        function drawChartxselementnameAttributeStatement() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"AttributeStatement\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "159 - <xs:element name=\"AttributeStatement\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAttributeStatement"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAttributeValue);
-
-        function drawChartxselementnameAttributeValue() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"AttributeValue\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "160 - <xs:element name=\"AttributeValue\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAttributeValue"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAudience);
-
-        function drawChartxselementnameAudience() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"Audience\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "161 - <xs:element name=\"Audience\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAudience"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAudienceRestriction);
-
-        function drawChartxselementnameAudienceRestriction() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"AudienceRestriction\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "162 - <xs:element name=\"AudienceRestriction\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAudienceRestriction"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAuthenticatingAuthority);
-
-        function drawChartxselementnameAuthenticatingAuthority() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"AuthenticatingAuthority\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "163 - <xs:element name=\"AuthenticatingAuthority\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAuthenticatingAuthority"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAuthnContext);
-
-        function drawChartxselementnameAuthnContext() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"AuthnContext\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "164 - <xs:element name=\"AuthnContext\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAuthnContext"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAuthnContextClassRef);
-
-        function drawChartxselementnameAuthnContextClassRef() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"AuthnContextClassRef\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "165 - <xs:element name=\"AuthnContextClassRef\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAuthnContextClassRef"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAuthnContextDecl);
-
-        function drawChartxselementnameAuthnContextDecl() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"AuthnContextDecl\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "166 - <xs:element name=\"AuthnContextDecl\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAuthnContextDecl"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAuthnContextDeclRef);
-
-        function drawChartxselementnameAuthnContextDeclRef() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"AuthnContextDeclRef\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "167 - <xs:element name=\"AuthnContextDeclRef\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAuthnContextDeclRef"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAuthnQuery);
-
-        function drawChartxselementnameAuthnQuery() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"AuthnQuery\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "168 - <xs:element name=\"AuthnQuery\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAuthnQuery"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAuthnRequest);
-
-        function drawChartxselementnameAuthnRequest() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"AuthnRequest\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "169 - <xs:element name=\"AuthnRequest\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAuthnRequest"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAuthnStatement);
-
-        function drawChartxselementnameAuthnStatement() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"AuthnStatement\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "170 - <xs:element name=\"AuthnStatement\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAuthnStatement"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAuthzDecisionQuery);
-
-        function drawChartxselementnameAuthzDecisionQuery() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"AuthzDecisionQuery\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "171 - <xs:element name=\"AuthzDecisionQuery\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAuthzDecisionQuery"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameAuthzDecisionStatement);
-
-        function drawChartxselementnameAuthzDecisionStatement() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"AuthzDecisionStatement\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "172 - <xs:element name=\"AuthzDecisionStatement\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameAuthzDecisionStatement"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameBaseID);
-
-        function drawChartxselementnameBaseID() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"BaseID\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "173 - <xs:element name=\"BaseID\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameBaseID"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameCanonicalizationMethod);
-
-        function drawChartxselementnameCanonicalizationMethod() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"CanonicalizationMethod\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "174 - <xs:element name=\"CanonicalizationMethod\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameCanonicalizationMethod"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameCondition);
-
-        function drawChartxselementnameCondition() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"Condition\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "175 - <xs:element name=\"Condition\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameCondition"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameConditions);
-
-        function drawChartxselementnameConditions() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"Conditions\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "176 - <xs:element name=\"Conditions\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameConditions"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameDSAKeyValue);
-
-        function drawChartxselementnameDSAKeyValue() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"DSAKeyValue\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "177 - <xs:element name=\"DSAKeyValue\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameDSAKeyValue"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameDigestMethod);
-
-        function drawChartxselementnameDigestMethod() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"DigestMethod\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "178 - <xs:element name=\"DigestMethod\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameDigestMethod"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameDigestValue);
-
-        function drawChartxselementnameDigestValue() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"DigestValue\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "179 - <xs:element name=\"DigestValue\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameDigestValue"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameEncryptedAssertion);
-
-        function drawChartxselementnameEncryptedAssertion() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"EncryptedAssertion\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "180 - <xs:element name=\"EncryptedAssertion\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameEncryptedAssertion"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameEncryptedAttribute);
-
-        function drawChartxselementnameEncryptedAttribute() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"EncryptedAttribute\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "181 - <xs:element name=\"EncryptedAttribute\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameEncryptedAttribute"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameEncryptedID);
-
-        function drawChartxselementnameEncryptedID() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"EncryptedID\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "182 - <xs:element name=\"EncryptedID\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameEncryptedID"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameEvidence);
-
-        function drawChartxselementnameEvidence() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"Evidence\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "183 - <xs:element name=\"Evidence\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameEvidence"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameExponent);
-
-        function drawChartxselementnameExponent() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"Exponent\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "184 - <xs:element name=\"Exponent\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameExponent"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameExtensions);
-
-        function drawChartxselementnameExtensions() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"Extensions\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "185 - <xs:element name=\"Extensions\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameExtensions"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameG);
-
-        function drawChartxselementnameG() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"G\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "186 - <xs:element name=\"G\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameG"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameGetComplete);
-
-        function drawChartxselementnameGetComplete() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"GetComplete\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "187 - <xs:element name=\"GetComplete\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameGetComplete"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameHMACOutputLength);
-
-        function drawChartxselementnameHMACOutputLength() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"HMACOutputLength\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "188 - <xs:element name=\"HMACOutputLength\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameHMACOutputLength"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameIDPEntry);
-
-        function drawChartxselementnameIDPEntry() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"IDPEntry\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "189 - <xs:element name=\"IDPEntry\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameIDPEntry"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameIDPList);
-
-        function drawChartxselementnameIDPList() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"IDPList\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "190 - <xs:element name=\"IDPList\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameIDPList"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameIssuer);
-
-        function drawChartxselementnameIssuer() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"Issuer\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "191 - <xs:element name=\"Issuer\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameIssuer"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameJ);
-
-        function drawChartxselementnameJ() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"J\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "192 - <xs:element name=\"J\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameJ"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameKeyInfo);
-
-        function drawChartxselementnameKeyInfo() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"KeyInfo\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "193 - <xs:element name=\"KeyInfo\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameKeyInfo"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameKeyName);
-
-        function drawChartxselementnameKeyName() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"KeyName\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "194 - <xs:element name=\"KeyName\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameKeyName"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameKeyValue);
-
-        function drawChartxselementnameKeyValue() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"KeyValue\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "195 - <xs:element name=\"KeyValue\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameKeyValue"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameLogoutRequest);
-
-        function drawChartxselementnameLogoutRequest() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"LogoutRequest\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "196 - <xs:element name=\"LogoutRequest\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameLogoutRequest"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameLogoutResponse);
-
-        function drawChartxselementnameLogoutResponse() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"LogoutResponse\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "197 - <xs:element name=\"LogoutResponse\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameLogoutResponse"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameManageNameIDRequest);
-
-        function drawChartxselementnameManageNameIDRequest() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"ManageNameIDRequest\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "198 - <xs:element name=\"ManageNameIDRequest\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameManageNameIDRequest"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameManageNameIDResponse);
-
-        function drawChartxselementnameManageNameIDResponse() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"ManageNameIDResponse\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "199 - <xs:element name=\"ManageNameIDResponse\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameManageNameIDResponse"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameManifest);
-
-        function drawChartxselementnameManifest() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"Manifest\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "200 - <xs:element name=\"Manifest\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameManifest"));
-          chart.draw(data, options);
-        }
-
+    var ctx = document.getElementById("chartjs_canvasxselementnameArtifactResolve");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '151 - <xs:element name="ArtifactResolve"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '151 - <xs:element name="ArtifactResolve"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameArtifactResponse");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '152 - <xs:element name="ArtifactResponse"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '152 - <xs:element name="ArtifactResponse"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAssertion");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '153 - <xs:element name="Assertion"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '153 - <xs:element name="Assertion"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAssertionIDRef");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '154 - <xs:element name="AssertionIDRef"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '154 - <xs:element name="AssertionIDRef"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAssertionIDRequest");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '155 - <xs:element name="AssertionIDRequest"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '155 - <xs:element name="AssertionIDRequest"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAssertionURIRef");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '156 - <xs:element name="AssertionURIRef"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '156 - <xs:element name="AssertionURIRef"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAttribute");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '157 - <xs:element name="Attribute"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '157 - <xs:element name="Attribute"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAttributeQuery");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '158 - <xs:element name="AttributeQuery"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '158 - <xs:element name="AttributeQuery"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAttributeStatement");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '159 - <xs:element name="AttributeStatement"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '159 - <xs:element name="AttributeStatement"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAttributeValue");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '160 - <xs:element name="AttributeValue"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '160 - <xs:element name="AttributeValue"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAudience");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '161 - <xs:element name="Audience"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '161 - <xs:element name="Audience"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAudienceRestriction");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '162 - <xs:element name="AudienceRestriction"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '162 - <xs:element name="AudienceRestriction"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAuthenticatingAuthority");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '163 - <xs:element name="AuthenticatingAuthority"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '163 - <xs:element name="AuthenticatingAuthority"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAuthnContext");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '164 - <xs:element name="AuthnContext"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '164 - <xs:element name="AuthnContext"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAuthnContextClassRef");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '165 - <xs:element name="AuthnContextClassRef"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '165 - <xs:element name="AuthnContextClassRef"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAuthnContextDecl");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '166 - <xs:element name="AuthnContextDecl"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '166 - <xs:element name="AuthnContextDecl"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAuthnContextDeclRef");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '167 - <xs:element name="AuthnContextDeclRef"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '167 - <xs:element name="AuthnContextDeclRef"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAuthnQuery");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '168 - <xs:element name="AuthnQuery"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '168 - <xs:element name="AuthnQuery"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAuthnRequest");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '169 - <xs:element name="AuthnRequest"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '169 - <xs:element name="AuthnRequest"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAuthnStatement");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '170 - <xs:element name="AuthnStatement"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '170 - <xs:element name="AuthnStatement"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAuthzDecisionQuery");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '171 - <xs:element name="AuthzDecisionQuery"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '171 - <xs:element name="AuthzDecisionQuery"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameAuthzDecisionStatement");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '172 - <xs:element name="AuthzDecisionStatement"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '172 - <xs:element name="AuthzDecisionStatement"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameBaseID");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '173 - <xs:element name="BaseID"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '173 - <xs:element name="BaseID"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameCanonicalizationMethod");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '174 - <xs:element name="CanonicalizationMethod"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '174 - <xs:element name="CanonicalizationMethod"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameCondition");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '175 - <xs:element name="Condition"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '175 - <xs:element name="Condition"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameConditions");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '176 - <xs:element name="Conditions"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '176 - <xs:element name="Conditions"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameDSAKeyValue");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '177 - <xs:element name="DSAKeyValue"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '177 - <xs:element name="DSAKeyValue"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameDigestMethod");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '178 - <xs:element name="DigestMethod"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '178 - <xs:element name="DigestMethod"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameDigestValue");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '179 - <xs:element name="DigestValue"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '179 - <xs:element name="DigestValue"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameEncryptedAssertion");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '180 - <xs:element name="EncryptedAssertion"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '180 - <xs:element name="EncryptedAssertion"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameEncryptedAttribute");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '181 - <xs:element name="EncryptedAttribute"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '181 - <xs:element name="EncryptedAttribute"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameEncryptedID");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '182 - <xs:element name="EncryptedID"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '182 - <xs:element name="EncryptedID"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameEvidence");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '183 - <xs:element name="Evidence"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '183 - <xs:element name="Evidence"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameExponent");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '184 - <xs:element name="Exponent"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '184 - <xs:element name="Exponent"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameExtensions");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '185 - <xs:element name="Extensions"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '185 - <xs:element name="Extensions"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameG");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '186 - <xs:element name="G"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '186 - <xs:element name="G"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameGetComplete");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '187 - <xs:element name="GetComplete"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '187 - <xs:element name="GetComplete"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameHMACOutputLength");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '188 - <xs:element name="HMACOutputLength"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '188 - <xs:element name="HMACOutputLength"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameIDPEntry");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '189 - <xs:element name="IDPEntry"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '189 - <xs:element name="IDPEntry"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameIDPList");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '190 - <xs:element name="IDPList"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '190 - <xs:element name="IDPList"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameIssuer");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '191 - <xs:element name="Issuer"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '191 - <xs:element name="Issuer"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameJ");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '192 - <xs:element name="J"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '192 - <xs:element name="J"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameKeyInfo");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '193 - <xs:element name="KeyInfo"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '193 - <xs:element name="KeyInfo"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameKeyName");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '194 - <xs:element name="KeyName"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '194 - <xs:element name="KeyName"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameKeyValue");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '195 - <xs:element name="KeyValue"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '195 - <xs:element name="KeyValue"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameLogoutRequest");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '196 - <xs:element name="LogoutRequest"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '196 - <xs:element name="LogoutRequest"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameLogoutResponse");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '197 - <xs:element name="LogoutResponse"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '197 - <xs:element name="LogoutResponse"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameManageNameIDRequest");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '198 - <xs:element name="ManageNameIDRequest"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '198 - <xs:element name="ManageNameIDRequest"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameManageNameIDResponse");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '199 - <xs:element name="ManageNameIDResponse"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '199 - <xs:element name="ManageNameIDResponse"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameManifest");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '200 - <xs:element name="Manifest"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '200 - <xs:element name="Manifest"',
+            fontSize: 15
+          }
+      }
+  });
+  
         $(document).ready(function () {
            "use strict";
            var last = $(location).attr("href").split("/").pop().split(".")[0].replace(/index/, "");

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Ruby Google Charts text mining dashboard</title>
+    <title>Ruby Chart.js text mining dashboard</title>
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/images/icons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icons/apple-icon-72x72.png">
@@ -33,7 +33,7 @@
       .navbar, .navbar-default li a { color: #000 !important; }
       .navbar-default .navbar-brand { margin-left: 20px !important; color: #ff00ff; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: red !important; }
-      div[id^="pie_chart_div_"] { margin-bottom: 100px; }
+      div[id^="d3pie_chart_div_"], canvas { margin-bottom: 100px; }
       footer { background-color: #E5E8E8; min-height: 200px;}
       footer ul a { color: #000 !important; font-size: 13pt; }
       footer .container { margin-left: 15px; }
@@ -85,17 +85,50 @@
     </nav>
     <div class="container-fluid">
       <h1>Branch count grouped by file</h1>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typexsstring"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typexsunsignedShort"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_useoptional"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_userequired"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_valueDeny"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_valueIndeterminate"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_valuePermit"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_valuebetter"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_valueexact"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_valuemaximum"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_valueminimum"></div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypexsstring" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypexsunsignedShort" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasuseoptional" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasuserequired" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasvalueDeny" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasvalueIndeterminate" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasvaluePermit" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasvaluebetter" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasvalueexact" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasvaluemaximum" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasvalueminimum" width="400" height="350"></canvas>
+                          </div>
     </div>
     <footer>
       <div class="container">
@@ -132,7 +165,7 @@
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-15T09:19:58+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-15T13:31:50+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -144,220 +177,239 @@
     </footer>
     <script src="assets/bootstrap/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://www.google.com/jsapi"></script>
+    <script src="assets/js/Chart.min.js"></script>
     <script>
-      google.charts.load("current", {"packages":["corechart"]});
-        google.charts.setOnLoadCallback(drawCharttypexsstring);
-
-        function drawCharttypexsstring() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"xs:string\"");
-          data.addColumn("number", "Values");
-          data.addRows([["concept", 7], ["sitemap", 4], ["topic", 25], ["dinner-menu", 3], ["bookstore", 4], ["note", 5], ["saml20protocol_schema", 11], ["task", 13], ["note2", 2], ["reference", 13]]);
-          // Set chart options
-          var options = {"title": "701 - type=\"xs:string\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typexsstring"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypexsunsignedShort);
-
-        function drawCharttypexsunsignedShort() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"xs:unsignedShort\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 2]]);
-          // Set chart options
-          var options = {"title": "702 - type=\"xs:unsignedShort\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typexsunsignedShort"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartuseoptional);
-
-        function drawChartuseoptional() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "use=\"optional\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 14], ["bookstore", 3], ["saml20protocol_schema", 22], ["saml20assertion_schema", 18]]);
-          // Set chart options
-          var options = {"title": "703 - use=\"optional\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_useoptional"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartuserequired);
-
-        function drawChartuserequired() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "use=\"required\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 5], ["saml20protocol_schema", 9], ["xenc_schema", 1], ["saml20assertion_schema", 9]]);
-          // Set chart options
-          var options = {"title": "704 - use=\"required\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_userequired"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartvalueDeny);
-
-        function drawChartvalueDeny() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "value=\"Deny\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "705 - value=\"Deny\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_valueDeny"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartvalueIndeterminate);
-
-        function drawChartvalueIndeterminate() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "value=\"Indeterminate\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "706 - value=\"Indeterminate\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_valueIndeterminate"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartvaluePermit);
-
-        function drawChartvaluePermit() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "value=\"Permit\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "707 - value=\"Permit\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_valuePermit"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartvaluebetter);
-
-        function drawChartvaluebetter() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "value=\"better\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "708 - value=\"better\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_valuebetter"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartvalueexact);
-
-        function drawChartvalueexact() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "value=\"exact\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "709 - value=\"exact\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_valueexact"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartvaluemaximum);
-
-        function drawChartvaluemaximum() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "value=\"maximum\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "710 - value=\"maximum\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_valuemaximum"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartvalueminimum);
-
-        function drawChartvalueminimum() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "value=\"minimum\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "711 - value=\"minimum\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_valueminimum"));
-          chart.draw(data, options);
-        }
-
+    var ctx = document.getElementById("chartjs_canvastypexsstring");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["concept", "sitemap", "topic", "dinner-menu", "bookstore", "note", "saml20protocol_schema", "task", "note2", "reference"],
+          datasets: [{
+              label: '701 - type="xs:string"',
+              data: [7, 4, 25, 3, 4, 5, 11, 13, 2, 13],
+              backgroundColor: ["#D7BDE2", "#FFCCCC", "#34495E", "#28B463", "#F4D03F", "#154360", "#E67E22", "#784212", "#A3E4D7", "#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '701 - type="xs:string"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypexsunsignedShort");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '702 - type="xs:unsignedShort"',
+              data: [2],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '702 - type="xs:unsignedShort"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasuseoptional");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["xmldsig_schema", "bookstore", "saml20protocol_schema", "saml20assertion_schema"],
+          datasets: [{
+              label: '703 - use="optional"',
+              data: [14, 3, 22, 18],
+              backgroundColor: ["#8E44AD", "#F4D03F", "#E67E22", "#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '703 - use="optional"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasuserequired");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["xmldsig_schema", "saml20protocol_schema", "xenc_schema", "saml20assertion_schema"],
+          datasets: [{
+              label: '704 - use="required"',
+              data: [5, 9, 1, 9],
+              backgroundColor: ["#8E44AD", "#E67E22", "#17202A", "#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '704 - use="required"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasvalueDeny");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '705 - value="Deny"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '705 - value="Deny"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasvalueIndeterminate");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '706 - value="Indeterminate"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '706 - value="Indeterminate"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasvaluePermit");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '707 - value="Permit"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '707 - value="Permit"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasvaluebetter");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '708 - value="better"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '708 - value="better"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasvalueexact");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '709 - value="exact"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '709 - value="exact"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasvaluemaximum");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '710 - value="maximum"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '710 - value="maximum"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasvalueminimum");
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '711 - value="minimum"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '711 - value="minimum"',
+            fontSize: 15
+          }
+      }
+  });
+  
         $(document).ready(function () {
            "use strict";
            var last = $(location).attr("href").split("/").pop().split(".")[0].replace(/index/, "");

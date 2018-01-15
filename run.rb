@@ -3,8 +3,8 @@
 # Reach your final destination
 
 require 'kramdown'
-require 'prawn'
-require 'prawn/table'
+# require 'prawn'
+# require 'prawn/table'
 require 'yaml'
 
 # function to open and read in file
@@ -31,7 +31,8 @@ site_config = YAML.safe_load(read_file('site.yml'))
 
 # chart types
 chart_types = { 'd3pie' => 'd3pie',
-                'google' => 'Google Charts' }
+                'google' => 'Google Charts',
+                'chartjs' => 'Chart.js' }
 
 # current chart type
 ct = chart_types[site_config['chart_type']]
@@ -40,6 +41,7 @@ ct = chart_types[site_config['chart_type']]
 site_scripts = %w[bootstrap/js/jquery.min.js bootstrap/js/bootstrap.min.js]
 d3_scripts = %w[assets/js/d3/d3.js assets/js/d3pie.min.js]
 google_scripts = %w[https://www.gstatic.com/charts/loader.js https://www.google.com/jsapi]
+chartjs_script = %w[assets/js/Chart.min.js]
 
 # colors for the file extensions
 exthash = { 'css' => '#E6B0AA',
@@ -87,6 +89,7 @@ links = { 'Ruby' => 'https://www.ruby-lang.org',
           'd3pie' => 'http://d3pie.org/',
           'D3' => 'https://d3js.org/',
           'Google Charts' => 'https://developers.google.com/chart/',
+          'Chart.js' => 'http://www.chartjs.org/',
           'HTML5' => 'https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5',
           'CSS3' => 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3',
           'Bootstrap' => 'https://getbootstrap.com/',
@@ -123,8 +126,8 @@ logdata = read_file('log.txt')
 logdata = logdata.lines.group_by(&:strip).map{|k, v| [k, v.size]}
 logdata.unshift(%w[Date Amount])
 
-extension = []
 # get file extensions
+extension = []
 Dir.glob('**/*').map do |x|
   ext = File.extname(x)
   if ext == ''
@@ -207,7 +210,7 @@ def add_scripts(scripts, chart_scripts)
 end
 
 # function that draws the pie chart
-def drawchart(type, which, data, num, colors, title, width, height,
+def draw_d3pie_chart(type, which, data, num, colors, title, width, height,
               mainlabelsize, titlesize, valuesize, tooltipsize,
               segmentsize, pieouterradius, pieinnerradius, piedistance, linesenabled,
               pulloutsegmentsize, titlefont, footerfont, footerfontsize, backgroundcolor,
@@ -229,7 +232,7 @@ def drawchart(type, which, data, num, colors, title, width, height,
                end
 
   s = "
-    var pie = new d3pie('pie_chart_div_#{which}', {
+    var pie = new d3pie('d3pie_chart_div_#{which}', {
         'header': {
             'title': {
                 'text': '#{chart_title(title, num)}',
@@ -356,10 +359,10 @@ def section_built_with(links, cloc, site_config)
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-12" id="pie_chart_div_homepage_all"></div>
+      <div class="col-sm-12" id="d3pie_chart_div_homepage_all"></div>
     </div>
     <div class="row">
-      <div class="col-sm-12" id="pie_chart_div_homepage_mit"></div>
+      <div class="col-sm-12" id="d3pie_chart_div_homepage_mit"></div>
     </div>)
 end
 
@@ -408,7 +411,7 @@ def escape(s)
 end
 
 # common function for each chart
-def draw_chart(which_chart, data, chart_string, chart_values,
+def draw_google_chart(type, which_chart, data, chart_string, chart_values,
                chart_title, chart_div, width, height)
   %(
         function drawChart#{which_chart}() {
@@ -419,7 +422,8 @@ def draw_chart(which_chart, data, chart_string, chart_values,
           data.addRows(#{data});
           // Set chart options
           var options = {"title": "#{escape(chart_title)}",
-                         is3D: true,
+                         is3D: #{type.zero?},
+                         pieHole: #{type},
                          "pieSliceText": "value",
                          "width": #{width},
                          "height": #{height},
@@ -430,6 +434,34 @@ def draw_chart(which_chart, data, chart_string, chart_values,
         }\n)
 end
 
+# function to draw the Chart.js charts
+def draw_chartjs_chart(type, canvas_id, data, colors, title, titlefontsize, responsive)
+  %(
+    var ctx = document.getElementById("chartjs_canvas#{canvas_id}");
+    var myChart = new Chart(ctx, {
+      type: '#{type}',
+      data: {
+          labels: #{data.map{|x| x.first.split('.').first}},
+          datasets: [{
+              label: '#{title}',
+              data: #{data.map(&:last)},
+              backgroundColor: #{data.map{|x| colors[x[0]]}}
+          }]
+      },
+      options: {
+          responsive: #{responsive},
+          title : {
+            display: true,
+            text: '#{title}',
+            fontSize: #{titlefontsize}
+          }
+      }
+  });
+  )
+end
+
+# replaces 'd3pie' with 'Google Charts' or 'Chart.js' or leaves is as 'd3pie'
+# used in text and the website HTML <title> tag
 def site_type(s, chart_type)
   s.gsub(/d3pie/, chart_type)
 end
@@ -439,6 +471,7 @@ structure = generate_data
 # home page plus other pages with 50 charts per page
 page_count = structure.size / 50 + 1
 
+# common HTML page header include
 def page_header(site_config, page_count, ct)
   # start common page region
   page = %(<!DOCTYPE html>
@@ -462,7 +495,7 @@ def page_header(site_config, page_count, ct)
       .navbar, .navbar-default li a { color: ##{site_config['text_color']} !important; }
       .navbar-default .navbar-brand { margin-left: 20px !important; color: ##{site_config['logo_text_color']}; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: #{site_config['nav_hover_color']} !important; }
-      div[id^="pie_chart_div_"] { margin-bottom: 100px; }
+      div[id^="d3pie_chart_div_"], canvas { margin-bottom: 100px; }
       footer { background-color: ##{site_config['theme_color']}; min-height: 200px;}
       footer ul a { color: ##{site_config['text_color']} !important; font-size: 13pt; }
       footer .container { margin-left: 15px; }
@@ -526,7 +559,16 @@ structure.map.with_index do |chart, i|
   data0 = clean_chart(chart[0])
   i = i / 50 + 1
   instance_variable_set("@page#{i}",
-                        instance_variable_get("@page#{i}") + "\n      <div class=\"col-lg-4 col-md-6 col-sm-12\" id=\"#{site_config['chart_type'] == 'google' ? 'chart_div_' : 'pie_chart_div_'}#{data0}\"></div>")
+                        instance_variable_get("@page#{i}") + "\n      " +
+                        if site_config['chart_type'] == 'chartjs'
+                          %(
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvas#{data0}" width="400" height="350"></canvas>
+                          </div>)
+                        else
+                          %(
+                          <div class="col-lg-4 col-md-6 col-sm-12" id="#{site_config['chart_type'] == 'google' ? 'chart_div_' : 'd3pie_chart_div_'}#{data0}"></div>)
+                        end)
 end
 
 # restart common page region
@@ -560,8 +602,10 @@ $page += %(
 # add all the websites external JavaScript files
 if site_config['chart_type'] == 'd3pie'
   $page += add_scripts(site_scripts, d3_scripts)
-else
+elsif site_config['chart_type'] == 'google'
   $page += add_scripts(site_scripts, google_scripts)
+else
+  $page += add_scripts(site_scripts, chartjs_script)
 end
 
 # continue to build all the pages
@@ -579,31 +623,41 @@ page_build(page_count)
 if site_config['chart_type'] == 'd3pie'
   # add all the javascript for each pie chart to each page
   # home page
-  @page += drawchart(0, 'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 1000, 1000, 15, 24, 16, 16, 1,
+  @page += draw_d3pie_chart(0, 'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 1000, 1000, 15, 24, 16, 16, 1,
                      '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
-  @page += drawchart(2, 'homepage_mit', mit_word_count, 1, exthash, 'Most frequent words in the MIT License', 1000, 1000, 15, 24, 16, 16, 1,
+  @page += draw_d3pie_chart(2, 'homepage_mit', mit_word_count, 1, exthash, 'Most frequent words in the MIT License', 1000, 1000, 15, 24, 16, 16, 1,
                      '70%', '35%', 50, true, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
   # other pages
   structure.map.with_index do |chart, ind|
     data0 = clean_chart(chart[0])
     data1 = chart[1..-1]
     i = ind / 50 + 1
+    type = i & 1 == 1 ? 0 : '35%'
     instance_variable_set("@page#{i}",
-                          instance_variable_get("@page#{i}") + drawchart(1, data0, data1, ind, schema_colors, chart[0], 490, 425, 11, 13, 12, 12, 3,
-                                                                         '75%', 0, 20, true, 10, 'Arial Black', 'Arial Black', 12, 'fff', 999))
+                          instance_variable_get("@page#{i}") + draw_d3pie_chart(1, data0, data1, ind, schema_colors, chart[0], 490, 425, 11, 13, 12, 12, 3,
+                                                                         '75%', type, 20, true, 10, 'Arial Black', 'Arial Black', 12, 'fff', 999))
   end
-else
+elsif site_config['chart_type'] == 'google'
   # add all the JavaScript for each pie chart to each page
   structure.map.with_index do |chart, ind|
     data0 = clean_chart(chart[0])
     data1 = chart[1..-1].map{|x| [x.first.split('.').first, x.last]}
     v = 'Values'
     i = ind / 50 + 1
+    type = i & 1 == 1 ? 0 : 0.4
     instance_variable_set("@page#{i}",
-                          instance_variable_get("@page#{i}") + "        google.charts.setOnLoadCallback(drawChart#{data0});\n" + draw_chart(data0, data1, chart[0], v, chart_title(chart[0], ind), data0, 400, 400))
+                          instance_variable_get("@page#{i}") + "        google.charts.setOnLoadCallback(drawChart#{data0});\n" + draw_google_chart(type, data0, data1, chart[0], v, chart_title(chart[0], ind), data0, 400, 400))
+  end
+else # chartjs type
+  structure.map.with_index do |chart, ind|
+    data0 = clean_chart(chart[0])
+    data1 = chart[1..-1]
+    i = ind / 50 + 1
+    type = i & 1 == 1 ? 'pie' : 'doughnut'
+    instance_variable_set("@page#{i}",
+                          instance_variable_get("@page#{i}") + draw_chartjs_chart(type, data0, data1, schema_colors, chart_title(chart[0], ind), 15, false))
   end
 end
-
 # restart common page
 $page = %(
         $(document).ready(function () {

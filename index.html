@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Ruby Google Charts text mining dashboard</title>
+    <title>Ruby Chart.js text mining dashboard</title>
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/images/icons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icons/apple-icon-72x72.png">
@@ -33,7 +33,7 @@
       .navbar, .navbar-default li a { color: #000 !important; }
       .navbar-default .navbar-brand { margin-left: 20px !important; color: #ff00ff; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: red !important; }
-      div[id^="pie_chart_div_"] { margin-bottom: 100px; }
+      div[id^="d3pie_chart_div_"], canvas { margin-bottom: 100px; }
       footer { background-color: #E5E8E8; min-height: 200px;}
       footer ul a { color: #000 !important; font-size: 13pt; }
       footer .container { margin-left: 15px; }
@@ -84,7 +84,7 @@
       </div>
     </nav>
     <div class="container-fluid">
-    <h1>Ruby Google Charts based XML Schema text mining application</h1>
+    <h1>Ruby Chart.js based XML Schema text mining application</h1>
     <div class="row homepage">
       <h2>Featured Statistics</h2>
       <div class="col-md-3">
@@ -94,15 +94,17 @@
 
 <p>The config file: <code>site.yml</code> stores most of the websites configuration information and can be easily customized.</p>
 
-<p>A fancy feature is the ability to switch between using <strong><code>d3pie</code></strong> based pie charts or <strong><code>Google Charts</code></strong> based pie charts just by changing the config entry <code>chart_type</code> from <strong><code>d3pie</code></strong> to <strong><code>google</code></strong>.</p>
+<p>A fancy feature is the ability to switch between using <strong><code>d3pie</code></strong>, <strong><code>Google Charts</code></strong> or <strong><code>Chart.js</code></strong> based pie charts just by changing the config entry <code>chart_type</code> from <strong><code>d3pie</code></strong> to <strong><code>google</code></strong> or to <strong><code>chartjs</code></strong>.</p>
 
-<p>The home page charts for the <strong><code>Google Charts</code></strong> <code>chart_type</code> are not yet complete.</p>
+<p>The home page charts for the <strong><code>Google Charts</code></strong> and <strong><code>Chart.js</code></strong> <code>chart_type</code> are not yet complete.</p>
 
-<p>For the <strong><code>d3pie</code></strong> charts we have both <code>Donut</code> and <code>Pie</code> style charts.</p>
+<p>For all three styles of pie charts we have both <code>Donut</code> and <code>Pie</code> style charts.</p>
 
 <p>The advantage of the <strong><code>d3pie</code></strong> chart is its ability to handle mouse clicks on the pie chart pieces and they respond by popping in and out.</p>
 
 <p>The advantage of the <strong><code>Google Chart</code></strong> pie chart is its in built ability to create a chart legend.</p>
+
+<p>The advantage of the <strong><code>Chart.js</code></strong> pie chart is its interactive clickable legend.</p>
 
 <p>This section is written in Markdown format coming from the site config file: <code>site.yml</code> and I am using kramdown to convert it to HTML.</p>
 
@@ -119,6 +121,7 @@
           <li class="oll"><a href="http://d3pie.org/" target="_blank" rel="noopener">d3pie</a></li>
           <li class="oll"><a href="https://d3js.org/" target="_blank" rel="noopener">D3</a></li>
           <li class="oll"><a href="https://developers.google.com/chart/" target="_blank" rel="noopener">Google Charts</a></li>
+          <li class="oll"><a href="http://www.chartjs.org/" target="_blank" rel="noopener">Chart.js</a></li>
           <li class="oll"><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" target="_blank" rel="noopener">HTML5</a></li>
           <li class="oll"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" target="_blank" rel="noopener">CSS3</a></li>
           <li class="oll"><a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a></li>
@@ -144,21 +147,21 @@
         <pre>
           <code>
             
-github.com/AlDanial/cloc v 1.74  T=0.87 s (64.7 files/s, 57313.7 lines/s)
+github.com/AlDanial/cloc v 1.74  T=1.33 s (43.0 files/s, 78311.0 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-HTML                            16            739             48          16047
-JavaScript                       7           3096            600          15876
+HTML                            16           2150             48          68831
+JavaScript                       8           3096            609          15877
 CSS                              4              7             24           7326
-Markdown                         4            586              0           2119
+Markdown                         4            597              0           2122
 XSD                             15             73             48           1375
-XML                              6              0              0            794
-Ruby                             1             46             83            552
-YAML                             2             39             17             54
+XML                              6              0              0            807
+Ruby                             1             46             89            600
+YAML                             2             41             17             55
 JSON                             1              0              0             41
 -------------------------------------------------------------------------------
-SUM:                            56           4586            820          44184
+SUM:                            57           6010            835          97034
 -------------------------------------------------------------------------------
 
           </code>
@@ -166,10 +169,10 @@ SUM:                            56           4586            820          44184
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-12" id="pie_chart_div_homepage_all"></div>
+      <div class="col-sm-12" id="d3pie_chart_div_homepage_all"></div>
     </div>
     <div class="row">
-      <div class="col-sm-12" id="pie_chart_div_homepage_mit"></div>
+      <div class="col-sm-12" id="d3pie_chart_div_homepage_mit"></div>
     </div>
     </div>
     <footer>
@@ -207,7 +210,7 @@ SUM:                            56           4586            820          44184
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-15T09:19:58+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-15T13:31:50+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -219,11 +222,8 @@ SUM:                            56           4586            820          44184
     </footer>
     <script src="assets/bootstrap/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://www.google.com/jsapi"></script>
+    <script src="assets/js/Chart.min.js"></script>
     <script>
-      google.charts.load("current", {"packages":["corechart"]});
-
         $(document).ready(function () {
            "use strict";
            var last = $(location).attr("href").split("/").pop().split(".")[0].replace(/index/, "");

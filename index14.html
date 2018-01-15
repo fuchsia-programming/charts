@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Ruby Google Charts text mining dashboard</title>
+    <title>Ruby Chart.js text mining dashboard</title>
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/images/icons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icons/apple-icon-72x72.png">
@@ -33,7 +33,7 @@
       .navbar, .navbar-default li a { color: #000 !important; }
       .navbar-default .navbar-brand { margin-left: 20px !important; color: #ff00ff; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: red !important; }
-      div[id^="pie_chart_div_"] { margin-bottom: 100px; }
+      div[id^="d3pie_chart_div_"], canvas { margin-bottom: 100px; }
       footer { background-color: #E5E8E8; min-height: 200px;}
       footer ul a { color: #000 !important; font-size: 13pt; }
       footer .container { margin-left: 15px; }
@@ -85,56 +85,206 @@
     </nav>
     <div class="container-fluid">
       <h1>Branch count grouped by file</h1>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_namepriority"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameprolog"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_namept"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_namerefbody"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_namereference"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_namerelcolwidth"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_namescope"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_namesection"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameshortdesc"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_namesignature"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_namestep"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_namesteps"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nametask"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nametaskbody"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nametitle"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nametitlealts"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nametm"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nametmclass"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nametmowner"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nametmtype"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameto"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nametopic"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nametrademark"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameul"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameurl"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameurlset"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_namexmlns"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_namexref"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nameyear"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_nillabletrue"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_processContentslax"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typeID"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typeNCName"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typeanyType"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typeanyURI"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typebase64Binary"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typedateTime"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typeinteger"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typenonNegativeInteger"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typestring"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typexsID"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typexsNCName"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typexsanyURI"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typexsboolean"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typexsbyte"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typexsdateTime"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typexsfloat"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typexsint"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typexsnonNegativeInteger"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_typexsshort"></div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnamepriority" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameprolog" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnamept" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnamerefbody" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnamereference" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnamerelcolwidth" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnamescope" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnamesection" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameshortdesc" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnamesignature" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnamestep" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnamesteps" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnametask" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnametaskbody" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnametitle" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnametitlealts" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnametm" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnametmclass" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnametmowner" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnametmtype" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameto" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnametopic" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnametrademark" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameul" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameurl" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameurlset" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnamexmlns" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnamexref" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnameyear" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasnillabletrue" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasprocessContentslax" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypeID" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypeNCName" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypeanyType" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypeanyURI" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypebase64Binary" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypedateTime" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypeinteger" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypenonNegativeInteger" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypestring" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypexsID" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypexsNCName" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypexsanyURI" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypexsboolean" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypexsbyte" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypexsdateTime" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypexsfloat" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypexsint" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypexsnonNegativeInteger" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvastypexsshort" width="400" height="350"></canvas>
+                          </div>
     </div>
     <footer>
       <div class="container">
@@ -171,7 +321,7 @@
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-15T09:19:58+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-15T13:31:50+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -183,961 +333,1058 @@
     </footer>
     <script src="assets/bootstrap/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://www.google.com/jsapi"></script>
+    <script src="assets/js/Chart.min.js"></script>
     <script>
-      google.charts.load("current", {"packages":["corechart"]});
-        google.charts.setOnLoadCallback(drawChartnamepriority);
-
-        function drawChartnamepriority() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"priority\"");
-          data.addColumn("number", "Values");
-          data.addRows([["sitemap", 1]]);
-          // Set chart options
-          var options = {"title": "651 - name=\"priority\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_namepriority"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameprolog);
-
-        function drawChartnameprolog() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"prolog\"");
-          data.addColumn("number", "Values");
-          data.addRows([["concept", 1], ["reference", 1]]);
-          // Set chart options
-          var options = {"title": "652 - name=\"prolog\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameprolog"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnamept);
-
-        function drawChartnamept() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"pt\"");
-          data.addColumn("number", "Values");
-          data.addRows([["reference", 1]]);
-          // Set chart options
-          var options = {"title": "653 - name=\"pt\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_namept"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnamerefbody);
-
-        function drawChartnamerefbody() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"refbody\"");
-          data.addColumn("number", "Values");
-          data.addRows([["reference", 1]]);
-          // Set chart options
-          var options = {"title": "654 - name=\"refbody\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_namerefbody"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnamereference);
-
-        function drawChartnamereference() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"reference\"");
-          data.addColumn("number", "Values");
-          data.addRows([["reference", 1]]);
-          // Set chart options
-          var options = {"title": "655 - name=\"reference\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_namereference"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnamerelcolwidth);
-
-        function drawChartnamerelcolwidth() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"relcolwidth\"");
-          data.addColumn("number", "Values");
-          data.addRows([["task", 1]]);
-          // Set chart options
-          var options = {"title": "656 - name=\"relcolwidth\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_namerelcolwidth"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnamescope);
-
-        function drawChartnamescope() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"scope\"");
-          data.addColumn("number", "Values");
-          data.addRows([["topic", 1]]);
-          // Set chart options
-          var options = {"title": "657 - name=\"scope\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_namescope"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnamesection);
-
-        function drawChartnamesection() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"section\"");
-          data.addColumn("number", "Values");
-          data.addRows([["reference", 1]]);
-          // Set chart options
-          var options = {"title": "658 - name=\"section\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_namesection"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameshortdesc);
-
-        function drawChartnameshortdesc() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"shortdesc\"");
-          data.addColumn("number", "Values");
-          data.addRows([["concept", 1], ["topic", 1], ["task", 1], ["reference", 1]]);
-          // Set chart options
-          var options = {"title": "659 - name=\"shortdesc\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameshortdesc"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnamesignature);
-
-        function drawChartnamesignature() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"signature\"");
-          data.addColumn("number", "Values");
-          data.addRows([["note", 1]]);
-          // Set chart options
-          var options = {"title": "660 - name=\"signature\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_namesignature"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnamestep);
-
-        function drawChartnamestep() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"step\"");
-          data.addColumn("number", "Values");
-          data.addRows([["task", 1]]);
-          // Set chart options
-          var options = {"title": "661 - name=\"step\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_namestep"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnamesteps);
-
-        function drawChartnamesteps() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"steps\"");
-          data.addColumn("number", "Values");
-          data.addRows([["task", 1]]);
-          // Set chart options
-          var options = {"title": "662 - name=\"steps\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_namesteps"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnametask);
-
-        function drawChartnametask() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"task\"");
-          data.addColumn("number", "Values");
-          data.addRows([["task", 1]]);
-          // Set chart options
-          var options = {"title": "663 - name=\"task\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nametask"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnametaskbody);
-
-        function drawChartnametaskbody() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"taskbody\"");
-          data.addColumn("number", "Values");
-          data.addRows([["task", 1]]);
-          // Set chart options
-          var options = {"title": "664 - name=\"taskbody\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nametaskbody"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnametitle);
-
-        function drawChartnametitle() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"title\"");
-          data.addColumn("number", "Values");
-          data.addRows([["concept", 1], ["topic", 2], ["bookstore", 1], ["task", 1], ["reference", 2]]);
-          // Set chart options
-          var options = {"title": "665 - name=\"title\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nametitle"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnametitlealts);
-
-        function drawChartnametitlealts() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"titlealts\"");
-          data.addColumn("number", "Values");
-          data.addRows([["reference", 1]]);
-          // Set chart options
-          var options = {"title": "666 - name=\"titlealts\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nametitlealts"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnametm);
-
-        function drawChartnametm() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"tm\"");
-          data.addColumn("number", "Values");
-          data.addRows([["topic", 2]]);
-          // Set chart options
-          var options = {"title": "667 - name=\"tm\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nametm"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnametmclass);
-
-        function drawChartnametmclass() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"tmclass\"");
-          data.addColumn("number", "Values");
-          data.addRows([["topic", 2]]);
-          // Set chart options
-          var options = {"title": "668 - name=\"tmclass\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nametmclass"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnametmowner);
-
-        function drawChartnametmowner() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"tmowner\"");
-          data.addColumn("number", "Values");
-          data.addRows([["topic", 2]]);
-          // Set chart options
-          var options = {"title": "669 - name=\"tmowner\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nametmowner"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnametmtype);
-
-        function drawChartnametmtype() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"tmtype\"");
-          data.addColumn("number", "Values");
-          data.addRows([["topic", 2]]);
-          // Set chart options
-          var options = {"title": "670 - name=\"tmtype\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nametmtype"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameto);
-
-        function drawChartnameto() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"to\"");
-          data.addColumn("number", "Values");
-          data.addRows([["note", 1], ["note2", 1]]);
-          // Set chart options
-          var options = {"title": "671 - name=\"to\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameto"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnametopic);
-
-        function drawChartnametopic() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"topic\"");
-          data.addColumn("number", "Values");
-          data.addRows([["topic", 2]]);
-          // Set chart options
-          var options = {"title": "672 - name=\"topic\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nametopic"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnametrademark);
-
-        function drawChartnametrademark() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"trademark\"");
-          data.addColumn("number", "Values");
-          data.addRows([["topic", 2]]);
-          // Set chart options
-          var options = {"title": "673 - name=\"trademark\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nametrademark"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameul);
-
-        function drawChartnameul() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"ul\"");
-          data.addColumn("number", "Values");
-          data.addRows([["topic", 1]]);
-          // Set chart options
-          var options = {"title": "674 - name=\"ul\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameul"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameurl);
-
-        function drawChartnameurl() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"url\"");
-          data.addColumn("number", "Values");
-          data.addRows([["sitemap", 1]]);
-          // Set chart options
-          var options = {"title": "675 - name=\"url\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameurl"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameurlset);
-
-        function drawChartnameurlset() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"urlset\"");
-          data.addColumn("number", "Values");
-          data.addRows([["sitemap", 1]]);
-          // Set chart options
-          var options = {"title": "676 - name=\"urlset\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameurlset"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnamexmlns);
-
-        function drawChartnamexmlns() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"xmlns\"");
-          data.addColumn("number", "Values");
-          data.addRows([["sitemap", 1]]);
-          // Set chart options
-          var options = {"title": "677 - name=\"xmlns\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_namexmlns"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnamexref);
-
-        function drawChartnamexref() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"xref\"");
-          data.addColumn("number", "Values");
-          data.addRows([["topic", 1]]);
-          // Set chart options
-          var options = {"title": "678 - name=\"xref\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_namexref"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnameyear);
-
-        function drawChartnameyear() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "name=\"year\"");
-          data.addColumn("number", "Values");
-          data.addRows([["bookstore", 1], ["note2", 1]]);
-          // Set chart options
-          var options = {"title": "679 - name=\"year\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nameyear"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartnillabletrue);
-
-        function drawChartnillabletrue() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "nillable=\"true\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "680 - nillable=\"true\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_nillabletrue"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartprocessContentslax);
-
-        function drawChartprocessContentslax() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "processContents=\"lax\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 10], ["saml20protocol_schema", 3], ["saml20assertion_schema", 4]]);
-          // Set chart options
-          var options = {"title": "681 - processContents=\"lax\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_processContentslax"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypeID);
-
-        function drawCharttypeID() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"ID\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 9], ["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "682 - type=\"ID\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typeID"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypeNCName);
-
-        function drawCharttypeNCName() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"NCName\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 2]]);
-          // Set chart options
-          var options = {"title": "683 - type=\"NCName\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typeNCName"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypeanyType);
-
-        function drawCharttypeanyType() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"anyType\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 2]]);
-          // Set chart options
-          var options = {"title": "684 - type=\"anyType\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typeanyType"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypeanyURI);
-
-        function drawCharttypeanyURI() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"anyURI\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 10], ["xenc_schema", 1], ["saml20assertion_schema", 11]]);
-          // Set chart options
-          var options = {"title": "685 - type=\"anyURI\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typeanyURI"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypebase64Binary);
-
-        function drawCharttypebase64Binary() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"base64Binary\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 7], ["xenc_schema", 1]]);
-          // Set chart options
-          var options = {"title": "686 - type=\"base64Binary\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typebase64Binary"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypedateTime);
-
-        function drawCharttypedateTime() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"dateTime\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 7]]);
-          // Set chart options
-          var options = {"title": "687 - type=\"dateTime\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typedateTime"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypeinteger);
-
-        function drawCharttypeinteger() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"integer\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "688 - type=\"integer\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typeinteger"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypenonNegativeInteger);
-
-        function drawCharttypenonNegativeInteger() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"nonNegativeInteger\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20assertion_schema", 1]]);
-          // Set chart options
-          var options = {"title": "689 - type=\"nonNegativeInteger\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typenonNegativeInteger"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypestring);
-
-        function drawCharttypestring() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"string\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 6], ["saml20assertion_schema", 10]]);
-          // Set chart options
-          var options = {"title": "690 - type=\"string\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typestring"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypexsID);
-
-        function drawCharttypexsID() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"xs:ID\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 2]]);
-          // Set chart options
-          var options = {"title": "691 - type=\"xs:ID\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typexsID"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypexsNCName);
-
-        function drawCharttypexsNCName() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"xs:NCName\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "692 - type=\"xs:NCName\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typexsNCName"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypexsanyURI);
-
-        function drawCharttypexsanyURI() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"xs:anyURI\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 13]]);
-          // Set chart options
-          var options = {"title": "693 - type=\"xs:anyURI\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typexsanyURI"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypexsboolean);
-
-        function drawCharttypexsboolean() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"xs:boolean\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 3]]);
-          // Set chart options
-          var options = {"title": "694 - type=\"xs:boolean\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typexsboolean"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypexsbyte);
-
-        function drawCharttypexsbyte() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"xs:byte\"");
-          data.addColumn("number", "Values");
-          data.addRows([["note2", 2]]);
-          // Set chart options
-          var options = {"title": "695 - type=\"xs:byte\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typexsbyte"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypexsdateTime);
-
-        function drawCharttypexsdateTime() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"xs:dateTime\"");
-          data.addColumn("number", "Values");
-          data.addRows([["sitemap", 1], ["saml20protocol_schema", 3]]);
-          // Set chart options
-          var options = {"title": "696 - type=\"xs:dateTime\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typexsdateTime"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypexsfloat);
-
-        function drawCharttypexsfloat() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"xs:float\"");
-          data.addColumn("number", "Values");
-          data.addRows([["bookstore", 1]]);
-          // Set chart options
-          var options = {"title": "697 - type=\"xs:float\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typexsfloat"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypexsint);
-
-        function drawCharttypexsint() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"xs:int\"");
-          data.addColumn("number", "Values");
-          data.addRows([["sitemap", 1]]);
-          // Set chart options
-          var options = {"title": "698 - type=\"xs:int\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typexsint"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypexsnonNegativeInteger);
-
-        function drawCharttypexsnonNegativeInteger() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"xs:nonNegativeInteger\"");
-          data.addColumn("number", "Values");
-          data.addRows([["saml20protocol_schema", 1]]);
-          // Set chart options
-          var options = {"title": "699 - type=\"xs:nonNegativeInteger\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typexsnonNegativeInteger"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawCharttypexsshort);
-
-        function drawCharttypexsshort() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "type=\"xs:short\"");
-          data.addColumn("number", "Values");
-          data.addRows([["dinner-menu", 1], ["bookstore", 1], ["note2", 1]]);
-          // Set chart options
-          var options = {"title": "700 - type=\"xs:short\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_typexsshort"));
-          chart.draw(data, options);
-        }
-
+    var ctx = document.getElementById("chartjs_canvasnamepriority");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["sitemap"],
+          datasets: [{
+              label: '651 - name="priority"',
+              data: [1],
+              backgroundColor: ["#FFCCCC"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '651 - name="priority"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameprolog");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["concept", "reference"],
+          datasets: [{
+              label: '652 - name="prolog"',
+              data: [1, 1],
+              backgroundColor: ["#D7BDE2", "#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '652 - name="prolog"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnamept");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["reference"],
+          datasets: [{
+              label: '653 - name="pt"',
+              data: [1],
+              backgroundColor: ["#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '653 - name="pt"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnamerefbody");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["reference"],
+          datasets: [{
+              label: '654 - name="refbody"',
+              data: [1],
+              backgroundColor: ["#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '654 - name="refbody"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnamereference");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["reference"],
+          datasets: [{
+              label: '655 - name="reference"',
+              data: [1],
+              backgroundColor: ["#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '655 - name="reference"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnamerelcolwidth");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["task"],
+          datasets: [{
+              label: '656 - name="relcolwidth"',
+              data: [1],
+              backgroundColor: ["#784212"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '656 - name="relcolwidth"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnamescope");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["topic"],
+          datasets: [{
+              label: '657 - name="scope"',
+              data: [1],
+              backgroundColor: ["#34495E"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '657 - name="scope"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnamesection");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["reference"],
+          datasets: [{
+              label: '658 - name="section"',
+              data: [1],
+              backgroundColor: ["#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '658 - name="section"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameshortdesc");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["concept", "topic", "task", "reference"],
+          datasets: [{
+              label: '659 - name="shortdesc"',
+              data: [1, 1, 1, 1],
+              backgroundColor: ["#D7BDE2", "#34495E", "#784212", "#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '659 - name="shortdesc"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnamesignature");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["note"],
+          datasets: [{
+              label: '660 - name="signature"',
+              data: [1],
+              backgroundColor: ["#154360"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '660 - name="signature"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnamestep");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["task"],
+          datasets: [{
+              label: '661 - name="step"',
+              data: [1],
+              backgroundColor: ["#784212"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '661 - name="step"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnamesteps");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["task"],
+          datasets: [{
+              label: '662 - name="steps"',
+              data: [1],
+              backgroundColor: ["#784212"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '662 - name="steps"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnametask");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["task"],
+          datasets: [{
+              label: '663 - name="task"',
+              data: [1],
+              backgroundColor: ["#784212"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '663 - name="task"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnametaskbody");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["task"],
+          datasets: [{
+              label: '664 - name="taskbody"',
+              data: [1],
+              backgroundColor: ["#784212"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '664 - name="taskbody"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnametitle");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["concept", "topic", "bookstore", "task", "reference"],
+          datasets: [{
+              label: '665 - name="title"',
+              data: [1, 2, 1, 1, 2],
+              backgroundColor: ["#D7BDE2", "#34495E", "#F4D03F", "#784212", "#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '665 - name="title"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnametitlealts");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["reference"],
+          datasets: [{
+              label: '666 - name="titlealts"',
+              data: [1],
+              backgroundColor: ["#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '666 - name="titlealts"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnametm");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["topic"],
+          datasets: [{
+              label: '667 - name="tm"',
+              data: [2],
+              backgroundColor: ["#34495E"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '667 - name="tm"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnametmclass");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["topic"],
+          datasets: [{
+              label: '668 - name="tmclass"',
+              data: [2],
+              backgroundColor: ["#34495E"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '668 - name="tmclass"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnametmowner");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["topic"],
+          datasets: [{
+              label: '669 - name="tmowner"',
+              data: [2],
+              backgroundColor: ["#34495E"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '669 - name="tmowner"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnametmtype");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["topic"],
+          datasets: [{
+              label: '670 - name="tmtype"',
+              data: [2],
+              backgroundColor: ["#34495E"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '670 - name="tmtype"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameto");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["note", "note2"],
+          datasets: [{
+              label: '671 - name="to"',
+              data: [1, 1],
+              backgroundColor: ["#154360", "#A3E4D7"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '671 - name="to"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnametopic");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["topic"],
+          datasets: [{
+              label: '672 - name="topic"',
+              data: [2],
+              backgroundColor: ["#34495E"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '672 - name="topic"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnametrademark");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["topic"],
+          datasets: [{
+              label: '673 - name="trademark"',
+              data: [2],
+              backgroundColor: ["#34495E"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '673 - name="trademark"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameul");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["topic"],
+          datasets: [{
+              label: '674 - name="ul"',
+              data: [1],
+              backgroundColor: ["#34495E"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '674 - name="ul"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameurl");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["sitemap"],
+          datasets: [{
+              label: '675 - name="url"',
+              data: [1],
+              backgroundColor: ["#FFCCCC"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '675 - name="url"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameurlset");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["sitemap"],
+          datasets: [{
+              label: '676 - name="urlset"',
+              data: [1],
+              backgroundColor: ["#FFCCCC"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '676 - name="urlset"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnamexmlns");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["sitemap"],
+          datasets: [{
+              label: '677 - name="xmlns"',
+              data: [1],
+              backgroundColor: ["#FFCCCC"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '677 - name="xmlns"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnamexref");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["topic"],
+          datasets: [{
+              label: '678 - name="xref"',
+              data: [1],
+              backgroundColor: ["#34495E"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '678 - name="xref"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnameyear");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["bookstore", "note2"],
+          datasets: [{
+              label: '679 - name="year"',
+              data: [1, 1],
+              backgroundColor: ["#F4D03F", "#A3E4D7"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '679 - name="year"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasnillabletrue");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '680 - nillable="true"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '680 - nillable="true"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasprocessContentslax");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema", "saml20protocol_schema", "saml20assertion_schema"],
+          datasets: [{
+              label: '681 - processContents="lax"',
+              data: [10, 3, 4],
+              backgroundColor: ["#8E44AD", "#E67E22", "#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '681 - processContents="lax"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypeID");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema", "saml20assertion_schema"],
+          datasets: [{
+              label: '682 - type="ID"',
+              data: [9, 1],
+              backgroundColor: ["#8E44AD", "#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '682 - type="ID"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypeNCName");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '683 - type="NCName"',
+              data: [2],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '683 - type="NCName"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypeanyType");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '684 - type="anyType"',
+              data: [2],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '684 - type="anyType"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypeanyURI");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema", "xenc_schema", "saml20assertion_schema"],
+          datasets: [{
+              label: '685 - type="anyURI"',
+              data: [10, 1, 11],
+              backgroundColor: ["#8E44AD", "#17202A", "#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '685 - type="anyURI"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypebase64Binary");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema", "xenc_schema"],
+          datasets: [{
+              label: '686 - type="base64Binary"',
+              data: [7, 1],
+              backgroundColor: ["#8E44AD", "#17202A"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '686 - type="base64Binary"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypedateTime");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '687 - type="dateTime"',
+              data: [7],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '687 - type="dateTime"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypeinteger");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '688 - type="integer"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '688 - type="integer"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypenonNegativeInteger");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20assertion_schema"],
+          datasets: [{
+              label: '689 - type="nonNegativeInteger"',
+              data: [1],
+              backgroundColor: ["#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '689 - type="nonNegativeInteger"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypestring");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema", "saml20assertion_schema"],
+          datasets: [{
+              label: '690 - type="string"',
+              data: [6, 10],
+              backgroundColor: ["#8E44AD", "#7D6608"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '690 - type="string"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypexsID");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '691 - type="xs:ID"',
+              data: [2],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '691 - type="xs:ID"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypexsNCName");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '692 - type="xs:NCName"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '692 - type="xs:NCName"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypexsanyURI");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '693 - type="xs:anyURI"',
+              data: [13],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '693 - type="xs:anyURI"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypexsboolean");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '694 - type="xs:boolean"',
+              data: [3],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '694 - type="xs:boolean"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypexsbyte");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["note2"],
+          datasets: [{
+              label: '695 - type="xs:byte"',
+              data: [2],
+              backgroundColor: ["#A3E4D7"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '695 - type="xs:byte"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypexsdateTime");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["sitemap", "saml20protocol_schema"],
+          datasets: [{
+              label: '696 - type="xs:dateTime"',
+              data: [1, 3],
+              backgroundColor: ["#FFCCCC", "#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '696 - type="xs:dateTime"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypexsfloat");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["bookstore"],
+          datasets: [{
+              label: '697 - type="xs:float"',
+              data: [1],
+              backgroundColor: ["#F4D03F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '697 - type="xs:float"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypexsint");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["sitemap"],
+          datasets: [{
+              label: '698 - type="xs:int"',
+              data: [1],
+              backgroundColor: ["#FFCCCC"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '698 - type="xs:int"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypexsnonNegativeInteger");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["saml20protocol_schema"],
+          datasets: [{
+              label: '699 - type="xs:nonNegativeInteger"',
+              data: [1],
+              backgroundColor: ["#E67E22"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '699 - type="xs:nonNegativeInteger"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvastypexsshort");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["dinner-menu", "bookstore", "note2"],
+          datasets: [{
+              label: '700 - type="xs:short"',
+              data: [1, 1, 1],
+              backgroundColor: ["#28B463", "#F4D03F", "#A3E4D7"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '700 - type="xs:short"',
+            fontSize: 15
+          }
+      }
+  });
+  
         $(document).ready(function () {
            "use strict";
            var last = $(location).attr("href").split("/").pop().split(".")[0].replace(/index/, "");

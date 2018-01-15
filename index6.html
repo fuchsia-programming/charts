@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Ruby Google Charts text mining dashboard</title>
+    <title>Ruby Chart.js text mining dashboard</title>
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/images/icons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icons/apple-icon-72x72.png">
@@ -33,7 +33,7 @@
       .navbar, .navbar-default li a { color: #000 !important; }
       .navbar-default .navbar-brand { margin-left: 20px !important; color: #ff00ff; font-size: 18pt; font-weight: bold; }
       .navbar-brand:hover { background-color: red !important; }
-      div[id^="pie_chart_div_"] { margin-bottom: 100px; }
+      div[id^="d3pie_chart_div_"], canvas { margin-bottom: 100px; }
       footer { background-color: #E5E8E8; min-height: 200px;}
       footer ul a { color: #000 !important; font-size: 13pt; }
       footer .container { margin-left: 15px; }
@@ -85,56 +85,206 @@
     </nav>
     <div class="container-fluid">
       <h1>Branch count grouped by file</h1>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameX509Certificate"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameX509Data"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameX509IssuerName"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameX509IssuerSerial"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameX509SKI"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameX509SerialNumber"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameX509SubjectName"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameXPath"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameY"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamebody"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamebook"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamebookstore"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamechdesc"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamechdeschd"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamechhead"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamechoicetable"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamechoption"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamechoptionhd"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamechrow"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamecmd"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameconbody"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameconcept"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamedate"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamedinner_menu"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamefig"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamefilepath"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamefood"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameindexterm"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameinfo"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamekeyword"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamekeywords"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamelastmod"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameli"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameloc"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamemetadata"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamenavtitle"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamenote"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameoption"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamep"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameparml"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameparmname"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamepd"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameplentry"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamepre"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameprereq"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamepriority"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnameprolog"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamept"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamerefbody"></div>
-      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_xselementnamereference"></div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameX509Certificate" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameX509Data" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameX509IssuerName" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameX509IssuerSerial" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameX509SKI" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameX509SerialNumber" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameX509SubjectName" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameXPath" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameY" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamebody" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamebook" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamebookstore" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamechdesc" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamechdeschd" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamechhead" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamechoicetable" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamechoption" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamechoptionhd" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamechrow" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamecmd" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameconbody" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameconcept" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamedate" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamedinner_menu" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamefig" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamefilepath" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamefood" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameindexterm" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameinfo" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamekeyword" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamekeywords" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamelastmod" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameli" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameloc" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamemetadata" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamenavtitle" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamenote" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameoption" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamep" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameparml" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameparmname" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamepd" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameplentry" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamepre" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameprereq" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamepriority" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnameprolog" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamept" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamerefbody" width="400" height="350"></canvas>
+                          </div>
+      
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <canvas id="chartjs_canvasxselementnamereference" width="400" height="350"></canvas>
+                          </div>
     </div>
     <footer>
       <div class="container">
@@ -171,7 +321,7 @@
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-01-15T09:19:58+10:00</a></li>
+          <li><a class="built">Site last built: 2018-01-15T13:31:50+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -183,961 +333,1058 @@
     </footer>
     <script src="assets/bootstrap/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://www.google.com/jsapi"></script>
+    <script src="assets/js/Chart.min.js"></script>
     <script>
-      google.charts.load("current", {"packages":["corechart"]});
-        google.charts.setOnLoadCallback(drawChartxselementnameX509Certificate);
-
-        function drawChartxselementnameX509Certificate() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"X509Certificate\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "251 - <xs:element name=\"X509Certificate\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameX509Certificate"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameX509Data);
-
-        function drawChartxselementnameX509Data() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"X509Data\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "252 - <xs:element name=\"X509Data\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameX509Data"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameX509IssuerName);
-
-        function drawChartxselementnameX509IssuerName() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"X509IssuerName\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "253 - <xs:element name=\"X509IssuerName\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameX509IssuerName"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameX509IssuerSerial);
-
-        function drawChartxselementnameX509IssuerSerial() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"X509IssuerSerial\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "254 - <xs:element name=\"X509IssuerSerial\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameX509IssuerSerial"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameX509SKI);
-
-        function drawChartxselementnameX509SKI() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"X509SKI\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "255 - <xs:element name=\"X509SKI\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameX509SKI"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameX509SerialNumber);
-
-        function drawChartxselementnameX509SerialNumber() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"X509SerialNumber\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "256 - <xs:element name=\"X509SerialNumber\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameX509SerialNumber"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameX509SubjectName);
-
-        function drawChartxselementnameX509SubjectName() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"X509SubjectName\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "257 - <xs:element name=\"X509SubjectName\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameX509SubjectName"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameXPath);
-
-        function drawChartxselementnameXPath() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"XPath\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "258 - <xs:element name=\"XPath\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameXPath"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameY);
-
-        function drawChartxselementnameY() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"Y\"");
-          data.addColumn("number", "Values");
-          data.addRows([["xmldsig_schema", 1]]);
-          // Set chart options
-          var options = {"title": "259 - <xs:element name=\"Y\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameY"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamebody);
-
-        function drawChartxselementnamebody() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"body\"");
-          data.addColumn("number", "Values");
-          data.addRows([["topic", 2]]);
-          // Set chart options
-          var options = {"title": "260 - <xs:element name=\"body\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamebody"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamebook);
-
-        function drawChartxselementnamebook() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"book\"");
-          data.addColumn("number", "Values");
-          data.addRows([["bookstore", 1]]);
-          // Set chart options
-          var options = {"title": "261 - <xs:element name=\"book\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamebook"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamebookstore);
-
-        function drawChartxselementnamebookstore() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"bookstore\"");
-          data.addColumn("number", "Values");
-          data.addRows([["bookstore", 1]]);
-          // Set chart options
-          var options = {"title": "262 - <xs:element name=\"bookstore\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamebookstore"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamechdesc);
-
-        function drawChartxselementnamechdesc() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"chdesc\"");
-          data.addColumn("number", "Values");
-          data.addRows([["task", 1]]);
-          // Set chart options
-          var options = {"title": "263 - <xs:element name=\"chdesc\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamechdesc"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamechdeschd);
-
-        function drawChartxselementnamechdeschd() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"chdeschd\"");
-          data.addColumn("number", "Values");
-          data.addRows([["task", 1]]);
-          // Set chart options
-          var options = {"title": "264 - <xs:element name=\"chdeschd\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamechdeschd"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamechhead);
-
-        function drawChartxselementnamechhead() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"chhead\"");
-          data.addColumn("number", "Values");
-          data.addRows([["task", 1]]);
-          // Set chart options
-          var options = {"title": "265 - <xs:element name=\"chhead\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamechhead"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamechoicetable);
-
-        function drawChartxselementnamechoicetable() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"choicetable\"");
-          data.addColumn("number", "Values");
-          data.addRows([["task", 1]]);
-          // Set chart options
-          var options = {"title": "266 - <xs:element name=\"choicetable\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamechoicetable"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamechoption);
-
-        function drawChartxselementnamechoption() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"choption\"");
-          data.addColumn("number", "Values");
-          data.addRows([["task", 1]]);
-          // Set chart options
-          var options = {"title": "267 - <xs:element name=\"choption\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamechoption"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamechoptionhd);
-
-        function drawChartxselementnamechoptionhd() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"choptionhd\"");
-          data.addColumn("number", "Values");
-          data.addRows([["task", 1]]);
-          // Set chart options
-          var options = {"title": "268 - <xs:element name=\"choptionhd\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamechoptionhd"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamechrow);
-
-        function drawChartxselementnamechrow() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"chrow\"");
-          data.addColumn("number", "Values");
-          data.addRows([["task", 1]]);
-          // Set chart options
-          var options = {"title": "269 - <xs:element name=\"chrow\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamechrow"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamecmd);
-
-        function drawChartxselementnamecmd() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"cmd\"");
-          data.addColumn("number", "Values");
-          data.addRows([["task", 1]]);
-          // Set chart options
-          var options = {"title": "270 - <xs:element name=\"cmd\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamecmd"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameconbody);
-
-        function drawChartxselementnameconbody() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"conbody\"");
-          data.addColumn("number", "Values");
-          data.addRows([["concept", 1]]);
-          // Set chart options
-          var options = {"title": "271 - <xs:element name=\"conbody\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameconbody"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameconcept);
-
-        function drawChartxselementnameconcept() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"concept\"");
-          data.addColumn("number", "Values");
-          data.addRows([["concept", 1]]);
-          // Set chart options
-          var options = {"title": "272 - <xs:element name=\"concept\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameconcept"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamedate);
-
-        function drawChartxselementnamedate() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"date\"");
-          data.addColumn("number", "Values");
-          data.addRows([["note2", 1]]);
-          // Set chart options
-          var options = {"title": "273 - <xs:element name=\"date\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamedate"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamedinner_menu);
-
-        function drawChartxselementnamedinner_menu() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"dinner_menu\"");
-          data.addColumn("number", "Values");
-          data.addRows([["dinner-menu", 1]]);
-          // Set chart options
-          var options = {"title": "274 - <xs:element name=\"dinner_menu\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamedinner_menu"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamefig);
-
-        function drawChartxselementnamefig() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"fig\"");
-          data.addColumn("number", "Values");
-          data.addRows([["reference", 1]]);
-          // Set chart options
-          var options = {"title": "275 - <xs:element name=\"fig\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamefig"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamefilepath);
-
-        function drawChartxselementnamefilepath() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"filepath\"");
-          data.addColumn("number", "Values");
-          data.addRows([["concept", 1], ["task", 1]]);
-          // Set chart options
-          var options = {"title": "276 - <xs:element name=\"filepath\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamefilepath"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamefood);
-
-        function drawChartxselementnamefood() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"food\"");
-          data.addColumn("number", "Values");
-          data.addRows([["dinner-menu", 1]]);
-          // Set chart options
-          var options = {"title": "277 - <xs:element name=\"food\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamefood"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameindexterm);
-
-        function drawChartxselementnameindexterm() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"indexterm\"");
-          data.addColumn("number", "Values");
-          data.addRows([["concept", 2], ["reference", 3]]);
-          // Set chart options
-          var options = {"title": "278 - <xs:element name=\"indexterm\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameindexterm"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameinfo);
-
-        function drawChartxselementnameinfo() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"info\"");
-          data.addColumn("number", "Values");
-          data.addRows([["task", 1]]);
-          // Set chart options
-          var options = {"title": "279 - <xs:element name=\"info\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameinfo"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamekeyword);
-
-        function drawChartxselementnamekeyword() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"keyword\"");
-          data.addColumn("number", "Values");
-          data.addRows([["task", 1]]);
-          // Set chart options
-          var options = {"title": "280 - <xs:element name=\"keyword\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamekeyword"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamekeywords);
-
-        function drawChartxselementnamekeywords() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"keywords\"");
-          data.addColumn("number", "Values");
-          data.addRows([["concept", 1], ["reference", 1]]);
-          // Set chart options
-          var options = {"title": "281 - <xs:element name=\"keywords\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamekeywords"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamelastmod);
-
-        function drawChartxselementnamelastmod() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"lastmod\"");
-          data.addColumn("number", "Values");
-          data.addRows([["sitemap", 1]]);
-          // Set chart options
-          var options = {"title": "282 - <xs:element name=\"lastmod\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamelastmod"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameli);
-
-        function drawChartxselementnameli() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"li\"");
-          data.addColumn("number", "Values");
-          data.addRows([["topic", 1]]);
-          // Set chart options
-          var options = {"title": "283 - <xs:element name=\"li\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameli"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameloc);
-
-        function drawChartxselementnameloc() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"loc\"");
-          data.addColumn("number", "Values");
-          data.addRows([["sitemap", 1]]);
-          // Set chart options
-          var options = {"title": "284 - <xs:element name=\"loc\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameloc"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamemetadata);
-
-        function drawChartxselementnamemetadata() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"metadata\"");
-          data.addColumn("number", "Values");
-          data.addRows([["concept", 1], ["reference", 1]]);
-          // Set chart options
-          var options = {"title": "285 - <xs:element name=\"metadata\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamemetadata"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamenavtitle);
-
-        function drawChartxselementnamenavtitle() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"navtitle\"");
-          data.addColumn("number", "Values");
-          data.addRows([["reference", 1]]);
-          // Set chart options
-          var options = {"title": "286 - <xs:element name=\"navtitle\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamenavtitle"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamenote);
-
-        function drawChartxselementnamenote() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"note\"");
-          data.addColumn("number", "Values");
-          data.addRows([["topic", 1], ["note", 1], ["note2", 1]]);
-          // Set chart options
-          var options = {"title": "287 - <xs:element name=\"note\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamenote"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameoption);
-
-        function drawChartxselementnameoption() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"option\"");
-          data.addColumn("number", "Values");
-          data.addRows([["reference", 1]]);
-          // Set chart options
-          var options = {"title": "288 - <xs:element name=\"option\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameoption"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamep);
-
-        function drawChartxselementnamep() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"p\"");
-          data.addColumn("number", "Values");
-          data.addRows([["concept", 1], ["topic", 3]]);
-          // Set chart options
-          var options = {"title": "289 - <xs:element name=\"p\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamep"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameparml);
-
-        function drawChartxselementnameparml() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"parml\"");
-          data.addColumn("number", "Values");
-          data.addRows([["reference", 1]]);
-          // Set chart options
-          var options = {"title": "290 - <xs:element name=\"parml\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameparml"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameparmname);
-
-        function drawChartxselementnameparmname() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"parmname\"");
-          data.addColumn("number", "Values");
-          data.addRows([["reference", 1]]);
-          // Set chart options
-          var options = {"title": "291 - <xs:element name=\"parmname\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameparmname"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamepd);
-
-        function drawChartxselementnamepd() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"pd\"");
-          data.addColumn("number", "Values");
-          data.addRows([["reference", 1]]);
-          // Set chart options
-          var options = {"title": "292 - <xs:element name=\"pd\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamepd"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameplentry);
-
-        function drawChartxselementnameplentry() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"plentry\"");
-          data.addColumn("number", "Values");
-          data.addRows([["reference", 1]]);
-          // Set chart options
-          var options = {"title": "293 - <xs:element name=\"plentry\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameplentry"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamepre);
-
-        function drawChartxselementnamepre() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"pre\"");
-          data.addColumn("number", "Values");
-          data.addRows([["topic", 1]]);
-          // Set chart options
-          var options = {"title": "294 - <xs:element name=\"pre\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamepre"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameprereq);
-
-        function drawChartxselementnameprereq() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"prereq\"");
-          data.addColumn("number", "Values");
-          data.addRows([["task", 1]]);
-          // Set chart options
-          var options = {"title": "295 - <xs:element name=\"prereq\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameprereq"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamepriority);
-
-        function drawChartxselementnamepriority() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"priority\"");
-          data.addColumn("number", "Values");
-          data.addRows([["sitemap", 1]]);
-          // Set chart options
-          var options = {"title": "296 - <xs:element name=\"priority\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamepriority"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnameprolog);
-
-        function drawChartxselementnameprolog() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"prolog\"");
-          data.addColumn("number", "Values");
-          data.addRows([["concept", 1], ["reference", 1]]);
-          // Set chart options
-          var options = {"title": "297 - <xs:element name=\"prolog\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnameprolog"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamept);
-
-        function drawChartxselementnamept() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"pt\"");
-          data.addColumn("number", "Values");
-          data.addRows([["reference", 1]]);
-          // Set chart options
-          var options = {"title": "298 - <xs:element name=\"pt\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamept"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamerefbody);
-
-        function drawChartxselementnamerefbody() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"refbody\"");
-          data.addColumn("number", "Values");
-          data.addRows([["reference", 1]]);
-          // Set chart options
-          var options = {"title": "299 - <xs:element name=\"refbody\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamerefbody"));
-          chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawChartxselementnamereference);
-
-        function drawChartxselementnamereference() {
-          // Create the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn("string", "<xs:element name=\"reference\"");
-          data.addColumn("number", "Values");
-          data.addRows([["reference", 1]]);
-          // Set chart options
-          var options = {"title": "300 - <xs:element name=\"reference\"",
-                         is3D: true,
-                         "pieSliceText": "value",
-                         "width": 400,
-                         "height": 400,
-                         "titleTextStyle": {"color": "black"}};
-          // Instantiate and draw our chart, passing in some options.
-          var chart = new google.visualization.PieChart(document.getElementById("chart_div_xselementnamereference"));
-          chart.draw(data, options);
-        }
-
+    var ctx = document.getElementById("chartjs_canvasxselementnameX509Certificate");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '251 - <xs:element name="X509Certificate"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '251 - <xs:element name="X509Certificate"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameX509Data");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '252 - <xs:element name="X509Data"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '252 - <xs:element name="X509Data"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameX509IssuerName");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '253 - <xs:element name="X509IssuerName"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '253 - <xs:element name="X509IssuerName"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameX509IssuerSerial");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '254 - <xs:element name="X509IssuerSerial"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '254 - <xs:element name="X509IssuerSerial"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameX509SKI");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '255 - <xs:element name="X509SKI"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '255 - <xs:element name="X509SKI"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameX509SerialNumber");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '256 - <xs:element name="X509SerialNumber"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '256 - <xs:element name="X509SerialNumber"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameX509SubjectName");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '257 - <xs:element name="X509SubjectName"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '257 - <xs:element name="X509SubjectName"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameXPath");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '258 - <xs:element name="XPath"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '258 - <xs:element name="XPath"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameY");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["xmldsig_schema"],
+          datasets: [{
+              label: '259 - <xs:element name="Y"',
+              data: [1],
+              backgroundColor: ["#8E44AD"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '259 - <xs:element name="Y"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamebody");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["topic"],
+          datasets: [{
+              label: '260 - <xs:element name="body"',
+              data: [2],
+              backgroundColor: ["#34495E"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '260 - <xs:element name="body"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamebook");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["bookstore"],
+          datasets: [{
+              label: '261 - <xs:element name="book"',
+              data: [1],
+              backgroundColor: ["#F4D03F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '261 - <xs:element name="book"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamebookstore");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["bookstore"],
+          datasets: [{
+              label: '262 - <xs:element name="bookstore"',
+              data: [1],
+              backgroundColor: ["#F4D03F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '262 - <xs:element name="bookstore"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamechdesc");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["task"],
+          datasets: [{
+              label: '263 - <xs:element name="chdesc"',
+              data: [1],
+              backgroundColor: ["#784212"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '263 - <xs:element name="chdesc"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamechdeschd");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["task"],
+          datasets: [{
+              label: '264 - <xs:element name="chdeschd"',
+              data: [1],
+              backgroundColor: ["#784212"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '264 - <xs:element name="chdeschd"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamechhead");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["task"],
+          datasets: [{
+              label: '265 - <xs:element name="chhead"',
+              data: [1],
+              backgroundColor: ["#784212"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '265 - <xs:element name="chhead"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamechoicetable");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["task"],
+          datasets: [{
+              label: '266 - <xs:element name="choicetable"',
+              data: [1],
+              backgroundColor: ["#784212"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '266 - <xs:element name="choicetable"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamechoption");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["task"],
+          datasets: [{
+              label: '267 - <xs:element name="choption"',
+              data: [1],
+              backgroundColor: ["#784212"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '267 - <xs:element name="choption"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamechoptionhd");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["task"],
+          datasets: [{
+              label: '268 - <xs:element name="choptionhd"',
+              data: [1],
+              backgroundColor: ["#784212"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '268 - <xs:element name="choptionhd"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamechrow");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["task"],
+          datasets: [{
+              label: '269 - <xs:element name="chrow"',
+              data: [1],
+              backgroundColor: ["#784212"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '269 - <xs:element name="chrow"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamecmd");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["task"],
+          datasets: [{
+              label: '270 - <xs:element name="cmd"',
+              data: [1],
+              backgroundColor: ["#784212"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '270 - <xs:element name="cmd"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameconbody");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["concept"],
+          datasets: [{
+              label: '271 - <xs:element name="conbody"',
+              data: [1],
+              backgroundColor: ["#D7BDE2"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '271 - <xs:element name="conbody"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameconcept");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["concept"],
+          datasets: [{
+              label: '272 - <xs:element name="concept"',
+              data: [1],
+              backgroundColor: ["#D7BDE2"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '272 - <xs:element name="concept"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamedate");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["note2"],
+          datasets: [{
+              label: '273 - <xs:element name="date"',
+              data: [1],
+              backgroundColor: ["#A3E4D7"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '273 - <xs:element name="date"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamedinner_menu");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["dinner-menu"],
+          datasets: [{
+              label: '274 - <xs:element name="dinner_menu"',
+              data: [1],
+              backgroundColor: ["#28B463"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '274 - <xs:element name="dinner_menu"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamefig");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["reference"],
+          datasets: [{
+              label: '275 - <xs:element name="fig"',
+              data: [1],
+              backgroundColor: ["#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '275 - <xs:element name="fig"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamefilepath");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["concept", "task"],
+          datasets: [{
+              label: '276 - <xs:element name="filepath"',
+              data: [1, 1],
+              backgroundColor: ["#D7BDE2", "#784212"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '276 - <xs:element name="filepath"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamefood");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["dinner-menu"],
+          datasets: [{
+              label: '277 - <xs:element name="food"',
+              data: [1],
+              backgroundColor: ["#28B463"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '277 - <xs:element name="food"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameindexterm");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["concept", "reference"],
+          datasets: [{
+              label: '278 - <xs:element name="indexterm"',
+              data: [2, 3],
+              backgroundColor: ["#D7BDE2", "#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '278 - <xs:element name="indexterm"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameinfo");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["task"],
+          datasets: [{
+              label: '279 - <xs:element name="info"',
+              data: [1],
+              backgroundColor: ["#784212"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '279 - <xs:element name="info"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamekeyword");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["task"],
+          datasets: [{
+              label: '280 - <xs:element name="keyword"',
+              data: [1],
+              backgroundColor: ["#784212"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '280 - <xs:element name="keyword"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamekeywords");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["concept", "reference"],
+          datasets: [{
+              label: '281 - <xs:element name="keywords"',
+              data: [1, 1],
+              backgroundColor: ["#D7BDE2", "#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '281 - <xs:element name="keywords"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamelastmod");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["sitemap"],
+          datasets: [{
+              label: '282 - <xs:element name="lastmod"',
+              data: [1],
+              backgroundColor: ["#FFCCCC"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '282 - <xs:element name="lastmod"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameli");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["topic"],
+          datasets: [{
+              label: '283 - <xs:element name="li"',
+              data: [1],
+              backgroundColor: ["#34495E"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '283 - <xs:element name="li"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameloc");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["sitemap"],
+          datasets: [{
+              label: '284 - <xs:element name="loc"',
+              data: [1],
+              backgroundColor: ["#FFCCCC"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '284 - <xs:element name="loc"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamemetadata");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["concept", "reference"],
+          datasets: [{
+              label: '285 - <xs:element name="metadata"',
+              data: [1, 1],
+              backgroundColor: ["#D7BDE2", "#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '285 - <xs:element name="metadata"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamenavtitle");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["reference"],
+          datasets: [{
+              label: '286 - <xs:element name="navtitle"',
+              data: [1],
+              backgroundColor: ["#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '286 - <xs:element name="navtitle"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamenote");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["topic", "note", "note2"],
+          datasets: [{
+              label: '287 - <xs:element name="note"',
+              data: [1, 1, 1],
+              backgroundColor: ["#34495E", "#154360", "#A3E4D7"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '287 - <xs:element name="note"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameoption");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["reference"],
+          datasets: [{
+              label: '288 - <xs:element name="option"',
+              data: [1],
+              backgroundColor: ["#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '288 - <xs:element name="option"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamep");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["concept", "topic"],
+          datasets: [{
+              label: '289 - <xs:element name="p"',
+              data: [1, 3],
+              backgroundColor: ["#D7BDE2", "#34495E"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '289 - <xs:element name="p"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameparml");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["reference"],
+          datasets: [{
+              label: '290 - <xs:element name="parml"',
+              data: [1],
+              backgroundColor: ["#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '290 - <xs:element name="parml"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameparmname");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["reference"],
+          datasets: [{
+              label: '291 - <xs:element name="parmname"',
+              data: [1],
+              backgroundColor: ["#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '291 - <xs:element name="parmname"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamepd");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["reference"],
+          datasets: [{
+              label: '292 - <xs:element name="pd"',
+              data: [1],
+              backgroundColor: ["#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '292 - <xs:element name="pd"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameplentry");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["reference"],
+          datasets: [{
+              label: '293 - <xs:element name="plentry"',
+              data: [1],
+              backgroundColor: ["#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '293 - <xs:element name="plentry"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamepre");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["topic"],
+          datasets: [{
+              label: '294 - <xs:element name="pre"',
+              data: [1],
+              backgroundColor: ["#34495E"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '294 - <xs:element name="pre"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameprereq");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["task"],
+          datasets: [{
+              label: '295 - <xs:element name="prereq"',
+              data: [1],
+              backgroundColor: ["#784212"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '295 - <xs:element name="prereq"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamepriority");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["sitemap"],
+          datasets: [{
+              label: '296 - <xs:element name="priority"',
+              data: [1],
+              backgroundColor: ["#FFCCCC"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '296 - <xs:element name="priority"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnameprolog");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["concept", "reference"],
+          datasets: [{
+              label: '297 - <xs:element name="prolog"',
+              data: [1, 1],
+              backgroundColor: ["#D7BDE2", "#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '297 - <xs:element name="prolog"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamept");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["reference"],
+          datasets: [{
+              label: '298 - <xs:element name="pt"',
+              data: [1],
+              backgroundColor: ["#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '298 - <xs:element name="pt"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamerefbody");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["reference"],
+          datasets: [{
+              label: '299 - <xs:element name="refbody"',
+              data: [1],
+              backgroundColor: ["#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '299 - <xs:element name="refbody"',
+            fontSize: 15
+          }
+      }
+  });
+  
+    var ctx = document.getElementById("chartjs_canvasxselementnamereference");
+    var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["reference"],
+          datasets: [{
+              label: '300 - <xs:element name="reference"',
+              data: [1],
+              backgroundColor: ["#78281F"]
+          }]
+      },
+      options: {
+          responsive: false,
+          title : {
+            display: true,
+            text: '300 - <xs:element name="reference"',
+            fontSize: 15
+          }
+      }
+  });
+  
         $(document).ready(function () {
            "use strict";
            var last = $(location).attr("href").split("/").pop().split(".")[0].replace(/index/, "");
