@@ -2,8 +2,8 @@
 
 # site config
 url: http://thebeast.me/charts/
-# chart type: either "d3pie" or "google" or "chartjs" or "plotly"
-chart_type: plotly
+# chart type: either "d3pie" or "google" or "chartjs" or "plotly" or "all"
+chart_type: all
 # about section is marked up in Markdown format
 # https://daringfireball.net/projects/markdown/
 about: "### About
@@ -15,7 +15,10 @@ This Ruby script **`run.rb`** is a static site generator. It data mines or text 
 The config file: **`site.yml`** stores most of the websites configuration information and can be easily customized.
 
 
-A fancy feature is the ability to switch between using d3pie, Google Charts, Chart.js or plotly.js based pie charts just by changing the config entry **`chart_type`** to one of **`d3pie`**, **`google`**, **`chartjs`** or **`plotly`**.
+A fancy feature is the ability to switch between using all d3pie, Google Charts, Chart.js or plotly.js based pie charts just by changing the config entry **`chart_type`** to one of **`d3pie`**, **`google`**, **`chartjs`** or **`plotly`**.
+
+
+The site config entry **`chart_type`** can be set to **`all`** which displays all chart types, each chart type on its own page.
 
 
 The home page charts for the Google Charts, Chart.js and plotly.js **`chart_type`** are not yet complete.

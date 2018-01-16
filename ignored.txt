@@ -1,6 +1,8 @@
 .: --exclude-dir=1
 ./.gitignore: listed in $Not_Code_Extension{gitignore}
 ./.idea/charts.iml: language unknown (#3)
+./Gemfile: language unknown (#3)
+./Gemfile.lock: language unknown (#3)
 ./LICENSE: language unknown (#3)
 ./assets/bootstrap/css/bootstrap-theme.css.map: language unknown (#3)
 ./assets/bootstrap/css/bootstrap-theme.min.css.map: language unknown (#3)

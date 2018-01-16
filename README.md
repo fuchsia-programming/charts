@@ -12,6 +12,9 @@ The config file: **`site.yml`** stores most of the websites configuration inform
 A fancy feature is the ability to switch between using d3pie, Google Charts, Chart.js or plotly.js based pie charts just by changing the config entry **`chart_type`** to one of **`d3pie`**, **`google`**, **`chartjs`** or **`plotly`**.
 
 
+The site config entry **`chart_type`** can be set to **`all`** which displays all chart types, each chart type on its own page.
+
+
 The home page charts for the Google Charts, Chart.js and plotly.js **`chart_type`** are not yet complete.
 
 

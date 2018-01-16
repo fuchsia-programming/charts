@@ -3,7 +3,7 @@
 # Reach your final destination
 
 require 'kramdown'
-# require 'prawn'
+require 'prawn'
 # require 'prawn/table'
 require 'yaml'
 
@@ -38,7 +38,8 @@ site_config = YAML.safe_load(read_file('site.yml'))
 chart_types = { 'd3pie' => 'd3pie',
                 'chartjs' => 'Chart.js',
                 'google' => 'Google Charts',
-                'plotly' => 'plotly.js' }
+                'plotly' => 'plotly.js',
+                'all' => 'All chart types' }
 
 # current chart type
 ct = chart_types[site_config['chart_type']]
@@ -145,7 +146,8 @@ extension << Dir.glob('**/*').map do |x|
     ext[1..-1]
   end
   # sz = File.size(x)
-  # sizes << sz
+  # szs << sz
+  #
 end
 
 # extensions
@@ -499,7 +501,7 @@ def draw_plotly_chart(chart_div, data, title, height, width, type)
   )
 end
 
-# replaces 'd3pie' with one of 'Google Charts', 'Chart.js', 'plotly.js' or 'd3pie'
+# replaces 'd3pie' with one of 'Google Charts', 'Chart.js', 'plotly.js' or 'd3pie' or 'All chart types'
 # used in h1 on the main charting pages
 def site_type(s, chart_type)
   Kramdown::Document.new(s.gsub(/d3pie/, chart_type)).to_html
@@ -589,9 +591,34 @@ page_header(site_config, page_count)
       <h2>#{site_config['homepage_subheading1']}</h2>)
 # add built with links to home page
 @page += section_built_with(links, cloc, site_config)
-# restart all the chart pages
+#
+if site_config['chart_type'] == 'all'
+  (0..page_count).map do |i|
+    case i % 8
+    when 0..1
+      type = 'd3pie'
+    when 2..3
+      type = 'plotly'
+    when 4..5
+      type ='google'
+    when 6..7
+      type = 'chartjs'
+    end
+    if i < page_count
+    t = site_type(site_config['chart_pages_heading'], chart_types[type])
+    instance_variable_set("@page#{i + 1}", instance_variable_get("@page#{i + 1}") + %(
+      <h1>#{t}</h1>))
+    end
+  end
+  $page = ''
+else
+  $page = %(
+      <h1>#{site_type(site_config['chart_pages_heading'], ct)}</h1>)
+end
+#
+page_build(page_count, 1)
+#
 $page = %(
-      <h1>#{site_type(site_config['chart_pages_heading'], ct)}</h1>
       <h2 id="other">#{site_config['other_heading']}</h2>)
 # continue to build all the pages
 page_build(page_count, 1)
@@ -602,7 +629,23 @@ structure.map.with_index do |chart, i|
   i = i / 50 + 1
   instance_variable_set("@page#{i}",
                         instance_variable_get("@page#{i}") + "\n      " +
-    if site_config['chart_type'] == 'chartjs'
+    if site_config['chart_type'] == 'all'
+      case (i - 1) % 8
+      when 0..1 # d3pie
+      %(
+      <div class="col-lg-4 col-md-6 col-sm-12" id="d3pie_chart_div_#{data0}"></div>)
+      when 2..3 # plotly
+      %(
+      <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_#{data0}"></div>)
+      when 4..5 # google
+      %(
+      <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_#{data0}"></div>)
+      when 6..7 # chartjs
+      %(<div class="col-lg-4 col-md-6 col-sm-12">
+          <canvas id="chartjs_canvas#{data0}" width="400" height="350"></canvas>
+        </div>)
+      end
+    elsif site_config['chart_type'] == 'chartjs'
       %(<div class="col-lg-4 col-md-6 col-sm-12">
           <canvas id="chartjs_canvas#{data0}" width="400" height="350"></canvas>
       </div>)
@@ -647,6 +690,10 @@ end
 # restart common page region
 $page = footer(buttons, page_count, sitebuildtime, site_config)
 
+#
+page_build(page_count)
+$page = ''
+
 # add all the websites external JavaScript files
 def add_website_scripts(type, site_scripts, d3_scripts, google_scripts, chartjs_script, plotly_script)
   s = if type == 'd3pie'
@@ -661,21 +708,88 @@ def add_website_scripts(type, site_scripts, d3_scripts, google_scripts, chartjs_
   s
 end
 
-$page += add_website_scripts(site_config['chart_type'], site_scripts, d3_scripts, google_scripts, chartjs_script, plotlyjs_script)
+if site_config['chart_type'] == 'all'
+  @page += add_website_scripts('d3pie', site_scripts, d3_scripts, [], [], [])
+  (1..page_count).map do |i|
+    instance_variable_set("@page#{i}", instance_variable_get("@page#{i}") +
+      case (i - 1) % 8
+      when 0..1 # d3pie
+        add_website_scripts('d3pie', site_scripts, d3_scripts, [], [], [])
+      when 2..3 # plotly
+        add_website_scripts('plotly', site_scripts, [], [], [], plotlyjs_script)
+      when 4..5 # google
+        add_website_scripts('google', site_scripts, [], google_scripts, [], [])
+      when 6..7 # chartjs
+        add_website_scripts('chartjs', site_scripts, [], [], chartjs_script, [])
+      end)
+  end
+else
+  $page = add_website_scripts(site_config['chart_type'], site_scripts, d3_scripts, google_scripts, chartjs_script, plotlyjs_script)
+end
 
 # continue to build all the pages
 $page += '
     <script>'
 #
-if site_config['chart_type'] == 'google'
-  $page += %(
+page_build(page_count)
+$page = ''
+
+#
+if site_config['chart_type'] == 'all'
+  (0..page_count).map do |i|
+    if [5, 6].include? i % 8
+      instance_variable_set("@page#{i}",
+                            instance_variable_get("@page#{i}") +   %(
+        google.charts.load("current", {"packages":["corechart"]});\n))
+    end
+  end
+elsif site_config['chart_type'] == 'google'
+  $page = %(
       google.charts.load("current", {"packages":["corechart"]});\n)
 end
 #
 page_build(page_count)
 
 #
-if site_config['chart_type'] == 'd3pie'
+if site_config['chart_type'] == 'all'
+  # home page
+  @page += draw_d3pie_chart(0, 'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 1000, 1000, 15, 24, 16, 16, 1,
+                            '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
+  @page += draw_d3pie_chart(2, 'homepage_mit', mit_word_count, 1, exthash, 'Most frequent words in the MIT License', 1000, 1000, 15, 24, 16, 16, 1,
+                            '70%', '35%', 50, true, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
+
+  structure.map.with_index do |chart, ind|
+    data0 = clean_chart(chart[0])
+    data1 = chart[1..-1]
+    i = ind / 50 + 1
+
+    case (i - 1) % 8
+    when 0..1 # d3pie
+      type = i & 1 == 1 ? 0 : '35%'
+      instance_variable_set("@page#{i}",
+                            instance_variable_get("@page#{i}") +
+                                draw_d3pie_chart(1, data0, data1, ind, schema_colors, chart[0],
+                                                 490, 425, 11, 13, 12,
+                                                 12, 3, '75%', type, 20,
+                                                 true, 10, 'Arial Black',
+                                                 'Arial Black', 12, 'fff', 999))
+    when 2..3 # plotly
+      type = i & 1 == 1 ? 0 : 0.4
+      instance_variable_set("@page#{i}",
+                            instance_variable_get("@page#{i}") + draw_plotly_chart(data0, data1, chart_title(chart[0], ind), 400, 400, type))
+    when 4..5 # google
+      data1 = data1.map{|x| [fir(x), x.last]}
+      v = 'Values'
+      type = i & 1 == 1 ? 0 : 0.4
+      instance_variable_set("@page#{i}",
+                            instance_variable_get("@page#{i}") + "        google.charts.setOnLoadCallback(drawChart#{data0});\n" + draw_google_chart(type, data0, data1, chart[0], v, chart_title(chart[0], ind), data0, 400, 400))
+    when 6..7 # chartjs
+      type = i & 1 == 1 ? 'pie' : 'doughnut'
+      instance_variable_set("@page#{i}",
+                            instance_variable_get("@page#{i}") + draw_chartjs_chart(type, data0, data1, schema_colors, chart_title(chart[0], ind), 15, false))
+    end
+  end
+elsif site_config['chart_type'] == 'd3pie'
   # add all the javascript for each pie chart to each page
   # home page
   @page += draw_d3pie_chart(0, 'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 1000, 1000, 15, 24, 16, 16, 1,
