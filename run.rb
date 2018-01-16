@@ -506,10 +506,15 @@ def draw_plotly_chart(chart_div, data, title, height, width, type)
   )
 end
 
+# strip p tags from Kramdown output for headings
+def gs(s)
+  s.gsub(/<\/?p>/, '').strip
+end
+
 # replaces 'd3pie' with one of 'Google Charts', 'Chart.js', 'plotly.js' or 'd3pie' or 'All chart types'
 # used in h1 on the main charting pages
 def site_type(s, chart_type)
-  Kramdown::Document.new(s.gsub(/d3pie/, chart_type)).to_html.gsub(/<\/?p>/, '').strip
+  gs(Kramdown::Document.new(s.gsub(/d3pie/, chart_type)).to_html)
 end
 
 # data variable
@@ -591,7 +596,7 @@ page_header(site_config, page_count)
 
 # start home page stats
 @page += %(
-    <h1>#{Kramdown::Document.new(site_config['homepage_heading']).to_html}</h1>
+    <h1>#{gs(Kramdown::Document.new(site_config['homepage_heading']).to_html)}</h1>
     <div class="row homepage">
       <h2>#{site_config['homepage_subheading1']}</h2>)
 # add built with links to home page
