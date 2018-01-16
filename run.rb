@@ -509,7 +509,7 @@ end
 # replaces 'd3pie' with one of 'Google Charts', 'Chart.js', 'plotly.js' or 'd3pie' or 'All chart types'
 # used in h1 on the main charting pages
 def site_type(s, chart_type)
-  Kramdown::Document.new(s.gsub(/d3pie/, chart_type)).to_html
+  Kramdown::Document.new(s.gsub(/d3pie/, chart_type)).to_html.gsub(/<\/?p>/, '').strip
 end
 
 # data variable
