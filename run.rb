@@ -603,7 +603,7 @@ page_header(site_config, page_count)
 @page += section_built_with(links, cloc, site_config)
 #
 if site_config['chart_type'] == 'all'
-  (0..page_count-1).map do |i|
+  (0..page_count - 1).map do |i|
     case i % 8
     when 0..1
       type = 'd3pie'
@@ -747,15 +747,14 @@ $page = ''
 #
 if site_config['chart_type'] == 'all'
   (0..page_count).map do |i|
-    if [5, 6].include? i % 8
-      instance_variable_set("@page#{i}",
-                            gp(i) + %(
+    next unless [5, 6].include? i % 8
+    instance_variable_set("@page#{i}",
+                          gp(i) + %(
         google.charts.load("current", {"packages":["corechart"]});\n))
-    end
   end
 elsif site_config['chart_type'] == 'google'
   $page = %(
-      google.charts.load("current", {"packages":["corechart"]});\n)
+        google.charts.load("current", {"packages":["corechart"]});\n)
 end
 #
 page_build(page_count)
