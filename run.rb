@@ -598,22 +598,20 @@ page_header(site_config, page_count)
 @page += section_built_with(links, cloc, site_config)
 #
 if site_config['chart_type'] == 'all'
-  (0..page_count).map do |i|
+  (0..page_count-1).map do |i|
     case i % 8
     when 0..1
       type = 'd3pie'
     when 2..3
       type = 'plotly'
     when 4..5
-      type ='google'
+      type = 'google'
     when 6..7
       type = 'chartjs'
     end
-    if i < page_count
     t = site_type(site_config['chart_pages_heading'], chart_types[type])
     instance_variable_set("@page#{i + 1}", instance_variable_get("@page#{i + 1}") + %(
       <h1>#{t}</h1>))
-    end
   end
   $page = ''
 else
@@ -637,22 +635,24 @@ structure.map.with_index do |chart, i|
     if site_config['chart_type'] == 'all'
       case (i - 1) % 8
       when 0..1 # d3pie
-      %(
+        %(
       <div class="col-lg-4 col-md-6 col-sm-12" id="d3pie_chart_div_#{data0}"></div>)
       when 2..3 # plotly
-      %(
+        %(
       <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_#{data0}"></div>)
       when 4..5 # google
-      %(
+        %(
       <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_#{data0}"></div>)
       when 6..7 # chartjs
-      %(<div class="col-lg-4 col-md-6 col-sm-12">
-          <canvas id="chartjs_canvas#{data0}" width="400" height="350"></canvas>
-        </div>)
+        %(
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <canvas id="chartjs_canvas#{data0}" width="400" height="350"></canvas>
+      </div>)
       end
     elsif site_config['chart_type'] == 'chartjs'
-      %(<div class="col-lg-4 col-md-6 col-sm-12">
-          <canvas id="chartjs_canvas#{data0}" width="400" height="350"></canvas>
+      %(
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <canvas id="chartjs_canvas#{data0}" width="400" height="350"></canvas>
       </div>)
     else
       %(
