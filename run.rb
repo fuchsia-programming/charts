@@ -562,7 +562,7 @@ def page_header(site_config, page_count)
     <nav class="navbar navbar-default" id="head1">
       <div class="container-fluid">
         <div class="navbar-header">
-          <img src="assets/images/logo.png" alt="Ruby Powered" class="logo">
+          <a href="index.html"><img src="assets/images/logo.png" alt="Ruby Powered" class="logo"></a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
