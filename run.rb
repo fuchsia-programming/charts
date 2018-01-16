@@ -184,6 +184,11 @@ def chart_title(chart_type, ind)
   "#{ind + 1} - #{chart_type}"
 end
 
+#
+def gp(i)
+  instance_variable_get("@page#{i}")
+end
+
 # build all the website pages
 def page_build(page_count, start = 0)
   (start..page_count).map do |i|
@@ -628,7 +633,7 @@ structure.map.with_index do |chart, i|
   data0 = clean_chart(chart[0])
   i = i / 50 + 1
   instance_variable_set("@page#{i}",
-                        instance_variable_get("@page#{i}") + "\n      " +
+                        gp(i) + "\n      " +
     if site_config['chart_type'] == 'all'
       case (i - 1) % 8
       when 0..1 # d3pie
@@ -711,7 +716,7 @@ end
 if site_config['chart_type'] == 'all'
   @page += add_website_scripts('d3pie', site_scripts, d3_scripts, [], [], [])
   (1..page_count).map do |i|
-    instance_variable_set("@page#{i}", instance_variable_get("@page#{i}") +
+    instance_variable_set("@page#{i}", gp(i) +
       case (i - 1) % 8
       when 0..1 # d3pie
         add_website_scripts('d3pie', site_scripts, d3_scripts, [], [], [])
@@ -739,7 +744,7 @@ if site_config['chart_type'] == 'all'
   (0..page_count).map do |i|
     if [5, 6].include? i % 8
       instance_variable_set("@page#{i}",
-                            instance_variable_get("@page#{i}") +   %(
+                            gp(i) + %(
         google.charts.load("current", {"packages":["corechart"]});\n))
     end
   end
@@ -767,7 +772,7 @@ if site_config['chart_type'] == 'all'
     when 0..1 # d3pie
       type = i & 1 == 1 ? 0 : '35%'
       instance_variable_set("@page#{i}",
-                            instance_variable_get("@page#{i}") +
+                            gp(i) +
                                 draw_d3pie_chart(1, data0, data1, ind, schema_colors, chart[0],
                                                  490, 425, 11, 13, 12,
                                                  12, 3, '75%', type, 20,
@@ -776,68 +781,56 @@ if site_config['chart_type'] == 'all'
     when 2..3 # plotly
       type = i & 1 == 1 ? 0 : 0.4
       instance_variable_set("@page#{i}",
-                            instance_variable_get("@page#{i}") + draw_plotly_chart(data0, data1, chart_title(chart[0], ind), 400, 400, type))
+                            gp(i) + draw_plotly_chart(data0, data1, chart_title(chart[0], ind), 400, 400, type))
     when 4..5 # google
       data1 = data1.map{|x| [fir(x), x.last]}
       v = 'Values'
       type = i & 1 == 1 ? 0 : 0.4
       instance_variable_set("@page#{i}",
-                            instance_variable_get("@page#{i}") + "        google.charts.setOnLoadCallback(drawChart#{data0});\n" + draw_google_chart(type, data0, data1, chart[0], v, chart_title(chart[0], ind), data0, 400, 400))
+                            gp(i) + "        google.charts.setOnLoadCallback(drawChart#{data0});\n" + draw_google_chart(type, data0, data1, chart[0], v, chart_title(chart[0], ind), data0, 400, 400))
     when 6..7 # chartjs
       type = i & 1 == 1 ? 'pie' : 'doughnut'
       instance_variable_set("@page#{i}",
-                            instance_variable_get("@page#{i}") + draw_chartjs_chart(type, data0, data1, schema_colors, chart_title(chart[0], ind), 15, false))
+                            gp(i) + draw_chartjs_chart(type, data0, data1, schema_colors, chart_title(chart[0], ind), 15, false))
     end
   end
-elsif site_config['chart_type'] == 'd3pie'
-  # add all the javascript for each pie chart to each page
-  # home page
-  @page += draw_d3pie_chart(0, 'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 1000, 1000, 15, 24, 16, 16, 1,
-                            '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
-  @page += draw_d3pie_chart(2, 'homepage_mit', mit_word_count, 1, exthash, 'Most frequent words in the MIT License', 1000, 1000, 15, 24, 16, 16, 1,
-                            '70%', '35%', 50, true, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
-  # other pages
+else
+  if site_config['chart_type'] == 'd3pie'
+    # home page two charts
+    @page += draw_d3pie_chart(0, 'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 1000, 1000, 15, 24, 16, 16, 1,
+                              '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
+    @page += draw_d3pie_chart(2, 'homepage_mit', mit_word_count, 1, exthash, 'Most frequent words in the MIT License', 1000, 1000, 15, 24, 16, 16, 1,
+                              '70%', '35%', 50, true, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
+  end
+  # add all the javascript for each pie chart to the main chart pages
   structure.map.with_index do |chart, ind|
     data0 = clean_chart(chart[0])
     data1 = chart[1..-1]
     i = ind / 50 + 1
-    type = i & 1 == 1 ? 0 : '35%'
-    instance_variable_set("@page#{i}",
-                          instance_variable_get("@page#{i}") +
-                                                draw_d3pie_chart(1, data0, data1, ind, schema_colors, chart[0],
-                                                                 490, 425, 11, 13, 12,
-                                                                 12, 3, '75%', type, 20,
-                                                                 true, 10, 'Arial Black',
-                                                                 'Arial Black', 12, 'fff', 999))
-  end
-elsif site_config['chart_type'] == 'google'
-  # add all the JavaScript for each pie chart to each page
-  structure.map.with_index do |chart, ind|
-    data0 = clean_chart(chart[0])
-    data1 = chart[1..-1].map{|x| [fir(x), x.last]}
-    v = 'Values'
-    i = ind / 50 + 1
-    type = i & 1 == 1 ? 0 : 0.4
-    instance_variable_set("@page#{i}",
-                          instance_variable_get("@page#{i}") + "        google.charts.setOnLoadCallback(drawChart#{data0});\n" + draw_google_chart(type, data0, data1, chart[0], v, chart_title(chart[0], ind), data0, 400, 400))
-  end
-elsif site_config['chart_type'] == 'chartjs'
-  structure.map.with_index do |chart, ind|
-    data0 = clean_chart(chart[0])
-    data1 = chart[1..-1]
-    i = ind / 50 + 1
-    type = i & 1 == 1 ? 'pie' : 'doughnut'
-    instance_variable_set("@page#{i}",
-                          instance_variable_get("@page#{i}") + draw_chartjs_chart(type, data0, data1, schema_colors, chart_title(chart[0], ind), 15, false))
-  end
-else # plotly
-  structure.map.with_index do |chart, ind|
-    data0 = clean_chart(chart[0])
-    data1 = chart[1..-1]
-    i = ind / 50 + 1
-    type = i & 1 == 1 ? 0 : 0.4
-    instance_variable_set("@page#{i}",
-                          instance_variable_get("@page#{i}") + draw_plotly_chart(data0, data1, chart_title(chart[0], ind), 400, 400, type))
+    if site_config['chart_type'] == 'd3pie'
+      type = i & 1 == 1 ? 0 : '35%'
+      instance_variable_set("@page#{i}",
+                            gp(i) + draw_d3pie_chart(1, data0, data1, ind, schema_colors, chart[0],
+                                                     490, 425, 11, 13, 12,
+                                                     12, 3, '75%', type, 20,
+                                                     true, 10, 'Arial Black',
+                                                     'Arial Black', 12, 'fff', 999))
+    elsif site_config['chart_type'] == 'google'
+      data1 = chart[1..-1].map{|x| [fir(x), x.last]}
+      v = 'Values'
+      type = i & 1 == 1 ? 0 : 0.4
+      instance_variable_set("@page#{i}",
+                            gp(i) + "        google.charts.setOnLoadCallback(drawChart#{data0});\n" + draw_google_chart(type, data0, data1, chart[0], v, chart_title(chart[0], ind), data0, 400, 400))
+
+    elsif site_config['chart_type'] == 'chartjs'
+      type = i & 1 == 1 ? 'pie' : 'doughnut'
+      instance_variable_set("@page#{i}",
+                            gp(i) + draw_chartjs_chart(type, data0, data1, schema_colors, chart_title(chart[0], ind), 15, false))
+    else
+      type = i & 1 == 1 ? 0 : 0.4
+      instance_variable_set("@page#{i}",
+                            gp(i) + draw_plotly_chart(data0, data1, chart_title(chart[0], ind), 400, 400, type))
+    end
   end
 end
 
