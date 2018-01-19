@@ -29,5 +29,9 @@ Style/BlockComments:
   Exclude:
     - 'run.rb'
 
+Style/RegexpLiteral:
+  EnforcedStyle: slashes
+  AllowInnerSlashes: true
+
 Style/Semicolon:
   AllowAsExpressionSeparator: true

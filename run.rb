@@ -706,16 +706,15 @@ $page = ''
 
 # add all the websites external JavaScript files
 def add_website_scripts(type, site_scripts, d3_scripts, google_scripts, chartjs_script, plotly_script)
-  s = if type == 'd3pie'
-        add_scripts(site_scripts, d3_scripts)
-      elsif type == 'google'
-        add_scripts(site_scripts, google_scripts)
-      elsif type == 'chartjs'
-        add_scripts(site_scripts, chartjs_script)
-      else
-        add_scripts(site_scripts, plotly_script)
-      end
-  s
+  if type == 'd3pie'
+    add_scripts(site_scripts, d3_scripts)
+  elsif type == 'google'
+    add_scripts(site_scripts, google_scripts)
+  elsif type == 'chartjs'
+    add_scripts(site_scripts, chartjs_script)
+  else
+    add_scripts(site_scripts, plotly_script)
+  end
 end
 
 if site_config['chart_type'] == 'all'
