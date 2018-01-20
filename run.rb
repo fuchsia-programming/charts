@@ -211,7 +211,7 @@ def clean_chart(chart)
   chart.tr('<"=: ', '')
 end
 
-#
+# add JavaScripts to each page
 def add_scripts(scripts, chart_scripts)
   s = ''
   scripts.map do |script|
@@ -225,7 +225,7 @@ def add_scripts(scripts, chart_scripts)
   s
 end
 
-# function that draws the pie chart
+# function that draws the d3pie pie chart
 def draw_d3pie_chart(type, which, data, num, colors, title, width, height,
                      mainlabelsize, titlesize, valuesize, tooltipsize,
                      segmentsize, pieouterradius, pieinnerradius, piedistance, linesenabled,
@@ -428,7 +428,7 @@ def escape(s)
   s.gsub('"', '\"')
 end
 
-# common function for each chart
+# common function for each Google chart
 def draw_google_chart(type, which_chart, data, chart_string, chart_values,
                       chart_title, chart_div, width, height)
   %(
@@ -478,7 +478,7 @@ def draw_chartjs_chart(type, canvas_id, data, colors, title, titlefontsize, resp
   )
 end
 
-#
+# function to draw the plotly.js charts
 def draw_plotly_chart(chart_div, data, title, height, width, type)
   %(
     var data = [{
@@ -592,7 +592,6 @@ end
 
 # start common page region
 page_header(site_config, page_count)
-# continue to build all the pages
 
 # start home page stats
 @page += %(
@@ -717,6 +716,7 @@ def add_website_scripts(type, site_scripts, d3_scripts, google_scripts, chartjs_
   end
 end
 
+# add the scripts to each page
 if site_config['chart_type'] == 'all'
   @page += add_website_scripts('d3pie', site_scripts, d3_scripts, [], [], [])
   (1..page_count).map do |i|
@@ -741,8 +741,8 @@ $page += '
     <script>'
 #
 page_build(page_count)
+# restart common page
 $page = ''
-
 #
 if site_config['chart_type'] == 'all'
   (0..page_count).map do |i|
