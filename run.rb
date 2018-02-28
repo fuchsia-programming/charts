@@ -34,6 +34,11 @@ end
 # load website config file
 site_config = YAML.safe_load(read_file('site.yml'))
 
+# create README from config file
+f = File.open('README.md', 'w')
+f.write(site_config['about'])
+f.close
+
 # chart types
 chart_types = { 'd3pie' => 'd3pie',
                 'chartjs' => 'Chart.js',
@@ -85,40 +90,6 @@ schema_colors = { 'bar.xsd' => '#E6B0AA',
                   'topic.xsd' => '#34495E',
                   'xenc_schema.xsd' => '#17202A',
                   'xmldsig_schema.xsd' => '#8E44AD' }
-
-# built with links
-links = { 'Ruby' => 'https://www.ruby-lang.org',
-          'RubyMine' => 'https://www.jetbrains.com/ruby',
-          'Rubocop' => 'https://github.com/bbatsov/rubocop',
-          'rbenv' => 'https://github.com/rbenv/rbenv',
-          'ruby-build' => 'https://github.com/rbenv/ruby-build',
-          'kramdown' => 'https://kramdown.gettalong.org',
-          'cloc' => 'https://github.com/AlDanial/cloc',
-          'Perl' => 'https://www.perl.org',
-          'd3pie' => 'http://d3pie.org/',
-          'D3' => 'https://d3js.org/',
-          'Google Charts' => 'https://developers.google.com/chart/',
-          'Chart.js' => 'http://www.chartjs.org/',
-          'plotly.js' => 'https://plot.ly/javascript/',
-          'HTML5' => 'https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5',
-          'CSS3' => 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3',
-          'Bootstrap' => 'https://getbootstrap.com/',
-          'jQuery' => 'https://jquery.com/',
-          'JSON' => 'https://www.json.org/',
-          'JavaScript' => 'https://en.wikipedia.org/wiki/JavaScript',
-          'YAML' => 'http://www.yaml.org/',
-          'XML' => 'https://en.wikipedia.org/wiki/XML',
-          'XML Schema' => 'https://en.wikipedia.org/wiki/XML_schema',
-          'Regular expressions' => 'https://en.wikipedia.org/wiki/Regular_expression',
-          'Git' => 'https://git-scm.com/',
-          'GitHub Desktop' => 'https://desktop.github.com/',
-          'GitHub Pages' => 'https://pages.github.com',
-          'GitHub:buttons' => 'https://buttons.github.io/',
-          'Flag Counter' => 'https://flagcounter.com/',
-          'Sitemaps' => 'https://en.wikipedia.org/wiki/Sitemaps',
-          'robots.txt' => 'https://en.wikipedia.org/wiki/Robots_exclusion_standard',
-          'Portable Network Graphics' => 'https://en.wikipedia.org/wiki/Portable_Network_Graphics',
-          'Text file' => 'https://en.wikipedia.org/wiki/Text_file' }
 
 # data for GitHub buttons
 buttons = [
@@ -356,17 +327,10 @@ def draw_d3pie_chart(type, which, data, num, colors, title, width, height,
 end
 
 # built with section on home page
-def section_built_with(links, cloc, site_config)
+def section_built_with(cloc, site_config)
   s = %(
       <div class="col-md-5">
         #{Kramdown::Document.new(site_config['about']).to_html}
-        <ol>)
-  links.map do |k, v|
-    s += %(
-          <li class="oll"><a href="#{v}" target="_blank" rel="noopener">#{k}</a></li>)
-  end
-  s + %(
-        </ol>
       </div>
       <div class="col-md-7">
         <h3>#{site_config['homepage_subheading4']}</h3>
@@ -597,10 +561,9 @@ page_header(site_config, page_count)
 # start home page stats
 @page += %(
     <h1>#{gs(Kramdown::Document.new(site_config['homepage_heading']).to_html)}</h1>
-    <div class="row homepage">
-      <h2>#{site_config['homepage_subheading1']}</h2>)
+    <div class="row homepage">)
 # add built with links to home page
-@page += section_built_with(links, cloc, site_config)
+@page += section_built_with(cloc, site_config)
 #
 if site_config['chart_type'] == 'all'
   (0..page_count - 1).map do |i|
