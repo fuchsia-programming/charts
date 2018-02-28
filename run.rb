@@ -38,6 +38,10 @@ built_with = { 'Ruby' => 'https://www.ruby-lang.org',
           'rbenv' => 'https://github.com/rbenv/rbenv',
           'ruby-build' => 'https://github.com/rbenv/ruby-build',
           'kramdown' => 'https://kramdown.gettalong.org',
+          'Python' => 'https://www.python.org/',
+          'Seaborn' => 'https://seaborn.pydata.org/',
+          'pandas'=>'https://pandas.pydata.org/',
+          'Matplotlib'=>'https://matplotlib.org/',
           'cloc' => 'https://github.com/AlDanial/cloc',
           'Perl' => 'https://www.perl.org',
           'd3pie' => 'http://d3pie.org/',
@@ -374,6 +378,11 @@ def draw_d3pie_chart(type, which, data, num, colors, title, width, height,
     });\n"
 end
 
+# create Python charts for homepage
+Dir.glob('python/*.py').map do |f|
+  `python3 "#{f}"`
+end
+
 # built with section on home page
 def section_built_with(cloc, site_config)
   s = %(
@@ -394,6 +403,18 @@ def section_built_with(cloc, site_config)
     </div>
     <div class="row">
       <div class="col-sm-12" id="d3pie_chart_div_homepage_mit"></div>
+    </div>
+    <div class="row">
+      <img src="python/images/violin-plot-cylinders-versus-hp.png" alt="Violin plot of cylinders versus horsepower">
+    </div>
+    <div class="row">
+      <img src="python/images/hexbin-jointplot-hp-versus-mpg.png" alt="Hexbin jointplot of horsepower versus mpg">
+    </div>
+    <div class="row">
+      <img src="python/images/automobile-weight-versus-horsepower-by-continent.png" alt="Automobile weight versus horsepower by continent">
+    </div>
+    <div class="row">
+      <img src="python/images/automobile-swarmplot-hp-versus-cylinders.png" alt="Automobile swarmplot horseppwer versus cylinders">
     </div>)
 end
 

@@ -17,12 +17,15 @@ Which means you should **never** edit these files as they are all automatically 
  
 This automatic file creation functionality is also controlled by the repositories main config file `config.yml`.
  
+[Python 3](https://www.python.org/) is another requirement as well as the Python packages [Seaborn](https://seaborn.pydata.org/), [Matplotlib](https://matplotlib.org/) and [pandas](https://pandas.pydata.org/).
+ 
 You also need to install [Perl 5](https://www.perl.org/) as I am using [cloc](https://github.com/AlDanial/cloc)
  
 You can see if Perl is already installed by typing in the terminal: `perl -v`
 
 The lowest version of Perl that I have tested with is Perl 5.18.2 but I have also tested with the 
 current maintenance release Perl 5.26.1.  The [Perl releases](https://www.cpan.org/src/) can be seen at CPAN.
+
 
 ## Windows
 

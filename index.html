@@ -124,6 +124,10 @@
   <li><a href="https://github.com/rbenv/rbenv" target="_blank" rel="noopener">rbenv</a></li>
   <li><a href="https://github.com/rbenv/ruby-build" target="_blank" rel="noopener">ruby-build</a></li>
   <li><a href="https://kramdown.gettalong.org" target="_blank" rel="noopener">kramdown</a></li>
+  <li><a href="https://www.python.org/" target="_blank" rel="noopener">Python</a></li>
+  <li><a href="https://seaborn.pydata.org/" target="_blank" rel="noopener">Seaborn</a></li>
+  <li><a href="https://pandas.pydata.org/" target="_blank" rel="noopener">pandas</a></li>
+  <li><a href="https://matplotlib.org/" target="_blank" rel="noopener">Matplotlib</a></li>
   <li><a href="https://github.com/AlDanial/cloc" target="_blank" rel="noopener">cloc</a></li>
   <li><a href="https://www.perl.org" target="_blank" rel="noopener">Perl</a></li>
   <li><a href="http://d3pie.org/" target="_blank" rel="noopener">d3pie</a></li>
@@ -160,21 +164,22 @@
         <pre>
           <code>
             
-github.com/AlDanial/cloc v 1.76  T=9.09 s (6.6 files/s, 7384.0 lines/s)
+github.com/AlDanial/cloc v 1.76  T=10.10 s (6.4 files/s, 6676.6 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-HTML                            16           2048             48          32111
+HTML                            16           2048             48          32128
 JavaScript                       9           3096            615          15878
 CSS                              4              7             24           7326
-Markdown                         4            590              0           2126
+Markdown                         5            614              0           2161
 XSD                             15             73             48           1375
-Ruby                             1             64            100            762
-XML                              7              0              0            495
-YAML                             3            125             40            128
+Ruby                             1             65            101            781
+XML                              7              0              0            644
+YAML                             3            129             40            132
+Python                           4             14              2             54
 JSON                             1              0              0             41
 -------------------------------------------------------------------------------
-SUM:                            60           6003            875          60242
+SUM:                            65           6046            878          60520
 -------------------------------------------------------------------------------
 
           </code>
@@ -186,6 +191,18 @@ SUM:                            60           6003            875          60242
     </div>
     <div class="row">
       <div class="col-sm-12" id="d3pie_chart_div_homepage_mit"></div>
+    </div>
+    <div class="row">
+      <img src="python/images/violin-plot-cylinders-versus-hp.png" alt="Violin plot of cylinders versus horsepower">
+    </div>
+    <div class="row">
+      <img src="python/images/hexbin-jointplot-hp-versus-mpg.png" alt="Hexbin jointplot of horsepower versus mpg">
+    </div>
+    <div class="row">
+      <img src="python/images/automobile-weight-versus-horsepower-by-continent.png" alt="Automobile weight versus horsepower by continent">
+    </div>
+    <div class="row">
+      <img src="python/images/automobile-swarmplot-hp-versus-cylinders.png" alt="Automobile swarmplot horseppwer versus cylinders">
     </div>
     </div>
     <footer>
@@ -223,7 +240,7 @@ SUM:                            60           6003            875          60242
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-02-28T19:21:48+10:00</a></li>
+          <li><a class="built">Site last built: 2018-03-01T01:09:11+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -247,7 +264,7 @@ SUM:                            60           6003            875          60242
             }
         },
         'footer': {
-            'text': '25 png files occurred most frequently',
+            'text': '29 png files occurred most frequently',
             'color': '#ff0000',
             'fontSize': 18,
             'font': 'open sans',
@@ -266,7 +283,7 @@ SUM:                            60           6003            875          60242
                 'enabled': true,
                 'value': 1
             },
-            'content': [{'label':'html','value':16,'color':'#D7BDE2'},{'label':'folders','value':14,'color':'#E67E22'},{'label':'yml','value':2,'color':'#441411'},{'label':'md','value':4,'color':'#A9CCE3'},{'label':'txt','value':3,'color':'#17202A'},{'label':'xml','value':2,'color':'#E67E22'},{'label':'lock','value':1,'color':''},{'label':'css','value':4,'color':'#E6B0AA'},{'label':'map','value':4,'color':'#111111'},{'label':'js','value':9,'color':'#28B463'},{'label':'woff','value':1,'color':'#8E44AD'},{'label':'eot','value':1,'color':'#F4D03F'},{'label':'woff2','value':1,'color':'#999999'},{'label':'ttf','value':1,'color':'#000000'},{'label':'svg','value':1,'color':'#78281F'},{'label':'png','value':25,'color':''},{'label':'ico','value':1,'color':''},{'label':'json','value':1,'color':''},{'label':'xsd','value':15,'color':'#34495E'},{'label':'rb','value':1,'color':'#154360'}
+            'content': [{'label':'html','value':16,'color':'#D7BDE2'},{'label':'folders','value':16,'color':'#E67E22'},{'label':'png','value':29,'color':''},{'label':'py','value':4,'color':''},{'label':'yml','value':2,'color':'#441411'},{'label':'md','value':5,'color':'#A9CCE3'},{'label':'txt','value':3,'color':'#17202A'},{'label':'xml','value':2,'color':'#E67E22'},{'label':'lock','value':1,'color':''},{'label':'css','value':4,'color':'#E6B0AA'},{'label':'map','value':4,'color':'#111111'},{'label':'js','value':9,'color':'#28B463'},{'label':'woff','value':1,'color':'#8E44AD'},{'label':'eot','value':1,'color':'#F4D03F'},{'label':'woff2','value':1,'color':'#999999'},{'label':'ttf','value':1,'color':'#000000'},{'label':'svg','value':1,'color':'#78281F'},{'label':'ico','value':1,'color':''},{'label':'json','value':1,'color':''},{'label':'xsd','value':15,'color':'#34495E'},{'label':'csv','value':1,'color':''},{'label':'rb','value':1,'color':'#154360'}
             ]
         },
         callbacks: {
