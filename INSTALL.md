@@ -1,6 +1,11 @@
-## Quick Start Install
+# Quick Start Install
+
+## macOS 
 
 You need to have [Ruby](https://www.ruby-lang.org/en/) installed and I am targeting Ruby 2.5 currently.
+
+I recommend using [rbenv](https://github.com/rbenv/rbenv) with [ruby-build](https://github.com/rbenv/ruby-build) which can be easily installed
+with [Homebrew](https://brew.sh/).
 
 After installing Ruby 2.5 you can run `bundle install` from the 
 repositories root directory to install the needed RubyGems.
@@ -18,4 +23,17 @@ You can see if Perl is already installed by typing in the terminal: `perl -v`
 
 The lowest version of Perl that I have tested with is Perl 5.18.2 but I have also tested with the 
 current maintenance release Perl 5.26.1.  The [Perl releases](https://www.cpan.org/src/) can be seen at CPAN.
+
+## Windows
+
+This project has not been tested on Windows based Operating Systems.
+
+To help out and get started on Windows I recommend you install [Strawberry Perl](http://strawberryperl.com/)
+ and also install Ruby 2.5 with the [RubyInstaller](https://rubyinstaller.org/).
+ 
+## Linux
+
+Again, no testing so far on Linux based Operating Systems.
+
+On Linux you could use possibly [RVM](https://rvm.io/) to manage your Ruby versions.
 
