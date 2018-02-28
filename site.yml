@@ -6,7 +6,7 @@ url: http://thebeast.me/charts/
 chart_type: all
 # about section is marked up in Markdown format
 # https://daringfireball.net/projects/markdown/
-about: "##Charting Demo Info
+about: "## Charting Demo Info
 
 
 This Ruby script **`run.rb`** is a static site generator. It data mines or text mines a folder of XML Schema files as well as the MIT License (only for the d3pie charts) and generates statistics on elements and attributes (the XML Schema) or on words (the License).

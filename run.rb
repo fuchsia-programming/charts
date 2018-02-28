@@ -36,7 +36,7 @@ site_config = YAML.safe_load(read_file('site.yml'))
 
 # create README from config file
 f = File.open('README.md', 'w')
-f.write(site_config['about'])
+f.write(site_config['about'].gsub('{:target="_blank"}{:rel="noopener"}', ''))
 f.close
 
 # chart types
