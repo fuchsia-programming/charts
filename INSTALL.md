@@ -38,7 +38,7 @@ Again, no testing so far on Linux based Operating Systems.
 On Linux you could use possibly [RVM](https://rvm.io/) to manage your Ruby versions.
 
 
-### Ideas about the project
+## Ideas about the project
 
 Seems these days that JavaScript has become so popular and even this project is using a huge amount
 of JavaScript mostly in the form of JavaScript libraries.
