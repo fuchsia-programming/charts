@@ -31,6 +31,54 @@ def fir(arr)
   arr.first.split('.').first
 end
 
+# built with links
+built_with = { 'Ruby' => 'https://www.ruby-lang.org',
+          'RubyMine' => 'https://www.jetbrains.com/ruby',
+          'Rubocop' => 'https://github.com/bbatsov/rubocop',
+          'rbenv' => 'https://github.com/rbenv/rbenv',
+          'ruby-build' => 'https://github.com/rbenv/ruby-build',
+          'kramdown' => 'https://kramdown.gettalong.org',
+          'cloc' => 'https://github.com/AlDanial/cloc',
+          'Perl' => 'https://www.perl.org',
+          'd3pie' => 'http://d3pie.org/',
+          'D3' => 'https://d3js.org/',
+          'Google Charts' => 'https://developers.google.com/chart/',
+          'Chart.js' => 'http://www.chartjs.org/',
+          'plotly.js' => 'https://plot.ly/javascript/',
+          'HTML5' => 'https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5',
+          'CSS3' => 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3',
+          'Bootstrap' => 'https://getbootstrap.com/',
+          'jQuery' => 'https://jquery.com/',
+          'JSON' => 'https://www.json.org/',
+          'JavaScript' => 'https://en.wikipedia.org/wiki/JavaScript',
+          'YAML' => 'http://www.yaml.org/',
+          'XML' => 'https://en.wikipedia.org/wiki/XML',
+          'XML Schema' => 'https://en.wikipedia.org/wiki/XML_schema',
+          'Regular expressions' => 'https://en.wikipedia.org/wiki/Regular_expression',
+          'Git' => 'https://git-scm.com/',
+          'GitHub Desktop' => 'https://desktop.github.com/',
+          'GitHub Pages' => 'https://pages.github.com',
+          'GitHub:buttons' => 'https://buttons.github.io/',
+          'Flag Counter' => 'https://flagcounter.com/',
+          'Sitemaps' => 'https://en.wikipedia.org/wiki/Sitemaps',
+          'Markdown' => 'https://daringfireball.net/projects/markdown',
+          'robots.txt' => 'https://en.wikipedia.org/wiki/Robots_exclusion_standard',
+          'Portable Network Graphics' => 'https://en.wikipedia.org/wiki/Portable_Network_Graphics',
+          'Text file' => 'https://en.wikipedia.org/wiki/Text_file' }
+
+kramdown_built_with = ''
+built_with.each_with_index do |(key, value), index|
+  kramdown_built_with += "#{index + 1}. [#{key}](#{value}){:target=\\\"_blank\\\"}{:rel=\\\"noopener\\\"}\n\n"
+end
+kramdown_built_with += '
+
+"'
+
+config = read_file('config.yml').chop
+new_config = File.open('site.yml', 'w')
+new_config.write(config + kramdown_built_with)
+new_config.close
+
 # load website config file
 site_config = YAML.safe_load(read_file('site.yml'))
 
