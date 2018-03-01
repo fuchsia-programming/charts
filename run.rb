@@ -379,9 +379,8 @@ def draw_d3pie_chart(type, which, data, num, colors, title, width, height,
 end
 
 # create Python charts for homepage
-Dir.glob('python/*.py').map do |f|
-  `python3 "#{f}"`
-end
+`python3 python/charts.py`
+
 
 # built with section on home page
 def section_built_with(cloc, site_config)
