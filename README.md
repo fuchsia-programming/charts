@@ -8,7 +8,7 @@ A fancy feature is the ability to switch between using all d3pie, Google Charts,
 
 The site config entry **`chart_type`** can be set to **`all`** which displays all chart types, each chart type on its own page.
 
-The home page charts for the Google Charts, Chart.js and plotly.js **`chart_type`** are not yet complete.
+The home page has a selection of both d3pie JavaScript charts and some PNG charts created from using the Python packages Seaborn and Matplotlib.
 
 For all four styles of pie charts we have both **`Donut`** and **`Pie`** style charts.
 

@@ -793,10 +793,10 @@ page_build(page_count)
 #
 if site_config['chart_type'] == 'all'
   # home page
-  @page += draw_d3pie_chart(0, 'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 1000, 1000, 15, 24, 16, 16, 1,
-                            '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
-  @page += draw_d3pie_chart(2, 'homepage_mit', mit_word_count, 1, exthash, 'Most frequent words in the MIT License', 1000, 1000, 15, 24, 16, 16, 1,
-                            '70%', '35%', 50, true, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
+  @page += draw_d3pie_chart(0, 'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 600, 600, 15, 24, 16, 16, 1,
+                            '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18, 'white', 'ff0000')
+  @page += draw_d3pie_chart(2, 'homepage_mit', mit_word_count, 1, exthash, 'Most frequent words in the MIT License', 600, 600, 15, 24, 16, 16, 2,
+                            '70%', '35%', 50, true, 35, 'open sans', 'open sans', 18, 'white', 'ff0000')
 
   structure.map.with_index do |chart, ind|
     data0 = clean_chart(chart[0])
@@ -832,9 +832,9 @@ if site_config['chart_type'] == 'all'
 else
   if site_config['chart_type'] == 'd3pie'
     # home page two charts
-    @page += draw_d3pie_chart(0, 'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 1000, 1000, 15, 24, 16, 16, 1,
+    @page += draw_d3pie_chart(0, 'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 600, 600, 15, 24, 16, 16, 1,
                               '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
-    @page += draw_d3pie_chart(2, 'homepage_mit', mit_word_count, 1, exthash, 'Most frequent words in the MIT License', 1000, 1000, 15, 24, 16, 16, 1,
+    @page += draw_d3pie_chart(2, 'homepage_mit', mit_word_count, 1, exthash, 'Most frequent words in the MIT License', 600, 600, 15, 24, 16, 16, 1,
                               '70%', '35%', 50, true, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
   end
   # add all the javascript for each pie chart to the main chart pages
