@@ -26,9 +26,9 @@ repository: charts
 
 # HTML elements and attributes
 # meta name="description"
-description: Analytics dashboard built from Ruby using the d3pie, Google charts, Chart.js and plotly.js charting libraries. The application or script text mines a folder of XML Schema to generate statistics about tags and attributes.
-# <title>
-title: Ruby based text mining analytics dashboard and configurable static site generator
+description: Analytics dashboard built from Ruby, Python and Perl using the d3pie, Google charts, Chart.js, plotly.js, Matplotlib and Seaborn charting libraries.
+
+title: Ruby, Python Perl and JavaScript based charting demonstration and configurable static site generator
 # meta name="theme-color"
 theme_color: E5E8E8
 
@@ -37,7 +37,7 @@ theme_color: E5E8E8
 # heading at top left of website
 nav_heading: Ruby Powered
 # homepage heading h1
-homepage_heading: "**`Ruby`** based **`d3pie`**, **`Google Charts`**, **`Chart.js`** and **`plotly.js`** XML Schema text mining configurable static site generator"
+homepage_heading: "**`Ruby`**, **`Python`** and **`Perl`** based **`d3pie`**, **`Google Charts`**, **`Chart.js`**, **`plotly.js`**, **`Matplotlib`** and **`Seaborn`** charting demonstration and configurable static site generator"
 # chart pages heading h1
 chart_pages_heading: "Chart type: **`d3pie`**"
 # heading on other pages h1
