@@ -10,31 +10,33 @@ This automatic file creation functionality is also controlled by the repositorie
 
 ## Install Requirements
 
-- [Ruby](https://www.ruby-lang.org/en/) 2.5
+- [Ruby](https://www.ruby-lang.org/en/) - 2.5
     - [kramdown](https://kramdown.gettalong.org/)
     - [Prawn](https://github.com/prawnpdf/prawn)
     - [Rubocop](https://github.com/bbatsov/rubocop)
-- [Python](https://www.python.org/) 3.6
+- [Python](https://www.python.org/) - 3.6
     - [Matplotlib](https://matplotlib.org/)
     - [Seaborn](https://seaborn.pydata.org/)
     - [pandas](https://pandas.pydata.org/)
-- [Perl 5](https://www.perl.org/) 5.18.2 or greater
+- [Perl 5](https://www.perl.org/) - 5.18.2 or greater
     - [cloc](https://github.com/AlDanial/cloc)
 
 
 ## macOS 
 
-I recommend using [rbenv](https://github.com/rbenv/rbenv) with [ruby-build](https://github.com/rbenv/ruby-build) which can be easily installed
+For managing Ruby versions I recommend using [rbenv](https://github.com/rbenv/rbenv) with [ruby-build](https://github.com/rbenv/ruby-build) which can be easily installed
 with [Homebrew](https://brew.sh/).
 
 After installing Ruby 2.5 you can run `bundle install` from the 
 repositories root directory to install the needed RubyGems.
 
-You can see if Perl is already installed by typing in the terminal: `perl -v`
+You can also install Perl through Homebrew and you can see 
+if Perl is already installed by typing in the terminal: `perl -v`
 
 The lowest version of Perl that I have tested with is Perl 5.18.2 but I have also tested with the 
 current maintenance release Perl 5.26.1.  The [Perl releases](https://www.cpan.org/src/) can be seen at CPAN.
 
+Most people recommend not using the system Perl.
 
 ## Windows
 
