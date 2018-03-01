@@ -51,8 +51,11 @@ current maintenance release Perl 5.26.1.  The [Perl releases](https://www.cpan.o
 
 This project has not been tested on Windows based Operating Systems.
 
-To help out and get started on Windows I recommend you install [Strawberry Perl](http://strawberryperl.com/)
- and also install Ruby 2.5 with the [RubyInstaller](https://rubyinstaller.org/).
+To help out and get started on Windows I recommend you install [Strawberry Perl](http://strawberryperl.com/) or try using 
+[ActivePerl](https://www.activestate.com/activeperl) and also install Ruby 2.5 with the [RubyInstaller](https://rubyinstaller.org/).
+ 
+You should use the [Get-FileHash](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
+ PowerShell utility to check the integrity of both Strawberry Perl and the RubyInstaller.
  
 ## Linux
 
