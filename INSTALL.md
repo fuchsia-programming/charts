@@ -25,12 +25,17 @@ This automatic file creation functionality is also controlled by the repositorie
 ## macOS 
 
 For managing Ruby versions I recommend using [rbenv](https://github.com/rbenv/rbenv) with [ruby-build](https://github.com/rbenv/ruby-build) which can be easily installed
-with [Homebrew](https://brew.sh/).
+with [Homebrew](https://brew.sh/).  You can see if Ruby is installed on your system by
+typing in a terminal: `ruby -v`
+
+Most people recommend not using the system installed Ruby.
 
 After installing Ruby 2.5 you can run `bundle install` from the 
 repositories root directory to install the needed RubyGems.
 
-You can also install Perl through Homebrew and you can see 
+[Python 3.6](http://brewformulas.org/Python3) can also be installed with Homebrew.
+
+You can also install [Perl through Homebrew](http://brewformulas.org/Perl) and you can see 
 if Perl is already installed by typing in the terminal: `perl -v`
 
 The lowest version of Perl that I have tested with is Perl 5.18.2 but I have also tested with the 
