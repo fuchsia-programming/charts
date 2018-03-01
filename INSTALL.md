@@ -24,24 +24,28 @@ This automatic file creation functionality is also controlled by the repositorie
 
 ## macOS 
 
+For all three language requirements Ruby, Python and Perl most people recommend not using
+ the system installed versions of those languages.
+
 For managing Ruby versions I recommend using [rbenv](https://github.com/rbenv/rbenv) with [ruby-build](https://github.com/rbenv/ruby-build) which can be easily installed
 with [Homebrew](https://brew.sh/).  You can see if Ruby is installed on your system by
 typing in a terminal: `ruby -v`
 
-Most people recommend not using the system installed Ruby.
-
 After installing Ruby 2.5 you can run `bundle install` from the 
 repositories root directory to install the needed RubyGems.
 
-[Python 3.6](http://brewformulas.org/Python3) can also be installed with Homebrew.
+[Python 3.6](http://brewformulas.org/Python3) can also be installed with Homebrew.  After installing Python 
+you can open a terminal and type: `python3 --version`
 
-You can also install [Perl through Homebrew](http://brewformulas.org/Perl) and you can see 
+You can also install [Perl 5 through Homebrew](http://brewformulas.org/Perl) and you can see 
 if Perl is already installed by typing in the terminal: `perl -v`
+
+[Cloc](http://brewformulas.org/Cloc) is the only package that needs Perl.
 
 The lowest version of Perl that I have tested with is Perl 5.18.2 but I have also tested with the 
 current maintenance release Perl 5.26.1.  The [Perl releases](https://www.cpan.org/src/) can be seen at CPAN.
 
-Most people recommend not using the system Perl.
+
 
 ## Windows
 
