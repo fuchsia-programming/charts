@@ -404,16 +404,16 @@ def section_built_with(cloc, site_config)
       <div class="col-sm-12" id="d3pie_chart_div_homepage_mit"></div>
     </div>
     <div class="row">
-      <img src="python/images/violin-plot-cylinders-versus-hp.png" alt="Violin plot of cylinders versus horsepower">
+      <img class="img-responsive" src="python/images/violin-plot-cylinders-versus-hp.png" alt="Violin plot of cylinders versus horsepower">
     </div>
     <div class="row">
-      <img src="python/images/hexbin-jointplot-hp-versus-mpg.png" alt="Hexbin jointplot of horsepower versus mpg">
+      <img class="img-responsive" src="python/images/hexbin-jointplot-hp-versus-mpg.png" alt="Hexbin jointplot of horsepower versus mpg">
     </div>
     <div class="row">
-      <img src="python/images/automobile-weight-versus-horsepower-by-continent.png" alt="Automobile weight versus horsepower by continent">
+      <img class="img-responsive" src="python/images/automobile-weight-versus-horsepower-by-continent.png" alt="Automobile weight versus horsepower by continent">
     </div>
     <div class="row">
-      <img src="python/images/automobile-swarmplot-hp-versus-cylinders.png" alt="Automobile swarmplot horseppwer versus cylinders">
+      <img class="img-responsive" src="python/images/automobile-swarmplot-hp-versus-cylinders.png" alt="Automobile swarmplot horseppwer versus cylinders">
     </div>)
 end
 
