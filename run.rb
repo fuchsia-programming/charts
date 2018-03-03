@@ -386,7 +386,7 @@ end
 
 # built with section on home page
 def section_built_with(cloc, site_config)
-  s = %(
+  %(
       <div class="col-md-5">
         #{Kramdown::Document.new(site_config['about']).to_html}
       </div>
@@ -415,7 +415,7 @@ def section_built_with(cloc, site_config)
       <img class="img-responsive" src="python/images/automobile-weight-versus-horsepower-by-continent.png" alt="Automobile weight versus horsepower by continent">
     </div>
     <div class="row">
-      <img class="img-responsive" src="python/images/automobile-swarmplot-hp-versus-cylinders.png" alt="Automobile swarmplot horseppwer versus cylinders">
+      <img class="img-responsive" src="python/images/automobile-swarmplot-hp-versus-cylinders.png" alt="Automobile swarmplot horsepower versus cylinders">
     </div>)
 end
 
