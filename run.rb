@@ -430,6 +430,9 @@ def section_built_with(cloc, site_config)
     </div>
     <div class="row">
       <img class="img-responsive" src="python/images/automobile-swarmplot-hp-versus-cylinders.png" alt="Automobile swarmplot horsepower versus cylinders">
+    </div>
+    <div class="row">
+      <img class="img-responsive" src="python/images/pairplot_origin.png" alt="Automobile data pairplot">
     </div>)
 end
 
