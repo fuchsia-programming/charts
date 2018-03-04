@@ -7,6 +7,14 @@ require 'prawn'
 # require 'prawn/table'
 require 'yaml'
 
+#
+os = RbConfig::CONFIG['host_os'].downcase
+python = 'python'
+if os.include?('linux') or os.include?('darwin')
+  python  = "python3"
+end
+
+
 # function to open and read in file
 def read_file(f)
   file = File.open(f, 'r')
@@ -78,18 +86,22 @@ kramdown_built_with += '
 
 "'
 
+# common function to write data to file
+def write_file(filename, data)
+  f = File.open(filename, 'w')
+  f.write(data)
+  f.close
+end
+
+# set up the config file
 config = read_file('config.yml').chop
-new_config = File.open('site.yml', 'w')
-new_config.write(config + kramdown_built_with)
-new_config.close
+write_file('site.yml', config + kramdown_built_with)
 
 # load website config file
 site_config = YAML.safe_load(read_file('site.yml'))
 
 # create README from config file
-f = File.open('README.md', 'w')
-f.write(site_config['about'].gsub('{:target="_blank"}{:rel="noopener"}', ''))
-f.close
+write_file('README.md', site_config['about'].gsub('{:target="_blank"}{:rel="noopener"}', ''))
 
 # chart types
 chart_types = { 'd3pie' => 'd3pie',
@@ -157,7 +169,9 @@ buttons = [
 cloc = `cloc . --ignored=ignored.txt --skip-uniqueness --quiet`
 
 # create git log for histogram on homepage
-`git log --pretty=format:"%ad" --date=short > log.txt`
+log = `git log --pretty=format:"%ad" --date=short`
+write_file('log.txt', log)
+
 logdata = read_file('log.txt')
 logdata = logdata.lines.group_by(&:strip).map{|k, v| [k, v.size]}
 logdata.unshift(%w[Date Amount])
@@ -381,7 +395,7 @@ def draw_d3pie_chart(type, which, data, num, colors, title, width, height,
 end
 
 # create Python charts for homepage
-`python3 python/charts.py`
+`#{python} python/charts.py`
 
 
 # built with section on home page
