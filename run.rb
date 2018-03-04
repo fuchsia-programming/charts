@@ -644,7 +644,7 @@ if site_config['chart_type'] == 'all'
       type = 'plotly'
     when 4..5
       type = 'google'
-    when 6..7
+    else
       type = 'chartjs'
     end
     t = site_type(site_config['chart_pages_heading'], chart_types[type])
@@ -681,7 +681,7 @@ structure.map.with_index do |chart, i|
       when 4..5 # google
         %(
       <div class="col-lg-4 col-md-6 col-sm-12" id="chart_div_#{data0}"></div>)
-      when 6..7 # chartjs
+      else # chartjs
         %(
       <div class="col-lg-4 col-md-6 col-sm-12">
         <canvas id="chartjs_canvas#{data0}" width="400" height="350"></canvas>
@@ -762,7 +762,7 @@ if site_config['chart_type'] == 'all'
         add_website_scripts('plotly', site_scripts, [], [], [], plotlyjs_script)
       when 4..5 # google
         add_website_scripts('google', site_scripts, [], google_scripts, [], [])
-      when 6..7 # chartjs
+      else # chartjs
         add_website_scripts('chartjs', site_scripts, [], [], chartjs_script, [])
       end)
   end
@@ -825,7 +825,7 @@ if site_config['chart_type'] == 'all'
       type = i & 1 == 1 ? 0 : 0.4
       instance_variable_set("@page#{i}",
                             gp(i) + "        google.charts.setOnLoadCallback(drawChart#{data0});\n" + draw_google_chart(type, data0, data1, chart[0], v, chart_title(chart[0], ind), data0, 400, 400))
-    when 6..7 # chartjs
+    else # chartjs
       type = i & 1 == 1 ? 'pie' : 'doughnut'
       instance_variable_set("@page#{i}",
                             gp(i) + draw_chartjs_chart(type, data0, data1, schema_colors, chart_title(chart[0], ind), 15, false))
