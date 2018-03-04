@@ -9,11 +9,8 @@ require 'yaml'
 
 #
 os = RbConfig::CONFIG['host_os'].downcase
-python = 'python'
-if os.include?('linux') or os.include?('darwin')
-  python  = "python3"
-end
-
+python = 'python3'
+python = 'python' unless os.include?('linux') || os.include?('darwin')
 
 # function to open and read in file
 def read_file(f)
@@ -41,42 +38,42 @@ end
 
 # built with links
 built_with = { 'Ruby' => 'https://www.ruby-lang.org',
-          'RubyMine' => 'https://www.jetbrains.com/ruby',
-          'Rubocop' => 'https://github.com/bbatsov/rubocop',
-          'rbenv' => 'https://github.com/rbenv/rbenv',
-          'ruby-build' => 'https://github.com/rbenv/ruby-build',
-          'kramdown' => 'https://kramdown.gettalong.org',
-          'Python' => 'https://www.python.org/',
-          'Seaborn' => 'https://seaborn.pydata.org/',
-          'pandas'=>'https://pandas.pydata.org/',
-          'Matplotlib'=>'https://matplotlib.org/',
-          'cloc' => 'https://github.com/AlDanial/cloc',
-          'Perl' => 'https://www.perl.org',
-          'd3pie' => 'http://d3pie.org/',
-          'D3' => 'https://d3js.org/',
-          'Google Charts' => 'https://developers.google.com/chart/',
-          'Chart.js' => 'http://www.chartjs.org/',
-          'plotly.js' => 'https://plot.ly/javascript/',
-          'HTML5' => 'https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5',
-          'CSS3' => 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3',
-          'Bootstrap' => 'https://getbootstrap.com/',
-          'jQuery' => 'https://jquery.com/',
-          'JSON' => 'https://www.json.org/',
-          'JavaScript' => 'https://en.wikipedia.org/wiki/JavaScript',
-          'YAML' => 'http://www.yaml.org/',
-          'XML' => 'https://en.wikipedia.org/wiki/XML',
-          'XML Schema' => 'https://en.wikipedia.org/wiki/XML_schema',
-          'Regular expressions' => 'https://en.wikipedia.org/wiki/Regular_expression',
-          'Git' => 'https://git-scm.com/',
-          'GitHub Desktop' => 'https://desktop.github.com/',
-          'GitHub Pages' => 'https://pages.github.com',
-          'GitHub:buttons' => 'https://buttons.github.io/',
-          'Flag Counter' => 'https://flagcounter.com/',
-          'Sitemaps' => 'https://en.wikipedia.org/wiki/Sitemaps',
-          'Markdown' => 'https://daringfireball.net/projects/markdown',
-          'robots.txt' => 'https://en.wikipedia.org/wiki/Robots_exclusion_standard',
-          'Portable Network Graphics' => 'https://en.wikipedia.org/wiki/Portable_Network_Graphics',
-          'Text file' => 'https://en.wikipedia.org/wiki/Text_file' }
+               'RubyMine' => 'https://www.jetbrains.com/ruby',
+               'Rubocop' => 'https://github.com/bbatsov/rubocop',
+               'rbenv' => 'https://github.com/rbenv/rbenv',
+               'ruby-build' => 'https://github.com/rbenv/ruby-build',
+               'kramdown' => 'https://kramdown.gettalong.org',
+               'Python' => 'https://www.python.org/',
+               'Seaborn' => 'https://seaborn.pydata.org/',
+               'pandas' => 'https://pandas.pydata.org/',
+               'Matplotlib' => 'https://matplotlib.org/',
+               'cloc' => 'https://github.com/AlDanial/cloc',
+               'Perl' => 'https://www.perl.org',
+               'd3pie' => 'http://d3pie.org/',
+               'D3' => 'https://d3js.org/',
+               'Google Charts' => 'https://developers.google.com/chart/',
+               'Chart.js' => 'http://www.chartjs.org/',
+               'plotly.js' => 'https://plot.ly/javascript/',
+               'HTML5' => 'https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5',
+               'CSS3' => 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3',
+               'Bootstrap' => 'https://getbootstrap.com/',
+               'jQuery' => 'https://jquery.com/',
+               'JSON' => 'https://www.json.org/',
+               'JavaScript' => 'https://en.wikipedia.org/wiki/JavaScript',
+               'YAML' => 'http://www.yaml.org/',
+               'XML' => 'https://en.wikipedia.org/wiki/XML',
+               'XML Schema' => 'https://en.wikipedia.org/wiki/XML_schema',
+               'Regular expressions' => 'https://en.wikipedia.org/wiki/Regular_expression',
+               'Git' => 'https://git-scm.com/',
+               'GitHub Desktop' => 'https://desktop.github.com/',
+               'GitHub Pages' => 'https://pages.github.com',
+               'GitHub:buttons' => 'https://buttons.github.io/',
+               'Flag Counter' => 'https://flagcounter.com/',
+               'Sitemaps' => 'https://en.wikipedia.org/wiki/Sitemaps',
+               'Markdown' => 'https://daringfireball.net/projects/markdown',
+               'robots.txt' => 'https://en.wikipedia.org/wiki/Robots_exclusion_standard',
+               'Portable Network Graphics' => 'https://en.wikipedia.org/wiki/Portable_Network_Graphics',
+               'Text file' => 'https://en.wikipedia.org/wiki/Text_file' }
 
 kramdown_built_with = ''
 built_with.each_with_index do |(key, value), index|
@@ -396,7 +393,6 @@ end
 
 # create Python charts for homepage
 `#{python} python/charts.py`
-
 
 # built with section on home page
 def section_built_with(cloc, site_config)
