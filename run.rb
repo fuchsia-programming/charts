@@ -400,7 +400,7 @@ end
 
 # built with section on home page
 def section_built_with(cloc, site_config)
-  %(
+  s = %(
       <div class="col-md-5">
         #{Kramdown::Document.new(site_config['about']).to_html}
       </div>
@@ -418,25 +418,14 @@ def section_built_with(cloc, site_config)
     </div>
     <div class="row">
       <div class="col-sm-12" id="d3pie_chart_div_homepage_mit"></div>
-    </div>
-    <div class="row">
-      <img class="img-responsive" src="python/images/violin-plot-cylinders-versus-hp.png" alt="Violin plot of cylinders versus horsepower">
-    </div>
-    <div class="row">
-      <img class="img-responsive" src="python/images/hexbin-jointplot-hp-versus-mpg.png" alt="Hexbin jointplot of horsepower versus mpg">
-    </div>
-    <div class="row">
-      <img class="img-responsive" src="python/images/automobile-weight-versus-horsepower-by-continent.png" alt="Automobile weight versus horsepower by continent">
-    </div>
-    <div class="row">
-      <img class="img-responsive" src="python/images/automobile-swarmplot-hp-versus-cylinders.png" alt="Automobile swarmplot horsepower versus cylinders">
-    </div>
-    <div class="row">
-      <img class="img-responsive" src="python/images/pairplot_origin.png" alt="Automobile data pairplot">
-    </div>
-    <div class="row">
-      <img class="img-responsive" src="python/images/pairgrid.png" alt="Automobile data pairgrid">
     </div>)
+  Dir['python/images/*'].map do |image|
+    s += %(
+    <div class="row">
+      <img class="img-responsive" src="#{image}" alt="#{image.split('/').last.split('.').first.capitalize.split('-').join ' '}">
+    </div>)
+  end
+  s
 end
 
 # function to make the list of GitHub buttons

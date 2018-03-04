@@ -16,7 +16,7 @@ plt.ylabel('Horsepower (hp)')
 plt.title('Violin plot of automobile cylinders versus horsepower', y=2.3)
 fig = plt.gcf()
 fig.set_size_inches(8, 8)
-fig.savefig('python/images/violin-plot-cylinders-versus-hp.png', dpi=80)
+fig.savefig('python/images/violin-plot-of-automobile-cylinders-versus-horsepower.png', dpi=80)
 fig.clf()
 
 
@@ -35,7 +35,7 @@ plt.ylabel('Cylinders')
 plt.title('Swarmplot of automobile cylinders versus horsepower', y=2.3)
 fig = plt.gcf()
 fig.set_size_inches(8, 8)
-fig.savefig('python/images/automobile-swarmplot-hp-versus-cylinders.png', dpi=80)
+fig.savefig('python/images/swarmplot-of-automobile-horsepower-versus-cylinders.png', dpi=80)
 fig.clf()
 
 
@@ -56,7 +56,7 @@ plt.xlabel('Horsepower (hp)')
 plt.ylabel('Miles per gallon (mpg')
 fig = plt.gcf()
 fig.set_size_inches(8, 8)
-fig.savefig('python/images/hexbin-jointplot-hp-versus-mpg.png', dpi=80)
+fig.savefig('python/images/automobile-hexbin-jointplot-of-horsepower-versus-mpg.png', dpi=80)
 fig.clf()
 
 
@@ -66,7 +66,7 @@ sns.pairplot(auto.loc[:,['mpg','cyl','displ','hp','weight','accel','origin','col
 plt.tight_layout(pad=0.5)
 fig = plt.gcf()
 fig.set_size_inches(20, 20)
-fig.savefig('python/images/pairplot_origin.png', dpi=80)
+fig.savefig('python/images/automobile-pairplot-by-origin.png', dpi=80)
 fig.clf()
 
 
@@ -79,5 +79,5 @@ g.map_diag(sns.kdeplot, lw=3)
 plt.tight_layout(pad=0.5)
 fig = plt.gcf()
 fig.set_size_inches(20, 20)
-fig.savefig('python/images/pairgrid.png', dpi=80)
+fig.savefig('python/images/automobile-pairgrid.png', dpi=80)
 fig.clf()
