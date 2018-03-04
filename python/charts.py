@@ -68,3 +68,16 @@ fig = plt.gcf()
 fig.set_size_inches(20, 20)
 fig.savefig('python/images/pairplot_origin.png', dpi=80)
 fig.clf()
+
+
+
+sns.set(style="white")
+g = sns.PairGrid(auto.loc[:,['mpg','cyl','displ','hp','weight','accel','origin','color']], diag_sharey=False)
+g.map_lower(sns.kdeplot, cmap="Blues_d")
+g.map_upper(plt.scatter)
+g.map_diag(sns.kdeplot, lw=3)
+plt.tight_layout(pad=0.5)
+fig = plt.gcf()
+fig.set_size_inches(20, 20)
+fig.savefig('python/images/pairgrid.png', dpi=80)
+fig.clf()

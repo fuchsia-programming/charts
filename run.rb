@@ -433,6 +433,9 @@ def section_built_with(cloc, site_config)
     </div>
     <div class="row">
       <img class="img-responsive" src="python/images/pairplot_origin.png" alt="Automobile data pairplot">
+    </div>
+    <div class="row">
+      <img class="img-responsive" src="python/images/pairgrid.png" alt="Automobile data pairgrid">
     </div>)
 end
 
