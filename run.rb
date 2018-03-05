@@ -91,7 +91,7 @@ def write_file(filename, data)
 end
 
 # set up the config file
-config = read_file('config.yml').chop
+config = read_file('config.yml').chomp('').chop
 write_file('site.yml', config + kramdown_built_with)
 
 # load website config file
@@ -227,9 +227,9 @@ def gp(i)
 end
 
 # build all the website pages
-def page_build(page_count, start = 0)
+def page_build(page, page_count, start = 0)
   (start..page_count).map do |i|
-    instance_variable_set("@page#{ii i}", instance_variable_get("@page#{ii i}") + $page)
+    instance_variable_set("@page#{ii i}", instance_variable_get("@page#{ii i}") + page)
   end
 end
 
@@ -278,11 +278,11 @@ def draw_d3pie_chart(type, which, data, num, colors, title, width, height,
   end
   footertext = if high > 1 && seen.size > 1 && seen.count(high) == 1
                  if type.zero?
-                   "#{high} #{element}#{element == 'folders' ? '' : ' files'} occurred most frequently"
+                   "#{high} \"#{element}\"#{element == 'folders' ? '' : ' files'} occurred most frequently"
                  elsif type == 1
-                   "#{high} maximum occurrences in file #{element}"
+                   "#{high} maximum occurrences in file \"#{element}\""
                  else
-                   "#{high} maximum occurrences for the word #{element}"
+                   "#{high} maximum occurrences for the word \"#{element}\""
                  end
                end
 
@@ -639,6 +639,8 @@ page_header(site_config, page_count)
     <div class="row homepage">)
 # add built with links to home page
 @page += section_built_with(cloc, site_config)
+# main page variable
+page = ''
 #
 if site_config['chart_type'] == 'all'
   (0..page_count - 1).map do |i|
@@ -656,18 +658,17 @@ if site_config['chart_type'] == 'all'
     instance_variable_set("@page#{i + 1}", instance_variable_get("@page#{i + 1}") + %(
       <h1>#{t}</h1>))
   end
-  $page = ''
 else
-  $page = %(
+  page = %(
       <h1>#{site_type(site_config['chart_pages_heading'], ct)}</h1>)
 end
 #
-page_build(page_count, 1)
+page_build(page, page_count, 1)
 #
-$page = %(
+page = %(
       <h2 id="other">#{site_config['other_heading']}</h2>)
 # continue to build all the pages
-page_build(page_count, 1)
+page_build(page, page_count, 1)
 
 # add chart divs to each page
 structure.map.with_index do |chart, i|
@@ -736,11 +737,11 @@ def footer(buttons, page_count, sitebuildtime, site_config)
 end
 
 # restart common page region
-$page = footer(buttons, page_count, sitebuildtime, site_config)
+page = footer(buttons, page_count, sitebuildtime, site_config)
 
 #
-page_build(page_count)
-$page = ''
+page_build(page, page_count)
+page = ''
 
 # add all the websites external JavaScript files
 def add_website_scripts(type, site_scripts, d3_scripts, google_scripts, chartjs_script, plotly_script)
@@ -754,7 +755,6 @@ def add_website_scripts(type, site_scripts, d3_scripts, google_scripts, chartjs_
     add_scripts(site_scripts, plotly_script)
   end
 end
-
 # add the scripts to each page
 if site_config['chart_type'] == 'all'
   @page += add_website_scripts('d3pie', site_scripts, d3_scripts, [], [], [])
@@ -772,16 +772,16 @@ if site_config['chart_type'] == 'all'
       end)
   end
 else
-  $page = add_website_scripts(site_config['chart_type'], site_scripts, d3_scripts, google_scripts, chartjs_script, plotlyjs_script)
+  page = add_website_scripts(site_config['chart_type'], site_scripts, d3_scripts, google_scripts, chartjs_script, plotlyjs_script)
 end
 
 # continue to build all the pages
-$page += '
+page += '
     <script>'
 #
-page_build(page_count)
+page_build(page, page_count)
 # restart common page
-$page = ''
+page = ''
 #
 if site_config['chart_type'] == 'all'
   (0..page_count).map do |i|
@@ -791,11 +791,11 @@ if site_config['chart_type'] == 'all'
         google.charts.load("current", {"packages":["corechart"]});\n))
   end
 elsif site_config['chart_type'] == 'google'
-  $page = %(
+  page = %(
         google.charts.load("current", {"packages":["corechart"]});\n)
 end
 #
-page_build(page_count)
+page_build(page, page_count)
 
 #
 if site_config['chart_type'] == 'all'
@@ -840,9 +840,9 @@ else
   if site_config['chart_type'] == 'd3pie'
     # home page two charts
     @page += draw_d3pie_chart(0, 'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 600, 600, 15, 24, 16, 16, 1,
-                              '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
+                              '70%', '35%', 50, false, 35, 'open sans', 'open sans', 18, 'white', 'ff0000')
     @page += draw_d3pie_chart(2, 'homepage_mit', mit_word_count, 1, exthash, 'Most frequent words in the MIT License', 600, 600, 15, 24, 16, 16, 1,
-                              '70%', '35%', 50, true, 35, 'open sans', 'open sans', 18, 'ffcccc', 'ff0000')
+                              '70%', '35%', 50, true, 35, 'open sans', 'open sans', 18, 'white', 'ff0000')
   end
   # add all the javascript for each pie chart to the main chart pages
   structure.map.with_index do |chart, ind|
@@ -877,7 +877,7 @@ else
 end
 
 # restart common page
-$page = %(
+page = %(
         $(document).ready(function () {
            "use strict";
            var last = $(location).attr("href").split("/").pop().split(".")[0].replace(/index/, "");
@@ -897,7 +897,7 @@ $page = %(
   </body>
 </html>)
 # finish building all the pages
-page_build(page_count)
+page_build(page, page_count)
 
 # builds sitemap.xml, robots.txt and writes them and all the sites HTML pages to files
 def build_site(page_count, sitebuildtime, url, m)
