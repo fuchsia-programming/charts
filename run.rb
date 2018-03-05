@@ -644,16 +644,16 @@ page = ''
 #
 if site_config['chart_type'] == 'all'
   (0..page_count - 1).map do |i|
-    case i % 8
-    when 0..1
-      type = 'd3pie'
-    when 2..3
-      type = 'plotly'
-    when 4..5
-      type = 'google'
-    else
-      type = 'chartjs'
-    end
+    type = case i % 8
+           when 0..1
+             'd3pie'
+           when 2..3
+             'plotly'
+           when 4..5
+             'google'
+           else
+             'chartjs'
+           end
     t = site_type(site_config['chart_pages_heading'], chart_types[type])
     instance_variable_set("@page#{i + 1}", instance_variable_get("@page#{i + 1}") + %(
       <h1>#{t}</h1>))
