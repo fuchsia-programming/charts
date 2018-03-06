@@ -122,7 +122,7 @@ python = 'python' unless os.include?('linux') || os.include?('darwin')
 # create Python charts for homepage
 `#{python} python/charts.py`
 
-#
+# make the site built with links into kramdown
 def kramdown_links(links)
   s = ''
   links.each_with_index do |(key, value), index|
@@ -244,7 +244,7 @@ def chart_title(chart_type, ind)
   "#{ind + 1} - #{chart_type}"
 end
 
-#
+# get instance variable page i
 def gp(i)
   instance_variable_get("@page#{i}")
 end
@@ -661,7 +661,7 @@ page_header(site_config, page_count)
 @page += section_built_with(cloc, site_config)
 # main page variable
 page = ''
-#
+# create main page heading
 if site_config['chart_type'] == 'all'
   (0..page_count - 1).map do |i|
     type = case i % 8
@@ -682,9 +682,9 @@ else
   page = %(
       <h1>#{site_type(site_config['chart_pages_heading'], ct)}</h1>)
 end
-#
+# continue to build all the pages
 page_build(page, page_count, 1)
-#
+# restart page
 page = %(
       <h2 id="other">#{site_config['other_heading']}</h2>)
 # continue to build all the pages
@@ -724,7 +724,7 @@ structure.map.with_index do |chart, i|
     end)
 end
 
-#
+# site built time for footer and sitemap.xml
 sitebuildtime = Time.now.strftime '%FT%T%:z'
 
 # creates HTML footer for all pages before the scripts are inserted
@@ -758,9 +758,9 @@ end
 
 # restart common page region
 page = footer(buttons, page_count, sitebuildtime, site_config)
-
-#
+# continue to build all the websites pages
 page_build(page, page_count)
+# restart common page
 page = ''
 
 # add all the websites external JavaScript files
@@ -798,11 +798,11 @@ end
 # continue to build all the pages
 page += '
     <script>'
-#
+# continue to build the websites pages
 page_build(page, page_count)
 # restart common page
 page = ''
-#
+# add Google charts JavaScript to the pages that need it
 if site_config['chart_type'] == 'all'
   (0..page_count).map do |i|
     next unless [5, 6].include? i % 8
@@ -814,10 +814,10 @@ elsif site_config['chart_type'] == 'google'
   page = %(
         google.charts.load("current", {"packages":["corechart"]});\n)
 end
-#
+# continue to build the websites pages
 page_build(page, page_count)
 
-#
+# add the charts JavaScript
 if site_config['chart_type'] == 'all'
   # home page
   @page += draw_d3pie_chart(0, 'homepage_all', allfiles, 0, exthash, 'Branch count of files grouped by file extension', 600, 600, 15, 24, 16, 16, 1,
