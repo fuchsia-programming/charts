@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 # Reach your final destination
 
@@ -57,6 +58,7 @@ built_with = { 'macOS High Sierra' => 'https://www.apple.com/macos/high-sierra/'
                'XML' => 'https://en.wikipedia.org/wiki/XML',
                'XML Schema' => 'https://en.wikipedia.org/wiki/XML_schema',
                'Regular expressions' => 'https://en.wikipedia.org/wiki/Regular_expression',
+               'Concatenation' => 'https://en.wikipedia.org/wiki/Concatenation',
                'Git' => 'https://git-scm.com/',
                'GitHub Desktop' => 'https://desktop.github.com/',
                'GitHub Pages' => 'https://pages.github.com',
