@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head;
          any other head content must come *after* these tags -->
-    <title>Ruby, Python Perl and JavaScript based charting demonstration and configurable static site generator</title>
+    <title>Ruby, Python, Perl and JavaScript based charting demonstration and configurable static site generator</title>
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/images/icons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icons/apple-icon-72x72.png">
@@ -118,6 +118,10 @@
 <h2 id="this-repository-is-built-with">This repository is built with</h2>
 
 <ol>
+  <li><a href="https://www.apple.com/macos/high-sierra/" target="_blank" rel="noopener">macOS High Sierra</a></li>
+  <li><a href="https://www.microsoft.com/en-au/windows/get-windows-10" target="_blank" rel="noopener">Windows 10</a></li>
+  <li><a href="https://brew.sh/" target="_blank" rel="noopener">Homebrew</a></li>
+  <li><a href="https://chocolatey.org/" target="_blank" rel="noopener">Chocolatey</a></li>
   <li><a href="https://www.ruby-lang.org" target="_blank" rel="noopener">Ruby</a></li>
   <li><a href="https://www.jetbrains.com/ruby" target="_blank" rel="noopener">RubyMine</a></li>
   <li><a href="https://github.com/bbatsov/rubocop" target="_blank" rel="noopener">Rubocop</a></li>
@@ -125,11 +129,20 @@
   <li><a href="https://github.com/rbenv/ruby-build" target="_blank" rel="noopener">ruby-build</a></li>
   <li><a href="https://kramdown.gettalong.org" target="_blank" rel="noopener">kramdown</a></li>
   <li><a href="https://atom.io/" target="_blank" rel="noopener">Atom</a></li>
-  <li><a href="https://www.jetbrains.com/pycharm/" target="_blank" rel="noopener">PyCharm</a></li>
+  <li><a href="https://atom.io/packages/linter" target="_blank" rel="noopener">linter</a></li>
+  <li><a href="https://atom.io/packages/linter-pylint" target="_blank" rel="noopener">linter-pylint</a></li>
+  <li><a href="https://atom.io/packages/linter-rubocop" target="_blank" rel="noopener">linter-rubocop</a></li>
+  <li><a href="https://www.sublimetext.com/" target="_blank" rel="noopener">Sublime Text</a></li>
+  <li><a href="https://github.com/SublimeLinter/SublimeLinter" target="_blank" rel="noopener">SublimeLinter</a></li>
+  <li><a href="https://github.com/SublimeLinter/SublimeLinter-pylint" target="_blank" rel="noopener">SublimeLinter-pylint</a></li>
+  <li><a href="https://github.com/SublimeLinter/SublimeLinter-rubocop" target="_blank" rel="noopener">SublimeLinter-rubocop</a></li>
+  <li><a href="https://github.com/revolunet/sublimetext-markdown-preview" target="_blank" rel="noopener">Sublime Text Markdown Preview</a></li>
   <li><a href="https://www.python.org/" target="_blank" rel="noopener">Python</a></li>
+  <li><a href="https://www.jetbrains.com/pycharm/" target="_blank" rel="noopener">PyCharm</a></li>
   <li><a href="https://seaborn.pydata.org/" target="_blank" rel="noopener">Seaborn</a></li>
   <li><a href="https://pandas.pydata.org/" target="_blank" rel="noopener">pandas</a></li>
   <li><a href="https://matplotlib.org/" target="_blank" rel="noopener">Matplotlib</a></li>
+  <li><a href="https://www.pylint.org/" target="_blank" rel="noopener">Pylint</a></li>
   <li><a href="https://www.perl.org" target="_blank" rel="noopener">Perl</a></li>
   <li><a href="https://github.com/AlDanial/cloc" target="_blank" rel="noopener">cloc</a></li>
   <li><a href="http://d3pie.org/" target="_blank" rel="noopener">d3pie</a></li>
@@ -166,22 +179,22 @@
         <pre>
           <code>
             
-github.com/AlDanial/cloc v 1.76  T=9.11 s (6.8 files/s, 7419.4 lines/s)
+github.com/AlDanial/cloc v 1.76  T=10.09 s (6.1 files/s, 6706.7 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-HTML                            16           2048             48          32136
+HTML                            16           2048             48          32148
 JavaScript                       9           3096            615          15878
 CSS                              4              7             24           7326
-Markdown                         5            620              0           2180
+Markdown                         5            620              0           2193
 XSD                             15             73             48           1375
-Ruby                             1             67            106            785
-XML                              7              0              0            728
-YAML                             3            134             38            138
+Ruby                             1             67            106            798
+XML                              7              0              0            711
+YAML                             3            147             38            151
 Python                           1             19              3             64
 JSON                             1              0              0             41
 -------------------------------------------------------------------------------
-SUM:                            62           6064            882          60651
+SUM:                            62           6077            882          60685
 -------------------------------------------------------------------------------
 
           </code>
@@ -248,7 +261,7 @@ SUM:                            62           6064            882          60651
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-03-06T16:35:06+10:00</a></li>
+          <li><a class="built">Site last built: 2018-03-06T23:43:42+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -291,7 +304,7 @@ SUM:                            62           6064            882          60651
                 'enabled': true,
                 'value': 1
             },
-            'content': [{'label':'html','value':16,'color':'#D7BDE2'},{'label':'folders','value':16,'color':'#E67E22'},{'label':'py','value':1,'color':'white'},{'label':'png','value':31,'color':'blue'},{'label':'yml','value':2,'color':'#441411'},{'label':'md','value':5,'color':'#A9CCE3'},{'label':'txt','value':3,'color':'#17202A'},{'label':'xml','value':2,'color':'#E67E22'},{'label':'lock','value':1,'color':''},{'label':'css','value':4,'color':'#E6B0AA'},{'label':'map','value':4,'color':'#111111'},{'label':'js','value':9,'color':'#28B463'},{'label':'woff','value':1,'color':'#8E44AD'},{'label':'eot','value':1,'color':'#F4D03F'},{'label':'woff2','value':1,'color':'#999999'},{'label':'ttf','value':1,'color':'#000000'},{'label':'svg','value':1,'color':'#78281F'},{'label':'ico','value':1,'color':''},{'label':'json','value':1,'color':''},{'label':'xsd','value':15,'color':'#34495E'},{'label':'csv','value':1,'color':''},{'label':'rb','value':1,'color':'#154360'}
+            'content': [{'label':'sublime-workspace','value':1,'color':''},{'label':'html','value':16,'color':'#D7BDE2'},{'label':'folders','value':16,'color':'#E67E22'},{'label':'py','value':1,'color':'white'},{'label':'png','value':31,'color':'blue'},{'label':'yml','value':2,'color':'#441411'},{'label':'md','value':5,'color':'#A9CCE3'},{'label':'txt','value':3,'color':'#17202A'},{'label':'sublime-project','value':1,'color':''},{'label':'xml','value':2,'color':'#E67E22'},{'label':'lock','value':1,'color':''},{'label':'css','value':4,'color':'#E6B0AA'},{'label':'map','value':4,'color':'#111111'},{'label':'js','value':9,'color':'#28B463'},{'label':'woff','value':1,'color':'#8E44AD'},{'label':'eot','value':1,'color':'#F4D03F'},{'label':'woff2','value':1,'color':'#999999'},{'label':'ttf','value':1,'color':'#000000'},{'label':'svg','value':1,'color':'#78281F'},{'label':'ico','value':1,'color':''},{'label':'json','value':1,'color':''},{'label':'xsd','value':15,'color':'#34495E'},{'label':'csv','value':1,'color':''},{'label':'rb','value':1,'color':'#154360'}
             ]
         },
         callbacks: {

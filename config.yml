@@ -28,7 +28,7 @@ repository: charts
 # meta name="description"
 description: Analytics dashboard built from Ruby, Python and Perl using the d3pie, Google charts, Chart.js, plotly.js, Matplotlib and Seaborn charting libraries.
 
-title: Ruby, Python Perl and JavaScript based charting demonstration and configurable static site generator
+title: Ruby, Python, Perl and JavaScript based charting demonstration and configurable static site generator
 # meta name="theme-color"
 theme_color: E5E8E8
 

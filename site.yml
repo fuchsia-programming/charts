@@ -28,7 +28,7 @@ repository: charts
 # meta name="description"
 description: Analytics dashboard built from Ruby, Python and Perl using the d3pie, Google charts, Chart.js, plotly.js, Matplotlib and Seaborn charting libraries.
 
-title: Ruby, Python Perl and JavaScript based charting demonstration and configurable static site generator
+title: Ruby, Python, Perl and JavaScript based charting demonstration and configurable static site generator
 # meta name="theme-color"
 theme_color: E5E8E8
 
@@ -92,83 +92,109 @@ Demo can be seen here: http://thebeast.me/charts/
 ## This repository is built with
 
 
-1. [Ruby](https://www.ruby-lang.org){:target=\"_blank\"}{:rel=\"noopener\"}
+1. [macOS High Sierra](https://www.apple.com/macos/high-sierra/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-2. [RubyMine](https://www.jetbrains.com/ruby){:target=\"_blank\"}{:rel=\"noopener\"}
+2. [Windows 10](https://www.microsoft.com/en-au/windows/get-windows-10){:target=\"_blank\"}{:rel=\"noopener\"}
 
-3. [Rubocop](https://github.com/bbatsov/rubocop){:target=\"_blank\"}{:rel=\"noopener\"}
+3. [Homebrew](https://brew.sh/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-4. [rbenv](https://github.com/rbenv/rbenv){:target=\"_blank\"}{:rel=\"noopener\"}
+4. [Chocolatey](https://chocolatey.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-5. [ruby-build](https://github.com/rbenv/ruby-build){:target=\"_blank\"}{:rel=\"noopener\"}
+5. [Ruby](https://www.ruby-lang.org){:target=\"_blank\"}{:rel=\"noopener\"}
 
-6. [kramdown](https://kramdown.gettalong.org){:target=\"_blank\"}{:rel=\"noopener\"}
+6. [RubyMine](https://www.jetbrains.com/ruby){:target=\"_blank\"}{:rel=\"noopener\"}
 
-7. [Atom](https://atom.io/){:target=\"_blank\"}{:rel=\"noopener\"}
+7. [Rubocop](https://github.com/bbatsov/rubocop){:target=\"_blank\"}{:rel=\"noopener\"}
 
-8. [PyCharm](https://www.jetbrains.com/pycharm/){:target=\"_blank\"}{:rel=\"noopener\"}
+8. [rbenv](https://github.com/rbenv/rbenv){:target=\"_blank\"}{:rel=\"noopener\"}
 
-9. [Python](https://www.python.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+9. [ruby-build](https://github.com/rbenv/ruby-build){:target=\"_blank\"}{:rel=\"noopener\"}
 
-10. [Seaborn](https://seaborn.pydata.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+10. [kramdown](https://kramdown.gettalong.org){:target=\"_blank\"}{:rel=\"noopener\"}
 
-11. [pandas](https://pandas.pydata.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+11. [Atom](https://atom.io/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-12. [Matplotlib](https://matplotlib.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+12. [linter](https://atom.io/packages/linter){:target=\"_blank\"}{:rel=\"noopener\"}
 
-13. [Perl](https://www.perl.org){:target=\"_blank\"}{:rel=\"noopener\"}
+13. [linter-pylint](https://atom.io/packages/linter-pylint){:target=\"_blank\"}{:rel=\"noopener\"}
 
-14. [cloc](https://github.com/AlDanial/cloc){:target=\"_blank\"}{:rel=\"noopener\"}
+14. [linter-rubocop](https://atom.io/packages/linter-rubocop){:target=\"_blank\"}{:rel=\"noopener\"}
 
-15. [d3pie](http://d3pie.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+15. [Sublime Text](https://www.sublimetext.com/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-16. [D3](https://d3js.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+16. [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter){:target=\"_blank\"}{:rel=\"noopener\"}
 
-17. [Google Charts](https://developers.google.com/chart/){:target=\"_blank\"}{:rel=\"noopener\"}
+17. [SublimeLinter-pylint](https://github.com/SublimeLinter/SublimeLinter-pylint){:target=\"_blank\"}{:rel=\"noopener\"}
 
-18. [Chart.js](http://www.chartjs.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+18. [SublimeLinter-rubocop](https://github.com/SublimeLinter/SublimeLinter-rubocop){:target=\"_blank\"}{:rel=\"noopener\"}
 
-19. [plotly.js](https://plot.ly/javascript/){:target=\"_blank\"}{:rel=\"noopener\"}
+19. [Sublime Text Markdown Preview](https://github.com/revolunet/sublimetext-markdown-preview){:target=\"_blank\"}{:rel=\"noopener\"}
 
-20. [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5){:target=\"_blank\"}{:rel=\"noopener\"}
+20. [Python](https://www.python.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-21. [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3){:target=\"_blank\"}{:rel=\"noopener\"}
+21. [PyCharm](https://www.jetbrains.com/pycharm/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-22. [Bootstrap](https://getbootstrap.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+22. [Seaborn](https://seaborn.pydata.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-23. [jQuery](https://jquery.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+23. [pandas](https://pandas.pydata.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-24. [JSON](https://www.json.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+24. [Matplotlib](https://matplotlib.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-25. [JavaScript](https://en.wikipedia.org/wiki/JavaScript){:target=\"_blank\"}{:rel=\"noopener\"}
+25. [Pylint](https://www.pylint.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-26. [YAML](http://www.yaml.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+26. [Perl](https://www.perl.org){:target=\"_blank\"}{:rel=\"noopener\"}
 
-27. [XML](https://en.wikipedia.org/wiki/XML){:target=\"_blank\"}{:rel=\"noopener\"}
+27. [cloc](https://github.com/AlDanial/cloc){:target=\"_blank\"}{:rel=\"noopener\"}
 
-28. [XML Schema](https://en.wikipedia.org/wiki/XML_schema){:target=\"_blank\"}{:rel=\"noopener\"}
+28. [d3pie](http://d3pie.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-29. [Regular expressions](https://en.wikipedia.org/wiki/Regular_expression){:target=\"_blank\"}{:rel=\"noopener\"}
+29. [D3](https://d3js.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-30. [Git](https://git-scm.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+30. [Google Charts](https://developers.google.com/chart/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-31. [GitHub Desktop](https://desktop.github.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+31. [Chart.js](http://www.chartjs.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-32. [GitHub Pages](https://pages.github.com){:target=\"_blank\"}{:rel=\"noopener\"}
+32. [plotly.js](https://plot.ly/javascript/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-33. [GitHub:buttons](https://buttons.github.io/){:target=\"_blank\"}{:rel=\"noopener\"}
+33. [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5){:target=\"_blank\"}{:rel=\"noopener\"}
 
-34. [Flag Counter](https://flagcounter.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+34. [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3){:target=\"_blank\"}{:rel=\"noopener\"}
 
-35. [Sitemaps](https://en.wikipedia.org/wiki/Sitemaps){:target=\"_blank\"}{:rel=\"noopener\"}
+35. [Bootstrap](https://getbootstrap.com/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-36. [Markdown](https://daringfireball.net/projects/markdown){:target=\"_blank\"}{:rel=\"noopener\"}
+36. [jQuery](https://jquery.com/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-37. [robots.txt](https://en.wikipedia.org/wiki/Robots_exclusion_standard){:target=\"_blank\"}{:rel=\"noopener\"}
+37. [JSON](https://www.json.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-38. [Portable Network Graphics](https://en.wikipedia.org/wiki/Portable_Network_Graphics){:target=\"_blank\"}{:rel=\"noopener\"}
+38. [JavaScript](https://en.wikipedia.org/wiki/JavaScript){:target=\"_blank\"}{:rel=\"noopener\"}
 
-39. [Text file](https://en.wikipedia.org/wiki/Text_file){:target=\"_blank\"}{:rel=\"noopener\"}
+39. [YAML](http://www.yaml.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+
+40. [XML](https://en.wikipedia.org/wiki/XML){:target=\"_blank\"}{:rel=\"noopener\"}
+
+41. [XML Schema](https://en.wikipedia.org/wiki/XML_schema){:target=\"_blank\"}{:rel=\"noopener\"}
+
+42. [Regular expressions](https://en.wikipedia.org/wiki/Regular_expression){:target=\"_blank\"}{:rel=\"noopener\"}
+
+43. [Git](https://git-scm.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+
+44. [GitHub Desktop](https://desktop.github.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+
+45. [GitHub Pages](https://pages.github.com){:target=\"_blank\"}{:rel=\"noopener\"}
+
+46. [GitHub:buttons](https://buttons.github.io/){:target=\"_blank\"}{:rel=\"noopener\"}
+
+47. [Flag Counter](https://flagcounter.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+
+48. [Sitemaps](https://en.wikipedia.org/wiki/Sitemaps){:target=\"_blank\"}{:rel=\"noopener\"}
+
+49. [Markdown](https://daringfireball.net/projects/markdown){:target=\"_blank\"}{:rel=\"noopener\"}
+
+50. [robots.txt](https://en.wikipedia.org/wiki/Robots_exclusion_standard){:target=\"_blank\"}{:rel=\"noopener\"}
+
+51. [Portable Network Graphics](https://en.wikipedia.org/wiki/Portable_Network_Graphics){:target=\"_blank\"}{:rel=\"noopener\"}
+
+52. [Text file](https://en.wikipedia.org/wiki/Text_file){:target=\"_blank\"}{:rel=\"noopener\"}
 
 
 
