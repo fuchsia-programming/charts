@@ -7,48 +7,28 @@ require 'prawn'
 # require 'prawn/table'
 require 'yaml'
 
-#
-os = RbConfig::CONFIG['host_os'].downcase
-python = 'python3'
-python = 'python' unless os.include?('linux') || os.include?('darwin')
+# chart types
+chart_types = { 'd3pie' => 'd3pie',
+                'chartjs' => 'Chart.js',
+                'google' => 'Google Charts',
+                'plotly' => 'plotly.js',
+                'all' => 'All chart types' }
 
-# function to open and read in file
-def read_file(f)
-  file = File.open(f, 'r')
-  data = file.read
-  file.close
-  data
-end
-
-# function
-def ii(i)
-  i.positive? ? i : ''
-end
-
-# Most popular word in the MIT Open source license
-def mit_word_count
-  read_file('LICENSE').split.map{|x| x.gsub(/[^a-z0-9]/i, '').downcase}
-                      .group_by{|x| x}.map{|k, v| [k, v.size]}.sort_by{|_, y| -y}
-end
-
-# returns the filename without its extension
-def fir(arr)
-  arr.first.split('.').first
-end
-
-# built with links
+# this repository is built with these technologies
 built_with = { 'Ruby' => 'https://www.ruby-lang.org',
                'RubyMine' => 'https://www.jetbrains.com/ruby',
                'Rubocop' => 'https://github.com/bbatsov/rubocop',
                'rbenv' => 'https://github.com/rbenv/rbenv',
                'ruby-build' => 'https://github.com/rbenv/ruby-build',
                'kramdown' => 'https://kramdown.gettalong.org',
+               'Atom' => 'https://atom.io/',
+               'PyCharm' => 'https://www.jetbrains.com/pycharm/',
                'Python' => 'https://www.python.org/',
                'Seaborn' => 'https://seaborn.pydata.org/',
                'pandas' => 'https://pandas.pydata.org/',
                'Matplotlib' => 'https://matplotlib.org/',
-               'cloc' => 'https://github.com/AlDanial/cloc',
                'Perl' => 'https://www.perl.org',
+               'cloc' => 'https://github.com/AlDanial/cloc',
                'd3pie' => 'http://d3pie.org/',
                'D3' => 'https://d3js.org/',
                'Google Charts' => 'https://developers.google.com/chart/',
@@ -74,41 +54,6 @@ built_with = { 'Ruby' => 'https://www.ruby-lang.org',
                'robots.txt' => 'https://en.wikipedia.org/wiki/Robots_exclusion_standard',
                'Portable Network Graphics' => 'https://en.wikipedia.org/wiki/Portable_Network_Graphics',
                'Text file' => 'https://en.wikipedia.org/wiki/Text_file' }
-
-kramdown_built_with = ''
-built_with.each_with_index do |(key, value), index|
-  kramdown_built_with += "#{index + 1}. [#{key}](#{value}){:target=\\\"_blank\\\"}{:rel=\\\"noopener\\\"}\n\n"
-end
-kramdown_built_with += '
-
-"'
-
-# common function to write data to file
-def write_file(filename, data)
-  f = File.open(filename, 'w')
-  f.write(data)
-  f.close
-end
-
-# set up the config file
-config = read_file('config.yml').chomp('').chop
-write_file('site.yml', config + kramdown_built_with)
-
-# load website config file
-site_config = YAML.safe_load(read_file('site.yml'))
-
-# create README from config file
-write_file('README.md', site_config['about'].gsub('{:target="_blank"}{:rel="noopener"}', ''))
-
-# chart types
-chart_types = { 'd3pie' => 'd3pie',
-                'chartjs' => 'Chart.js',
-                'google' => 'Google Charts',
-                'plotly' => 'plotly.js',
-                'all' => 'All chart types' }
-
-# current chart type
-ct = chart_types[site_config['chart_type']]
 
 # site JavaScripts
 site_scripts = %w[bootstrap/js/jquery.min.js bootstrap/js/bootstrap.min.js]
@@ -153,6 +98,69 @@ schema_colors = { 'bar.xsd' => '#E6B0AA',
                   'topic.xsd' => '#34495E',
                   'xenc_schema.xsd' => '#17202A',
                   'xmldsig_schema.xsd' => '#8E44AD' }
+
+# create Python charts for homepage
+os = RbConfig::CONFIG['host_os'].downcase
+python = 'python3'
+python = 'python' unless os.include?('linux') || os.include?('darwin')
+
+# create Python charts for homepage
+`#{python} python/charts.py`
+
+#
+def kramdown_links(links)
+  s = ''
+  links.each_with_index do |(key, value), index|
+    s += "#{index + 1}. [#{key}](#{value}){:target=\\\"_blank\\\"}{:rel=\\\"noopener\\\"}\n\n"
+  end
+  s += '
+
+"'
+end
+
+# function to open and read in file
+def read_file(f)
+  file = File.open(f, 'r')
+  data = file.read
+  file.close
+  data
+end
+
+# function
+def ii(i)
+  i.positive? ? i : ''
+end
+
+# Most popular word in the MIT Open source license
+def mit_word_count
+  read_file('LICENSE').split.map{|x| x.gsub(/[^a-z0-9]/i, '').downcase}
+                      .group_by{|x| x}.map{|k, v| [k, v.size]}.sort_by{|_, y| -y}
+end
+
+# returns the filename without its extension
+def fir(arr)
+  arr.first.split('.').first
+end
+
+# common function to write data to file
+def write_file(filename, data)
+  f = File.open(filename, 'w')
+  f.write(data)
+  f.close
+end
+
+# set up the config file
+config = read_file('config.yml').chomp('').chop
+write_file('site.yml', config + kramdown_links(built_with))
+
+# load website config file
+site_config = YAML.safe_load(read_file('site.yml'))
+
+# create README from config file
+write_file('README.md', site_config['about'].gsub('{:target="_blank"}{:rel="noopener"}', ''))
+
+# current chart type
+ct = chart_types[site_config['chart_type']]
 
 # data for GitHub buttons
 buttons = [
@@ -390,9 +398,6 @@ def draw_d3pie_chart(type, which, data, num, colors, title, width, height,
         }
     });\n"
 end
-
-# create Python charts for homepage
-`#{python} python/charts.py`
 
 # built with section on home page
 def section_built_with(cloc, site_config)
