@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Object - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">BasicObject
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-add_apple_icons">#add_apple_icons</a>
+    
+    <li ><a href="#method-i-add_github_buttons">#add_github_buttons</a>
+    
+    <li ><a href="#method-i-add_icons">#add_icons</a>
+    
+    <li ><a href="#method-i-add_links">#add_links</a>
+    
+    <li ><a href="#method-i-add_scripts">#add_scripts</a>
+    
+    <li ><a href="#method-i-add_website_scripts">#add_website_scripts</a>
+    
+    <li ><a href="#method-i-build_site">#build_site</a>
+    
+    <li ><a href="#method-i-chart_title">#chart_title</a>
+    
+    <li ><a href="#method-i-clean_chart">#clean_chart</a>
+    
+    <li ><a href="#method-i-draw_chartjs_chart">#draw_chartjs_chart</a>
+    
+    <li ><a href="#method-i-draw_d3pie_chart">#draw_d3pie_chart</a>
+    
+    <li ><a href="#method-i-draw_google_chart">#draw_google_chart</a>
+    
+    <li ><a href="#method-i-draw_plotly_chart">#draw_plotly_chart</a>
+    
+    <li ><a href="#method-i-escape">#escape</a>
+    
+    <li ><a href="#method-i-fir">#fir</a>
+    
+    <li ><a href="#method-i-footer">#footer</a>
+    
+    <li ><a href="#method-i-generate_data">#generate_data</a>
+    
+    <li ><a href="#method-i-gp">#gp</a>
+    
+    <li ><a href="#method-i-gs">#gs</a>
+    
+    <li ><a href="#method-i-ii">#ii</a>
+    
+    <li ><a href="#method-i-kramdown_links">#kramdown_links</a>
+    
+    <li ><a href="#method-i-mit_word_count">#mit_word_count</a>
+    
+    <li ><a href="#method-i-page_build">#page_build</a>
+    
+    <li ><a href="#method-i-page_header">#page_header</a>
+    
+    <li ><a href="#method-i-read_file">#read_file</a>
+    
+    <li ><a href="#method-i-section_built_with">#section_built_with</a>
+    
+    <li ><a href="#method-i-site_type">#site_type</a>
+    
+    <li ><a href="#method-i-write_file">#write_file</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Object">
+  <h1 id="class-Object" class="class">
+    class Object
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_apple_icons" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_apple_icons</span><span
+            class="method-args">(icon_path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>common function to add the apple icons</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_apple_icons-source">
+            <pre><span class="ruby-comment"># File run.rb, line 461</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_apple_icons</span>(<span class="ruby-identifier">icon_path</span>)
+  <span class="ruby-identifier">icons</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-node">&quot;#{icon_path}apple-icon-[0-9]*.png&quot;</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">apple_icon</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">icon_size</span> = <span class="ruby-identifier">apple_icon</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;.&#39;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;-&#39;</span>).<span class="ruby-identifier">last</span>
+    <span class="ruby-node">%(
+    &lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;#{icon_size}&quot; href=&quot;#{apple_icon}&quot;&gt;)</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">icons</span>.<span class="ruby-identifier">sort_by</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;.&#39;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;-&#39;</span>).<span class="ruby-identifier">last</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;x&#39;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_i</span>}.<span class="ruby-identifier">join</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_github_buttons" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_github_buttons</span><span
+            class="method-args">(arr)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>function to make the list of GitHub buttons</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_github_buttons-source">
+            <pre><span class="ruby-comment"># File run.rb, line 447</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_github_buttons</span>(<span class="ruby-identifier">arr</span>)
+  <span class="ruby-identifier">s</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-identifier">arr</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">button</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-node">%(
+          &lt;li&gt;
+            &lt;a class=&quot;github-button&quot; href=&quot;https://github.com/jbampton#{button[0]}&quot;)</span>
+    <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-node">%( data-icon=&quot;octicon-#{button[3]}&quot; )</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">button</span>[<span class="ruby-value">3</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-node">%( data-size=&quot;large&quot; data-show-count=&quot;true&quot; aria-label=&quot;#{button[1]}&quot;&gt;#{button[2]}&lt;/a&gt;
+          &lt;/li&gt;)</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_icons" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_icons</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>common function to add the icons</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_icons-source">
+            <pre><span class="ruby-comment"># File run.rb, line 471</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_icons</span>
+  <span class="ruby-identifier">icon_path</span> = <span class="ruby-string">&#39;assets/images/icons/&#39;</span>
+  <span class="ruby-identifier">s</span> = <span class="ruby-identifier">add_apple_icons</span>(<span class="ruby-identifier">icon_path</span>)
+  <span class="ruby-identifier">b</span> = <span class="ruby-string">&#39;&lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;&#39;</span>; <span class="ruby-identifier">j</span> = <span class="ruby-node">%(&quot; href=&quot;#{icon_path})</span>
+  <span class="ruby-identifier">s</span> <span class="ruby-operator">+</span> <span class="ruby-node">%(
+    #{b}192x192#{j}android-icon-192x192.png&quot;&gt;
+    #{b}32x32#{j}favicon-32x32.png&quot;&gt;
+    #{b}96x96#{j}favicon-96x96.png&quot;&gt;
+    #{b}16x16#{j}favicon-16x16.png&quot;&gt;
+    &lt;link rel=&quot;manifest&quot; href=&quot;#{icon_path}manifest.json&quot;&gt;
+    &lt;meta name=&quot;msapplication-TileColor&quot; content=&quot;#ffffff&quot;&gt;
+    &lt;meta name=&quot;msapplication-TileImage&quot; content=&quot;#{icon_path}ms-icon-144x144.png&quot;&gt;)</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_links" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_links</span><span
+            class="method-args">(page_count, h = 0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>add navigation hyperlinks</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_links-source">
+            <pre><span class="ruby-comment"># File run.rb, line 259</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_links</span>(<span class="ruby-identifier">page_count</span>, <span class="ruby-identifier">h</span> = <span class="ruby-value">0</span>)
+  <span class="ruby-identifier">page</span> = <span class="ruby-string">&#39;&#39;</span>
+  (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">page_count</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">page</span> <span class="ruby-operator">+=</span> <span class="ruby-node">%(
+          #{h.positive? ? &#39;&#39; : &#39;  &#39;}&lt;li&gt;&lt;a href=&quot;index#{ii i}.html&quot;&gt;Page #{i + 1}&lt;/a&gt;&lt;/li&gt;)</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">page</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_scripts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_scripts</span><span
+            class="method-args">(scripts, chart_scripts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>add JavaScripts to each page</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_scripts-source">
+            <pre><span class="ruby-comment"># File run.rb, line 274</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_scripts</span>(<span class="ruby-identifier">scripts</span>, <span class="ruby-identifier">chart_scripts</span>)
+  <span class="ruby-identifier">s</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-identifier">scripts</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">script</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-node">%(
+    &lt;script src=&quot;assets/#{script}&quot;&gt;&lt;/script&gt;)</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">chart_scripts</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">script</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-node">%(
+    &lt;script src=&quot;#{script}&quot;&gt;&lt;/script&gt;)</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_website_scripts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_website_scripts</span><span
+            class="method-args">(type, site_scripts, d3_scripts, google_scripts, chartjs_script, plotly_script)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>add all the websites external JavaScript files</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_website_scripts-source">
+            <pre><span class="ruby-comment"># File run.rb, line 766</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_website_scripts</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">site_scripts</span>, <span class="ruby-identifier">d3_scripts</span>, <span class="ruby-identifier">google_scripts</span>, <span class="ruby-identifier">chartjs_script</span>, <span class="ruby-identifier">plotly_script</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;d3pie&#39;</span>
+    <span class="ruby-identifier">add_scripts</span>(<span class="ruby-identifier">site_scripts</span>, <span class="ruby-identifier">d3_scripts</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;google&#39;</span>
+    <span class="ruby-identifier">add_scripts</span>(<span class="ruby-identifier">site_scripts</span>, <span class="ruby-identifier">google_scripts</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;chartjs&#39;</span>
+    <span class="ruby-identifier">add_scripts</span>(<span class="ruby-identifier">site_scripts</span>, <span class="ruby-identifier">chartjs_script</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">add_scripts</span>(<span class="ruby-identifier">site_scripts</span>, <span class="ruby-identifier">plotly_script</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_site" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_site</span><span
+            class="method-args">(page_count, sitebuildtime, url, m)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>builds sitemap.xml, robots.txt and writes them and all the sites HTML pages
+to files</p>
+          
+          
+
+          
+          <div class="method-source-code" id="build_site-source">
+            <pre><span class="ruby-comment"># File run.rb, line 922</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">build_site</span>(<span class="ruby-identifier">page_count</span>, <span class="ruby-identifier">sitebuildtime</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">m</span>)
+  <span class="ruby-comment"># write all the HTML pages to files and build the site map</span>
+  <span class="ruby-identifier">sitemap</span> = <span class="ruby-node">%(&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset
+  xmlns=&quot;#{m}&quot;
+  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+  xsi:schemaLocation=&quot;#{m}
+  #{m}/sitemap.xsd&quot;&gt;
+  &lt;url&gt;
+    &lt;loc&gt;#{url}&lt;/loc&gt;
+    &lt;lastmod&gt;#{sitebuildtime}&lt;/lastmod&gt;
+    &lt;priority&gt;1.00&lt;/priority&gt;
+  &lt;/url&gt;)</span>
+  (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">page_count</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-node">&quot;index#{ii i}.html&quot;</span>, <span class="ruby-string">&#39;w&#39;</span>)
+    <span class="ruby-identifier">file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-node">&quot;@page#{ii i}&quot;</span>))
+    <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+    <span class="ruby-identifier">sitemap</span> <span class="ruby-operator">+=</span> <span class="ruby-node">%(
+  &lt;url&gt;
+    &lt;loc&gt;#{url}index#{ii i}.html&lt;/loc&gt;
+    &lt;lastmod&gt;#{sitebuildtime}&lt;/lastmod&gt;
+    &lt;priority&gt;0.80&lt;/priority&gt;
+  &lt;/url&gt;)</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">sitemap</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&#39;
+&lt;/urlset&gt;&#39;</span>
+  <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;sitemap.xml&#39;</span>, <span class="ruby-string">&#39;w&#39;</span>)
+  <span class="ruby-identifier">file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">sitemap</span>)
+  <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;robots.txt&#39;</span>, <span class="ruby-string">&#39;w&#39;</span>)
+  <span class="ruby-identifier">file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-node">&quot;Sitemap: #{url}sitemap.xml&quot;</span>)
+  <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-chart_title" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">chart_title</span><span
+            class="method-args">(chart_type, ind)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>common function that prints the chart title</p>
+          
+          
+
+          
+          <div class="method-source-code" id="chart_title-source">
+            <pre><span class="ruby-comment"># File run.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">chart_title</span>(<span class="ruby-identifier">chart_type</span>, <span class="ruby-identifier">ind</span>)
+  <span class="ruby-node">&quot;#{ind + 1} - #{chart_type}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-clean_chart" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clean_chart</span><span
+            class="method-args">(chart)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>remove special characters as they clash with JavaScript&#39;s naming
+conventions</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clean_chart-source">
+            <pre><span class="ruby-comment"># File run.rb, line 269</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clean_chart</span>(<span class="ruby-identifier">chart</span>)
+  <span class="ruby-identifier">chart</span>.<span class="ruby-identifier">tr</span>(<span class="ruby-string">&#39;&lt;&quot;=: &#39;</span>, <span class="ruby-string">&#39;&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-draw_chartjs_chart" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">draw_chartjs_chart</span><span
+            class="method-args">(type, canvas_id, data, colors, title, titlefontsize, responsive)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>function to draw the Chart.js charts</p>
+          
+          
+
+          
+          <div class="method-source-code" id="draw_chartjs_chart-source">
+            <pre><span class="ruby-comment"># File run.rb, line 515</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">draw_chartjs_chart</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">canvas_id</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">colors</span>, <span class="ruby-identifier">title</span>, <span class="ruby-identifier">titlefontsize</span>, <span class="ruby-identifier">responsive</span>)
+  <span class="ruby-node">%(
+    var ctx = document.getElementById(&quot;chartjs_canvas#{canvas_id}&quot;);
+    var myChart = new Chart(ctx, {
+      type: &#39;#{type}&#39;,
+      data: {
+          labels: #{data.map{|x| fir(x)}},
+          datasets: [{
+              label: &#39;#{title}&#39;,
+              data: #{data.map(&amp;:last)},
+              backgroundColor: #{data.map{|x| colors[x[0]]}}
+          }]
+      },
+      options: {
+          responsive: #{responsive},
+          title : {
+            display: true,
+            text: &#39;#{title}&#39;,
+            fontSize: #{titlefontsize}
+          }
+      }
+  });
+  )</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-draw_d3pie_chart" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">draw_d3pie_chart</span><span
+            class="method-args">(type, which, data, num, colors, title, width, height, mainlabelsize, titlesize, valuesize, tooltipsize, segmentsize, pieouterradius, pieinnerradius, piedistance, linesenabled, pulloutsegmentsize, titlefont, footerfont, footerfontsize, backgroundcolor, footercolor)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>function that draws the d3pie pie chart</p>
+          
+          
+
+          
+          <div class="method-source-code" id="draw_d3pie_chart-source">
+            <pre><span class="ruby-comment"># File run.rb, line 288</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">draw_d3pie_chart</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">which</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">num</span>, <span class="ruby-identifier">colors</span>, <span class="ruby-identifier">title</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>,
+                     <span class="ruby-identifier">mainlabelsize</span>, <span class="ruby-identifier">titlesize</span>, <span class="ruby-identifier">valuesize</span>, <span class="ruby-identifier">tooltipsize</span>,
+                     <span class="ruby-identifier">segmentsize</span>, <span class="ruby-identifier">pieouterradius</span>, <span class="ruby-identifier">pieinnerradius</span>, <span class="ruby-identifier">piedistance</span>, <span class="ruby-identifier">linesenabled</span>,
+                     <span class="ruby-identifier">pulloutsegmentsize</span>, <span class="ruby-identifier">titlefont</span>, <span class="ruby-identifier">footerfont</span>, <span class="ruby-identifier">footerfontsize</span>, <span class="ruby-identifier">backgroundcolor</span>,
+                     <span class="ruby-identifier">footercolor</span>)
+  <span class="ruby-identifier">high</span> = <span class="ruby-value">1</span>; <span class="ruby-identifier">seen</span> = []; <span class="ruby-identifier">element</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-identifier">data</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">high</span>
+      <span class="ruby-identifier">high</span> = <span class="ruby-identifier">x</span>[<span class="ruby-value">1</span>]
+      <span class="ruby-identifier">element</span> = <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">seen</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">x</span>[<span class="ruby-value">1</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">footertext</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">high</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">seen</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">seen</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">high</span>) <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+                 <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">zero?</span>
+                   <span class="ruby-node">&quot;#{high} \&quot;#{element}\&quot;#{element == &#39;folders&#39; ? &#39;&#39; : &#39; files&#39;} occurred most frequently&quot;</span>
+                 <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+                   <span class="ruby-node">&quot;#{high} maximum occurrences in file \&quot;#{element}\&quot;&quot;</span>
+                 <span class="ruby-keyword">else</span>
+                   <span class="ruby-node">&quot;#{high} maximum occurrences for the word \&quot;#{element}\&quot;&quot;</span>
+                 <span class="ruby-keyword">end</span>
+               <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">s</span> = <span class="ruby-node">&quot;
+    var pie = new d3pie(&#39;d3pie_chart_div_#{which}&#39;, {
+        &#39;header&#39;: {
+            &#39;title&#39;: {
+                &#39;text&#39;: &#39;#{chart_title(title, num)}&#39;,
+                &#39;fontSize&#39;: #{titlesize},
+                &#39;font&#39;: &#39;#{titlefont}&#39;
+            }
+        },
+        &#39;footer&#39;: {
+            &#39;text&#39;: &#39;#{footertext}&#39;,
+            &#39;color&#39;: &#39;##{footercolor}&#39;,
+            &#39;fontSize&#39;: #{footerfontsize},
+            &#39;font&#39;: &#39;#{footerfont}&#39;,
+            &#39;location&#39;: &#39;bottom-center&#39;
+        },
+        &#39;size&#39;: {
+            &#39;canvasWidth&#39;: #{width},
+            &#39;canvasHeight&#39;: #{height},
+            &#39;pieOuterRadius&#39;: &#39;#{pieouterradius}&#39;,
+            &#39;pieInnerRadius&#39;: &#39;#{pieinnerradius}&#39;
+        },
+
+        &#39;data&#39;: {
+            &#39;sortOrder&#39;: &#39;value-desc&#39;,
+            &#39;smallSegmentGrouping&#39;: {
+                &#39;enabled&#39;: true,
+                &#39;value&#39;: #{segmentsize}
+            },
+            &#39;content&#39;: [&quot;</span>
+  <span class="ruby-identifier">data</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;.&#39;</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">!=</span> <span class="ruby-value">2</span>
+      <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;{&#39;label&#39;:&#39;#{x[0].split(&#39;.&#39;).first}&#39;,&#39;value&#39;:#{x[1]},&#39;color&#39;:&#39;#{colors[x[0]]}&#39;},&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;{&#39;label&#39;:&#39;#{x[0]}&#39;,&#39;value&#39;:#{x[1]},&#39;color&#39;:&#39;black&#39;},&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">s</span>.<span class="ruby-identifier">chop!</span>
+  <span class="ruby-identifier">s</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log(&#39;mouseover:&#39;, info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log(&#39;mouseout:&#39;, info);
+          }
+        },
+        &#39;labels&#39;: {
+            &#39;outer&#39;: {
+                &#39;pieDistance&#39;: #{piedistance}
+            },
+            &#39;inner&#39;: {
+                &#39;format&#39;: &#39;value&#39;,
+                &#39;hideWhenLessThanPercentage&#39;: 3
+            },
+            &#39;mainLabel&#39;: {
+                &#39;fontSize&#39;: #{mainlabelsize}
+            },
+            &#39;percentage&#39;: {
+                &#39;color&#39;: &#39;#ffffff&#39;,
+                &#39;decimalPlaces&#39;: 0
+            },
+            &#39;value&#39;: {
+                &#39;color&#39;: &#39;#ffffff&#39;,
+                &#39;fontSize&#39;: #{valuesize}
+            },
+            &#39;lines&#39;: {
+                &#39;enabled&#39;: #{linesenabled}
+            },
+            &#39;truncation&#39;: {
+                &#39;enabled&#39;: true
+            }
+        },
+        &#39;tooltips&#39;: {
+            &#39;enabled&#39;: true,
+            &#39;type&#39;: &#39;placeholder&#39;,
+            &#39;string&#39;: &#39;{label}: {value}, {percentage}%&#39;,
+            &#39;styles&#39;: {
+                &#39;fadeInSpeed&#39;: 586,
+                &#39;backgroundOpacity&#39;: 0.7,
+                &#39;color&#39;: &#39;#ffffff&#39;,
+                &#39;fontSize&#39;: #{tooltipsize}
+            }
+        },
+        &#39;effects&#39;: {
+            &#39;pullOutSegmentOnClick&#39;: {
+                &#39;effect&#39;: &#39;linear&#39;,
+                &#39;speed&#39;: 400,
+                &#39;size&#39;: #{pulloutsegmentsize}
+            }
+        },
+        &#39;misc&#39;: {
+            &#39;colors&#39;: {
+                &#39;background&#39;: &#39;##{backgroundcolor}&#39;
+            },
+            &#39;gradient&#39;: {
+                &#39;enabled&#39;: true,
+                &#39;percentage&#39;: 100
+            }
+        }
+    });\n&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-draw_google_chart" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">draw_google_chart</span><span
+            class="method-args">(type, which_chart, data, chart_string, chart_values, chart_title, chart_div, width, height)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>common function for each Google chart</p>
+          
+          
+
+          
+          <div class="method-source-code" id="draw_google_chart-source">
+            <pre><span class="ruby-comment"># File run.rb, line 491</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">draw_google_chart</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">which_chart</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">chart_string</span>, <span class="ruby-identifier">chart_values</span>,
+                      <span class="ruby-identifier">chart_title</span>, <span class="ruby-identifier">chart_div</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+  <span class="ruby-node">%(
+        function drawChart#{which_chart}() {
+          // Create the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn(&quot;string&quot;, &quot;#{escape(chart_string)}&quot;);
+          data.addColumn(&quot;number&quot;, &quot;#{chart_values}&quot;);
+          data.addRows(#{data});
+          // Set chart options
+          var options = {&quot;title&quot;: &quot;#{escape(chart_title)}&quot;,
+                         is3D: #{type.zero?},
+                         pieHole: #{type},
+                         &quot;pieSliceText&quot;: &quot;value&quot;,
+                         &quot;width&quot;: #{width},
+                         &quot;height&quot;: #{height},
+                         &quot;titleTextStyle&quot;: {&quot;color&quot;: &quot;black&quot;}};
+          // Instantiate and draw our chart, passing in some options.
+          var chart = new google.visualization.PieChart(document.getElementById(&quot;chart_div_#{chart_div}&quot;));
+          chart.draw(data, options);
+        }\n)</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-draw_plotly_chart" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">draw_plotly_chart</span><span
+            class="method-args">(chart_div, data, title, height, width, type)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>function to draw the plotly.js charts</p>
+          
+          
+
+          
+          <div class="method-source-code" id="draw_plotly_chart-source">
+            <pre><span class="ruby-comment"># File run.rb, line 541</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">draw_plotly_chart</span>(<span class="ruby-identifier">chart_div</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">title</span>, <span class="ruby-identifier">height</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">type</span>)
+  <span class="ruby-node">%(
+    var data = [{
+      values: #{data.map(&amp;:last)},
+      labels: #{data.map{|x| fir(x)}},
+      hole: #{type},
+      type: &#39;pie&#39;
+    }];
+
+    var layout = {
+      title: &#39;#{title}&#39;,
+      titlefont: {
+        size: 12,
+        color: &#39;black&#39;
+      },
+      height: #{height + data.size * 15}, // Each legend entry is 15 high.
+      width: #{width},
+      showlegend: true,
+              legend: {
+          &quot;orientation&quot;: &quot;h&quot;
+        }
+      };
+
+    Plotly.newPlot(&#39;plotly_chart_div_#{chart_div}&#39;, data, layout);
+  )</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-escape" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">escape</span><span
+            class="method-args">(s)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>common function to escape double quotes</p>
+          
+          
+
+          
+          <div class="method-source-code" id="escape-source">
+            <pre><span class="ruby-comment"># File run.rb, line 486</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">escape</span>(<span class="ruby-identifier">s</span>)
+  <span class="ruby-identifier">s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;&quot;&#39;</span>, <span class="ruby-string">&#39;\&quot;&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fir</span><span
+            class="method-args">(arr)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>returns the filename without its extension</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fir-source">
+            <pre><span class="ruby-comment"># File run.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fir</span>(<span class="ruby-identifier">arr</span>)
+  <span class="ruby-identifier">arr</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;.&#39;</span>).<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-footer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">footer</span><span
+            class="method-args">(buttons, page_count, sitebuildtime, site_config)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>creates HTML footer for all pages before the scripts are inserted</p>
+          
+          
+
+          
+          <div class="method-source-code" id="footer-source">
+            <pre><span class="ruby-comment"># File run.rb, line 730</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">footer</span>(<span class="ruby-identifier">buttons</span>, <span class="ruby-identifier">page_count</span>, <span class="ruby-identifier">sitebuildtime</span>, <span class="ruby-identifier">site_config</span>)
+  <span class="ruby-identifier">s</span> = <span class="ruby-string">%(
+    &lt;/div&gt;
+    &lt;footer&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;ul class=&quot;list-unstyled&quot;&gt;)</span>
+  <span class="ruby-comment"># add GitHub buttons</span>
+  <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">add_github_buttons</span>(<span class="ruby-identifier">buttons</span>)
+  <span class="ruby-comment"># add general page links</span>
+  <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">add_links</span>(<span class="ruby-identifier">page_count</span>, <span class="ruby-value">1</span>)
+  <span class="ruby-comment"># add rest of page</span>
+  <span class="ruby-identifier">s</span> <span class="ruby-operator">+</span> <span class="ruby-node">%(
+          &lt;li class=&quot;nuchecker&quot;&gt;
+            &lt;a target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;#{site_config[&#39;valid_html&#39;]}&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#head1&quot;&gt;#{site_config[&#39;back_to_top&#39;]}&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class=&quot;built&quot;&gt;#{site_config[&#39;last_update&#39;]}#{sitebuildtime}&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;a href=&quot;https://info.flagcounter.com/9VsC&quot;
+           target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+          &lt;img src=&quot;https://s01.flagcounter.com/countxl/9VsC/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_250/viewers_0/labels_1/pageviews_0/flags_0/percent_0/&quot;
+               alt=&quot;Flag Counter&quot;&gt;
+        &lt;/a&gt;
+        &lt;a id=&quot;theend&quot;&gt;&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/footer&gt;)</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_data</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>function that generates the pie chart data</p>
+          
+          
+
+          
+          <div class="method-source-code" id="generate_data-source">
+            <pre><span class="ruby-comment"># File run.rb, line 216</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generate_data</span>
+  <span class="ruby-identifier">tokens</span> = []
+  <span class="ruby-comment"># loop over schema files</span>
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-string">&#39;assets/data/schema/*.xsd&#39;</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">schema</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">data</span> = <span class="ruby-identifier">read_file</span>(<span class="ruby-identifier">schema</span>)
+    <span class="ruby-identifier">data</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/&lt;xs:\w+|\w+=&quot;\w+&quot;|\w+=&quot;xs:\w+&quot;/</span>).<span class="ruby-identifier">uniq</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">tokens</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">x</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">x</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">data</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/&lt;xs:\w+ \w+=&quot;\w+&quot;/</span>).<span class="ruby-identifier">uniq</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">tokens</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">x</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">x</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># create main data array</span>
+  <span class="ruby-identifier">structure</span> = []
+  <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">map</span>.<span class="ruby-identifier">with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">structure</span>[<span class="ruby-identifier">i</span>] = [<span class="ruby-identifier">x</span>]
+    <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-string">&#39;assets/data/schema/*.xsd&#39;</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">schema</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">filename</span> = <span class="ruby-identifier">schema</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;/&#39;</span>).<span class="ruby-identifier">last</span>
+      <span class="ruby-identifier">amount</span> = <span class="ruby-identifier">read_file</span>(<span class="ruby-identifier">schema</span>).<span class="ruby-identifier">scan</span>(<span class="ruby-identifier">x</span>).<span class="ruby-identifier">size</span>
+      <span class="ruby-identifier">structure</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">amount</span>] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">amount</span>.<span class="ruby-identifier">zero?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">structure</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-gp" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gp</span><span
+            class="method-args">(i)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>get instance variable page i</p>
+          
+          
+
+          
+          <div class="method-source-code" id="gp-source">
+            <pre><span class="ruby-comment"># File run.rb, line 247</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">gp</span>(<span class="ruby-identifier">i</span>)
+  <span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-node">&quot;@page#{i}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-gs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gs</span><span
+            class="method-args">(s)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>strip p tags from Kramdown output for headings</p>
+          
+          
+
+          
+          <div class="method-source-code" id="gs-source">
+            <pre><span class="ruby-comment"># File run.rb, line 569</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">gs</span>(<span class="ruby-identifier">s</span>)
+  <span class="ruby-identifier">s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/&lt;\/?p&gt;/</span>, <span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">strip</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ii" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ii</span><span
+            class="method-args">(i)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>function</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ii-source">
+            <pre><span class="ruby-comment"># File run.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ii</span>(<span class="ruby-identifier">i</span>)
+  <span class="ruby-identifier">i</span>.<span class="ruby-identifier">positive?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-kramdown_links" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">kramdown_links</span><span
+            class="method-args">(links)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>make the site built with links into kramdown</p>
+          
+          
+
+          
+          <div class="method-source-code" id="kramdown_links-source">
+            <pre><span class="ruby-comment"># File run.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">kramdown_links</span>(<span class="ruby-identifier">links</span>)
+  <span class="ruby-identifier">s</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-identifier">links</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>), <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;#{index + 1}. [#{key}](#{value}){:target=\\\&quot;_blank\\\&quot;}{:rel=\\\&quot;noopener\\\&quot;}\n\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&#39;
+
+&quot;&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mit_word_count" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mit_word_count</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Most popular word in the MIT Open source license</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mit_word_count-source">
+            <pre><span class="ruby-comment"># File run.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">mit_word_count</span>
+  <span class="ruby-identifier">read_file</span>(<span class="ruby-string">&#39;LICENSE&#39;</span>).<span class="ruby-identifier">split</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/[^a-z0-9]/i</span>, <span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">downcase</span>}
+                      .<span class="ruby-identifier">group_by</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>}.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>.<span class="ruby-identifier">size</span>]}.<span class="ruby-identifier">sort_by</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">y</span><span class="ruby-operator">|</span> <span class="ruby-operator">-</span><span class="ruby-identifier">y</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-page_build" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">page_build</span><span
+            class="method-args">(page, page_count, start = 0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>build all the website pages</p>
+          
+          
+
+          
+          <div class="method-source-code" id="page_build-source">
+            <pre><span class="ruby-comment"># File run.rb, line 252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">page_build</span>(<span class="ruby-identifier">page</span>, <span class="ruby-identifier">page_count</span>, <span class="ruby-identifier">start</span> = <span class="ruby-value">0</span>)
+  (<span class="ruby-identifier">start</span><span class="ruby-operator">..</span><span class="ruby-identifier">page_count</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-node">&quot;@page#{ii i}&quot;</span>, <span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-node">&quot;@page#{ii i}&quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">page</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-page_header" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">page_header</span><span
+            class="method-args">(site_config, page_count)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>common HTML page header include</p>
+          
+          
+
+          
+          <div class="method-source-code" id="page_header-source">
+            <pre><span class="ruby-comment"># File run.rb, line 585</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">page_header</span>(<span class="ruby-identifier">site_config</span>, <span class="ruby-identifier">page_count</span>)
+  <span class="ruby-comment"># start common page region</span>
+  <span class="ruby-identifier">page</span> = <span class="ruby-node">%(&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;!-- The above 3 meta tags *must* come first in the head;
+         any other head content must come *after* these tags --&gt;
+    &lt;title&gt;#{site_config[&#39;title&#39;]}&lt;/title&gt;)</span>
+  <span class="ruby-identifier">page</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">add_icons</span>
+  <span class="ruby-identifier">page</span> <span class="ruby-operator">+=</span> <span class="ruby-node">%(
+    &lt;meta name=&quot;description&quot; content=&quot;#{site_config[&#39;description&#39;]}&quot;&gt;
+    &lt;meta name=&quot;theme-color&quot; content=&quot;##{site_config[&#39;theme_color&#39;]}&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;assets/bootstrap/css/bootstrap.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;assets/bootstrap/css/bootstrap-theme.min.css&quot;&gt;
+    &lt;style&gt;
+      .container-fluid { padding: 0px; }
+      .navbar, .navbar-default { margin-bottom: 0; padding: 5pt; background-color: ##{site_config[&#39;theme_color&#39;]}; font-size: 12pt; }
+      .navbar, .navbar-default li a { color: ##{site_config[&#39;text_color&#39;]} !important; }
+      .navbar-default .navbar-brand { margin-left: 20px !important; color: ##{site_config[&#39;logo_text_color&#39;]}; font-size: 18pt; font-weight: bold; }
+      .navbar-brand:hover { background-color: #{site_config[&#39;nav_hover_color&#39;]} !important; }
+      div[id^=&quot;d3pie_chart_div_&quot;], canvas { margin-bottom: 100px; }
+      footer { background-color: ##{site_config[&#39;theme_color&#39;]}; min-height: 200px;}
+      footer ul a { color: ##{site_config[&#39;text_color&#39;]} !important; font-size: 13pt; }
+      footer .container { margin-left: 15px; }
+      .built { text-decoration: none !important; }
+      .selected { background-color: #{site_config[&#39;nav_selected_color&#39;]}; font-weight: bold; }
+      .navbar-default li:hover a { background-color: #{site_config[&#39;nav_hover_color&#39;]} !important; }
+      h1 { text-align: center; background-color: ##{site_config[&#39;theme_color&#39;]}; padding: 14px; color: ##{site_config[&#39;text_color&#39;]}; }
+      pre { white-space: pre-wrap; word-wrap: break-word; }
+      .homepage { padding: 5px 30px 5px 30px; }
+      .logo { float: left; }
+      .oll { padding-left: 1em; }
+      h2#other { text-align: center; }
+      .plotlypie { height: 625px; }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Static navbar --&gt;
+    &lt;nav class=&quot;navbar navbar-default&quot; id=&quot;head1&quot;&gt;
+      &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;div class=&quot;navbar-header&quot;&gt;
+          &lt;a href=&quot;index.html&quot;&gt;&lt;img src=&quot;assets/images/logo.png&quot; alt=&quot;Ruby Powered&quot; class=&quot;logo&quot;&gt;&lt;/a&gt;
+          &lt;button type=&quot;button&quot; class=&quot;navbar-toggle collapsed&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#navbar&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;navbar&quot;&gt;
+            &lt;span class=&quot;sr-only&quot;&gt;Toggle navigation&lt;/span&gt;
+            &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+          &lt;/button&gt;
+          &lt;a class=&quot;navbar-brand&quot; href=&quot;index.html&quot;&gt;#{site_config[&#39;nav_heading&#39;]}&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div id=&quot;navbar&quot; class=&quot;navbar-collapse collapse&quot;&gt;
+          &lt;ul class=&quot;nav navbar-nav&quot;&gt;)</span>
+  <span class="ruby-identifier">page</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">add_links</span>(<span class="ruby-identifier">page_count</span>)
+  <span class="ruby-identifier">page</span> <span class="ruby-operator">+=</span> <span class="ruby-string">%(
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;)</span>
+  (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">page_count</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-node">&quot;@page#{ii i}&quot;</span>, <span class="ruby-identifier">page</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_file</span><span
+            class="method-args">(f)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>function to open and read in file</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_file-source">
+            <pre><span class="ruby-comment"># File run.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_file</span>(<span class="ruby-identifier">f</span>)
+  <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">f</span>, <span class="ruby-string">&#39;r&#39;</span>)
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">read</span>
+  <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-identifier">data</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-section_built_with" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">section_built_with</span><span
+            class="method-args">(cloc, site_config)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>built with section on home page</p>
+          
+          
+
+          
+          <div class="method-source-code" id="section_built_with-source">
+            <pre><span class="ruby-comment"># File run.rb, line 417</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">section_built_with</span>(<span class="ruby-identifier">cloc</span>, <span class="ruby-identifier">site_config</span>)
+  <span class="ruby-identifier">s</span> = <span class="ruby-node">%(
+      &lt;div class=&quot;col-md-5&quot;&gt;
+        #{Kramdown::Document.new(site_config[&#39;about&#39;]).to_html}
+      &lt;/div&gt;
+      &lt;div class=&quot;col-md-7&quot;&gt;
+        &lt;h3&gt;#{site_config[&#39;homepage_subheading4&#39;]}&lt;/h3&gt;
+        &lt;pre&gt;
+          &lt;code&gt;
+            #{cloc}
+          &lt;/code&gt;
+        &lt;/pre&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-sm-12&quot; id=&quot;d3pie_chart_div_homepage_all&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-sm-12&quot; id=&quot;d3pie_chart_div_homepage_mit&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;)</span>
+  <span class="ruby-constant">Dir</span>[<span class="ruby-string">&#39;python/images/*&#39;</span>].<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">image</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-node">%(
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;img class=&quot;img-responsive&quot; src=&quot;#{image}&quot; alt=&quot;#{image.split(&#39;/&#39;).last.split(&#39;.&#39;).first.capitalize.split(&#39;-&#39;).join &#39; &#39;}&quot;&gt;
+    &lt;/div&gt;)</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-site_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">site_type</span><span
+            class="method-args">(s, chart_type)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>replaces &#39;d3pie&#39; with one of &#39;Google Charts&#39;,
+&#39;Chart.js&#39;, &#39;plotly.js&#39; or &#39;d3pie&#39; or &#39;All
+chart types&#39; used in h1 on the main charting pages</p>
+          
+          
+
+          
+          <div class="method-source-code" id="site_type-source">
+            <pre><span class="ruby-comment"># File run.rb, line 575</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">site_type</span>(<span class="ruby-identifier">s</span>, <span class="ruby-identifier">chart_type</span>)
+  <span class="ruby-identifier">gs</span>(<span class="ruby-constant">Kramdown</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/d3pie/</span>, <span class="ruby-identifier">chart_type</span>)).<span class="ruby-identifier">to_html</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write_file</span><span
+            class="method-args">(filename, data)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>common function to write data to file</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write_file-source">
+            <pre><span class="ruby-comment"># File run.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">write_file</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">data</span>)
+  <span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-string">&#39;w&#39;</span>)
+  <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-identifier">f</span>.<span class="ruby-identifier">close</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
