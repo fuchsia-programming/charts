@@ -68,7 +68,8 @@ built_with = { 'macOS High Sierra' => 'https://www.apple.com/macos/high-sierra/'
                'Markdown' => 'https://daringfireball.net/projects/markdown',
                'robots.txt' => 'https://en.wikipedia.org/wiki/Robots_exclusion_standard',
                'Portable Network Graphics' => 'https://en.wikipedia.org/wiki/Portable_Network_Graphics',
-               'Text file' => 'https://en.wikipedia.org/wiki/Text_file' }
+               'Text file' => 'https://en.wikipedia.org/wiki/Text_file',
+               'Shields.io' => 'https://shields.io/' }
 
 # site JavaScripts
 site_scripts = %w[bootstrap/js/jquery.min.js bootstrap/js/bootstrap.min.js]
