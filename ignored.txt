@@ -13,6 +13,7 @@
 ./assets/js/d3/LICENSE: language unknown (#3)
 ./charts.sublime-project: language unknown (#3)
 ./charts.sublime-workspace: language unknown (#3)
+./doc/created.rid: language unknown (#3)
 ./ignored.txt: listed in $Not_Code_Extension{txt}
 ./log.txt: listed in $Not_Code_Extension{txt}
 ./robots.txt: listed in $Not_Code_Extension{txt}

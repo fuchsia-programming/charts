@@ -1,5 +1,7 @@
 ## Charting Demo Info
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/jbampton/charts/blob/gh-pages/LICENSE)
+
 This Ruby script **`run.rb`** is a static site generator. It data mines or text mines a folder of XML Schema files as well as the MIT License (only for the d3pie charts) and generates statistics on elements and attributes (the XML Schema) or on words (the License).
 
 The config file: **`config.xml`** stores most of the websites configuration information and can be easily customized.
