@@ -11,6 +11,10 @@ Layout/SpaceInsideBlockBraces:
 Metrics/AbcSize:
   Enabled: false
 
+Metrics/BlockLength:
+  Exclude:
+    - 'run.rb'
+
 Metrics/CyclomaticComplexity:
   Enabled: false
 
@@ -24,6 +28,10 @@ Metrics/MethodLength:
 
 Metrics/PerceivedComplexity:
   Enabled: false
+
+Naming/UncommunicativeMethodParamName:
+  Exclude:
+    - 'run.rb'
 
 Style/BlockComments:
   Exclude:
