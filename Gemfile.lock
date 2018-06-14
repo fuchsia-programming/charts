@@ -3,6 +3,7 @@ GEM
   specs:
     ast (2.4.0)
     chroma (0.2.0)
+    csv (1.0.0)
     jaro_winkler (1.5.1)
     kramdown (1.17.0)
     parallel (1.12.1)
@@ -32,6 +33,7 @@ PLATFORMS
 
 DEPENDENCIES
   chroma
+  csv
   kramdown
   prawn
   rubocop
