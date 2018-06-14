@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
-# frozen_string_literal: true
 
 # Reach your final destination
 
+require 'chroma'
 require 'csv'
 require 'kramdown'
 require 'prawn'
@@ -28,46 +28,6 @@ d3_scripts = %w[assets/js/d3/d3.js assets/js/d3pie.min.js]
 google_scripts = %w[https://www.gstatic.com/charts/loader.js https://www.google.com/jsapi]
 chartjs_script = %w[assets/js/Chart.min.js]
 plotlyjs_script = %w[assets/js/plotly.min.js]
-
-# colors for the file extensions
-exthash = { 'css' => '#E6B0AA',
-            'csv' => '#555555',
-            'eot' => '#F4D03F',
-            'folders' => '#E67E22',
-            'html' => '#D7BDE2',
-            'ico' => '#666600',
-            'js' => '#28B463',
-            'json' => '#710000',
-            'map' => '#111111',
-            'md' => '#A9CCE3',
-            'png' => 'blue',
-            'py' => 'white',
-            'rb' => '#154360',
-            'svg' => '#78281F',
-            'txt' => '#17202A',
-            'ttf' => '#000000',
-            'woff' => '#8E44AD',
-            'woff2' => '#999999',
-            'xml' => '#E67E22',
-            'xsd' => '#34495E',
-            'yml' => '#441411' }
-
-# colors for the pie chart pieces
-schema_colors = { 'bar.xsd' => '#E6B0AA',
-                  'bookstore.xsd' => '#F4D03F',
-                  'concept.xsd' => '#D7BDE2',
-                  'dinner-menu.xsd' => '#28B463',
-                  'foo.xsd' => '#A9CCE3',
-                  'note.xsd' => '#154360',
-                  'note2.xsd' => '#A3E4D7',
-                  'reference.xsd' => '#78281F',
-                  'saml20assertion_schema.xsd' => '#7D6608',
-                  'saml20protocol_schema.xsd' => '#E67E22',
-                  'sitemap.xsd' => '#FFCCCC',
-                  'task.xsd' => '#784212',
-                  'topic.xsd' => '#34495E',
-                  'xenc_schema.xsd' => '#17202A',
-                  'xmldsig_schema.xsd' => '#8E44AD' }
 
 # runs Python from a shell command
 def python_charts
@@ -192,8 +152,28 @@ def file_extensions
   end
 end
 
+# colors for the main schema charts
+schema_colors = {}
+schema_count = Dir['assets/data/schema/*.xsd'].size
+degrees = 360.0 / schema_count
+
+Dir['assets/data/schema/*.xsd'].map.with_index(1) do |f, i|
+  schema_colors[:"#{File.basename(f)}"] = 'red'.paint.spin(degrees * i)
+end
+
+# colors for the file extensions
+exthash = {}
+uniqfile = file_extensions.uniq
+uniqfilesize = uniqfile.size
+degrees = 360.0 / uniqfilesize
+
+# create colors for the file extension pie chart on home page
+uniqfile.map.with_index(1) do |f, i|
+  exthash[:"#{f}"] = 'red'.paint.spin(degrees * i)
+end
+
 # extensions
-allfiles = file_extensions.flatten.group_by{|x| x}.map{|k, v| [k, v.size]}
+allfiles = file_extensions.group_by{|x| x}.map{|k, v| [k, v.size]}
 
 # function that generates the pie chart data
 def generate_data
@@ -323,7 +303,7 @@ def draw_d3pie_chart(type, which, data, num, colors, title, width, height,
             'content': ["
   data.each do |x|
     if x[0].include?('.') || type != 2
-      s += "{'label':'#{x[0].split('.').first}','value':#{x[1]},'color':'#{colors[x[0]]}'},"
+      s += "{'label':'#{x[0].split('.').first}','value':#{x[1]},'color':'#{colors[:"#{x[0]}"]}'},"
     else
       s += "{'label':'#{x[0]}','value':#{x[1]},'color':'black'},"
     end
@@ -505,7 +485,7 @@ def draw_chartjs_chart(type, canvas_id, data, colors, title, titlefontsize, resp
           datasets: [{
               label: '#{title}',
               data: #{data.map(&:last)},
-              backgroundColor: #{data.map{|x| colors[x[0]]}}
+              backgroundColor: #{data.map{|x| "#{colors[:"#{x[0]}"]}"}}
           }]
       },
       options: {

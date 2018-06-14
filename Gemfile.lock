@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.0)
+    chroma (0.2.0)
     jaro_winkler (1.5.1)
     kramdown (1.17.0)
     parallel (1.12.1)
@@ -30,6 +31,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  chroma
   kramdown
   prawn
   rubocop

@@ -1,7 +1,6 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 
+gem 'chroma'
 gem 'kramdown'
 gem 'prawn'
 gem 'rubocop'

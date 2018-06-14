@@ -37,6 +37,9 @@ Style/BlockComments:
   Exclude:
     - run.rb
 
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+
 Style/NestedTernaryOperator:
   Enabled: false
 
