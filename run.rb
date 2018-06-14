@@ -485,7 +485,7 @@ def draw_chartjs_chart(type, canvas_id, data, colors, title, titlefontsize, resp
           datasets: [{
               label: '#{title}',
               data: #{data.map(&:last)},
-              backgroundColor: #{data.map{|x| "#{colors[:"#{x[0]}"]}"}}
+              backgroundColor: #{data.map{|x| colors[:"#{x[0]}"].to_s}}
           }]
       },
       options: {

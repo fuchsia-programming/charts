@@ -8,6 +8,9 @@ Rubocop,https://github.com/bbatsov/rubocop
 rbenv,https://github.com/rbenv/rbenv
 ruby-build,https://github.com/rbenv/ruby-build
 kramdown,https://kramdown.gettalong.org
+Bundler,https://bundler.io/
+Chroma,https://github.com/jfairbank/chroma
+CSV gem,https://github.com/ruby/csv
 Atom,https://atom.io/
 linter,https://atom.io/packages/linter
 linter-pylint,https://atom.io/packages/linter-pylint

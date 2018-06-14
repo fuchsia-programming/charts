@@ -118,99 +118,105 @@ Demo can be seen here: http://thebeast.me/charts/
 
 10. [kramdown](https://kramdown.gettalong.org){:target=\"_blank\"}{:rel=\"noopener\"}
 
-11. [Atom](https://atom.io/){:target=\"_blank\"}{:rel=\"noopener\"}
+11. [Bundler](https://bundler.io/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-12. [linter](https://atom.io/packages/linter){:target=\"_blank\"}{:rel=\"noopener\"}
+12. [Chroma](https://github.com/jfairbank/chroma){:target=\"_blank\"}{:rel=\"noopener\"}
 
-13. [linter-pylint](https://atom.io/packages/linter-pylint){:target=\"_blank\"}{:rel=\"noopener\"}
+13. [CSV gem](https://github.com/ruby/csv){:target=\"_blank\"}{:rel=\"noopener\"}
 
-14. [linter-rubocop](https://atom.io/packages/linter-rubocop){:target=\"_blank\"}{:rel=\"noopener\"}
+14. [Atom](https://atom.io/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-15. [Sublime Text](https://www.sublimetext.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+15. [linter](https://atom.io/packages/linter){:target=\"_blank\"}{:rel=\"noopener\"}
 
-16. [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter){:target=\"_blank\"}{:rel=\"noopener\"}
+16. [linter-pylint](https://atom.io/packages/linter-pylint){:target=\"_blank\"}{:rel=\"noopener\"}
 
-17. [SublimeLinter-pylint](https://github.com/SublimeLinter/SublimeLinter-pylint){:target=\"_blank\"}{:rel=\"noopener\"}
+17. [linter-rubocop](https://atom.io/packages/linter-rubocop){:target=\"_blank\"}{:rel=\"noopener\"}
 
-18. [SublimeLinter-rubocop](https://github.com/SublimeLinter/SublimeLinter-rubocop){:target=\"_blank\"}{:rel=\"noopener\"}
+18. [Sublime Text](https://www.sublimetext.com/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-19. [Sublime Text Markdown Preview](https://github.com/revolunet/sublimetext-markdown-preview){:target=\"_blank\"}{:rel=\"noopener\"}
+19. [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter){:target=\"_blank\"}{:rel=\"noopener\"}
 
-20. [Python](https://www.python.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+20. [SublimeLinter-pylint](https://github.com/SublimeLinter/SublimeLinter-pylint){:target=\"_blank\"}{:rel=\"noopener\"}
 
-21. [PyCharm](https://www.jetbrains.com/pycharm/){:target=\"_blank\"}{:rel=\"noopener\"}
+21. [SublimeLinter-rubocop](https://github.com/SublimeLinter/SublimeLinter-rubocop){:target=\"_blank\"}{:rel=\"noopener\"}
 
-22. [Seaborn](https://seaborn.pydata.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+22. [Sublime Text Markdown Preview](https://github.com/revolunet/sublimetext-markdown-preview){:target=\"_blank\"}{:rel=\"noopener\"}
 
-23. [pandas](https://pandas.pydata.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+23. [Python](https://www.python.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-24. [Matplotlib](https://matplotlib.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+24. [PyCharm](https://www.jetbrains.com/pycharm/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-25. [Pylint](https://www.pylint.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+25. [Seaborn](https://seaborn.pydata.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-26. [Perl](https://www.perl.org){:target=\"_blank\"}{:rel=\"noopener\"}
+26. [pandas](https://pandas.pydata.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-27. [cloc](https://github.com/AlDanial/cloc){:target=\"_blank\"}{:rel=\"noopener\"}
+27. [Matplotlib](https://matplotlib.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-28. [d3pie](http://d3pie.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+28. [Pylint](https://www.pylint.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-29. [D3](https://d3js.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+29. [Perl](https://www.perl.org){:target=\"_blank\"}{:rel=\"noopener\"}
 
-30. [Google Charts](https://developers.google.com/chart/){:target=\"_blank\"}{:rel=\"noopener\"}
+30. [cloc](https://github.com/AlDanial/cloc){:target=\"_blank\"}{:rel=\"noopener\"}
 
-31. [Chart.js](http://www.chartjs.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+31. [d3pie](http://d3pie.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-32. [plotly.js](https://plot.ly/javascript/){:target=\"_blank\"}{:rel=\"noopener\"}
+32. [D3](https://d3js.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-33. [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5){:target=\"_blank\"}{:rel=\"noopener\"}
+33. [Google Charts](https://developers.google.com/chart/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-34. [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3){:target=\"_blank\"}{:rel=\"noopener\"}
+34. [Chart.js](http://www.chartjs.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-35. [Bootstrap](https://getbootstrap.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+35. [plotly.js](https://plot.ly/javascript/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-36. [jQuery](https://jquery.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+36. [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5){:target=\"_blank\"}{:rel=\"noopener\"}
 
-37. [JSON](https://www.json.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+37. [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3){:target=\"_blank\"}{:rel=\"noopener\"}
 
-38. [JavaScript](https://en.wikipedia.org/wiki/JavaScript){:target=\"_blank\"}{:rel=\"noopener\"}
+38. [Bootstrap](https://getbootstrap.com/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-39. [YAML](http://www.yaml.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+39. [jQuery](https://jquery.com/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-40. [XML](https://en.wikipedia.org/wiki/XML){:target=\"_blank\"}{:rel=\"noopener\"}
+40. [JSON](https://www.json.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-41. [XML Schema](https://en.wikipedia.org/wiki/XML_schema){:target=\"_blank\"}{:rel=\"noopener\"}
+41. [JavaScript](https://en.wikipedia.org/wiki/JavaScript){:target=\"_blank\"}{:rel=\"noopener\"}
 
-42. [Regular expressions](https://en.wikipedia.org/wiki/Regular_expression){:target=\"_blank\"}{:rel=\"noopener\"}
+42. [YAML](http://www.yaml.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-43. [Concatenation](https://en.wikipedia.org/wiki/Concatenation){:target=\"_blank\"}{:rel=\"noopener\"}
+43. [XML](https://en.wikipedia.org/wiki/XML){:target=\"_blank\"}{:rel=\"noopener\"}
 
-44. [Git](https://git-scm.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+44. [XML Schema](https://en.wikipedia.org/wiki/XML_schema){:target=\"_blank\"}{:rel=\"noopener\"}
 
-45. [GitHub Desktop](https://desktop.github.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+45. [Regular expressions](https://en.wikipedia.org/wiki/Regular_expression){:target=\"_blank\"}{:rel=\"noopener\"}
 
-46. [GitHub Pages](https://pages.github.com){:target=\"_blank\"}{:rel=\"noopener\"}
+46. [Concatenation](https://en.wikipedia.org/wiki/Concatenation){:target=\"_blank\"}{:rel=\"noopener\"}
 
-47. [GitHub:buttons](https://buttons.github.io/){:target=\"_blank\"}{:rel=\"noopener\"}
+47. [Git](https://git-scm.com/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-48. [Flag Counter](https://flagcounter.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+48. [GitHub Desktop](https://desktop.github.com/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-49. [Sitemaps](https://en.wikipedia.org/wiki/Sitemaps){:target=\"_blank\"}{:rel=\"noopener\"}
+49. [GitHub Pages](https://pages.github.com){:target=\"_blank\"}{:rel=\"noopener\"}
 
-50. [Markdown](https://daringfireball.net/projects/markdown){:target=\"_blank\"}{:rel=\"noopener\"}
+50. [GitHub:buttons](https://buttons.github.io/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-51. [robots.txt](https://en.wikipedia.org/wiki/Robots_exclusion_standard){:target=\"_blank\"}{:rel=\"noopener\"}
+51. [Flag Counter](https://flagcounter.com/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-52. [Portable Network Graphics](https://en.wikipedia.org/wiki/Portable_Network_Graphics){:target=\"_blank\"}{:rel=\"noopener\"}
+52. [Sitemaps](https://en.wikipedia.org/wiki/Sitemaps){:target=\"_blank\"}{:rel=\"noopener\"}
 
-53. [ICO](https://en.wikipedia.org/wiki/ICO_(file_format)){:target=\"_blank\"}{:rel=\"noopener\"}
+53. [Markdown](https://daringfireball.net/projects/markdown){:target=\"_blank\"}{:rel=\"noopener\"}
 
-54. [GIF](https://en.wikipedia.org/wiki/GIF){:target=\"_blank\"}{:rel=\"noopener\"}
+54. [robots.txt](https://en.wikipedia.org/wiki/Robots_exclusion_standard){:target=\"_blank\"}{:rel=\"noopener\"}
 
-55. [CSV](https://en.wikipedia.org/wiki/Comma-separated_values){:target=\"_blank\"}{:rel=\"noopener\"}
+55. [Portable Network Graphics](https://en.wikipedia.org/wiki/Portable_Network_Graphics){:target=\"_blank\"}{:rel=\"noopener\"}
 
-56. [Text file](https://en.wikipedia.org/wiki/Text_file){:target=\"_blank\"}{:rel=\"noopener\"}
+56. [ICO](https://en.wikipedia.org/wiki/ICO_(file_format)){:target=\"_blank\"}{:rel=\"noopener\"}
 
-57. [Shields.io](https://shields.io/){:target=\"_blank\"}{:rel=\"noopener\"}
+57. [GIF](https://en.wikipedia.org/wiki/GIF){:target=\"_blank\"}{:rel=\"noopener\"}
+
+58. [CSV](https://en.wikipedia.org/wiki/Comma-separated_values){:target=\"_blank\"}{:rel=\"noopener\"}
+
+59. [Text file](https://en.wikipedia.org/wiki/Text_file){:target=\"_blank\"}{:rel=\"noopener\"}
+
+60. [Shields.io](https://shields.io/){:target=\"_blank\"}{:rel=\"noopener\"}
 
 
 
@@ -284,99 +290,105 @@ Dieses Repository besteht aus:
 
 10. [kramdown](https://kramdown.gettalong.org){:target=\"_blank\"}{:rel=\"noopener\"}
 
-11. [Atom](https://atom.io/){:target=\"_blank\"}{:rel=\"noopener\"}
+11. [Bundler](https://bundler.io/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-12. [linter](https://atom.io/packages/linter){:target=\"_blank\"}{:rel=\"noopener\"}
+12. [Chroma](https://github.com/jfairbank/chroma){:target=\"_blank\"}{:rel=\"noopener\"}
 
-13. [linter-pylint](https://atom.io/packages/linter-pylint){:target=\"_blank\"}{:rel=\"noopener\"}
+13. [CSV gem](https://github.com/ruby/csv){:target=\"_blank\"}{:rel=\"noopener\"}
 
-14. [linter-rubocop](https://atom.io/packages/linter-rubocop){:target=\"_blank\"}{:rel=\"noopener\"}
+14. [Atom](https://atom.io/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-15. [Sublime Text](https://www.sublimetext.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+15. [linter](https://atom.io/packages/linter){:target=\"_blank\"}{:rel=\"noopener\"}
 
-16. [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter){:target=\"_blank\"}{:rel=\"noopener\"}
+16. [linter-pylint](https://atom.io/packages/linter-pylint){:target=\"_blank\"}{:rel=\"noopener\"}
 
-17. [SublimeLinter-pylint](https://github.com/SublimeLinter/SublimeLinter-pylint){:target=\"_blank\"}{:rel=\"noopener\"}
+17. [linter-rubocop](https://atom.io/packages/linter-rubocop){:target=\"_blank\"}{:rel=\"noopener\"}
 
-18. [SublimeLinter-rubocop](https://github.com/SublimeLinter/SublimeLinter-rubocop){:target=\"_blank\"}{:rel=\"noopener\"}
+18. [Sublime Text](https://www.sublimetext.com/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-19. [Sublime Text Markdown Preview](https://github.com/revolunet/sublimetext-markdown-preview){:target=\"_blank\"}{:rel=\"noopener\"}
+19. [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter){:target=\"_blank\"}{:rel=\"noopener\"}
 
-20. [Python](https://www.python.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+20. [SublimeLinter-pylint](https://github.com/SublimeLinter/SublimeLinter-pylint){:target=\"_blank\"}{:rel=\"noopener\"}
 
-21. [PyCharm](https://www.jetbrains.com/pycharm/){:target=\"_blank\"}{:rel=\"noopener\"}
+21. [SublimeLinter-rubocop](https://github.com/SublimeLinter/SublimeLinter-rubocop){:target=\"_blank\"}{:rel=\"noopener\"}
 
-22. [Seaborn](https://seaborn.pydata.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+22. [Sublime Text Markdown Preview](https://github.com/revolunet/sublimetext-markdown-preview){:target=\"_blank\"}{:rel=\"noopener\"}
 
-23. [pandas](https://pandas.pydata.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+23. [Python](https://www.python.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-24. [Matplotlib](https://matplotlib.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+24. [PyCharm](https://www.jetbrains.com/pycharm/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-25. [Pylint](https://www.pylint.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+25. [Seaborn](https://seaborn.pydata.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-26. [Perl](https://www.perl.org){:target=\"_blank\"}{:rel=\"noopener\"}
+26. [pandas](https://pandas.pydata.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-27. [cloc](https://github.com/AlDanial/cloc){:target=\"_blank\"}{:rel=\"noopener\"}
+27. [Matplotlib](https://matplotlib.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-28. [d3pie](http://d3pie.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+28. [Pylint](https://www.pylint.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-29. [D3](https://d3js.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+29. [Perl](https://www.perl.org){:target=\"_blank\"}{:rel=\"noopener\"}
 
-30. [Google Charts](https://developers.google.com/chart/){:target=\"_blank\"}{:rel=\"noopener\"}
+30. [cloc](https://github.com/AlDanial/cloc){:target=\"_blank\"}{:rel=\"noopener\"}
 
-31. [Chart.js](http://www.chartjs.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+31. [d3pie](http://d3pie.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-32. [plotly.js](https://plot.ly/javascript/){:target=\"_blank\"}{:rel=\"noopener\"}
+32. [D3](https://d3js.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-33. [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5){:target=\"_blank\"}{:rel=\"noopener\"}
+33. [Google Charts](https://developers.google.com/chart/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-34. [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3){:target=\"_blank\"}{:rel=\"noopener\"}
+34. [Chart.js](http://www.chartjs.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-35. [Bootstrap](https://getbootstrap.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+35. [plotly.js](https://plot.ly/javascript/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-36. [jQuery](https://jquery.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+36. [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5){:target=\"_blank\"}{:rel=\"noopener\"}
 
-37. [JSON](https://www.json.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+37. [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3){:target=\"_blank\"}{:rel=\"noopener\"}
 
-38. [JavaScript](https://en.wikipedia.org/wiki/JavaScript){:target=\"_blank\"}{:rel=\"noopener\"}
+38. [Bootstrap](https://getbootstrap.com/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-39. [YAML](http://www.yaml.org/){:target=\"_blank\"}{:rel=\"noopener\"}
+39. [jQuery](https://jquery.com/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-40. [XML](https://en.wikipedia.org/wiki/XML){:target=\"_blank\"}{:rel=\"noopener\"}
+40. [JSON](https://www.json.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-41. [XML Schema](https://en.wikipedia.org/wiki/XML_schema){:target=\"_blank\"}{:rel=\"noopener\"}
+41. [JavaScript](https://en.wikipedia.org/wiki/JavaScript){:target=\"_blank\"}{:rel=\"noopener\"}
 
-42. [Regular expressions](https://en.wikipedia.org/wiki/Regular_expression){:target=\"_blank\"}{:rel=\"noopener\"}
+42. [YAML](http://www.yaml.org/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-43. [Concatenation](https://en.wikipedia.org/wiki/Concatenation){:target=\"_blank\"}{:rel=\"noopener\"}
+43. [XML](https://en.wikipedia.org/wiki/XML){:target=\"_blank\"}{:rel=\"noopener\"}
 
-44. [Git](https://git-scm.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+44. [XML Schema](https://en.wikipedia.org/wiki/XML_schema){:target=\"_blank\"}{:rel=\"noopener\"}
 
-45. [GitHub Desktop](https://desktop.github.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+45. [Regular expressions](https://en.wikipedia.org/wiki/Regular_expression){:target=\"_blank\"}{:rel=\"noopener\"}
 
-46. [GitHub Pages](https://pages.github.com){:target=\"_blank\"}{:rel=\"noopener\"}
+46. [Concatenation](https://en.wikipedia.org/wiki/Concatenation){:target=\"_blank\"}{:rel=\"noopener\"}
 
-47. [GitHub:buttons](https://buttons.github.io/){:target=\"_blank\"}{:rel=\"noopener\"}
+47. [Git](https://git-scm.com/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-48. [Flag Counter](https://flagcounter.com/){:target=\"_blank\"}{:rel=\"noopener\"}
+48. [GitHub Desktop](https://desktop.github.com/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-49. [Sitemaps](https://en.wikipedia.org/wiki/Sitemaps){:target=\"_blank\"}{:rel=\"noopener\"}
+49. [GitHub Pages](https://pages.github.com){:target=\"_blank\"}{:rel=\"noopener\"}
 
-50. [Markdown](https://daringfireball.net/projects/markdown){:target=\"_blank\"}{:rel=\"noopener\"}
+50. [GitHub:buttons](https://buttons.github.io/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-51. [robots.txt](https://en.wikipedia.org/wiki/Robots_exclusion_standard){:target=\"_blank\"}{:rel=\"noopener\"}
+51. [Flag Counter](https://flagcounter.com/){:target=\"_blank\"}{:rel=\"noopener\"}
 
-52. [Portable Network Graphics](https://en.wikipedia.org/wiki/Portable_Network_Graphics){:target=\"_blank\"}{:rel=\"noopener\"}
+52. [Sitemaps](https://en.wikipedia.org/wiki/Sitemaps){:target=\"_blank\"}{:rel=\"noopener\"}
 
-53. [ICO](https://en.wikipedia.org/wiki/ICO_(file_format)){:target=\"_blank\"}{:rel=\"noopener\"}
+53. [Markdown](https://daringfireball.net/projects/markdown){:target=\"_blank\"}{:rel=\"noopener\"}
 
-54. [GIF](https://en.wikipedia.org/wiki/GIF){:target=\"_blank\"}{:rel=\"noopener\"}
+54. [robots.txt](https://en.wikipedia.org/wiki/Robots_exclusion_standard){:target=\"_blank\"}{:rel=\"noopener\"}
 
-55. [CSV](https://en.wikipedia.org/wiki/Comma-separated_values){:target=\"_blank\"}{:rel=\"noopener\"}
+55. [Portable Network Graphics](https://en.wikipedia.org/wiki/Portable_Network_Graphics){:target=\"_blank\"}{:rel=\"noopener\"}
 
-56. [Text file](https://en.wikipedia.org/wiki/Text_file){:target=\"_blank\"}{:rel=\"noopener\"}
+56. [ICO](https://en.wikipedia.org/wiki/ICO_(file_format)){:target=\"_blank\"}{:rel=\"noopener\"}
 
-57. [Shields.io](https://shields.io/){:target=\"_blank\"}{:rel=\"noopener\"}
+57. [GIF](https://en.wikipedia.org/wiki/GIF){:target=\"_blank\"}{:rel=\"noopener\"}
+
+58. [CSV](https://en.wikipedia.org/wiki/Comma-separated_values){:target=\"_blank\"}{:rel=\"noopener\"}
+
+59. [Text file](https://en.wikipedia.org/wiki/Text_file){:target=\"_blank\"}{:rel=\"noopener\"}
+
+60. [Shields.io](https://shields.io/){:target=\"_blank\"}{:rel=\"noopener\"}
 
 
 
