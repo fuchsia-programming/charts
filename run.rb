@@ -202,7 +202,7 @@ logdata = logdata.lines.group_by(&:strip).map{|k, v| [k, v.size]}
 logdata.unshift(%w[Date Amount])
 
 # data for the d3pie file type report on home page
-def get_extensions
+def file_extensions
   Dir.glob('**/*').map do |x|
     ext = File.extname(x)
     if ext == ''
@@ -214,7 +214,7 @@ def get_extensions
 end
 
 # extensions
-allfiles = get_extensions.flatten.group_by{|x| x}.map{|k, v| [k, v.size]}
+allfiles = file_extensions.flatten.group_by{|x| x}.map{|k, v| [k, v.size]}
 
 # function that generates the pie chart data
 def generate_data
