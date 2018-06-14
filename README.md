@@ -82,7 +82,10 @@ Demo can be seen here: http://thebeast.me/charts/
 50. [Markdown](https://daringfireball.net/projects/markdown)
 51. [robots.txt](https://en.wikipedia.org/wiki/Robots_exclusion_standard)
 52. [Portable Network Graphics](https://en.wikipedia.org/wiki/Portable_Network_Graphics)
-53. [Text file](https://en.wikipedia.org/wiki/Text_file)
-54. [Shields.io](https://shields.io/)
+53. [ICO](https://en.wikipedia.org/wiki/ICO_(file_format))
+54. [GIF](https://en.wikipedia.org/wiki/GIF)
+55. [CSV](https://en.wikipedia.org/wiki/Comma-separated_values)
+56. [Text file](https://en.wikipedia.org/wiki/Text_file)
+57. [Shields.io](https://shields.io/)
 
 
