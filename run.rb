@@ -3,6 +3,7 @@
 
 # Reach your final destination
 
+require 'csv'
 require 'kramdown'
 require 'prawn'
 # require 'prawn/table'
@@ -16,60 +17,10 @@ chart_types = { 'd3pie' => 'd3pie',
                 'all' => 'All chart types' }
 
 # this repository is built with these technologies
-built_with = { 'macOS High Sierra' => 'https://www.apple.com/macos/high-sierra/',
-               'Windows 10' => 'https://www.microsoft.com/en-au/windows/get-windows-10',
-               'Homebrew' => 'https://brew.sh/',
-               'Chocolatey' => 'https://chocolatey.org/',
-               'Ruby' => 'https://www.ruby-lang.org',
-               'RubyMine' => 'https://www.jetbrains.com/ruby',
-               'Rubocop' => 'https://github.com/bbatsov/rubocop',
-               'rbenv' => 'https://github.com/rbenv/rbenv',
-               'ruby-build' => 'https://github.com/rbenv/ruby-build',
-               'kramdown' => 'https://kramdown.gettalong.org',
-               'Atom' => 'https://atom.io/',
-               'linter' => 'https://atom.io/packages/linter',
-               'linter-pylint' => 'https://atom.io/packages/linter-pylint',
-               'linter-rubocop' => 'https://atom.io/packages/linter-rubocop',
-               'Sublime Text' => 'https://www.sublimetext.com/',
-               'SublimeLinter' => 'https://github.com/SublimeLinter/SublimeLinter',
-               'SublimeLinter-pylint' => 'https://github.com/SublimeLinter/SublimeLinter-pylint',
-               'SublimeLinter-rubocop' => 'https://github.com/SublimeLinter/SublimeLinter-rubocop',
-               'Sublime Text Markdown Preview' => 'https://github.com/revolunet/sublimetext-markdown-preview',
-               'Python' => 'https://www.python.org/',
-               'PyCharm' => 'https://www.jetbrains.com/pycharm/',
-               'Seaborn' => 'https://seaborn.pydata.org/',
-               'pandas' => 'https://pandas.pydata.org/',
-               'Matplotlib' => 'https://matplotlib.org/',
-               'Pylint' => 'https://www.pylint.org/',
-               'Perl' => 'https://www.perl.org',
-               'cloc' => 'https://github.com/AlDanial/cloc',
-               'd3pie' => 'http://d3pie.org/',
-               'D3' => 'https://d3js.org/',
-               'Google Charts' => 'https://developers.google.com/chart/',
-               'Chart.js' => 'http://www.chartjs.org/',
-               'plotly.js' => 'https://plot.ly/javascript/',
-               'HTML5' => 'https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5',
-               'CSS3' => 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3',
-               'Bootstrap' => 'https://getbootstrap.com/',
-               'jQuery' => 'https://jquery.com/',
-               'JSON' => 'https://www.json.org/',
-               'JavaScript' => 'https://en.wikipedia.org/wiki/JavaScript',
-               'YAML' => 'http://www.yaml.org/',
-               'XML' => 'https://en.wikipedia.org/wiki/XML',
-               'XML Schema' => 'https://en.wikipedia.org/wiki/XML_schema',
-               'Regular expressions' => 'https://en.wikipedia.org/wiki/Regular_expression',
-               'Concatenation' => 'https://en.wikipedia.org/wiki/Concatenation',
-               'Git' => 'https://git-scm.com/',
-               'GitHub Desktop' => 'https://desktop.github.com/',
-               'GitHub Pages' => 'https://pages.github.com',
-               'GitHub:buttons' => 'https://buttons.github.io/',
-               'Flag Counter' => 'https://flagcounter.com/',
-               'Sitemaps' => 'https://en.wikipedia.org/wiki/Sitemaps',
-               'Markdown' => 'https://daringfireball.net/projects/markdown',
-               'robots.txt' => 'https://en.wikipedia.org/wiki/Robots_exclusion_standard',
-               'Portable Network Graphics' => 'https://en.wikipedia.org/wiki/Portable_Network_Graphics',
-               'Text file' => 'https://en.wikipedia.org/wiki/Text_file',
-               'Shields.io' => 'https://shields.io/' }
+built_with = {}
+CSV.foreach('assets/config/built_with.csv') do |row|
+  built_with[:"#{row[0]}"] = row[1]
+end
 
 # site JavaScripts
 site_scripts = %w[bootstrap/js/jquery.min.js bootstrap/js/bootstrap.min.js]
@@ -80,10 +31,13 @@ plotlyjs_script = %w[assets/js/plotly.min.js]
 
 # colors for the file extensions
 exthash = { 'css' => '#E6B0AA',
+            'csv' => '#555555',
             'eot' => '#F4D03F',
             'folders' => '#E67E22',
             'html' => '#D7BDE2',
+            'ico' => '#666600',
             'js' => '#28B463',
+            'json' => '#710000',
             'map' => '#111111',
             'md' => '#A9CCE3',
             'png' => 'blue',
