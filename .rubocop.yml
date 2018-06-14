@@ -13,29 +13,29 @@ Metrics/AbcSize:
 
 Metrics/BlockLength:
   Exclude:
-    - 'run.rb'
+    - run.rb
 
 Metrics/CyclomaticComplexity:
   Enabled: false
 
 Metrics/LineLength:
   Exclude:
-    - 'run.rb'
+    - run.rb
 
 Metrics/MethodLength:
   Exclude:
-    - 'run.rb'
+    - run.rb
 
 Metrics/PerceivedComplexity:
   Enabled: false
 
 Naming/UncommunicativeMethodParamName:
   Exclude:
-    - 'run.rb'
+    - run.rb
 
 Style/BlockComments:
   Exclude:
-    - 'run.rb'
+    - run.rb
 
 Style/NestedTernaryOperator:
   Enabled: false
