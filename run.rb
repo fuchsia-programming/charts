@@ -201,22 +201,20 @@ logdata = read_file('log.txt')
 logdata = logdata.lines.group_by(&:strip).map{|k, v| [k, v.size]}
 logdata.unshift(%w[Date Amount])
 
-# get file extensions
-extension = []
-extension << Dir.glob('**/*').map do |x|
-  ext = File.extname(x)
-  if ext == ''
-    'folders'
-  else
-    ext[1..-1]
+# data for the d3pie file type report on home page
+def get_extensions
+  Dir.glob('**/*').map do |x|
+    ext = File.extname(x)
+    if ext == ''
+      'folders'
+    else
+      ext[1..-1]
+    end
   end
-  # sz = File.size(x)
-  # szs << sz
-  #
 end
 
 # extensions
-allfiles = extension.flatten.group_by{|x| x}.map{|k, v| [k, v.size]}
+allfiles = get_extensions.flatten.group_by{|x| x}.map{|k, v| [k, v.size]}
 
 # function that generates the pie chart data
 def generate_data
