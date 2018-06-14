@@ -423,7 +423,7 @@ end
 def section_built_with(cloc, site_config)
   s = %(
       <div class="col-md-5">
-        #{Kramdown::Document.new(site_config['about'].gsub('[English](README.md) [Deutsche](lang/README.de.md)','')).to_html}
+        #{Kramdown::Document.new(site_config['about'].gsub('[English](README.md) [Deutsche](lang/README.de.md)', '')).to_html}
       </div>
       <div class="col-md-7">
         <h3>#{site_config['homepage_subheading4']}</h3>
