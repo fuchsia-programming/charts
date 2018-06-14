@@ -148,13 +148,18 @@ site_config = config(built_with)
 # current chart type
 ct = chart_types[site_config['chart_type']]
 
-# data for GitHub buttons
-buttons = [
-  ['', "Follow @#{site_config['github_username']} on GitHub", "Follow @#{site_config['github_username']}", ''],
-  ["/#{site_config['repository']}", "Star #{site_config['github_username']}/#{site_config['repository']} on GitHub", 'Star', 'star'],
-  ["/#{site_config['repository']}/subscription", "Watch #{site_config['github_username']}/#{site_config['repository']} on GitHub", 'Watch', 'eye'],
-  ["/#{site_config['repository']}/fork", "Fork #{site_config['github_username']}/#{site_config['repository']} on GitHub", 'Fork', 'repo-forked']
-]
+# GitHub buttons shown in the footer
+def github_buttons(r, u)
+  [
+    ['', "Follow @#{u} on GitHub", "Follow @#{u}", ''],
+    ["/#{r}", "Star #{u}/#{r} on GitHub", 'Star', 'star'],
+    ["/#{r}/subscription", "Watch #{u}/#{r} on GitHub", 'Watch', 'eye'],
+    ["/#{r}/fork", "Fork #{u}/#{r} on GitHub", 'Fork', 'repo-forked']
+  ]
+end
+
+# create the GitHub buttons
+buttons = github_buttons(site_config['repository'], site_config['github_username'])
 
 # create cloc data
 cloc = `cloc . --ignored=ignored.txt --skip-uniqueness --quiet`
