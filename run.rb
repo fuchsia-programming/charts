@@ -69,13 +69,18 @@ schema_colors = { 'bar.xsd' => '#E6B0AA',
                   'xenc_schema.xsd' => '#17202A',
                   'xmldsig_schema.xsd' => '#8E44AD' }
 
-# create Python charts for homepage
-os = RbConfig::CONFIG['host_os'].downcase
-python = 'python3'
-python = 'python' unless os.include?('linux') || os.include?('darwin')
+# runs Python from a shell command
+def python_charts
+  os = RbConfig::CONFIG['host_os'].downcase
+  python = 'python3'
+  python = 'python' unless os.include?('linux') || os.include?('darwin')
+
+  # create Python charts for homepage
+  `#{python} python/charts.py`
+end
 
 # create Python charts for homepage
-`#{python} python/charts.py`
+python_charts
 
 # make the site built with links into kramdown
 def kramdown_links(links)
