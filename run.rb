@@ -193,13 +193,21 @@ buttons = [
 # create cloc data
 cloc = `cloc . --ignored=ignored.txt --skip-uniqueness --quiet`
 
-# create git log for histogram on homepage
-log = `git log --pretty=format:"%ad" --date=short`
-write_file('log.txt', log)
+def log_data
+  # create git log for histogram on homepage
+  log = `git log --pretty=format:"%ad" --date=short`
+  write_file('log.txt', log)
 
-logdata = read_file('log.txt')
-logdata = logdata.lines.group_by(&:strip).map{|k, v| [k, v.size]}
-logdata.unshift(%w[Date Amount])
+  logdata = read_file('log.txt')
+  logdata = logdata.lines.group_by(&:strip).map{|k, v| [k, v.size]}
+  logdata.unshift(%w[Date Amount])
+end
+
+# create git log data
+gitlogdata = log_data
+
+# todo
+# create histogram of git log data
 
 # data for the d3pie file type report on home page
 def file_extensions
