@@ -166,14 +166,18 @@ def write_file(filename, data)
 end
 
 # set up the config file
-config = read_file('config.yml').chomp('').chop
-write_file('site.yml', config + kramdown_links(built_with))
+config = read_file('config.yml').chomp('').chop + kramdown_links(built_with)
+# german
+config_de = read_file('assets/config/de.yml').chomp('').chop + kramdown_links(built_with)
+
+write_file('site.yml', config + "\n\n" + config_de)
 
 # load website config file
 site_config = YAML.safe_load(read_file('site.yml'))
 
 # create README from config file
 write_file('README.md', site_config['about'].gsub('{:target="_blank"}{:rel="noopener"}', ''))
+write_file('lang/README.de.md', site_config['aboutde'].gsub('{:target="_blank"}{:rel="noopener"}', ''))
 
 # current chart type
 ct = chart_types[site_config['chart_type']]

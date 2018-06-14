@@ -1,34 +1,34 @@
-## Charting Demo Info
+## Info zur Grafik-Demo
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/jbampton/charts/blob/gh-pages/LICENSE)
+[![Lizenz: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/jbampton/charts/blob/gh-pages/LICENSE)
 
-[English](README.md) [Deutsche](lang/README.de.md)
+[English](../README.md) [Deutsche](README.de.md)
 
-This Ruby script **`run.rb`** is a static site generator. It data mines or text mines a folder of XML Schema files as well as the MIT License (only for the d3pie charts) and generates statistics on elements and attributes (the XML Schema) or on words (the License).
+Dieses Ruby-Skript **`run.rb`** ist ein statischer Site-Generator. Es mint Daten oder Text in einem Ordner mit XML-Schema-Dateien sowie die MIT-Lizenz (nur für die d3pie-Diagramme) und erstellt Statistiken über Elemente und Attribute (das XML-Schema) oder über Wörter (die Lizenz).
 
-The config file: **`config.xml`** stores most of the websites configuration information and can be easily customized.
+Die Konfigurationsdatei: **`config.xml`** speichert die meisten Konfigurationsinformationen der Website und kann leicht an Ihre Bedürfnisse angepasst werden.
 
-A fancy feature is the ability to switch between using all d3pie, Google Charts, Chart.js or plotly.js based pie charts just by changing the config entry **`chart_type`** to one of **`d3pie`**, **`google`**, **`chartjs`** or **`plotly`**.
+Ein ausgefallenes Feature ist die Möglichkeit, zwischen allen d3pie, Google Charts, Chart.js oder plotly.js basierten Tortendiagrammen zu wechseln, indem man einfach den Konfigurationseintrag **`chart_type`** in einen von **`d3pie`**, **`google`**, **`chartjs`** oder **`plotly`** ändert.
 
-The site config entry **`chart_type`** can be set to **`all`** which displays all chart types, each chart type on its own page.
+Der Website-Konfigurationseintrag **`chart_type`** kann so konfiguriert werden, dass alle Chart-Typen angezeigt werden, jeder Chart-Typ auf einer eigenen Seite.
 
-The home page has a selection of both d3pie JavaScript charts and some PNG charts created from using the Python packages Seaborn and Matplotlib.
+Die Homepage enthält eine Auswahl an d3pie JavaScript Charts und einige PNG Charts, die mit den Python-Paketen Seaborn und Matplotlib erstellt wurden.
 
-For all four styles of pie charts we have both **`Donut`** and **`Pie`** style charts.
+Für alle vier Arten von Tortendiagrammen haben wir sowohl Donut- als auch Tortendiagramme.
 
-The advantage of the d3pie chart is its interactive clickable pie charts pieces.
+Der Vorteil des d3pie Diagramms liegt in den interaktiven, anklickbaren Tortendiagrammen.
 
-The advantage of the Google Chart pie chart is its in built ability to create a chart legend.
+Der Vorteil des Google Chart Tortendiagramms ist seine eingebaute Fähigkeit, eine Chart-Legende zu erstellen.
 
-The advantage of the Chart.js pie chart is its interactive clickable legend.
+Der Vorteil des Chart.js Tortendiagramms ist die interaktive, anklickbare Darstellung.
 
-The **plotly.js** pie charts are by far the most interactive out of the box.
+Die plotly.js Tortendiagramme sind die mit Abstand interaktivsten von allen.
 
-Even the README.md file is created from the **`config.xml`** config file.
+Sogar die README.md-Datei wird aus der config.xml-Konfigurationsdatei erstellt.
 
-Demo can be seen here: http://thebeast.me/charts/
+Eine Demo finden Sie hier: http://thebeast.me/charts/
 
-## This repository is built with
+Dieses Repository besteht aus:
 
 1. [macOS High Sierra](https://www.apple.com/macos/high-sierra/)
 2. [Windows 10](https://www.microsoft.com/en-au/windows/get-windows-10)
