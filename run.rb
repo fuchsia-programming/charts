@@ -152,25 +152,25 @@ def file_extensions
   end
 end
 
-# colors for the main schema charts
-schema_colors = {}
-schema_count = Dir['assets/data/schema/*.xsd'].size
-degrees = 360.0 / schema_count
-
-Dir['assets/data/schema/*.xsd'].map.with_index(1) do |f, i|
-  schema_colors[:"#{File.basename(f)}"] = 'red'.paint.spin(degrees * i)
+# create color spin
+def colors(color, files, count)
+  degrees = 360.0 / count
+  files.map.with_index(1) do |f, i|
+    color[:"#{f}"] = 'red'.paint.spin(degrees * i)
+  end
 end
 
 # colors for the file extensions
 exthash = {}
 uniqfile = file_extensions.uniq
 uniqfilesize = uniqfile.size
-degrees = 360.0 / uniqfilesize
+colors(exthash, uniqfile, uniqfilesize)
 
-# create colors for the file extension pie chart on home page
-uniqfile.map.with_index(1) do |f, i|
-  exthash[:"#{f}"] = 'red'.paint.spin(degrees * i)
-end
+# colors for most of the schema charts
+schema_colors = {}
+schema_files = Dir['assets/data/schema/*.xsd'].map{|x| File.basename(x)}
+schema_count = schema_files.size
+colors(schema_colors, schema_files, schema_count)
 
 # extensions
 allfiles = file_extensions.group_by{|x| x}.map{|k, v| [k, v.size]}
@@ -477,26 +477,26 @@ end
 # function to draw the Chart.js charts
 def draw_chartjs_chart(type, canvas_id, data, colors, title, titlefontsize, responsive)
   %(
-    var ctx = document.getElementById("chartjs_canvas#{canvas_id}");
-    var myChart = new Chart(ctx, {
-      type: '#{type}',
-      data: {
-          labels: #{data.map{|x| fir(x)}},
-          datasets: [{
-              label: '#{title}',
-              data: #{data.map(&:last)},
-              backgroundColor: #{data.map{|x| colors[:"#{x[0]}"].to_s}}
-          }]
-      },
-      options: {
-          responsive: #{responsive},
-          title : {
-            display: true,
-            text: '#{title}',
-            fontSize: #{titlefontsize}
-          }
-      }
-  });
+      var ctx = document.getElementById("chartjs_canvas#{canvas_id}");
+      var myChart = new Chart(ctx, {
+        type: '#{type}',
+        data: {
+            labels: #{data.map{|x| fir(x)}},
+            datasets: [{
+                label: '#{title}',
+                data: #{data.map(&:last)},
+                backgroundColor: #{data.map{|x| colors[:"#{x[0]}"].to_s}}
+            }]
+        },
+        options: {
+            responsive: #{responsive},
+            title : {
+              display: true,
+              text: '#{title}',
+              fontSize: #{titlefontsize}
+            }
+        }
+      });
   )
 end
 
