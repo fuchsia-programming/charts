@@ -8,6 +8,7 @@ Rubocop,https://github.com/bbatsov/rubocop
 rbenv,https://github.com/rbenv/rbenv
 ruby-build,https://github.com/rbenv/ruby-build
 kramdown,https://kramdown.gettalong.org
+RubyCritic,https://github.com/whitesmith/rubycritic
 Bundler,https://bundler.io/
 Chroma,https://github.com/jfairbank/chroma
 CSV gem,https://github.com/ruby/csv

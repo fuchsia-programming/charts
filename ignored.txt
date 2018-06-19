@@ -16,3 +16,5 @@
 ./ignored.txt: listed in $Not_Code_Extension{txt}
 ./log.txt: listed in $Not_Code_Extension{txt}
 ./robots.txt: listed in $Not_Code_Extension{txt}
+./rubycritic/assets/fonts/fontawesome-webfont.svg: language unknown (#3)
+./rubycritic/assets/fonts/glyphicons-halflings-regular.svg: language unknown (#3)
