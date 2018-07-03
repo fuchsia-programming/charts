@@ -1,5 +1,5 @@
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.5.1
 
 Layout/SpaceBeforeBlockBraces:
   EnforcedStyle: no_space
@@ -28,10 +28,6 @@ Metrics/MethodLength:
 
 Metrics/PerceivedComplexity:
   Enabled: false
-
-Naming/UncommunicativeMethodParamName:
-  Exclude:
-    - run.rb
 
 Style/BlockComments:
   Exclude:

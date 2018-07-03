@@ -86,52 +86,30 @@
       </div>
     </nav>
     <div class="container-fluid">
-      <h1>Chart type: <strong><code>Chart.js</code></strong></h1>
+      <h1>Chart type: <strong><code>plotly.js</code></strong></h1>
       <h2 id="other">Branch count grouped by file</h2>
       
-      <div class="col-lg-4 col-md-6 col-sm-12">
-        <canvas id="chartjs_canvastypexsstring" width="400" height="350"></canvas>
-      </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_typexsstring"></div>
       
-      <div class="col-lg-4 col-md-6 col-sm-12">
-        <canvas id="chartjs_canvastypexsunsignedShort" width="400" height="350"></canvas>
-      </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_typexsunsignedShort"></div>
       
-      <div class="col-lg-4 col-md-6 col-sm-12">
-        <canvas id="chartjs_canvasuseoptional" width="400" height="350"></canvas>
-      </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_useoptional"></div>
       
-      <div class="col-lg-4 col-md-6 col-sm-12">
-        <canvas id="chartjs_canvasuserequired" width="400" height="350"></canvas>
-      </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_userequired"></div>
       
-      <div class="col-lg-4 col-md-6 col-sm-12">
-        <canvas id="chartjs_canvasvalueDeny" width="400" height="350"></canvas>
-      </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_valueDeny"></div>
       
-      <div class="col-lg-4 col-md-6 col-sm-12">
-        <canvas id="chartjs_canvasvalueIndeterminate" width="400" height="350"></canvas>
-      </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_valueIndeterminate"></div>
       
-      <div class="col-lg-4 col-md-6 col-sm-12">
-        <canvas id="chartjs_canvasvaluePermit" width="400" height="350"></canvas>
-      </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_valuePermit"></div>
       
-      <div class="col-lg-4 col-md-6 col-sm-12">
-        <canvas id="chartjs_canvasvaluebetter" width="400" height="350"></canvas>
-      </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_valuebetter"></div>
       
-      <div class="col-lg-4 col-md-6 col-sm-12">
-        <canvas id="chartjs_canvasvalueexact" width="400" height="350"></canvas>
-      </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_valueexact"></div>
       
-      <div class="col-lg-4 col-md-6 col-sm-12">
-        <canvas id="chartjs_canvasvaluemaximum" width="400" height="350"></canvas>
-      </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_valuemaximum"></div>
       
-      <div class="col-lg-4 col-md-6 col-sm-12">
-        <canvas id="chartjs_canvasvalueminimum" width="400" height="350"></canvas>
-      </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_valueminimum"></div>
     </div>
     <footer>
       <div class="container">
@@ -168,7 +146,7 @@
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-07-03T11:06:36+10:00</a></li>
+          <li><a class="built">Site last built: 2018-07-03T14:56:05+07:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -180,238 +158,260 @@
     </footer>
     <script src="assets/bootstrap/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/Chart.min.js"></script>
+    <script src="assets/js/plotly.min.js"></script>
     <script>
-      var ctx = document.getElementById("chartjs_canvastypexsstring");
-      var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ["concept", "sitemap", "topic", "dinner-menu", "bookstore", "note", "saml20protocol_schema", "task", "note2", "reference"],
-            datasets: [{
-                label: '701 - type="xs:string"',
-                data: [7, 4, 25, 3, 4, 5, 11, 13, 2, 13],
-                backgroundColor: ["#ff6600", "#ffcc00", "lime", "#00ffcc", "#00ccff", "#0066ff", "blue", "#cc00ff", "#ff00cc", "#ff0066"]
-            }]
-        },
-        options: {
-            responsive: false,
-            title : {
-              display: true,
-              text: '701 - type="xs:string"',
-              fontSize: 15
-            }
+    var data = [{
+      values: [4, 7, 3, 5, 2, 13, 11, 4, 13, 25],
+      labels: ["bookstore", "concept", "dinner-menu", "note", "note2", "reference", "saml20protocol_schema", "sitemap", "task", "topic"],
+      hole: 0,
+      type: 'pie'
+    }];
+
+    var layout = {
+      title: '701 - type="xs:string"',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 550, // Each legend entry is 15 high.
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
         }
-      });
+      };
+
+    Plotly.newPlot('plotly_chart_div_typexsstring', data, layout);
   
-      var ctx = document.getElementById("chartjs_canvastypexsunsignedShort");
-      var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ["saml20protocol_schema"],
-            datasets: [{
-                label: '702 - type="xs:unsignedShort"',
-                data: [2],
-                backgroundColor: ["blue"]
-            }]
-        },
-        options: {
-            responsive: false,
-            title : {
-              display: true,
-              text: '702 - type="xs:unsignedShort"',
-              fontSize: 15
-            }
+    var data = [{
+      values: [2],
+      labels: ["saml20protocol_schema"],
+      hole: 0,
+      type: 'pie'
+    }];
+
+    var layout = {
+      title: '702 - type="xs:unsignedShort"',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
         }
-      });
+      };
+
+    Plotly.newPlot('plotly_chart_div_typexsunsignedShort', data, layout);
   
-      var ctx = document.getElementById("chartjs_canvasuseoptional");
-      var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ["xmldsig_schema", "bookstore", "saml20protocol_schema", "saml20assertion_schema"],
-            datasets: [{
-                label: '703 - use="optional"',
-                data: [14, 3, 22, 18],
-                backgroundColor: ["#00ff66", "#00ccff", "blue", "red"]
-            }]
-        },
-        options: {
-            responsive: false,
-            title : {
-              display: true,
-              text: '703 - use="optional"',
-              fontSize: 15
-            }
+    var data = [{
+      values: [3, 18, 22, 14],
+      labels: ["bookstore", "saml20assertion_schema", "saml20protocol_schema", "xmldsig_schema"],
+      hole: 0,
+      type: 'pie'
+    }];
+
+    var layout = {
+      title: '703 - use="optional"',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 460, // Each legend entry is 15 high.
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
         }
-      });
+      };
+
+    Plotly.newPlot('plotly_chart_div_useoptional', data, layout);
   
-      var ctx = document.getElementById("chartjs_canvasuserequired");
-      var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ["xmldsig_schema", "saml20protocol_schema", "xenc_schema", "saml20assertion_schema"],
-            datasets: [{
-                label: '704 - use="required"',
-                data: [5, 9, 1, 9],
-                backgroundColor: ["#00ff66", "blue", "#6600ff", "red"]
-            }]
-        },
-        options: {
-            responsive: false,
-            title : {
-              display: true,
-              text: '704 - use="required"',
-              fontSize: 15
-            }
+    var data = [{
+      values: [9, 9, 1, 5],
+      labels: ["saml20assertion_schema", "saml20protocol_schema", "xenc_schema", "xmldsig_schema"],
+      hole: 0,
+      type: 'pie'
+    }];
+
+    var layout = {
+      title: '704 - use="required"',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 460, // Each legend entry is 15 high.
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
         }
-      });
+      };
+
+    Plotly.newPlot('plotly_chart_div_userequired', data, layout);
   
-      var ctx = document.getElementById("chartjs_canvasvalueDeny");
-      var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ["saml20assertion_schema"],
-            datasets: [{
-                label: '705 - value="Deny"',
-                data: [1],
-                backgroundColor: ["red"]
-            }]
-        },
-        options: {
-            responsive: false,
-            title : {
-              display: true,
-              text: '705 - value="Deny"',
-              fontSize: 15
-            }
+    var data = [{
+      values: [1],
+      labels: ["saml20assertion_schema"],
+      hole: 0,
+      type: 'pie'
+    }];
+
+    var layout = {
+      title: '705 - value="Deny"',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
         }
-      });
+      };
+
+    Plotly.newPlot('plotly_chart_div_valueDeny', data, layout);
   
-      var ctx = document.getElementById("chartjs_canvasvalueIndeterminate");
-      var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ["saml20assertion_schema"],
-            datasets: [{
-                label: '706 - value="Indeterminate"',
-                data: [1],
-                backgroundColor: ["red"]
-            }]
-        },
-        options: {
-            responsive: false,
-            title : {
-              display: true,
-              text: '706 - value="Indeterminate"',
-              fontSize: 15
-            }
+    var data = [{
+      values: [1],
+      labels: ["saml20assertion_schema"],
+      hole: 0,
+      type: 'pie'
+    }];
+
+    var layout = {
+      title: '706 - value="Indeterminate"',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
         }
-      });
+      };
+
+    Plotly.newPlot('plotly_chart_div_valueIndeterminate', data, layout);
   
-      var ctx = document.getElementById("chartjs_canvasvaluePermit");
-      var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ["saml20assertion_schema"],
-            datasets: [{
-                label: '707 - value="Permit"',
-                data: [1],
-                backgroundColor: ["red"]
-            }]
-        },
-        options: {
-            responsive: false,
-            title : {
-              display: true,
-              text: '707 - value="Permit"',
-              fontSize: 15
-            }
+    var data = [{
+      values: [1],
+      labels: ["saml20assertion_schema"],
+      hole: 0,
+      type: 'pie'
+    }];
+
+    var layout = {
+      title: '707 - value="Permit"',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
         }
-      });
+      };
+
+    Plotly.newPlot('plotly_chart_div_valuePermit', data, layout);
   
-      var ctx = document.getElementById("chartjs_canvasvaluebetter");
-      var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ["saml20protocol_schema"],
-            datasets: [{
-                label: '708 - value="better"',
-                data: [1],
-                backgroundColor: ["blue"]
-            }]
-        },
-        options: {
-            responsive: false,
-            title : {
-              display: true,
-              text: '708 - value="better"',
-              fontSize: 15
-            }
+    var data = [{
+      values: [1],
+      labels: ["saml20protocol_schema"],
+      hole: 0,
+      type: 'pie'
+    }];
+
+    var layout = {
+      title: '708 - value="better"',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
         }
-      });
+      };
+
+    Plotly.newPlot('plotly_chart_div_valuebetter', data, layout);
   
-      var ctx = document.getElementById("chartjs_canvasvalueexact");
-      var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ["saml20protocol_schema"],
-            datasets: [{
-                label: '709 - value="exact"',
-                data: [1],
-                backgroundColor: ["blue"]
-            }]
-        },
-        options: {
-            responsive: false,
-            title : {
-              display: true,
-              text: '709 - value="exact"',
-              fontSize: 15
-            }
+    var data = [{
+      values: [1],
+      labels: ["saml20protocol_schema"],
+      hole: 0,
+      type: 'pie'
+    }];
+
+    var layout = {
+      title: '709 - value="exact"',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
         }
-      });
+      };
+
+    Plotly.newPlot('plotly_chart_div_valueexact', data, layout);
   
-      var ctx = document.getElementById("chartjs_canvasvaluemaximum");
-      var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ["saml20protocol_schema"],
-            datasets: [{
-                label: '710 - value="maximum"',
-                data: [1],
-                backgroundColor: ["blue"]
-            }]
-        },
-        options: {
-            responsive: false,
-            title : {
-              display: true,
-              text: '710 - value="maximum"',
-              fontSize: 15
-            }
+    var data = [{
+      values: [1],
+      labels: ["saml20protocol_schema"],
+      hole: 0,
+      type: 'pie'
+    }];
+
+    var layout = {
+      title: '710 - value="maximum"',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
         }
-      });
+      };
+
+    Plotly.newPlot('plotly_chart_div_valuemaximum', data, layout);
   
-      var ctx = document.getElementById("chartjs_canvasvalueminimum");
-      var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ["saml20protocol_schema"],
-            datasets: [{
-                label: '711 - value="minimum"',
-                data: [1],
-                backgroundColor: ["blue"]
-            }]
-        },
-        options: {
-            responsive: false,
-            title : {
-              display: true,
-              text: '711 - value="minimum"',
-              fontSize: 15
-            }
+    var data = [{
+      values: [1],
+      labels: ["saml20protocol_schema"],
+      hole: 0,
+      type: 'pie'
+    }];
+
+    var layout = {
+      title: '711 - value="minimum"',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 415, // Each legend entry is 15 high.
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
         }
-      });
+      };
+
+    Plotly.newPlot('plotly_chart_div_valueminimum', data, layout);
   
         $(document).ready(function () {
            "use strict";
