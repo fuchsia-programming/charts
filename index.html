@@ -193,22 +193,22 @@
         <pre>
           <code>
             
-github.com/AlDanial/cloc v 1.76  T=3.01 s (42.5 files/s, 49917.0 lines/s)
+github.com/AlDanial/cloc v 1.76  T=10.22 s (9.9 files/s, 8070.8 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-HTML                            61           8573            180          87212
 JavaScript                      25           5815           4440          29263
+HTML                            29           4475             84          22894
 CSS                             11            191            187           8366
 Markdown                         7            641              0           2291
 XSD                             15             73             48           1375
 Ruby                             1             74            113            748
+XML                              7              0              0            698
 YAML                             4            300             38            270
-XML                              2              0              0             94
 Python                           1             19              3             64
 JSON                             1              0              0             41
 -------------------------------------------------------------------------------
-SUM:                           128          15686           5009         129724
+SUM:                           101          11588           4913          66010
 -------------------------------------------------------------------------------
 
           </code>
@@ -222,22 +222,22 @@ SUM:                           128          15686           5009         129724
       <div class="col-sm-12" id="d3pie_chart_div_homepage_mit"></div>
     </div>
     <div class="row">
+      <img class="img-responsive" src="python/images/automobile-pairgrid.png" alt="Automobile pairgrid">
+    </div>
+    <div class="row">
       <img class="img-responsive" src="python/images/automobile-hexbin-jointplot-of-horsepower-versus-mpg.png" alt="Automobile hexbin jointplot of horsepower versus mpg">
     </div>
     <div class="row">
-      <img class="img-responsive" src="python/images/automobile-pairgrid.png" alt="Automobile pairgrid">
+      <img class="img-responsive" src="python/images/violin-plot-of-automobile-cylinders-versus-horsepower.png" alt="Violin plot of automobile cylinders versus horsepower">
+    </div>
+    <div class="row">
+      <img class="img-responsive" src="python/images/swarmplot-of-automobile-horsepower-versus-cylinders.png" alt="Swarmplot of automobile horsepower versus cylinders">
     </div>
     <div class="row">
       <img class="img-responsive" src="python/images/automobile-pairplot-by-origin.png" alt="Automobile pairplot by origin">
     </div>
     <div class="row">
       <img class="img-responsive" src="python/images/automobile-weight-versus-horsepower-by-continent.png" alt="Automobile weight versus horsepower by continent">
-    </div>
-    <div class="row">
-      <img class="img-responsive" src="python/images/swarmplot-of-automobile-horsepower-versus-cylinders.png" alt="Swarmplot of automobile horsepower versus cylinders">
-    </div>
-    <div class="row">
-      <img class="img-responsive" src="python/images/violin-plot-of-automobile-cylinders-versus-horsepower.png" alt="Violin plot of automobile cylinders versus horsepower">
     </div>
     </div>
     <footer>
@@ -275,7 +275,7 @@ SUM:                           128          15686           5009         129724
             <a target="_blank" rel="noopener">Valid HTML</a>
           </li>
           <li><a href="#head1">Back to top</a></li>
-          <li><a class="built">Site last built: 2018-07-03T14:56:05+07:00</a></li>
+          <li><a class="built">Site last built: 2018-07-03T19:28:22+10:00</a></li>
         </ul>
         <a href="https://info.flagcounter.com/9VsC"
            target="_blank" rel="noopener">
@@ -287,8 +287,197 @@ SUM:                           128          15686           5009         129724
     </footer>
     <script src="assets/bootstrap/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/plotly.min.js"></script>
+    <script src="assets/js/d3/d3.js"></script>
+    <script src="assets/js/d3pie.min.js"></script>
     <script>
+    var pie = new d3pie('d3pie_chart_div_homepage_all', {
+        'header': {
+            'title': {
+                'text': '1 - Branch count of files grouped by file extension',
+                'fontSize': 24,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '56 "png" files occurred most frequently',
+            'color': '#ff0000',
+            'fontSize': 18,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 600,
+            'canvasHeight': 600,
+            'pieOuterRadius': '70%',
+            'pieInnerRadius': '35%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 1
+            },
+            'content': [{'label':'html','value':29,'color':'#ff3b00'},{'label':'folders','value':29,'color':'#ff7600'},{'label':'py','value':1,'color':'#ffb100'},{'label':'png','value':56,'color':'#ffeb00'},{'label':'yml','value':3,'color':'#d8ff00'},{'label':'js','value':25,'color':'#9dff00'},{'label':'ttf','value':11,'color':'#62ff00'},{'label':'svg','value':3,'color':'#27ff00'},{'label':'otf','value':1,'color':'#00ff14'},{'label':'woff','value':3,'color':'#00ff4e'},{'label':'eot','value':3,'color':'#00ff89'},{'label':'woff2','value':3,'color':'#00ffc4'},{'label':'css','value':11,'color':'cyan'},{'label':'md','value':7,'color':'#00c4ff'},{'label':'txt','value':3,'color':'#0089ff'},{'label':'xml','value':2,'color':'#004eff'},{'label':'lock','value':1,'color':'#0014ff'},{'label':'gif','value':1,'color':'#2700ff'},{'label':'gz','value':3,'color':'#6200ff'},{'label':'rid','value':1,'color':'#9d00ff'},{'label':'map','value':4,'color':'#d800ff'},{'label':'csv','value':2,'color':'#ff00eb'},{'label':'ico','value':1,'color':'#ff00b1'},{'label':'json','value':1,'color':'#ff0076'},{'label':'xsd','value':15,'color':'#ff003b'},{'label':'rb','value':1,'color':'red'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 50
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 15
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 16
+            },
+            'lines': {
+                'enabled': false
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 16
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 35
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#white'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
+    var pie = new d3pie('d3pie_chart_div_homepage_mit', {
+        'header': {
+            'title': {
+                'text': '2 - Most frequent words in the MIT License',
+                'fontSize': 24,
+                'font': 'open sans'
+            }
+        },
+        'footer': {
+            'text': '14 maximum occurrences for the word "the"',
+            'color': '#ff0000',
+            'fontSize': 18,
+            'font': 'open sans',
+            'location': 'bottom-center'
+        },
+        'size': {
+            'canvasWidth': 600,
+            'canvasHeight': 600,
+            'pieOuterRadius': '70%',
+            'pieInnerRadius': '35%'
+        },
+
+        'data': {
+            'sortOrder': 'value-desc',
+            'smallSegmentGrouping': {
+                'enabled': true,
+                'value': 2
+            },
+            'content': [{'label':'the','value':14,'color':'black'},{'label':'software','value':9,'color':'black'},{'label':'or','value':8,'color':'black'},{'label':'of','value':8,'color':'black'},{'label':'to','value':8,'color':'black'},{'label':'in','value':6,'color':'black'},{'label':'is','value':4,'color':'black'},{'label':'and','value':4,'color':'black'},{'label':'any','value':3,'color':'black'},{'label':'copyright','value':3,'color':'black'},{'label':'without','value':3,'color':'black'},{'label':'notice','value':2,'color':'black'},{'label':'copy','value':2,'color':'black'},{'label':'shall','value':2,'color':'black'},{'label':'be','value':2,'color':'black'},{'label':'this','value':2,'color':'black'},{'label':'other','value':2,'color':'black'},{'label':'copies','value':2,'color':'black'},{'label':'permission','value':2,'color':'black'},{'label':'including','value':2,'color':'black'},{'label':'a','value':2,'color':'black'},{'label':'use','value':2,'color':'black'},{'label':'for','value':2,'color':'black'},{'label':'sublicense','value':1,'color':'black'},{'label':'andor','value':1,'color':'black'},{'label':'sell','value':1,'color':'black'},{'label':'permit','value':1,'color':'black'},{'label':'persons','value':1,'color':'black'},{'label':'whom','value':1,'color':'black'},{'label':'furnished','value':1,'color':'black'},{'label':'do','value':1,'color':'black'},{'label':'so','value':1,'color':'black'},{'label':'subject','value':1,'color':'black'},{'label':'following','value':1,'color':'black'},{'label':'conditions','value':1,'color':'black'},{'label':'above','value':1,'color':'black'},{'label':'included','value':1,'color':'black'},{'label':'all','value':1,'color':'black'},{'label':'substantial','value':1,'color':'black'},{'label':'portions','value':1,'color':'black'},{'label':'provided','value':1,'color':'black'},{'label':'as','value':1,'color':'black'},{'label':'warranty','value':1,'color':'black'},{'label':'kind','value':1,'color':'black'},{'label':'express','value':1,'color':'black'},{'label':'implied','value':1,'color':'black'},{'label':'but','value':1,'color':'black'},{'label':'not','value':1,'color':'black'},{'label':'limited','value':1,'color':'black'},{'label':'warranties','value':1,'color':'black'},{'label':'merchantability','value':1,'color':'black'},{'label':'fitness','value':1,'color':'black'},{'label':'particular','value':1,'color':'black'},{'label':'purpose','value':1,'color':'black'},{'label':'noninfringement','value':1,'color':'black'},{'label':'no','value':1,'color':'black'},{'label':'event','value':1,'color':'black'},{'label':'authors','value':1,'color':'black'},{'label':'holders','value':1,'color':'black'},{'label':'liable','value':1,'color':'black'},{'label':'claim','value':1,'color':'black'},{'label':'damages','value':1,'color':'black'},{'label':'liability','value':1,'color':'black'},{'label':'whether','value':1,'color':'black'},{'label':'an','value':1,'color':'black'},{'label':'action','value':1,'color':'black'},{'label':'contract','value':1,'color':'black'},{'label':'tort','value':1,'color':'black'},{'label':'otherwise','value':1,'color':'black'},{'label':'arising','value':1,'color':'black'},{'label':'from','value':1,'color':'black'},{'label':'out','value':1,'color':'black'},{'label':'connection','value':1,'color':'black'},{'label':'with','value':1,'color':'black'},{'label':'mit','value':1,'color':'black'},{'label':'dealings','value':1,'color':'black'},{'label':'license','value':1,'color':'black'},{'label':'c','value':1,'color':'black'},{'label':'2018','value':1,'color':'black'},{'label':'john','value':1,'color':'black'},{'label':'bampton','value':1,'color':'black'},{'label':'hereby','value':1,'color':'black'},{'label':'granted','value':1,'color':'black'},{'label':'free','value':1,'color':'black'},{'label':'charge','value':1,'color':'black'},{'label':'person','value':1,'color':'black'},{'label':'obtaining','value':1,'color':'black'},{'label':'associated','value':1,'color':'black'},{'label':'documentation','value':1,'color':'black'},{'label':'files','value':1,'color':'black'},{'label':'deal','value':1,'color':'black'},{'label':'restriction','value':1,'color':'black'},{'label':'limitation','value':1,'color':'black'},{'label':'rights','value':1,'color':'black'},{'label':'modify','value':1,'color':'black'},{'label':'merge','value':1,'color':'black'},{'label':'publish','value':1,'color':'black'},{'label':'distribute','value':1,'color':'black'}
+            ]
+        },
+        callbacks: {
+          onMouseoverSegment: function(info) {
+            console.log('mouseover:', info);
+          },
+          onMouseoutSegment: function(info) {
+            console.log('mouseout:', info);
+          }
+        },
+        'labels': {
+            'outer': {
+                'pieDistance': 50
+            },
+            'inner': {
+                'format': 'value',
+                'hideWhenLessThanPercentage': 3
+            },
+            'mainLabel': {
+                'fontSize': 15
+            },
+            'percentage': {
+                'color': '#ffffff',
+                'decimalPlaces': 0
+            },
+            'value': {
+                'color': '#ffffff',
+                'fontSize': 16
+            },
+            'lines': {
+                'enabled': true
+            },
+            'truncation': {
+                'enabled': true
+            }
+        },
+        'tooltips': {
+            'enabled': true,
+            'type': 'placeholder',
+            'string': '{label}: {value}, {percentage}%',
+            'styles': {
+                'fadeInSpeed': 586,
+                'backgroundOpacity': 0.7,
+                'color': '#ffffff',
+                'fontSize': 16
+            }
+        },
+        'effects': {
+            'pullOutSegmentOnClick': {
+                'effect': 'linear',
+                'speed': 400,
+                'size': 35
+            }
+        },
+        'misc': {
+            'colors': {
+                'background': '#white'
+            },
+            'gradient': {
+                'enabled': true,
+                'percentage': 100
+            }
+        }
+    });
+
         $(document).ready(function () {
            "use strict";
            var last = $(location).attr("href").split("/").pop().split(".")[0].replace(/index/, "");
