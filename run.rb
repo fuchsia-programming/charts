@@ -54,16 +54,16 @@ def kramdown_links(links)
 end
 
 # function to open and read in file
-def read_file(f)
-  file = File.open(f, 'r')
+def read_file(filename)
+  file = File.open(filename, 'r')
   data = file.read
   file.close
   data
 end
 
 # function
-def ii(i)
-  i.positive? ? i : ''
+def ii(index)
+  index.positive? ? index : ''
 end
 
 # Most popular word in the MIT Open source license
@@ -109,12 +109,12 @@ site_config = config(built_with)
 ct = chart_types[site_config['chart_type']]
 
 # GitHub buttons shown in the footer
-def github_buttons(r, u)
+def github_buttons(repository, username)
   [
-    ['', "Follow @#{u} on GitHub", "Follow @#{u}", ''],
-    ["/#{r}", "Star #{u}/#{r} on GitHub", 'Star', 'star'],
-    ["/#{r}/subscription", "Watch #{u}/#{r} on GitHub", 'Watch', 'eye'],
-    ["/#{r}/fork", "Fork #{u}/#{r} on GitHub", 'Fork', 'repo-forked']
+    ['', "Follow @#{username} on GitHub", "Follow @#{username}", ''],
+    ["/#{repository}", "Star #{username}/#{repository} on GitHub", 'Star', 'star'],
+    ["/#{repository}/subscription", "Watch #{username}/#{repository} on GitHub", 'Watch', 'eye'],
+    ["/#{repository}/fork", "Fork #{username}/#{repository} on GitHub", 'Fork', 'repo-forked']
   ]
 end
 
@@ -135,7 +135,7 @@ def log_data
 end
 
 # create git log data
-gitlogdata = log_data
+# gitlogdata = log_data
 
 # todo
 # create histogram of git log data
@@ -207,23 +207,23 @@ def chart_title(chart_type, ind)
 end
 
 # get instance variable page i
-def gp(i)
-  instance_variable_get("@page#{i}")
+def gp(page_number)
+  instance_variable_get("@page#{page_number}")
 end
 
 # build all the website pages
 def page_build(page, page_count, start = 0)
   (start..page_count).map do |i|
-    instance_variable_set("@page#{ii i}", instance_variable_get("@page#{ii i}") + page)
+    instance_variable_set("@page#{ii(i)}", instance_variable_get("@page#{ii(i)}") + page)
   end
 end
 
 # add navigation hyperlinks
-def add_links(page_count, h = 0)
+def add_links(page_count, use_spacing = 0)
   page = ''
   (0..page_count).map do |i|
     page += %(
-          #{h.positive? ? '' : '  '}<li><a href="index#{ii i}.html">Page #{i + 1}</a></li>)
+          #{use_spacing.positive? ? '' : '  '}<li><a href="index#{ii(i)}.html">Page #{i + 1}</a></li>)
   end
   page
 end
@@ -446,8 +446,8 @@ def add_icons
 end
 
 # common function to escape double quotes
-def escape(s)
-  s.gsub('"', '\"')
+def escape(text)
+  text.gsub('"', '\"')
 end
 
 # common function for each Google chart
@@ -529,14 +529,14 @@ def draw_plotly_chart(chart_div, data, title, height, width, type)
 end
 
 # strip p tags from Kramdown output for headings
-def gs(s)
-  s.gsub(/<\/?p>/, '').strip
+def gs(text)
+  text.gsub(/<\/?p>/, '').strip
 end
 
 # replaces 'd3pie' with one of 'Google Charts', 'Chart.js', 'plotly.js' or 'd3pie' or 'All chart types'
 # used in h1 on the main charting pages
-def site_type(s, chart_type)
-  gs(Kramdown::Document.new(s.gsub(/d3pie/, chart_type)).to_html)
+def site_type(chart_pages_heading, chart_type)
+  gs(Kramdown::Document.new(chart_pages_heading.gsub(/d3pie/, chart_type)).to_html)
 end
 
 # data variable
@@ -608,7 +608,7 @@ def page_header(site_config, page_count)
     </nav>
     <div class="container-fluid">)
   (0..page_count).map do |i|
-    instance_variable_set("@page#{ii i}", page)
+    instance_variable_set("@page#{ii(i)}", page)
   end
 end
 
@@ -882,26 +882,26 @@ page = %(
 page_build(page, page_count)
 
 # builds sitemap.xml, robots.txt and writes them and all the sites HTML pages to files
-def build_site(page_count, sitebuildtime, url, m)
+def build_site(page_count, sitebuildtime, url, sitemap_url)
   # write all the HTML pages to files and build the site map
   sitemap = %(<?xml version="1.0" encoding="UTF-8"?>
 <urlset
-  xmlns="#{m}"
+  xmlns="#{sitemap_url}"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="#{m}
-  #{m}/sitemap.xsd">
+  xsi:schemaLocation="#{sitemap_url}
+  #{sitemap_url}/sitemap.xsd">
   <url>
     <loc>#{url}</loc>
     <lastmod>#{sitebuildtime}</lastmod>
     <priority>1.00</priority>
   </url>)
   (0..page_count).map do |i|
-    file = File.open("index#{ii i}.html", 'w')
-    file.write(instance_variable_get("@page#{ii i}"))
+    file = File.open("index#{ii(i)}.html", 'w')
+    file.write(instance_variable_get("@page#{ii(i)}"))
     file.close
     sitemap += %(
   <url>
-    <loc>#{url}index#{ii i}.html</loc>
+    <loc>#{url}index#{ii(i)}.html</loc>
     <lastmod>#{sitebuildtime}</lastmod>
     <priority>0.80</priority>
   </url>)

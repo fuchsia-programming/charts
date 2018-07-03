@@ -1,6 +1,5 @@
 .: --exclude-dir=1
 ./.gitignore: listed in $Not_Code_Extension{gitignore}
-./.idea/charts.iml: language unknown (#3)
 ./Gemfile: language unknown (#3)
 ./Gemfile.lock: language unknown (#3)
 ./LICENSE: language unknown (#3)
@@ -15,6 +14,7 @@
 ./doc/created.rid: language unknown (#3)
 ./ignored.txt: listed in $Not_Code_Extension{txt}
 ./log.txt: listed in $Not_Code_Extension{txt}
+./notes.txt: listed in $Not_Code_Extension{txt}
 ./robots.txt: listed in $Not_Code_Extension{txt}
 ./rubycritic/assets/fonts/fontawesome-webfont.svg: language unknown (#3)
 ./rubycritic/assets/fonts/glyphicons-halflings-regular.svg: language unknown (#3)

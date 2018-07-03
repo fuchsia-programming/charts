@@ -5,7 +5,7 @@
 # site config
 url: http://thebeast.me/charts/
 # chart type: either "d3pie" or "google" or "chartjs" or "plotly" or "all"
-chart_type: all
+chart_type: plotly
 
 
 last_update: "Site last built: "

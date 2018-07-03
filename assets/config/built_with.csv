@@ -1,4 +1,5 @@
 macOS High Sierra,https://www.apple.com/macos/high-sierra/
+macOS X El Capitan,https://support.apple.com/en-us/ht206886
 Windows 10,https://www.microsoft.com/en-au/windows/get-windows-10
 Homebrew,https://brew.sh/
 Chocolatey,https://chocolatey.org/
@@ -59,3 +60,5 @@ GIF,https://en.wikipedia.org/wiki/GIF
 CSV,https://en.wikipedia.org/wiki/Comma-separated_values
 Text file,https://en.wikipedia.org/wiki/Text_file
 Shields.io,https://shields.io/
+MacVim,http://macvim.org
+RVM,https://rvm.io
