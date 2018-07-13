@@ -681,8 +681,17 @@ structure.map.with_index do |chart, i|
         <canvas id="chartjs_canvas#{data0}" width="400" height="350"></canvas>
       </div>)
     else
+      chart_type = site_config['chart_type'] == 'plotly' ? ' plotlypie' : ''
+      chart_type_id =
+        if site_config['chart_type'] == 'google'
+          'chart_div_'
+        elsif site_config['chart_type'] == 'plotly'
+          'plotly_chart_div_'
+        else
+          'd3pie_chart_div_'
+        end
       %(
-        <div class="col-lg-4 col-md-6 col-sm-12#{' plotlypie' unless site_config['chart_type'] != 'plotly'}" id="#{site_config['chart_type'] == 'google' ? 'chart_div_' : site_config['chart_type'] == 'plotly' ? 'plotly_chart_div_' : 'd3pie_chart_div_'}#{data0}"></div>)
+      <div class="col-lg-4 col-md-6 col-sm-12#{chart_type}" id="#{chart_type_id}#{data0}"></div>)
     end)
 end
 

@@ -36,9 +36,6 @@ Style/BlockComments:
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
 
-Style/NestedTernaryOperator:
-  Enabled: false
-
 Style/RegexpLiteral:
   EnforcedStyle: slashes
   AllowInnerSlashes: true
